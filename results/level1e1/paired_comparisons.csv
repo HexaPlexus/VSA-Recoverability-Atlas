@@ -1,0 +1,13 @@
+schema_version,cell_id,warm_method,cold_method,trials,warm_vs_cold_recovery_delta,warm_vs_cold_selective_risk_delta,warm_vs_cold_compute_delta,warm_vs_cold_global_iterations_delta,mean_iterations_saved_vs_cold,warm_helped,warm_hurt,warm_same
+level1-warm-start-v1,COLLAPSE_SINGLE_PRIMARY,l2_then_warm_global,l2_then_cold_global,64,-0.125,0.0,13440.0,0.328125,-0.328125,0,8,56
+level1-warm-start-v1,COLLAPSE_SINGLE_PRIMARY,l2_probe1_then_warm_global,l2_then_cold_global,64,-0.125,0.0,0.0,-0.34375,0.34375,0,8,56
+level1-warm-start-v1,COLLAPSE_SINGLE_PRIMARY,l2_probe2_then_warm_global,l2_then_cold_global,64,-0.109375,0.0,11520.0,-0.40625,0.40625,1,8,55
+level1-warm-start-v1,COLLAPSE_SINGLE_STRESS,l2_then_warm_global,l2_then_cold_global,64,-0.078125,0.0,1920.0,0.046875,-0.046875,0,5,59
+level1-warm-start-v1,COLLAPSE_SINGLE_STRESS,l2_probe1_then_warm_global,l2_then_cold_global,64,-0.078125,0.015625,-8640.0,-0.609375,0.609375,0,5,59
+level1-warm-start-v1,COLLAPSE_SINGLE_STRESS,l2_probe2_then_warm_global,l2_then_cold_global,64,-0.0625,0.0,5120.0,-0.671875,0.671875,1,5,58
+level1-warm-start-v1,EASY_SINGLE,l2_then_warm_global,l2_then_cold_global,64,-0.53125,0.03125,9060.0,2.359375,-2.359375,0,34,30
+level1-warm-start-v1,EASY_SINGLE,l2_probe1_then_warm_global,l2_then_cold_global,64,-0.5625,0.078125,8268.0,1.75,-1.75,0,36,28
+level1-warm-start-v1,EASY_SINGLE,l2_probe2_then_warm_global,l2_then_cold_global,64,-0.546875,0.0625,9216.0,1.59375,-1.59375,0,35,29
+level1-warm-start-v1,HARD_STRUCTURED_MIXTURE,l2_then_warm_global,l2_then_cold_global,64,-0.109375,-0.0625,0.0,0.0,0.0,2,8,54
+level1-warm-start-v1,HARD_STRUCTURED_MIXTURE,l2_probe1_then_warm_global,l2_then_cold_global,64,-0.0625,-0.0625,864.0,-0.234375,0.234375,3,6,55
+level1-warm-start-v1,HARD_STRUCTURED_MIXTURE,l2_probe2_then_warm_global,l2_then_cold_global,64,-0.09375,-0.078125,2448.0,-0.421875,0.421875,2,7,55

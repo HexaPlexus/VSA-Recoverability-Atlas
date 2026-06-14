@@ -1,0 +1,121 @@
+{
+  "schema_version": "level1-warm-start-v1",
+  "methods": {
+    "l2_probe1_then_warm_global": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.6576280471103807,
+          "total": 2
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.08380161250916199,
+          "total": 42
+        }
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.43449149475208104,
+          "total": 5
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.07707617732978073,
+          "total": 46
+        }
+      },
+      "EASY_SINGLE": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 2.7755575615628914e-17,
+          "ci_high": 0.2588400172488141,
+          "total": 11
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.1071827150573635,
+          "total": 32
+        }
+      },
+      "HARD_STRUCTURED_MIXTURE": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.43449149475208104,
+          "total": 5
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 1.3877787807814457e-17,
+          "ci_high": 0.12873304380462175,
+          "total": 26
+        }
+      }
+    },
+    "l2_probe2_then_warm_global": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.48990002040399916,
+          "total": 4
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.08762453925039232,
+          "total": 40
+        }
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.32441561951087694,
+          "total": 8
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.08201257002322722,
+          "total": 43
+        }
+      },
+      "EASY_SINGLE": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.2775401687666166,
+          "total": 10
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.10427343003561192,
+          "total": 33
+        }
+      },
+      "HARD_STRUCTURED_MIXTURE": {
+        "P(correct | survives_probe)": {
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.43449149475208104,
+          "total": 5
+        },
+        "P(correct | fails_probe)": {
+          "rate": 0.0,
+          "ci_low": 1.3877787807814457e-17,
+          "ci_high": 0.12873304380462175,
+          "total": 26
+        }
+      }
+    }
+  }
+}

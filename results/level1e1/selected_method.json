@@ -1,0 +1,71 @@
+{
+  "schema_version": "level1-warm-start-v1",
+  "method_version": "budget-matched-warm-start-v1",
+  "selected_method": "l2_then_warm_global",
+  "l2_gate_version": "level1e-frozen-l2-v1",
+  "global_gate_version": "level1e-frozen-global-v1",
+  "budget_definition": {
+    "global_budget_candidate_evaluations": "max_iterations * F * M",
+    "global_budget_element_operations": "max_iterations * F * M * D",
+    "remaining_global_iterations": "floor((remaining_candidate_budget) / (F * M))"
+  },
+  "probe_steps": 0,
+  "seed_ranges": {
+    "development": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 28260614,
+        "count": 24
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 28270614,
+        "count": 24
+      },
+      "EASY_SINGLE": {
+        "start": 28280614,
+        "count": 24
+      },
+      "HARD_STRUCTURED_MIXTURE": {
+        "start": 28290614,
+        "count": 24
+      }
+    },
+    "calibration": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 29260614,
+        "count": 24
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 29270614,
+        "count": 24
+      },
+      "EASY_SINGLE": {
+        "start": 29280614,
+        "count": 24
+      },
+      "HARD_STRUCTURED_MIXTURE": {
+        "start": 29290614,
+        "count": 24
+      }
+    },
+    "heldout": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 30260614,
+        "count": 64
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 30270614,
+        "count": 64
+      },
+      "EASY_SINGLE": {
+        "start": 30280614,
+        "count": 64
+      },
+      "HARD_STRUCTURED_MIXTURE": {
+        "start": 30290614,
+        "count": 64
+      }
+    }
+  },
+  "selection_rule": "Prefer the simplest warm continuation in order [l2_then_warm_global, l2_probe1_then_warm_global, l2_probe2_then_warm_global] that satisfies the primary held-out gate.",
+  "gate_result": "NOT_CONFIRMED"
+}
