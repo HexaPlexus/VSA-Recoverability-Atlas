@@ -1,0 +1,50 @@
+{
+  "schema_version": "level1-baseline-v3",
+  "level1b_commit": "f654e328b8667b57f0bd7a4c74ae1fefcbc07515",
+  "seed_policy": {
+    "EASY": {
+      "start": 21260614,
+      "count": 128
+    },
+    "BORDERLINE": {
+      "start": 21261614,
+      "count": 128
+    },
+    "COLLAPSE": {
+      "start": 21262614,
+      "count": 128
+    }
+  },
+  "breakdown": [
+    {
+      "operating_point_label": "EASY",
+      "false_consensus_rate": 0.0078125,
+      "distractor_capture_rate": 0.0,
+      "hybrid_spurious_rate": 0.0078125,
+      "unsettled_rate": 0.0,
+      "false_consensus_distractor_capture_share": 0.0,
+      "false_consensus_hybrid_spurious_share": 1.0,
+      "target_recovery_rate": 0.9921875
+    },
+    {
+      "operating_point_label": "BORDERLINE",
+      "false_consensus_rate": 0.5,
+      "distractor_capture_rate": 0.359375,
+      "hybrid_spurious_rate": 0.140625,
+      "unsettled_rate": 0.2578125,
+      "false_consensus_distractor_capture_share": 0.71875,
+      "false_consensus_hybrid_spurious_share": 0.28125,
+      "target_recovery_rate": 0.2421875
+    },
+    {
+      "operating_point_label": "COLLAPSE",
+      "false_consensus_rate": 0.03125,
+      "distractor_capture_rate": 0.0,
+      "hybrid_spurious_rate": 0.03125,
+      "unsettled_rate": 0.8203125,
+      "false_consensus_distractor_capture_share": 0.0,
+      "false_consensus_hybrid_spurious_share": 1.0,
+      "target_recovery_rate": 0.1484375
+    }
+  ]
+}

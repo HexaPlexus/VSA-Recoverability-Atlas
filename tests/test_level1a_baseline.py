@@ -8,9 +8,14 @@ import torch
 from cgrn_hsr.baseline import (
     BENCHMARK_SCHEMA_VERSION,
     BaselineConfig,
+    OUTCOME_DISTRACTOR_CAPTURE,
+    OUTCOME_HYBRID_SPURIOUS,
+    OUTCOME_TARGET_RECOVERY,
+    OUTCOME_UNSETTLED,
     build_initial_estimates,
     build_trial_problem,
     classify_false_consensus,
+    classify_outcome,
     classify_unsettled_failure,
     confirmation_seed_set,
     cosine_similarity_matrix,
@@ -29,7 +34,7 @@ from cgrn_hsr.baseline import (
 
 
 def test_schema_version_and_structured_distractor_field() -> None:
-    assert BENCHMARK_SCHEMA_VERSION == "level1a-baseline-v2"
+    assert BENCHMARK_SCHEMA_VERSION == "level1-baseline-v3"
     config = BaselineConfig(dimensions=256, num_factors=3, domain_size=5, structured_distractor_count=2)
     assert config.structured_distractor_count == 2
     assert "SD2" in config.config_id()
@@ -48,11 +53,16 @@ def test_problem_generation_shapes_and_ground_truth() -> None:
     problem = build_trial_problem(config, seed=55)
 
     assert tuple(problem.domains.shape) == (4, 7, 256)
+    assert tuple(problem.target_indices.shape) == (4,)
     assert tuple(problem.ground_truth_indices.shape) == (4,)
     assert tuple(problem.ground_truth_factors.shape) == (4, 256)
     assert tuple(problem.clean_composite.shape) == (256,)
     assert tuple(problem.observation.shape) == (256,)
     assert tuple(problem.structured_distractors.shape) == (1, 256)
+    assert tuple(problem.structured_distractor_indices.shape) == (1, 4)
+    assert tuple(problem.all_source_composite_indices.shape) == (2, 4)
+    assert torch.equal(problem.target_indices, problem.ground_truth_indices)
+    assert problem.all_source_composite_indices[0].tolist() == problem.target_indices.tolist()
     assert torch.all(problem.ground_truth_indices.ge(0)).item()
     assert torch.all(problem.ground_truth_indices.lt(config.domain_size)).item()
 
@@ -64,7 +74,50 @@ def test_easy_configuration_exact_recovery() -> None:
     assert result.exact_recovery is True
     assert result.false_consensus is False
     assert result.unsettled_failure is False
+    assert result.outcome_class == OUTCOME_TARGET_RECOVERY
     assert result.predicted_indices == result.ground_truth_indices
+
+
+def test_outcome_classification_variants() -> None:
+    target = torch.tensor([1, 2, 3], dtype=torch.long)
+    distractors = torch.tensor([[0, 2, 3], [4, 1, 0]], dtype=torch.long)
+
+    assert (
+        classify_outcome(
+            stable_prediction=True,
+            predicted_indices=target,
+            target_indices=target,
+            structured_distractor_indices=distractors,
+        )
+        == OUTCOME_TARGET_RECOVERY
+    )
+    assert (
+        classify_outcome(
+            stable_prediction=True,
+            predicted_indices=distractors[0],
+            target_indices=target,
+            structured_distractor_indices=distractors,
+        )
+        == OUTCOME_DISTRACTOR_CAPTURE
+    )
+    assert (
+        classify_outcome(
+            stable_prediction=True,
+            predicted_indices=torch.tensor([4, 4, 4], dtype=torch.long),
+            target_indices=target,
+            structured_distractor_indices=distractors,
+        )
+        == OUTCOME_HYBRID_SPURIOUS
+    )
+    assert (
+        classify_outcome(
+            stable_prediction=False,
+            predicted_indices=target,
+            target_indices=target,
+            structured_distractor_indices=distractors,
+        )
+        == OUTCOME_UNSETTLED
+    )
 
 
 def test_false_consensus_and_unsettled_failure_classification() -> None:
@@ -93,21 +146,21 @@ def test_deterministic_random_subset_selection_and_exact_size() -> None:
     config = BaselineConfig(dimensions=256, num_factors=3, domain_size=8, structured_distractor_count=0)
     problem = build_trial_problem(config, seed=202)
     seed = method_selection_seed(problem.seed, "random_unconditional", "half")
-    first = select_candidate_indices(problem, "random_unconditional", 4, seed)
-    second = select_candidate_indices(problem, "random_unconditional", 4, seed)
+    first, _, _ = select_candidate_indices(problem, "random_unconditional", 4, seed)
+    second, _, _ = select_candidate_indices(problem, "random_unconditional", 4, seed)
 
     assert torch.equal(first, second)
     assert tuple(first.shape) == (3, 4)
 
 
-def test_random_truth_included_always_contains_ground_truth() -> None:
+def test_oracle_truth_included_always_contains_ground_truth() -> None:
     config = BaselineConfig(dimensions=256, num_factors=4, domain_size=10, structured_distractor_count=0)
     problem = build_trial_problem(config, seed=303)
-    indices = select_candidate_indices(
+    indices, _, _ = select_candidate_indices(
         problem,
-        "random_truth_included",
+        "oracle_truth_included",
         5,
-        method_selection_seed(problem.seed, "random_truth_included", "half"),
+        method_selection_seed(problem.seed, "oracle_truth_included", "half"),
     )
 
     for factor_index in range(config.num_factors):
@@ -120,7 +173,7 @@ def test_random_unconditional_has_no_hidden_truth_access() -> None:
     subset_size = 3
     saw_missing_truth = False
     for offset in range(20):
-        indices = select_candidate_indices(problem, "random_unconditional", subset_size, problem.seed + offset)
+        indices, _, _ = select_candidate_indices(problem, "random_unconditional", subset_size, problem.seed + offset)
         inclusion = indices.eq(problem.ground_truth_indices.unsqueeze(-1)).any(dim=-1)
         if not bool(inclusion.all().item()):
             saw_missing_truth = True
@@ -129,7 +182,7 @@ def test_random_unconditional_has_no_hidden_truth_access() -> None:
     assert saw_missing_truth is True
 
 
-def test_paired_trials_share_same_observation() -> None:
+def test_paired_trials_share_same_observation_and_provenance() -> None:
     config = BaselineConfig(dimensions=512, num_factors=3, domain_size=5, structured_distractor_count=2)
     problem = build_trial_problem(config, seed=505)
     global_result = run_trial_on_problem(problem, master_seed=1, operating_point_label="PAIR")
@@ -137,14 +190,16 @@ def test_paired_trials_share_same_observation() -> None:
         problem,
         master_seed=1,
         operating_point_label="PAIR",
-        method="random_truth_included",
+        method="oracle_truth_included",
         reduction_ratio_label="half",
         subset_size=3,
-        selection_seed=method_selection_seed(problem.seed, "random_truth_included", "half"),
+        selection_seed=method_selection_seed(problem.seed, "oracle_truth_included", "half"),
     )
 
     assert global_result.problem_id == pruned_result.problem_id
-    assert global_result.ground_truth_indices == pruned_result.ground_truth_indices
+    assert global_result.target_indices == pruned_result.target_indices
+    assert global_result.structured_distractor_indices == pruned_result.structured_distractor_indices
+    assert global_result.all_source_composite_indices == pruned_result.all_source_composite_indices
 
 
 def test_result_serialization_roundtrip(tmp_path: Path) -> None:
@@ -167,15 +222,20 @@ def test_result_serialization_roundtrip(tmp_path: Path) -> None:
 
     trial_lines = trials_path.read_text(encoding="utf-8").strip().splitlines()
     assert len(trial_lines) == 1
-    assert json.loads(trial_lines[0])["config_id"] == config.config_id()
+    payload = json.loads(trial_lines[0])
+    assert payload["config_id"] == config.config_id()
+    assert payload["schema_version"] == BENCHMARK_SCHEMA_VERSION
+    assert payload["target_indices"] == payload["ground_truth_indices"]
+    assert payload["all_source_composite_indices"][0] == payload["target_indices"]
 
     summary_text = summary_path.read_text(encoding="utf-8")
-    assert "exact_recovery_rate" in summary_text
+    assert "target_recovery_rate" in summary_text
+    assert "false_consensus_distractor_capture_share" in summary_text
     assert config.config_id() in summary_text
 
-    payload = json.loads(confirmation_path.read_text(encoding="utf-8"))
-    assert payload["schema_version"] == BENCHMARK_SCHEMA_VERSION
-    assert payload["level1a_commit"] == "deadbeef"
+    confirmation_payload = json.loads(confirmation_path.read_text(encoding="utf-8"))
+    assert confirmation_payload["schema_version"] == BENCHMARK_SCHEMA_VERSION
+    assert confirmation_payload["level1a_commit"] == "deadbeef"
 
 
 def test_confirmation_seed_ranges_do_not_overlap_pilot() -> None:
