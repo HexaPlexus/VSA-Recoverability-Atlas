@@ -1,0 +1,62 @@
+{
+  "schema_version": "level1f2-bcf-audit-v1",
+  "entrypoint": "main_capacity.py",
+  "config_base": "experiments/200a_bcf/config.json",
+  "config_copy": "competitors/ibm_in_memory_factorizer/.audit_runtime/200a_bcf_smoke_config.json",
+  "config_overrides": {
+    "savedir": "competitors/ibm_in_memory_factorizer/.audit_runtime/upstream_outputs",
+    "ntrial": 1,
+    "batchsize": 1
+  },
+  "invokes_official_bcf_path": true,
+  "success": true,
+  "cuda_used": true,
+  "observed_device": "cuda:0",
+  "search_space": 1334025,
+  "max_iterations_from_official_config": 577,
+  "official_stdout_summary": {
+    "accuracy": 1.0,
+    "mean_iterations": 6.0,
+    "niter_min": 6.0,
+    "niter_max": 6.0,
+    "time_per_trial_sec": 0.5982
+  },
+  "output_npz": {
+    "path": "competitors/ibm_in_memory_factorizer/.audit_runtime/upstream_outputs/blockcodefactorizer_inf_A_238_thresh_0.0076_pullup_True_pullupthresh_0.9_k_4_F_2_D_512_20260614-191606.npz",
+    "exists": true,
+    "size_bytes": 2793
+  },
+  "direct_official_class_smoke": {
+    "prediction_shape": [
+      1,
+      2
+    ],
+    "prediction": [
+      [
+        17,
+        231
+      ]
+    ],
+    "target": [
+      [
+        17,
+        231
+      ]
+    ],
+    "exact_recovery": true,
+    "iterations": 44,
+    "elapsed_sec": 0.7006574430000008,
+    "peak_vram_bytes": 18063360,
+    "observation_shape": [
+      1,
+      4,
+      128
+    ],
+    "finite_observation": true,
+    "finite_prediction_tensor": true
+  },
+  "reproducibility": {
+    "seed_recorded": true,
+    "repeatability_status": "Documented separately in contract audit with deterministic tiny-task reproduction."
+  }
+}

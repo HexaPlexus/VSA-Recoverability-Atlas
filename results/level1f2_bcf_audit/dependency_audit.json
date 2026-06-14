@@ -1,0 +1,52 @@
+{
+  "schema_version": "level1f2-bcf-audit-v1",
+  "verdict": "WRAP",
+  "gate_verdict": "PIVOT",
+  "upstream": {
+    "repository_url": "https://github.com/IBM/in-memory-factorizer",
+    "pinned_commit_sha": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+    "license": "Apache-2.0",
+    "last_commit_date": "2024-12-05",
+    "last_commit_subject": "Update README.md",
+    "repository_status": "Research repository with low visible activity; audit pinned an exact commit instead of floating main.",
+    "official_class_path": "models.blockcodefactorizer.blockcodefactorizer",
+    "paper_mapping": {
+      "200a_bcf": {
+        "title": "Factorizers for distributed sparse block codes",
+        "url": "https://content.iospress.com/download/neurosymbolic-artificial-intelligence/nai240713?id=neurosymbolic-artificial-intelligence%2Fnai240713"
+      }
+    }
+  },
+  "requirements_and_platform": {
+    "readme_python_version": "3.11",
+    "readme_mentions_cuda_sdk": true,
+    "readme_mentions_environment_yml": true,
+    "environment_yml_present_in_pinned_commit": false,
+    "custom_cuda_extension_build_detected_in_pinned_commit": false,
+    "platform_expectation": "Linux or WSL with CUDA is the practical path; native Windows build was not audited."
+  },
+  "core_environment": {
+    "platform": "Windows",
+    "python_version": "3.14.5",
+    "torch_version": "2.12.0+cpu",
+    "cuda_available": false,
+    "changed_by_audit": false
+  },
+  "competitor_environment": {
+    "strategy": "WSL2 Ubuntu + separate conda Python 3.11 env + official cu121 PyTorch wheels",
+    "wsl_distro": "Ubuntu 24.04.4 LTS",
+    "python_version": "3.11.15",
+    "torch_version": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_name": "NVIDIA GeForce RTX 3060"
+  },
+  "initial_failed_attempt": {
+    "strategy": "WSL2 Ubuntu + conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia",
+    "result": "torch import failed before audit smoke",
+    "error_contains": "undefined symbol: iJIT_NotifyEvent",
+    "classification": "Environment packaging issue, not an upstream algorithm blocker"
+  },
+  "tracked_upstream_modifications": false,
+  "hypothesis_sha256": "AFDEDC193ED2B772D731EE39D384B358D7776ABC5CB57E0158BF997AA8CE2D05"
+}

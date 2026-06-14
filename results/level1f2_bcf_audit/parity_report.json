@@ -1,0 +1,36 @@
+{
+  "schema_version": "level1f2-bcf-audit-v1",
+  "map_side": {
+    "factor_specific_domains": true,
+    "hard_context_subsets": true,
+    "query_aware_structured_mixtures": true,
+    "public_trial_evidence": [
+      "predicted_indices",
+      "iterations",
+      "stability",
+      "margins",
+      "reconstruction"
+    ]
+  },
+  "ibm_bcf_side": {
+    "factor_specific_domains": true,
+    "hard_context_subsets": true,
+    "query_aware_structured_mixtures": false,
+    "public_trial_evidence": [
+      "predicted_indices",
+      "iterations"
+    ]
+  },
+  "fairness_matrix": {
+    "single_product_global": "GO",
+    "single_product_hard_context_subset": "GO",
+    "query_aware_structured_mixture": "BLOCK",
+    "public_margin_and_final_estimate_parity": "BLOCK"
+  },
+  "why_not_full_parity": [
+    "Official BCF native input is a single product vector rather than a bundled multi-source observation.",
+    "The public API does not expose final estimates or factor-wise margins needed for the repo's richer provenance taxonomy.",
+    "Candidate subset runs are honest, but Mx changes can require separate hyperparameter declarations."
+  ],
+  "shootout_scope_recommendation": "If Level 1F.3 proceeds, restrict it to single-product tasks and report structured-mixture parity as unsupported."
+}

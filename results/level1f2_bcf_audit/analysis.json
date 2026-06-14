@@ -1,0 +1,30 @@
+{
+  "schema_version": "level1f2-bcf-audit-v1",
+  "verdict": "WRAP",
+  "gate_verdict": "PIVOT",
+  "summary": "The official IBM BCF implementation runs successfully on the available RTX 3060 from a separate WSL2 competitor environment and supports factor-specific domains plus hard candidate subsets. A thin adapter is realistic for audit and future single-product comparison work. Full parity with the current query-aware structured-mixture harness is not honest without changing the task contract.",
+  "resource_feasibility": {
+    "tiny_smoke_peak_vram_bytes": 18063360,
+    "tiny_smoke_peak_vram_mib": 17.2265625,
+    "tiny_smoke_elapsed_sec": 0.7006574430000008,
+    "official_stdout_time_per_trial_sec": 0.5982,
+    "approximate_native_codebook_memory_bytes": {
+      "EASY_SINGLE": 18672,
+      "HARD_STRUCTURED_MIXTURE": 73968,
+      "COLLAPSE_SINGLE": 180864
+    },
+    "batch_size_one_feasible": true,
+    "compile_time_blocker": false
+  },
+  "blockers": [
+    "Structured-mixture query-aware observations are outside the clean native BCF contract.",
+    "Final estimates and factor-wise margins are not exposed by the public official API.",
+    "README reproducibility is incomplete because the advertised environment.yml is absent at the pinned commit."
+  ],
+  "non_blocking_limitations": [
+    "Changing subset size changes Mx and can require fresh hyperparameter declarations.",
+    "The README mentions CUDA SDK compilation requirements, but the audited pinned commit behaved as a pure PyTorch CUDA path.",
+    "Native Windows competitor setup was not audited because WSL2 already provided the preferred isolated route."
+  ],
+  "recommended_next_step": "Proceed only with a scoped Level 1F.3 single-product shootout or explicitly pivot to global-only comparisons where query-aware structured mixtures are excluded."
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": "level1f2-bcf-audit-v1",
+  "verdict": "WRAP",
+  "gate_verdict": "PIVOT",
+  "representation": {
+    "native_vector_family": {
+      "status": "SUPPORTED",
+      "detail": "Sparse block code representation with IM[F,M,B] block positions and matIM[F,M,B,L] one-hot block tensors."
+    },
+    "factor_count_domain_dimension_blocks": {
+      "status": "SUPPORTED",
+      "detail": "F, Mx, D, B, and L=D/B are explicit constructor parameters."
+    },
+    "bind_unbind": {
+      "status": "SUPPORTED",
+      "detail": "Binding uses block-wise circular convolution; unbinding uses block-wise circular correlation."
+    },
+    "similarity": {
+      "status": "SUPPORTED",
+      "detail": "Official implementation exposes dotp, l1, and inf similarity; 200a_bcf uses inf."
+    },
+    "product_vs_mixture_input": {
+      "status": "TASK_MISMATCH",
+      "detail": "Official experiments define one encoded product vector as input. Bundled multi-source mixture decoding is not a first-class upstream contract."
+    }
+  },
+  "factor_domains": {
+    "separate_factor_codebooks": {
+      "status": "SUPPORTED",
+      "detail": "Codebooks are indexed by factor position before candidate index."
+    },
+    "same_atom_index_across_domains": {
+      "status": "SUPPORTED",
+      "detail": "The same integer id can appear in different factor positions without merged identity because domains are factor-local."
+    },
+    "one_prediction_per_factor": {
+      "status": "SUPPORTED",
+      "detail": "decode returns a tensor of shape [batch, F]."
+    },
+    "duplicate_predictions_are_domain_local": {
+      "status": "SUPPORTED",
+      "detail": "Repeated integer values are only local ids in separate factor domains, not shared flat labels."
+    }
+  },
+  "external_task_injection": {
+    "external_factor_indices": {
+      "status": "WRAPPABLE",
+      "detail": "Official encode accepts externally chosen factor index tensors."
+    },
+    "external_factor_codebooks": {
+      "status": "WRAPPABLE",
+      "detail": "Constructor accepts external IM tensors with factor-local codebooks."
+    },
+    "external_product_vector": {
+      "status": "WRAPPABLE",
+      "detail": "decode accepts native BCF observation tensors, including ones generated outside main_capacity.py."
+    },
+    "optional_noise": {
+      "status": "WRAPPABLE",
+      "detail": "Native observation tensors can be externally perturbed, but only inside the native BCF representation."
+    },
+    "fixed_seed": {
+      "status": "SUPPORTED",
+      "detail": "Constructor seeds both Python random and torch."
+    },
+    "same_task_reused_for_multiple_subsets": {
+      "status": "WRAPPABLE",
+      "detail": "The same observation can be decoded with sliced factor-local codebooks and a different Mx."
+    }
+  },
+  "outputs": {
+    "predicted_factor_indices": {
+      "status": "SUPPORTED"
+    },
+    "iteration_count": {
+      "status": "SUPPORTED",
+      "detail": "_get_number_iter is publicly reachable."
+    },
+    "runtime": {
+      "status": "WRAPPABLE",
+      "detail": "Measured externally around decode."
+    },
+    "final_estimates": {
+      "status": "UPSTREAM_MODIFICATION_REQUIRED",
+      "detail": "decode does not return x_hat and the public object does not retain final estimates."
+    },
+    "factor_scores_or_margins": {
+      "status": "UPSTREAM_MODIFICATION_REQUIRED",
+      "detail": "Similarity tensors are internal to decode and not returned by the public API."
+    },
+    "stable_wrong_vs_unsettled": {
+      "status": "UPSTREAM_MODIFICATION_REQUIRED",
+      "detail": "conv_idx is available, but there is no public per-iteration prediction trace for the repo's stability taxonomy."
+    },
+    "max_iterations": {
+      "status": "SUPPORTED"
+    }
+  },
+  "context_compatibility": {
+    "full_global_domains": {
+      "status": "SUPPORTED"
+    },
+    "hard_l2_subsets": {
+      "status": "WRAPPABLE",
+      "detail": "Factor-local codebook slicing works without changing the BCF update rule."
+    },
+    "context_metadata_outside_geometry": {
+      "status": "WRAPPABLE",
+      "detail": "Candidate selection can stay entirely outside the native vector geometry."
+    },
+    "same_task_different_candidate_subsets": {
+      "status": "WRAPPABLE"
+    },
+    "subset_changes_compile_configuration": {
+      "status": "SUPPORTED",
+      "detail": "No compiler or kernel rebuild was needed. Only Mx and IM tensor shape change."
+    },
+    "subset_changes_runtime_shape": {
+      "status": "WRAPPABLE",
+      "detail": "Mx changes, so hyperparameters tuned for another search space may not transfer unchanged."
+    }
+  },
+  "direct_contract_checks": {
+    "same_seed_same_codebook": true,
+    "prediction_shape": [
+      1,
+      3
+    ],
+    "prediction_a": [
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "prediction_b": [
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "same_seed_same_prediction": true,
+    "external_indices_injected": [
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "external_observation_shape": [
+      1,
+      4,
+      64
+    ],
+    "external_observation_finite": true,
+    "injected_prediction": [
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "subset_indices": [
+      [
+        0,
+        2,
+        4
+      ],
+      [
+        1,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "subset_prediction_local": [
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "subset_prediction_global": [
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "subset_truth_included": [
+      true,
+      true,
+      true
+    ],
+    "subset_reuses_same_observation": true,
+    "separate_factor_codebooks_supported": true,
+    "same_atom_index_can_exist_in_multiple_domains": true,
+    "final_estimates_accessible_publicly": false,
+    "score_margin_accessible_publicly": false,
+    "iteration_count_accessible": true
+  }
+}
