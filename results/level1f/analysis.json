@@ -1,0 +1,16 @@
+{
+  "schema_version": "level1f-holovec-audit-v1",
+  "status": "BLOCKED",
+  "dependency_audit_path": "results\\level1f\\dependency_audit.json",
+  "parity_report_path": "results\\level1f\\parity_report.json",
+  "missing_artifacts": [
+    "micro_reproduction.csv",
+    "beta_calibration.csv",
+    "selected_attention_config.json",
+    "heldout_trials.jsonl",
+    "summary.csv",
+    "paired_comparisons.csv",
+    "pareto_analysis.json"
+  ],
+  "blocker": "HoloVec AttentionResonatorCleanup accepts one shared codebook only. The current benchmark requires separate factor domains for each factor slot, so a fair drop-in wrapper would require internal masking or a rewritten update rule."
+}

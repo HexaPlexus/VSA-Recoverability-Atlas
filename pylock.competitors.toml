@@ -1,0 +1,24 @@
+lock-version = "1.0"
+created-by = "pip"
+
+[[packages]]
+name = "holovec"
+version = "1.0.2"
+
+[[packages.wheels]]
+name = "holovec-1.0.2-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/c1/e3/4966d757bb562451792bbf5a45a9bbbb906a77b24521828fc9e2bfd5d555/holovec-1.0.2-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "18e700ca0e8eae1653b6d7f465826506ff1e5f38342032bb7927c0b99a1a84c6"
+
+[[packages]]
+name = "numpy"
+version = "2.4.6"
+
+[[packages.wheels]]
+name = "numpy-2.4.6-cp314-cp314-win_amd64.whl"
+url = "https://files.pythonhosted.org/packages/df/ac/46de6dda46478f7942f839e094970be2d4a861e005c4b3bf07c92e291a09/numpy-2.4.6-cp314-cp314-win_amd64.whl"
+
+[packages.wheels.hashes]
+sha256 = "b507f5c4c1d508876d1819b6bf9a49d365b96320b5d4993426b33a23ca4b8261"

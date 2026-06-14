@@ -1,0 +1,66 @@
+{
+  "schema_version": "level1f-holovec-audit-v1",
+  "verdict": "BLOCKED_FOR_LEVEL1F1",
+  "class_path": "holovec.utils.cleanup.attention.AttentionResonatorCleanup",
+  "paper_basis": "arXiv:2403.13218",
+  "paper_claims_checked": {
+    "attention_logits_from_candidate_similarities": true,
+    "softmax_beta_weighting": true,
+    "weighted_combination_update": true,
+    "update_uses_unbinding_with_other_estimates": true,
+    "normalization_hook_present": true,
+    "stopping_semantics_documented": true
+  },
+  "notable_holovec_defaults": {
+    "beta": 250.0,
+    "max_iterations": 100,
+    "convergence_threshold": 0.99,
+    "patience": 5,
+    "initialization": "mean(codebook)"
+  },
+  "single_factor_external_codebook_smoke": {
+    "labels": [
+      "f0_i1"
+    ],
+    "similarities": [
+      1.0
+    ],
+    "history": [
+      1.0
+    ],
+    "iterations": 1,
+    "ground_truth_label": "f0_i1",
+    "predicted_matches_ground_truth": true
+  },
+  "factor_domain_blocker": {
+    "factor_specific_domains_supported": false,
+    "shared_codebook_signature": "(self, query: 'Array', codebook: 'dict[str, Array]', model: 'VSAModel', n_factors: 'int' = 2, max_iterations: 'int | None' = None, threshold: 'float | None' = None, temperature: 'float' = 20.0, top_k: 'int' = 1, patience: 'int' = 3, min_delta: 'float' = 0.0001, mode: 'str' = 'hard', **kwargs: 'object') -> 'tuple[list[str], list[float]]'",
+    "compatibility_guard_message": "HoloVec AttentionResonatorCleanup accepts one shared codebook only. The current benchmark requires separate factor domains for each factor slot, so a fair drop-in wrapper would require internal masking or a rewritten update rule.",
+    "minimal_reproduction": {
+      "schema_version": "level1f-holovec-audit-v1",
+      "type": "shared_codebook_domain_mismatch",
+      "target_labels": [
+        "f0_i0",
+        "f1_i0"
+      ],
+      "predicted_labels": [
+        "f0_i0",
+        "f0_i0"
+      ],
+      "duplicate_prediction": true,
+      "iterations": 3,
+      "history": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "similarities": [
+        0.0,
+        0.0
+      ],
+      "shared_codebook_only": true,
+      "interpretation": "A duplicate factor prediction is possible because HoloVec exposes one flat codebook without factor-specific domain constraints."
+    }
+  },
+  "stop_reason": "Level 1F.1 shootout was not run because using HoloVec on the existing benchmark would require replacing separate factor domains with one flat competitor codebook."
+}
