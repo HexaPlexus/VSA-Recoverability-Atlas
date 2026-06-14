@@ -1,0 +1,11 @@
+{
+  "schema_version": "level1-query-v4",
+  "checkpoint_commit": "1bd409d37f2dbd758ef27f1f56f9911653fb87a2",
+  "calibration_master_seed": 23260614,
+  "prior_strength_candidates": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "chosen_prior_strength": 1.0
+}
