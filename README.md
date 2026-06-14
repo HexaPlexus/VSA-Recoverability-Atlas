@@ -17,3 +17,7 @@ Run tests:
 ```
 
 `MiniGrid` is declared as the optional `level3` extra for future work and is not required for the core Level 0 lock.
+
+## ADRs
+
+- [ADR-001](docs/adr/ADR-001-reject-stateful-hierarchical-resonator-continuation.md): reject stateful hierarchical resonator continuation; keep calibrated L2 acceptance with cold global fallback.
