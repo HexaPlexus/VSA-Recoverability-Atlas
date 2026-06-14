@@ -1,0 +1,81 @@
+{
+  "schema_version": "level1-selective-v1",
+  "development": {
+    "P(correct | survives L1)": {
+      "rate": 0.8275862068965517,
+      "ci_low": 0.6545119942718488,
+      "ci_high": 0.9240225472852007,
+      "total": 29
+    },
+    "P(correct | does not survive L1)": {
+      "rate": 0.014925373134328358,
+      "ci_low": 0.002639503757676784,
+      "ci_high": 0.0798205197313466,
+      "total": 67
+    },
+    "P(correct | rank_at_L1 = 1)": {
+      "rate": 0.8275862068965517,
+      "ci_low": 0.6545119942718488,
+      "ci_high": 0.9240225472852007,
+      "total": 29
+    },
+    "P(correct | rank_at_L1 > 1)": {
+      "rate": 0.014925373134328358,
+      "ci_low": 0.002639503757676784,
+      "ci_high": 0.0798205197313466,
+      "total": 67
+    }
+  },
+  "calibration": {
+    "P(correct | survives L1)": {
+      "rate": 0.7878787878787878,
+      "ci_low": 0.6224802241287064,
+      "ci_high": 0.8932411343356381,
+      "total": 33
+    },
+    "P(correct | does not survive L1)": {
+      "rate": 0.042105263157894736,
+      "ci_low": 0.016493505976432808,
+      "ci_high": 0.10331030132737451,
+      "total": 95
+    },
+    "P(correct | rank_at_L1 = 1)": {
+      "rate": 0.7878787878787878,
+      "ci_low": 0.6224802241287064,
+      "ci_high": 0.8932411343356381,
+      "total": 33
+    },
+    "P(correct | rank_at_L1 > 1)": {
+      "rate": 0.042105263157894736,
+      "ci_low": 0.016493505976432808,
+      "ci_high": 0.10331030132737451,
+      "total": 95
+    }
+  },
+  "heldout": {
+    "P(correct | survives L1)": {
+      "rate": 0.8266666666666667,
+      "ci_low": 0.7256897902417947,
+      "ci_high": 0.8958095197671345,
+      "total": 75
+    },
+    "P(correct | does not survive L1)": {
+      "rate": 0.07734806629834254,
+      "ci_low": 0.04663073467393614,
+      "ci_high": 0.12563351752903112,
+      "total": 181
+    },
+    "P(correct | rank_at_L1 = 1)": {
+      "rate": 0.8266666666666667,
+      "ci_low": 0.7256897902417947,
+      "ci_high": 0.8958095197671345,
+      "total": 75
+    },
+    "P(correct | rank_at_L1 > 1)": {
+      "rate": 0.07734806629834254,
+      "ci_low": 0.04663073467393614,
+      "ci_high": 0.12563351752903112,
+      "total": 181
+    }
+  }
+}

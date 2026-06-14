@@ -52,7 +52,7 @@ from .baseline import (
     wilson_interval,
 )
 
-QUERY_SCHEMA_VERSION = "level1-query-v4"
+QUERY_SCHEMA_VERSION = "level1-query-v5"
 LEVEL1D_CALIBRATION_MASTER_SEED = 23260614
 LEVEL1D_EVAL_MASTER_SEED = 24260614
 LEVEL1D_CALIBRATION_TRIALS_PER_REGIME = 24
@@ -953,11 +953,11 @@ def build_stage_snapshots(
         ),
     }
 
-    def stage_rank(similarities: torch.Tensor, result: QueryTrialResult) -> float:
+    def stage_rank(similarities: torch.Tensor, result: QueryTrialResult, reference_tuple: torch.Tensor) -> float:
         return reference_tuple_mean_rank(
             candidate_indices=torch.tensor(result.candidate_subset_indices, dtype=torch.long),
             final_similarities=similarities,
-            reference_indices=l2_predicted,
+            reference_indices=reference_tuple,
         )
 
     l2_margin = statistics.fmean(l2_result.normalized_margins)
@@ -983,8 +983,13 @@ def build_stage_snapshots(
     stability = {
         "l2_prediction_survives_l1": l1_result.predicted_indices == l2_result.predicted_indices,
         "l2_prediction_survives_global": global_result.predicted_indices == l2_result.predicted_indices,
-        "l2_rank_at_l1": stage_rank(l1_similarities, l1_result),
-        "l2_rank_at_global": stage_rank(global_similarities, global_result),
+        "l2_rank_at_l1": stage_rank(l1_similarities, l1_result, l2_predicted),
+        "l2_rank_at_global": stage_rank(global_similarities, global_result, l2_predicted),
+        "l1_rank_at_global": stage_rank(
+            global_similarities,
+            global_result,
+            torch.tensor(l1_result.predicted_indices, dtype=torch.long),
+        ),
         "l2_margin_delta_at_l1": l1_margin - l2_margin,
         "l2_margin_delta_at_global": global_margin - l2_margin,
         "oracle_earliest_valid_stage": earliest_valid,

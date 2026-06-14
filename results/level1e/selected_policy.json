@@ -1,0 +1,41 @@
+{
+  "policy_version": "threshold-policy-v1",
+  "schema_version": "level1-selective-v1",
+  "features": [
+    "stable_prediction_l2",
+    "min_normalized_margin_l2",
+    "normalized_reconstruction_l2",
+    "l2_tuple_survives_l1",
+    "l2_tuple_rank_at_l1",
+    "min_normalized_margin_l1",
+    "min_normalized_margin_global",
+    "normalized_reconstruction_global"
+  ],
+  "thresholds": {
+    "l2_min_margin": 0.05,
+    "l2_reconstruction": 0.15,
+    "l1_rank_max": 1.0,
+    "l1_min_margin": 0.05,
+    "global_min_margin": 0.05,
+    "global_reconstruction": 0.05
+  },
+  "calibration_seed_range": {
+    "COLLAPSE_SINGLE_PRIMARY": {
+      "start": 26260614,
+      "count": 32
+    },
+    "COLLAPSE_SINGLE_STRESS": {
+      "start": 26270614,
+      "count": 32
+    },
+    "EASY_SINGLE": {
+      "start": 26280614,
+      "count": 32
+    }
+  },
+  "target_risk": 0.05,
+  "achieved_calibration_risk": 0.038461538461538436,
+  "calibration_coverage": 0.5416666666666666,
+  "selection_rule": "max coverage under target risk, then lower mean compute, then lower complexity",
+  "fallback_risk_target_used": false
+}
