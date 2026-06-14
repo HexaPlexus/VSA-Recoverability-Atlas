@@ -1,6 +1,7 @@
 # Dependencies
 
 Core environment is pinned in [pylock.toml](/C:/Users/Thanatos/Desktop/CGRN-HSR/pylock.toml).  
+`pylock.toml` is a Windows + CPython 3.14 specific resolution produced by the experimental `pip lock` command, so it is intentionally platform-dependent rather than a universal lock.  
 The optional future `Level 3` dependency is pinned separately in [pylock.level3.toml](/C:/Users/Thanatos/Desktop/CGRN-HSR/pylock.level3.toml).
 
 | dependency | resolved version | license | upstream | purpose | decision | limitations |
