@@ -4,6 +4,8 @@ from pathlib import Path
 
 from cgrn_hsr.baseline import (
     BaselineConfig,
+    PILOT_MASTER_SEED,
+    PILOT_TRIALS_PER_CONFIG,
     run_trial,
     save_operating_points,
     save_summary_csv,
@@ -12,22 +14,22 @@ from cgrn_hsr.baseline import (
     summarize_trials,
 )
 
-MASTER_SEED = 20260614
-TRIALS_PER_CONFIG = 12
-RESULTS_DIR = Path("results") / "level1a"
+MASTER_SEED = PILOT_MASTER_SEED
+TRIALS_PER_CONFIG = PILOT_TRIALS_PER_CONFIG
+RESULTS_DIR = Path("results") / "level1a_v2"
 
 
 def make_initial_grid() -> list[BaselineConfig]:
     configs: list[BaselineConfig] = []
-    for dimensions in (256, 512, 1024):
+        for dimensions in (256, 512, 1024):
         for num_factors, domain_size in ((3, 5), (4, 10), (5, 20)):
-            for external_noise in (0, 2):
+            for structured_distractor_count in (0, 2):
                 configs.append(
                     BaselineConfig(
                         dimensions=dimensions,
                         num_factors=num_factors,
                         domain_size=domain_size,
-                        external_noise=external_noise,
+                        structured_distractor_count=structured_distractor_count,
                     )
                 )
     return configs
@@ -37,7 +39,7 @@ def find_transition_configs(summary_rows: list[dict]) -> list[BaselineConfig]:
     by_family: dict[tuple[int, int, int], dict[int, float]] = {}
     for row in summary_rows:
         family = (row["D"], row["F"], row["M"])
-        by_family.setdefault(family, {})[row["external_noise"]] = row["exact_recovery_rate"]
+        by_family.setdefault(family, {})[row["structured_distractor_count"]] = row["exact_recovery_rate"]
 
     expansions: list[BaselineConfig] = []
     for (dimensions, num_factors, domain_size), rates in sorted(by_family.items()):
@@ -51,7 +53,7 @@ def find_transition_configs(summary_rows: list[dict]) -> list[BaselineConfig]:
                     dimensions=dimensions,
                     num_factors=num_factors,
                     domain_size=domain_size,
-                    external_noise=1,
+                    structured_distractor_count=1,
                 )
             )
     return expansions
@@ -59,8 +61,8 @@ def find_transition_configs(summary_rows: list[dict]) -> list[BaselineConfig]:
 
 def fallback_expansions() -> list[BaselineConfig]:
     return [
-        BaselineConfig(dimensions=2048, num_factors=3, domain_size=5, external_noise=0),
-        BaselineConfig(dimensions=128, num_factors=6, domain_size=30, external_noise=3),
+        BaselineConfig(dimensions=2048, num_factors=3, domain_size=5, structured_distractor_count=0),
+        BaselineConfig(dimensions=128, num_factors=6, domain_size=30, structured_distractor_count=3),
     ]
 
 
@@ -69,7 +71,14 @@ def run_configs(configs: list[BaselineConfig], start_index: int = 0) -> list:
     for config_index, config in enumerate(configs, start=start_index):
         for trial_index in range(TRIALS_PER_CONFIG):
             seed = MASTER_SEED + config_index * 1000 + trial_index
-            trials.append(run_trial(config, seed=seed, master_seed=MASTER_SEED))
+            trials.append(
+                run_trial(
+                    config,
+                    seed=seed,
+                    master_seed=MASTER_SEED,
+                    operating_point_label="PILOT",
+                )
+            )
     return trials
 
 
