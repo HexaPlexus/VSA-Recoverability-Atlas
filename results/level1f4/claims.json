@@ -1,0 +1,33 @@
+{
+  "schema_version": "level1f4-analysis-v1",
+  "claim_a_context_portability": {
+    "status": "CONFIRMED",
+    "wording": "Semantic context beat size-matched random candidate selection on truth inclusion and exact recovery for MAP and official IBM BCF in the tested single-product cells."
+  },
+  "claim_b_factorizer_internal_semantic_benefit": {
+    "status": "NOT_CONFIRMED",
+    "wording": "A substrate-internal semantic benefit beyond truth retention was not consistently demonstrated across MAP and BCF."
+  },
+  "claim_c_map_stronger_than_bcf": {
+    "status": "SUPPORTED_IN_TESTED_OPERATING_ENVELOPE",
+    "wording": "MAP was stronger than the audited official IBM BCF implementation in the tested operating envelope."
+  },
+  "claim_d_external_context_transfer": {
+    "status": "CONFIRMED",
+    "wording": "The external context-selection mechanism transferred across two representation/factorizer families."
+  },
+  "go_level_2": true,
+  "closure_verdict": "NARROW",
+  "publication_status": "BLOCK_PUBLICATION_CLAIM",
+  "allowed_claims": [
+    "Semantic context beats random candidate selection.",
+    "The external context-selection mechanism transferred from MAP to official IBM BCF.",
+    "MAP was stronger than official IBM BCF in the tested single-product operating envelope."
+  ],
+  "forbidden_claims": [
+    "BCF is inherently slower.",
+    "CGRN is fully substrate-independent.",
+    "Verifier, fallback policy, or open-world lifecycle already transferred to BCF.",
+    "MAP is generally superior to all block-code factorizers."
+  ]
+}

@@ -1,0 +1,13 @@
+schema_version,table_type,cell_id,method,exact_recovery,factorization_time_sec,codebook_bytes,iterations,substrate,random_half_exact_recovery,semantic_half_exact_recovery,oracle_half_exact_recovery,semantic_gain_over_random,semantic_regret_to_oracle
+level1f4-analysis-v1,raw_substrate,COLLAPSE_SINGLE_PRIMARY,MAP global,0.1953125,0.024163121812534882,163840.0,10.515625,,,,,,
+level1f4-analysis-v1,raw_substrate,COLLAPSE_SINGLE_PRIMARY,BCF global,0.0703125,0.3457102016095348,82560.0,15.203125,,,,,,
+level1f4-analysis-v1,raw_substrate,COLLAPSE_SINGLE_STRESS,MAP global,0.125,0.031547276749961384,163840.0,11.0625,,,,,,
+level1f4-analysis-v1,raw_substrate,COLLAPSE_SINGLE_STRESS,BCF global,0.078125,0.35875782968753356,82560.0,15.078125,,,,,,
+level1f4-analysis-v1,raw_substrate,EASY_SINGLE,MAP global,1.0,0.014405290421620975,15360.0,3.078125,,,,,,
+level1f4-analysis-v1,raw_substrate,EASY_SINGLE,BCF global,1.0,0.03333839635905633,30960.0,2.0,,,,,,
+level1f4-analysis-v1,context_transfer,COLLAPSE_SINGLE_PRIMARY,,,,,,MAP,0.0546875,0.359375,0.953125,0.3046875,0.59375
+level1f4-analysis-v1,context_transfer,COLLAPSE_SINGLE_PRIMARY,,,,,,BCF,0.046875,0.34375,0.671875,0.296875,0.328125
+level1f4-analysis-v1,context_transfer,COLLAPSE_SINGLE_STRESS,,,,,,MAP,0.046875,0.21875,0.890625,0.171875,0.671875
+level1f4-analysis-v1,context_transfer,COLLAPSE_SINGLE_STRESS,,,,,,BCF,0.03125,0.203125,0.625,0.171875,0.421875
+level1f4-analysis-v1,context_transfer,EASY_SINGLE,,,,,,MAP,0.265625,0.421875,1.0,0.15625,0.578125
+level1f4-analysis-v1,context_transfer,EASY_SINGLE,,,,,,BCF,0.265625,0.421875,1.0,0.15625,0.578125

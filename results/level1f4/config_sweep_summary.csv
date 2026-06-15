@@ -1,0 +1,4 @@
+schema_version,config_id,exact_recovery_rate,mean_iterations,mean_factorization_time_sec,mean_native_codebook_bytes,trial_count,selection_cell,selected_iteration_cap,same_device_timing_status,selected,timing_available_in_artifact,selection_note
+level1f4-analysis-v1,official_hp_d256_b4_m10,0.0,16.0,,41600.0,32,COLLAPSE_SINGLE_PRIMARY,16,same_wsl_gpu,False,False,Selected among the tested upstream-justified configurations on the frozen development split.
+level1f4-analysis-v1,official_hp_d512_b4_m10,0.09375,14.875,,82560.0,32,COLLAPSE_SINGLE_PRIMARY,16,same_wsl_gpu,True,False,Selected among the tested upstream-justified configurations on the frozen development split.
+level1f4-analysis-v1,official_hp_d1024_b4_m10,0.0,16.0,,164480.0,32,COLLAPSE_SINGLE_PRIMARY,16,same_wsl_gpu,False,False,Selected among the tested upstream-justified configurations on the frozen development split.

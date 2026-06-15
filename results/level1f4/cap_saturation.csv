@@ -1,0 +1,16 @@
+schema_version,cell_id,substrate,method_id,trials,mean_iterations,median_iterations,p90_iterations,max_iterations,max_iterations_cap,fraction_reaching_cap_16
+level1f4-analysis-v1,COLLAPSE_SINGLE_PRIMARY,BCF,global,128,15.203125,16.0,16,16,16,0.9375
+level1f4-analysis-v1,COLLAPSE_SINGLE_PRIMARY,BCF,oracle_truth_included_half,128,9.1875,9.5,16,16,16,0.5
+level1f4-analysis-v1,COLLAPSE_SINGLE_PRIMARY,BCF,oracle_truth_included_quarter,128,2.0,2.0,2,2,16,0.0
+level1f4-analysis-v1,COLLAPSE_SINGLE_PRIMARY,BCF,semantic_l2_half,128,13.648438,16.0,16,16,16,0.828125
+level1f4-analysis-v1,COLLAPSE_SINGLE_PRIMARY,BCF,semantic_l2_quarter,128,11.953125,16.0,16,16,16,0.710938
+level1f4-analysis-v1,COLLAPSE_SINGLE_STRESS,BCF,global,64,15.078125,16.0,16,16,16,0.921875
+level1f4-analysis-v1,COLLAPSE_SINGLE_STRESS,BCF,oracle_truth_included_half,64,10.046875,16.0,16,16,16,0.5625
+level1f4-analysis-v1,COLLAPSE_SINGLE_STRESS,BCF,oracle_truth_included_quarter,64,2.0,2.0,2,2,16,0.0
+level1f4-analysis-v1,COLLAPSE_SINGLE_STRESS,BCF,semantic_l2_half,64,14.28125,16.0,16,16,16,0.875
+level1f4-analysis-v1,COLLAPSE_SINGLE_STRESS,BCF,semantic_l2_quarter,64,13.8125,16.0,16,16,16,0.84375
+level1f4-analysis-v1,EASY_SINGLE,BCF,global,64,2.0,2.0,2,2,8,0.0
+level1f4-analysis-v1,EASY_SINGLE,BCF,oracle_truth_included_half,64,2.0,2.0,2,2,8,0.0
+level1f4-analysis-v1,EASY_SINGLE,BCF,oracle_truth_included_quarter,64,2.0,2.0,2,2,8,0.0
+level1f4-analysis-v1,EASY_SINGLE,BCF,semantic_l2_half,64,5.46875,8.0,8,8,8,0.0
+level1f4-analysis-v1,EASY_SINGLE,BCF,semantic_l2_quarter,64,6.78125,8.0,8,8,8,0.0
