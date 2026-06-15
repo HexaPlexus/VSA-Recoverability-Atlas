@@ -1,0 +1,14 @@
+schema_version,cell_id,substrate,config_id,mean_observation_bytes,mean_codebook_bytes,mean_decoder_state_bytes,max_peak_ram_bytes,max_peak_vram_bytes,total_native_bytes_mean
+level3-2-clean-u1-heldout-v1,u1_bcf_native_extension,BCF,bcf_d512_f3_b4,2048,681120,6144,1098604544,24255488,689312
+level3-2-clean-u1-heldout-v1,u1_boundary_1,BCF,bcf_d512_f3_b4,2048,136224,6144,1092050944,10137600,144416
+level3-2-clean-u1-heldout-v1,u1_boundary_1,MAP,map_d1024,4096,270336,12552,1092050944,10992640,286984
+level3-2-clean-u1-heldout-v1,u1_boundary_1,MAP,map_d512,2048,135168,6408,1092050944,10580992,143624
+level3-2-clean-u1-heldout-v1,u1_boundary_2,BCF,bcf_d512_f3_b4,2048,191952,6144,1094279168,10870272,200144
+level3-2-clean-u1-heldout-v1,u1_boundary_2,MAP,map_d1024,4096,380928,12660,1094279168,12076032,397684
+level3-2-clean-u1-heldout-v1,u1_boundary_2,MAP,map_d512,2048,190464,6516,1094279168,11498496,199028
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,BCF,bcf_d512_f3_b4,2048,61920,6144,1089822720,9271808,70112
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,MAP,map_d1024,4096,122880,12408,1089822720,9661440,139384
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,MAP,map_d512,2048,61440,6264,1089822720,9469952,69752
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,BCF,bcf_d512_f3_b4,2048,421056,6144,1097162752,12888576,429248
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,MAP,map_d1024,4096,835584,13104,1097162752,15961088,852784
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,MAP,map_d512,2048,417792,6960,1097162752,14275584,426800

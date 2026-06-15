@@ -1,0 +1,21 @@
+{
+  "allowed_claims": [
+    "clean U1 held-out frontier shift confirmed or not confirmed",
+    "multi-substrate candidate if capacity and speed separate",
+    "resource/Pareto interpretation under clean U1 only"
+  ],
+  "bcf_confidence_note": "Official BCF outputs tuples and iteration/stopping diagnostics, but no benchmark-comparable confidence surface was used.",
+  "capacity_shift_log10_vs_map_d1024": 2.497527,
+  "capacity_shift_log10_vs_map_d512": 2.497527,
+  "confirm_bcf_clean_u1_frontier_shift": true,
+  "forbidden_claims": [
+    "noisy-unbinding superiority",
+    "best universal VSA substrate",
+    "production-ready promotion",
+    "selective safety claim without acceptance policy"
+  ],
+  "materiality_gate_log10": 0.5,
+  "null_hypothesis": "Development separation does not reproduce on fresh held-out tasks.",
+  "primary_hypothesis": "Official native BCF supports a materially larger clean U1 semantic search space than classic MAP-resonator in the frozen F=3 operating envelope, at substantially higher decode cost.",
+  "schema_version": "level3-2-clean-u1-heldout-v1"
+}

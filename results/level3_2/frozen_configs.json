@@ -1,0 +1,118 @@
+{
+  "bcf_config_family": {
+    "blocks": 4,
+    "config_family": "bcf_d512_f3_b4",
+    "convergence_detection_threshold": 0.9,
+    "decoding": "sequential",
+    "dimensions": 512,
+    "factor_count": 3,
+    "permutation": false,
+    "similarity": "inf",
+    "topa_pu": true
+  },
+  "bcf_per_cell_official_lookup": [
+    {
+      "a_value": 46,
+      "blocks": 4,
+      "cell_id": "u1_easy_anchor",
+      "config_family": "bcf_d512_f3_b4",
+      "convergence_detection_threshold": 0.9,
+      "decoding": "sequential",
+      "dimensions": 512,
+      "domain_size": 10,
+      "factor_count": 3,
+      "permutation": false,
+      "similarity": "inf",
+      "source_key": "10",
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "threshold": 0.0094,
+      "topa_pu": true
+    },
+    {
+      "a_value": 15,
+      "blocks": 4,
+      "cell_id": "u1_boundary_1",
+      "config_family": "bcf_d512_f3_b4",
+      "convergence_detection_threshold": 0.9,
+      "decoding": "sequential",
+      "dimensions": 512,
+      "domain_size": 22,
+      "factor_count": 3,
+      "permutation": false,
+      "similarity": "inf",
+      "source_key": "22",
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "threshold": 0.0034,
+      "topa_pu": true
+    },
+    {
+      "a_value": 14,
+      "blocks": 4,
+      "cell_id": "u1_boundary_2",
+      "config_family": "bcf_d512_f3_b4",
+      "convergence_detection_threshold": 0.9,
+      "decoding": "sequential",
+      "dimensions": 512,
+      "domain_size": 31,
+      "factor_count": 3,
+      "permutation": false,
+      "similarity": "inf",
+      "source_key": "31",
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "threshold": 0.0049,
+      "topa_pu": true
+    },
+    {
+      "a_value": 16,
+      "blocks": 4,
+      "cell_id": "u1_separation_anchor",
+      "config_family": "bcf_d512_f3_b4",
+      "convergence_detection_threshold": 0.9,
+      "decoding": "sequential",
+      "dimensions": 512,
+      "domain_size": 68,
+      "factor_count": 3,
+      "permutation": false,
+      "similarity": "inf",
+      "source_key": "68",
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "threshold": 0.0067,
+      "topa_pu": true
+    },
+    {
+      "a_value": 10,
+      "blocks": 4,
+      "cell_id": "u1_bcf_native_extension",
+      "config_family": "bcf_d512_f3_b4",
+      "convergence_detection_threshold": 0.9,
+      "decoding": "sequential",
+      "dimensions": 512,
+      "domain_size": 110,
+      "factor_count": 3,
+      "permutation": false,
+      "similarity": "inf",
+      "source_key": "110",
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "threshold": 0.0066,
+      "topa_pu": true
+    }
+  ],
+  "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "map_configs": [
+    {
+      "config_id": "map_d512",
+      "dimensions": 512,
+      "max_iterations": 12,
+      "restarts": 0,
+      "stable_patience": 3
+    },
+    {
+      "config_id": "map_d1024",
+      "dimensions": 1024,
+      "max_iterations": 12,
+      "restarts": 0,
+      "stable_patience": 3
+    }
+  ],
+  "schema_version": "level3-2-clean-u1-heldout-v1"
+}

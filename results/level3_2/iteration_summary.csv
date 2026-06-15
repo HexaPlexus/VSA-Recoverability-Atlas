@@ -1,0 +1,14 @@
+schema_version,cell_id,substrate,config_id,mean_iterations,median_iterations,p90_iterations,p99_iterations,max_iterations,iteration_variance,reached_native_limit_rate,restart_variance
+level3-2-clean-u1-heldout-v1,u1_bcf_native_extension,BCF,bcf_d512_f3_b4,97.4375,74.5,226.50000000000009,394.4699999999994,540,8844.62109375,0.0,
+level3-2-clean-u1-heldout-v1,u1_boundary_1,BCF,bcf_d512_f3_b4,4,3.0,6.299999999999997,8.730000000000004,11,2.296875,0.0,
+level3-2-clean-u1-heldout-v1,u1_boundary_1,MAP,map_d1024,8.109375,8.0,12.0,12.0,12,9.347412109375,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_1,MAP,map_d512,10.6640625,12.0,12.0,12.0,12,5.80120849609375,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_2,BCF,bcf_d512_f3_b4,7.5625,5.0,14.0,29.110000000000028,37,31.62109375,0.0,
+level3-2-clean-u1-heldout-v1,u1_boundary_2,MAP,map_d1024,10.6015625,12.0,12.0,12.0,12,6.22406005859375,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_2,MAP,map_d512,11.7578125,12.0,12.0,12.0,12,0.93353271484375,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,BCF,bcf_d512_f3_b4,2.03125,2.0,2.0,3.0,3,0.0302734375,0.0,
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,MAP,map_d1024,3.25,3.0,4.0,4.0,4,0.1875,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,MAP,map_d512,4.125,4.0,6.0,9.0,9,1.921875,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,BCF,bcf_d512_f3_b4,36.96875,21.5,74.80000000000001,178.87999999999994,194,1526.2490234375,0.0,
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,MAP,map_d1024,12,12.0,12.0,12.0,12,0,0.0,0.0
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,MAP,map_d512,12,12.0,12.0,12.0,12,0,0.0,0.0

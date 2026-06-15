@@ -1,0 +1,4 @@
+schema_version,substrate,config_id,largest_confirmed_ge_0_90_cell_id,largest_confirmed_ge_0_90_log10_search_space,smallest_confirmed_lt_0_90_cell_id,smallest_confirmed_lt_0_90_log10_search_space,boundary_rule
+level3-2-clean-u1-heldout-v1,BCF,bcf_d512_f3_b4,u1_separation_anchor,5.497527,,,>=0.90 exact recovery
+level3-2-clean-u1-heldout-v1,MAP,map_d1024,u1_easy_anchor,3.0,u1_boundary_1,4.027268,>=0.90 exact recovery
+level3-2-clean-u1-heldout-v1,MAP,map_d512,u1_easy_anchor,3.0,u1_boundary_1,4.027268,>=0.90 exact recovery

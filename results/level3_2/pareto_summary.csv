@@ -1,0 +1,17 @@
+schema_version,view,cell_id,substrate,config_id,exact_recovery_rate,median_decode_time_sec,total_native_bytes_mean,largest_confirmed_ge_0_90_log10_search_space,p90_decode_time_sec,boundary_rule
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_bcf_native_extension,BCF,bcf_d512_f3_b4,1.0,,689312,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_1,BCF,bcf_d512_f3_b4,1.0,0.04790915550000818,144416,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_1,MAP,map_d1024,0.5,0.015239509499963333,286984,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_1,MAP,map_d512,0.2265625,0.018204466500037597,143624,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_2,BCF,bcf_d512_f3_b4,1.0,0.05849883450002835,200144,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_2,MAP,map_d1024,0.21875,0.019328099500000917,397684,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_boundary_2,MAP,map_d512,0.0625,0.019509658000004038,199028,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_easy_anchor,BCF,bcf_d512_f3_b4,1.0,0.030350226999985352,70112,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_easy_anchor,MAP,map_d1024,1.0,0.005920729500019206,139384,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_easy_anchor,MAP,map_d512,0.9375,0.006675343499921382,69752,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_separation_anchor,BCF,bcf_d512_f3_b4,1.0,0.17349543949995905,429248,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_separation_anchor,MAP,map_d1024,0.0,0.017818077500010077,852784,,,
+level3-2-clean-u1-heldout-v1,recovery_vs_latency,u1_separation_anchor,MAP,map_d512,0.0,0.017277240999987953,426800,,,
+level3-2-clean-u1-heldout-v1,capacity_vs_compute,u1_separation_anchor,BCF,bcf_d512_f3_b4,,,,5.497527,0.6303894464999986,>=0.90 exact recovery
+level3-2-clean-u1-heldout-v1,capacity_vs_compute,u1_easy_anchor,MAP,map_d1024,,,,3.0,0.027146713900026508,>=0.90 exact recovery
+level3-2-clean-u1-heldout-v1,capacity_vs_compute,u1_easy_anchor,MAP,map_d512,,,,3.0,0.03124802640002146,>=0.90 exact recovery

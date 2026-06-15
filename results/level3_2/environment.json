@@ -1,0 +1,13 @@
+{
+  "checkpoint_commit": "dea30d81c89dd344abfddcaa0eaaf85c7958c662",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "ibm_upstream_clean": true,
+  "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_version": "3.11.15",
+  "same_device_timing": true,
+  "schema_version": "level3-2-clean-u1-heldout-v1",
+  "torch_version": "2.5.1+cu121",
+  "torchhd_version": "5.8.4"
+}

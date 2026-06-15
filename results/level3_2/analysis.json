@@ -1,0 +1,21 @@
+{
+  "bcf_always_outputs_tuple_without_common_confidence": true,
+  "checkpoint_commit": "dea30d81c89dd344abfddcaa0eaaf85c7958c662",
+  "executed_cells": [
+    "u1_bcf_native_extension",
+    "u1_boundary_1",
+    "u1_boundary_2",
+    "u1_easy_anchor",
+    "u1_separation_anchor"
+  ],
+  "final_verdict": "MULTI_SUBSTRATE_CANDIDATE",
+  "git_status_at_start": "clean",
+  "heldout_used": true,
+  "no_context_used": true,
+  "no_new_decoder": true,
+  "no_noise_used": true,
+  "optional_extension_classification": "BCF_NATIVE_EXTENSION",
+  "same_device_timing": true,
+  "schema_version": "level3-2-clean-u1-heldout-v1",
+  "trial_count": 1216
+}

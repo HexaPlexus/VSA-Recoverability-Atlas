@@ -1,0 +1,14 @@
+schema_version,cell_id,cell_classification,substrate,config_id,factor_count,domain_size,semantic_search_space,log10_semantic_search_space,trials,exact_recovery_rate,exact_recovery_ci_low,exact_recovery_ci_high,per_factor_accuracy,wrong_tuple_output_rate
+level3-2-clean-u1-heldout-v1,u1_bcf_native_extension,BCF_NATIVE_EXTENSION,BCF,bcf_d512_f3_b4,3,110,1331000,6.124178,64,1.0,0.9433759402071946,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_1,COMMON,BCF,bcf_d512_f3_b4,3,22,10648,4.027268,128,1.0,0.9708630437264916,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_1,COMMON,MAP,map_d1024,3,22,10648,4.027268,128,0.5,0.41465224626050723,0.5853477537394928,0.6484375,0.5
+level3-2-clean-u1-heldout-v1,u1_boundary_1,COMMON,MAP,map_d512,3,22,10648,4.027268,128,0.2265625,0.16263248458646726,0.30642678837560766,0.3541666666666667,0.7734375
+level3-2-clean-u1-heldout-v1,u1_boundary_2,COMMON,BCF,bcf_d512_f3_b4,3,31,29791,4.474085,128,1.0,0.9708630437264916,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_boundary_2,COMMON,MAP,map_d1024,3,31,29791,4.474085,128,0.21875,0.15590524094938307,0.29798429695446543,0.3333333333333333,0.78125
+level3-2-clean-u1-heldout-v1,u1_boundary_2,COMMON,MAP,map_d512,3,31,29791,4.474085,128,0.0625,0.03200692569506119,0.11848791104425865,0.14583333333333334,0.9375
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,COMMON,BCF,bcf_d512_f3_b4,3,10,1000,3.0,64,1.0,0.9433759402071946,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,COMMON,MAP,map_d1024,3,10,1000,3.0,64,1.0,0.9433759402071946,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_easy_anchor,COMMON,MAP,map_d512,3,10,1000,3.0,64,0.9375,0.8500251490779133,0.9754287986033819,0.9583333333333334,0.0625
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,COMMON,BCF,bcf_d512_f3_b4,3,68,314432,5.497527,64,1.0,0.9433759402071946,1.0,1.0,0.0
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,COMMON,MAP,map_d1024,3,68,314432,5.497527,64,0.0,0.0,0.05662405979280534,0.015625,1.0
+level3-2-clean-u1-heldout-v1,u1_separation_anchor,COMMON,MAP,map_d512,3,68,314432,5.497527,64,0.0,0.0,0.05662405979280534,0.0,1.0

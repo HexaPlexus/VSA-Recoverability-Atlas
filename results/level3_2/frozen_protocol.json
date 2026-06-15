@@ -1,0 +1,83 @@
+{
+  "checkpoint_commit": "dea30d81c89dd344abfddcaa0eaaf85c7958c662",
+  "common_cells": [
+    {
+      "F": 3,
+      "M": 10,
+      "cell_id": "u1_easy_anchor",
+      "classification": "COMMON",
+      "trials": 64
+    },
+    {
+      "F": 3,
+      "M": 22,
+      "cell_id": "u1_boundary_1",
+      "classification": "COMMON",
+      "trials": 128
+    },
+    {
+      "F": 3,
+      "M": 31,
+      "cell_id": "u1_boundary_2",
+      "classification": "COMMON",
+      "trials": 128
+    },
+    {
+      "F": 3,
+      "M": 68,
+      "cell_id": "u1_separation_anchor",
+      "classification": "COMMON",
+      "trials": 64
+    }
+  ],
+  "heldout_seed_ranges": {
+    "u1_bcf_native_extension": {
+      "count": 64,
+      "start": 64260615
+    },
+    "u1_boundary_1": {
+      "count": 128,
+      "start": 61260615
+    },
+    "u1_boundary_2": {
+      "count": 128,
+      "start": 62260615
+    },
+    "u1_easy_anchor": {
+      "count": 64,
+      "start": 60260615
+    },
+    "u1_separation_anchor": {
+      "count": 64,
+      "start": 63260615
+    }
+  },
+  "hypothesis": {
+    "null": "Development separation does not reproduce on fresh held-out tasks.",
+    "primary": "Official native BCF supports a materially larger clean U1 semantic search space than classic MAP-resonator in the frozen F=3 operating envelope, at substantially higher decode cost."
+  },
+  "optional_extension_cell": {
+    "F": 3,
+    "M": 110,
+    "cell_id": "u1_bcf_native_extension",
+    "classification": "BCF_NATIVE_EXTENSION",
+    "run_map": false,
+    "trials": 64
+  },
+  "protocol_frozen_before_first_heldout_run": true,
+  "resume_policy": "immutable trial ids, no outcome-driven cell changes",
+  "same_device_timing_expected": true,
+  "schema_version": "level3-2-clean-u1-heldout-v1",
+  "scope": {
+    "candidate_pruning": false,
+    "context": false,
+    "controller": false,
+    "noise": false,
+    "task_contract": "U1_blind_single_product_factorization",
+    "u0_heldout": false,
+    "u2": false,
+    "u3": false,
+    "warm_start": false
+  },
+  "timing_subset_per_common_cell": 16
+}
