@@ -1,0 +1,19 @@
+{
+  "schema_version": "level1f3-single-product-v1",
+  "decision": "COMPOSE",
+  "primary_global_comparison": {
+    "schema_version": "level1f3-single-product-v1",
+    "cell_id": "COLLAPSE_SINGLE_PRIMARY",
+    "map_exact_recovery_rate": 0.1953125,
+    "bcf_exact_recovery_rate": 0.0703125,
+    "bcf_minus_map_exact_recovery": -0.125,
+    "map_mean_iterations": 10.515625,
+    "bcf_mean_iterations": 15.203125,
+    "map_mean_factorization_time_sec": 0.024163121812534882,
+    "bcf_mean_factorization_time_sec": 0.3457102016095348,
+    "map_mean_native_codebook_bytes": 163840.0,
+    "bcf_mean_native_codebook_bytes": 82560.0,
+    "same_device_timing_status": "same_wsl_gpu"
+  },
+  "primary_bcf_context_helped": true
+}

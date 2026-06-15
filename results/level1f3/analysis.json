@@ -1,0 +1,201 @@
+{
+  "schema_version": "level1f3-single-product-v1",
+  "method_version": "single-product-map-vs-ibm-bcf-v1",
+  "checkpoint_commit": "bb42a3bb08bb53bd6f57207c7371d32a3b81dae8",
+  "upstream_commit_sha": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "seed_ranges": {
+    "configuration": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 31260614,
+        "count": 32
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 31270614,
+        "count": 32
+      },
+      "EASY_SINGLE": {
+        "start": 31280614,
+        "count": 32
+      }
+    },
+    "development": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 32260614,
+        "count": 32
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 32270614,
+        "count": 32
+      },
+      "EASY_SINGLE": {
+        "start": 32280614,
+        "count": 32
+      }
+    },
+    "heldout": {
+      "COLLAPSE_SINGLE_PRIMARY": {
+        "start": 33260614,
+        "count": 128
+      },
+      "COLLAPSE_SINGLE_STRESS": {
+        "start": 33270614,
+        "count": 64
+      },
+      "EASY_SINGLE": {
+        "start": 33280614,
+        "count": 64
+      }
+    }
+  },
+  "protocol_amendment": "Held-out evaluation narrowed to 128 primary / 64 stress / 64 easy trials after observing that the official IBM BCF implementation incurred high end-to-end cost under repeated independently materialized contextual-subset benchmark calls. This amendment preserves the primary cell at full requested size while bounding overnight runtime.",
+  "same_device_timing_status": "same_wsl_gpu",
+  "selected_iteration_cap": 16,
+  "iteration_cap_selection": {
+    "reference_config_id": "official_hp_d512_b4_m10",
+    "selection_cell": "COLLAPSE_SINGLE_PRIMARY",
+    "selection_trials": 8,
+    "candidates": [
+      {
+        "iteration_cap": 16,
+        "exact_recovery_rate": 0.0,
+        "mean_iterations": 16.0,
+        "mean_factorization_time_sec": 0.3237755803752407,
+        "selection_trials": 8,
+        "reference_config_id": "official_hp_d512_b4_m10"
+      },
+      {
+        "iteration_cap": 32,
+        "exact_recovery_rate": 0.0,
+        "mean_iterations": 32.0,
+        "mean_factorization_time_sec": 0.5764850081250188,
+        "selection_trials": 8,
+        "reference_config_id": "official_hp_d512_b4_m10"
+      },
+      {
+        "iteration_cap": 64,
+        "exact_recovery_rate": 0.0,
+        "mean_iterations": 64.0,
+        "mean_factorization_time_sec": 1.3374726537495008,
+        "selection_trials": 8,
+        "reference_config_id": "official_hp_d512_b4_m10"
+      }
+    ],
+    "selected_iteration_cap": 16,
+    "selection_objective": "max exact_recovery, then min iterations, then min factorization time"
+  },
+  "selected_bcf_config": {
+    "config_id": "official_hp_d512_b4_m10",
+    "dimension": 512,
+    "blocks": 4,
+    "a_value": 46,
+    "threshold": 0.0094,
+    "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+    "source_key": "10",
+    "source_note": "Official F=3, B=4, D=512 hyperparameter table at codebook size 10. Reused as the nearest official single-product prior for M=5 and M=10.",
+    "convergence_detection_threshold": 0.9,
+    "similarity": "inf",
+    "decoding": "sequential",
+    "topa_pu": true,
+    "permutation": false,
+    "iteration_cap": 16
+  },
+  "historical_level1e_reference": {
+    "COLLAPSE_SINGLE_PRIMARY": {
+      "schema_version": "level1-selective-v1",
+      "cell_id": "COLLAPSE_SINGLE_PRIMARY",
+      "policy_id": "adaptive_calibrated_policy",
+      "trials": "64",
+      "coverage": "0.40625",
+      "coverage_ci_low": "0.2945672443525889",
+      "coverage_ci_high": "0.528550134954503",
+      "selective_risk": "0.0",
+      "selective_risk_ci_low": "1.3877787807814457e-17",
+      "selective_risk_ci_high": "0.12873304380462175",
+      "overall_correct_accept_rate": "0.40625",
+      "false_accept_rate": "0.0",
+      "abstention_rate": "0.59375",
+      "l1_escalation_rate": "0.6875",
+      "global_escalation_rate": "0.6875",
+      "mean_compute": "546560.0",
+      "median_compute": "720896.0",
+      "p90_compute": "884736",
+      "accept_correct_l2_rate": "0.3125",
+      "accept_wrong_l2_rate": "0.0",
+      "accept_correct_l1_rate": "0.0",
+      "accept_wrong_l1_rate": "0.0",
+      "accept_correct_global_rate": "0.09375",
+      "accept_wrong_global_rate": "0.0"
+    },
+    "COLLAPSE_SINGLE_STRESS": {
+      "schema_version": "level1-selective-v1",
+      "cell_id": "COLLAPSE_SINGLE_STRESS",
+      "policy_id": "adaptive_calibrated_policy",
+      "trials": "64",
+      "coverage": "0.203125",
+      "coverage_ci_low": "0.12273302562695813",
+      "coverage_ci_high": "0.3171386755121659",
+      "selective_risk": "0.0",
+      "selective_risk_ci_low": "0.0",
+      "selective_risk_ci_high": "0.22810184305529166",
+      "overall_correct_accept_rate": "0.203125",
+      "false_accept_rate": "0.0",
+      "abstention_rate": "0.796875",
+      "l1_escalation_rate": "0.84375",
+      "global_escalation_rate": "0.84375",
+      "mean_compute": "670720.0",
+      "median_compute": "720896.0",
+      "p90_compute": "884736",
+      "accept_correct_l2_rate": "0.15625",
+      "accept_wrong_l2_rate": "0.0",
+      "accept_correct_l1_rate": "0.0",
+      "accept_wrong_l1_rate": "0.0",
+      "accept_correct_global_rate": "0.046875",
+      "accept_wrong_global_rate": "0.0"
+    },
+    "EASY_SINGLE": {
+      "schema_version": "level1-selective-v1",
+      "cell_id": "EASY_SINGLE",
+      "policy_id": "adaptive_calibrated_policy",
+      "trials": "64",
+      "coverage": "0.984375",
+      "coverage_ci_low": "0.9166570109970937",
+      "coverage_ci_high": "0.9972365292495986",
+      "selective_risk": "0.031746031746031744",
+      "selective_risk_ci_low": "0.008749344040296973",
+      "selective_risk_ci_high": "0.10856681834959195",
+      "overall_correct_accept_rate": "0.953125",
+      "false_accept_rate": "0.03125",
+      "abstention_rate": "0.015625",
+      "l1_escalation_rate": "0.65625",
+      "global_escalation_rate": "0.65625",
+      "mean_compute": "24804.0",
+      "median_compute": "25344.0",
+      "p90_compute": "47616",
+      "accept_correct_l2_rate": "0.3125",
+      "accept_wrong_l2_rate": "0.03125",
+      "accept_correct_l1_rate": "0.0",
+      "accept_wrong_l1_rate": "0.0",
+      "accept_correct_global_rate": "0.640625",
+      "accept_wrong_global_rate": "0.0"
+    }
+  },
+  "pareto_analysis": {
+    "schema_version": "level1f3-single-product-v1",
+    "decision": "COMPOSE",
+    "primary_global_comparison": {
+      "schema_version": "level1f3-single-product-v1",
+      "cell_id": "COLLAPSE_SINGLE_PRIMARY",
+      "map_exact_recovery_rate": 0.1953125,
+      "bcf_exact_recovery_rate": 0.0703125,
+      "bcf_minus_map_exact_recovery": -0.125,
+      "map_mean_iterations": 10.515625,
+      "bcf_mean_iterations": 15.203125,
+      "map_mean_factorization_time_sec": 0.024163121812534882,
+      "bcf_mean_factorization_time_sec": 0.3457102016095348,
+      "map_mean_native_codebook_bytes": 163840.0,
+      "bcf_mean_native_codebook_bytes": 82560.0,
+      "same_device_timing_status": "same_wsl_gpu"
+    },
+    "primary_bcf_context_helped": true
+  }
+}

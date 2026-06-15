@@ -1,0 +1,7 @@
+schema_version,cell_id,semantic_method,map_semantic_gain_over_random,bcf_semantic_gain_over_random,map_truth_inclusion_gain_over_random,bcf_truth_inclusion_gain_over_random,bcf_minus_map_semantic_gain
+level1f3-single-product-v1,COLLAPSE_SINGLE_PRIMARY,semantic_l2_half,0.3046875,0.296875,0.3203125,0.3203125,-0.0078125
+level1f3-single-product-v1,COLLAPSE_SINGLE_PRIMARY,semantic_l2_quarter,0.28125,0.28125,0.28125,0.28125,0.0
+level1f3-single-product-v1,COLLAPSE_SINGLE_STRESS,semantic_l2_half,0.171875,0.171875,0.1875,0.1875,0.0
+level1f3-single-product-v1,COLLAPSE_SINGLE_STRESS,semantic_l2_quarter,0.15625,0.15625,0.15625,0.15625,0.0
+level1f3-single-product-v1,EASY_SINGLE,semantic_l2_half,0.15625,0.15625,0.15625,0.15625,0.0
+level1f3-single-product-v1,EASY_SINGLE,semantic_l2_quarter,0.078125,0.078125,0.078125,0.078125,0.0

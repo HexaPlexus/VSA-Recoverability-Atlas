@@ -3,7 +3,8 @@ from __future__ import annotations
 import hashlib
 import json
 import subprocess
-from dataclasses import asdict, dataclass
+import sys
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -24,11 +25,14 @@ class AbstractFactorizationTask:
     factor_count: int
     domain_size_per_factor: list[int]
     target_indices: list[int]
-    distractor_target_indices: list[list[int]]
-    context_membership: dict[str, list[str]]
-    active_context: str
-    anomaly_rate: float
-    query_valid_source_indices: list[int]
+    distractor_target_indices: list[list[int]] = field(default_factory=list)
+    context_membership: dict[str, Any] = field(default_factory=dict)
+    active_context: str = ""
+    anomaly_rate: float = 0.0
+    query_valid_source_indices: list[int] = field(default_factory=list)
+    active_l1: str | None = None
+    active_l2: str | None = None
+    context_prediction: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -49,9 +53,37 @@ def upstream_commit_sha(repo_path: Path) -> str:
     return result.stdout.strip()
 
 
+def _windows_git_repo_path(repo_path: Path) -> str:
+    path = str(repo_path)
+    if path.startswith("/mnt/") and len(path) > 6 and path[5].isalpha():
+        drive = path[5].upper()
+        suffix = path[6:]
+        return f"{drive}:{suffix}"
+    return path
+
+
 def upstream_tracked_source_clean(repo_path: Path) -> bool:
+    if sys.platform != "win32":
+        try:
+            result = subprocess.run(
+                [
+                    "git.exe",
+                    "-C",
+                    _windows_git_repo_path(repo_path),
+                    "status",
+                    "--porcelain",
+                    "--untracked-files=no",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            return result.stdout.strip() == ""
+        except (FileNotFoundError, subprocess.CalledProcessError):
+            pass
+
     result = subprocess.run(
-        ["git", "-C", str(repo_path), "diff", "--name-only", "HEAD", "--", "."],
+        ["git", "-C", str(repo_path), "status", "--porcelain", "--untracked-files=no"],
         check=True,
         capture_output=True,
         text=True,

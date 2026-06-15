@@ -1,0 +1,81 @@
+{
+  "schema_version": "level1f3-single-product-v1",
+  "method_version": "single-product-map-vs-ibm-bcf-v1",
+  "upstream_commit_sha": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "selection_split": {
+    "COLLAPSE_SINGLE_PRIMARY": {
+      "start": 31260614,
+      "count": 32
+    }
+  },
+  "selection_cells": [
+    "COLLAPSE_SINGLE_PRIMARY"
+  ],
+  "selection_objective": "max exact_recovery, then min iterations, then min memory",
+  "same_device_timing_status": "same_wsl_gpu",
+  "selected_iteration_cap": 16,
+  "protocol_amendment": "Held-out evaluation narrowed to 128 primary / 64 stress / 64 easy trials after observing that the official IBM BCF implementation incurred high end-to-end cost under repeated independently materialized contextual-subset benchmark calls. This amendment preserves the primary cell at full requested size while bounding overnight runtime.",
+  "candidates": [
+    {
+      "config_id": "official_hp_d256_b4_m10",
+      "exact_recovery_rate": 0.0,
+      "mean_iterations": 16.0,
+      "mean_native_codebook_bytes": 41600.0,
+      "dimension": 256,
+      "blocks": 4,
+      "A": 40,
+      "threshold": 0.0031,
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_256_F_3_B_4.json",
+      "source_key": "10",
+      "source_note": "Official F=3, B=4, D=256 hyperparameter table at codebook size 10. Reused as the nearest official single-product prior for M=5 and M=10."
+    },
+    {
+      "config_id": "official_hp_d512_b4_m10",
+      "exact_recovery_rate": 0.09375,
+      "mean_iterations": 14.875,
+      "mean_native_codebook_bytes": 82560.0,
+      "dimension": 512,
+      "blocks": 4,
+      "A": 46,
+      "threshold": 0.0094,
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+      "source_key": "10",
+      "source_note": "Official F=3, B=4, D=512 hyperparameter table at codebook size 10. Reused as the nearest official single-product prior for M=5 and M=10."
+    },
+    {
+      "config_id": "official_hp_d1024_b4_m10",
+      "exact_recovery_rate": 0.0,
+      "mean_iterations": 16.0,
+      "mean_native_codebook_bytes": 164480.0,
+      "dimension": 1024,
+      "blocks": 4,
+      "A": 40,
+      "threshold": 0.0065,
+      "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_1024_F_3_B_4.json",
+      "source_key": "10",
+      "source_note": "Official F=3, B=4, D=1024 hyperparameter table at codebook size 10. Reused as the nearest official single-product prior for M=5 and M=10."
+    }
+  ],
+  "selected_config": {
+    "config_id": "official_hp_d512_b4_m10",
+    "dimension": 512,
+    "blocks": 4,
+    "a_value": 46,
+    "threshold": 0.0094,
+    "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+    "source_key": "10",
+    "source_note": "Official F=3, B=4, D=512 hyperparameter table at codebook size 10. Reused as the nearest official single-product prior for M=5 and M=10.",
+    "convergence_detection_threshold": 0.9,
+    "similarity": "inf",
+    "decoding": "sequential",
+    "topa_pu": true,
+    "permutation": false,
+    "iteration_cap": 16
+  },
+  "selection_locked_before_heldout": true,
+  "limitations": [
+    "Official BCF hyperparameter tables do not cover M=5 or F=4 directly.",
+    "The frozen candidates reuse official single-product priors from nearby published tables rather than inventing custom equations or kernels.",
+    "Configuration selection is intentionally scoped to the primary single-product cell to keep the pre-heldout search narrow."
+  ]
+}
