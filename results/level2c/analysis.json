@@ -1,0 +1,20 @@
+{
+  "allowed_claims": [
+    "candidate-policy portability beyond VSA",
+    "safe fallback reduces catastrophic exclusions"
+  ],
+  "context_policy_version": "level2c-transparent-context-policy-v1",
+  "forbidden_claims": [
+    "universal context controller",
+    "CNM or H2 necessity",
+    "new probabilistic matcher"
+  ],
+  "notes": [
+    "Splink matcher remained fixed across arms; only blocking policy changed.",
+    "Safe fallback always re-ran a fresh broad/native pass.",
+    "Blocking time is not separately observable from Splink's coupled find_matches_to_new_records call; matching_time captures native blocking+scoring time."
+  ],
+  "protocol_version": "level2c-frozen-protocol-v1",
+  "schema_version": "level2c-splink-context-policy-v1",
+  "verdict": "NARROW"
+}

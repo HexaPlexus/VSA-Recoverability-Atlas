@@ -1,0 +1,65 @@
+{
+  "context_error_conditions": [
+    "correct_context",
+    "missing_context",
+    "ambiguous_context",
+    "incorrect_context_10_percent",
+    "incorrect_context_25_percent",
+    "incorrect_context_40_percent",
+    "unknown_context"
+  ],
+  "context_policy_version": "level2c-transparent-context-policy-v1",
+  "dataset_name": "FEBRL4",
+  "fallback_context_confidence_grid": [
+    0.1,
+    0.3,
+    0.6
+  ],
+  "fallback_gap_grid": [
+    0.02,
+    0.05,
+    0.1
+  ],
+  "fallback_probability_grid": [
+    0.35,
+    0.5,
+    0.65
+  ],
+  "master_seed": 20260615,
+  "match_probability_threshold": 0.4,
+  "protocol_version": "level2c-frozen-protocol-v1",
+  "schema_version": "level2c-splink-context-policy-v1",
+  "selected_fallback_context_confidence_threshold": 0.1,
+  "selected_fallback_gap_threshold": 0.02,
+  "selected_fallback_probability_threshold": 0.35,
+  "selected_standard_template": "tpl_standard_broad",
+  "split_seed": 20260616,
+  "standard_template_candidates": [
+    "tpl_state_postcode_or_surname_dob",
+    "tpl_state_suburb_or_surname_dob",
+    "tpl_standard_balanced",
+    "tpl_standard_broad"
+  ],
+  "threshold_grid": [
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "training_comparisons": [
+    "NameComparison(given_name)",
+    "NameComparison(surname)",
+    "ExactMatch(state)",
+    "ExactMatch(postcode)",
+    "ExactMatch(suburb)",
+    "ExactMatch(date_of_birth)",
+    "ExactMatch(soc_sec_id)"
+  ],
+  "utility_weights": {
+    "candidate_comparison_cost": 2e-05,
+    "correct_links_value": 1.0,
+    "fallback_cost": 0.05,
+    "false_merge_penalty": 2.0,
+    "false_split_penalty": 1.0
+  }
+}

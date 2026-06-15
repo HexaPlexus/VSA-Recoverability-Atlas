@@ -1,0 +1,279 @@
+{
+  "link_type": "dedupe_only",
+  "probability_two_random_records_match": 0.0003333333333333333,
+  "retain_matching_columns": true,
+  "retain_intermediate_calculation_columns": false,
+  "additional_columns_to_retain": [],
+  "sql_dialect": "duckdb",
+  "linker_uid": "6ikufajh",
+  "em_convergence": 0.0001,
+  "max_iterations": 25,
+  "bayes_factor_column_prefix": "bf_",
+  "term_frequency_adjustment_column_prefix": "tf_",
+  "comparison_vector_value_column_prefix": "gamma_",
+  "unique_id_column_name": "rec_id",
+  "source_dataset_column_name": null,
+  "blocking_rules_to_generate_predictions": [
+    {
+      "blocking_rule": "l.\"surname\" = r.\"surname\"",
+      "sql_dialect": "duckdb"
+    }
+  ],
+  "comparisons": [
+    {
+      "output_column_name": "given_name",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"given_name_l\" IS NULL OR \"given_name_r\" IS NULL",
+          "label_for_charts": "given_name is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"given_name_l\" = \"given_name_r\"",
+          "label_for_charts": "Exact match on given_name",
+          "m_probability": 0.677,
+          "u_probability": 0.004484858377607956,
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "tf_adjustment_column": "given_name",
+          "tf_adjustment_weight": 1.0
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"given_name_l\", \"given_name_r\") >= 0.92",
+          "label_for_charts": "Jaro-Winkler distance of given_name >= 0.92",
+          "m_probability": 0.11615476958646193,
+          "u_probability": 0.0011426137189289689,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"given_name_l\", \"given_name_r\") >= 0.88",
+          "label_for_charts": "Jaro-Winkler distance of given_name >= 0.88",
+          "m_probability": 0.013893522943566295,
+          "u_probability": 0.0009634582577728588,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"given_name_l\", \"given_name_r\") >= 0.7",
+          "label_for_charts": "Jaro-Winkler distance of given_name >= 0.7",
+          "m_probability": 0.013666666666666667,
+          "u_probability": 0.022432254352980054,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.17929097082291437,
+          "u_probability": 0.9709768152927102,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "NameComparison"
+    },
+    {
+      "output_column_name": "surname",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"surname_l\" IS NULL OR \"surname_r\" IS NULL",
+          "label_for_charts": "surname is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"surname_l\" = \"surname_r\"",
+          "label_for_charts": "Exact match on surname",
+          "m_probability": 0.66188073001336,
+          "u_probability": 0.003455709784077857,
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "tf_adjustment_column": "surname",
+          "tf_adjustment_weight": 1.0
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"surname_l\", \"surname_r\") >= 0.92",
+          "label_for_charts": "Jaro-Winkler distance of surname >= 0.92",
+          "m_probability": 0.1711202097134213,
+          "u_probability": 0.0008241151213181064,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"surname_l\", \"surname_r\") >= 0.88",
+          "label_for_charts": "Jaro-Winkler distance of surname >= 0.88",
+          "m_probability": 0.015931115260628244,
+          "u_probability": 0.0005514006971138056,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "jaro_winkler_similarity(\"surname_l\", \"surname_r\") >= 0.7",
+          "label_for_charts": "Jaro-Winkler distance of surname >= 0.7",
+          "m_probability": 0.007196082029151745,
+          "u_probability": 0.013562068409517535,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.14387186298343874,
+          "u_probability": 0.9816067059879727,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "NameComparison"
+    },
+    {
+      "output_column_name": "state",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"state_l\" IS NULL OR \"state_r\" IS NULL",
+          "label_for_charts": "state is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"state_l\" = \"state_r\"",
+          "label_for_charts": "Exact match on state",
+          "m_probability": 0.946715405969537,
+          "u_probability": 0.21811381149262377,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.05328459403046301,
+          "u_probability": 0.7818861885073762,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "ExactMatch"
+    },
+    {
+      "output_column_name": "postcode",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"postcode_l\" IS NULL OR \"postcode_r\" IS NULL",
+          "label_for_charts": "postcode is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"postcode_l\" = \"postcode_r\"",
+          "label_for_charts": "Exact match on postcode",
+          "m_probability": 0.8456666666666667,
+          "u_probability": 0.001283947471618789,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.15433333333333332,
+          "u_probability": 0.9987160525283812,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "ExactMatch"
+    },
+    {
+      "output_column_name": "suburb",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"suburb_l\" IS NULL OR \"suburb_r\" IS NULL",
+          "label_for_charts": "suburb is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"suburb_l\" = \"suburb_r\"",
+          "label_for_charts": "Exact match on suburb",
+          "m_probability": 0.7566666666666667,
+          "u_probability": 0.001210294670921277,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.24333333333333335,
+          "u_probability": 0.9987897053290787,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "ExactMatch"
+    },
+    {
+      "output_column_name": "date_of_birth",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"date_of_birth_l\" IS NULL OR \"date_of_birth_r\" IS NULL",
+          "label_for_charts": "date_of_birth is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"date_of_birth_l\" = \"date_of_birth_r\"",
+          "label_for_charts": "Exact match on date_of_birth",
+          "m_probability": 0.9098444409386561,
+          "u_probability": 0.0012819568553837212,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.09015555906134384,
+          "u_probability": 0.9987180431446163,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "ExactMatch"
+    },
+    {
+      "output_column_name": "soc_sec_id",
+      "comparison_levels": [
+        {
+          "sql_condition": "\"soc_sec_id_l\" IS NULL OR \"soc_sec_id_r\" IS NULL",
+          "label_for_charts": "soc_sec_id is NULL",
+          "fix_m_probability": false,
+          "fix_u_probability": false,
+          "is_null_level": true
+        },
+        {
+          "sql_condition": "\"soc_sec_id_l\" = \"soc_sec_id_r\"",
+          "label_for_charts": "Exact match on soc_sec_id",
+          "m_probability": 0.9103481790359883,
+          "u_probability": 0.0003125267489056587,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        },
+        {
+          "sql_condition": "ELSE",
+          "label_for_charts": "All other comparisons",
+          "m_probability": 0.08965182096401164,
+          "u_probability": 0.9996874732510943,
+          "fix_m_probability": false,
+          "fix_u_probability": false
+        }
+      ],
+      "comparison_description": "ExactMatch"
+    }
+  ]
+}

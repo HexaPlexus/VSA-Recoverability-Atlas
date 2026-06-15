@@ -1,0 +1,39 @@
+{
+  "columns": [
+    "rec_id",
+    "given_name",
+    "surname",
+    "street_number",
+    "address_1",
+    "address_2",
+    "suburb",
+    "postcode",
+    "state",
+    "date_of_birth",
+    "soc_sec_id",
+    "entity_id"
+  ],
+  "dataset_name": "FEBRL4",
+  "entity_overlap": {
+    "calibration_heldout": 0,
+    "development_calibration": 0,
+    "development_heldout": 0
+  },
+  "left_table": "febrl4a",
+  "record_counts": {
+    "left": 5000,
+    "right": 5000
+  },
+  "right_table": "febrl4b",
+  "source": "Splink bundled public datasets",
+  "split_seed": 20260616,
+  "split_sizes": {
+    "calibration": 1000,
+    "development": 3000,
+    "heldout": 1000
+  },
+  "urls": {
+    "febrl4a": "https://raw.githubusercontent.com/moj-analytical-services/splink_datasets/master/data/febrl/dataset4a.csv",
+    "febrl4b": "https://raw.githubusercontent.com/moj-analytical-services/splink_datasets/master/data/febrl/dataset4b.csv"
+  }
+}

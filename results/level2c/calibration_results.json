@@ -1,0 +1,7 @@
+{
+  "selected_fallback_context_confidence_threshold": 0.1,
+  "selected_fallback_gap_threshold": 0.02,
+  "selected_fallback_probability_threshold": 0.35,
+  "selected_match_probability_threshold": 0.4,
+  "selected_standard_template": "tpl_standard_broad"
+}
