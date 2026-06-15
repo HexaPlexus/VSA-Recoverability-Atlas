@@ -1,0 +1,34 @@
+{
+  "adoptable_libraries": [
+    "galois (Python finite-field algebra)",
+    "numpy/scipy for surrounding numeric scaffolding"
+  ],
+  "contract_target": {
+    "U1": "blind single-product factorization under a fixed known factor schema",
+    "U2": "possible later extension if the linear-system story remains honest under superposition assumptions"
+  },
+  "gap_to_probe": "Whether algebraic structure creates a materially better clean U1 capacity frontier than dense MAP or official BCF.",
+  "paper_specific_minimal_code": [
+    "subcode construction glue",
+    "paper-defined binding and recovery map",
+    "paper-curve reproduction harness"
+  ],
+  "replacement_plan": "If TorchHD or another audited upstream releases a matching linear-code implementation, delete or replace the local minimal reproduction.",
+  "required_assumptions": [
+    "explicit subcode construction",
+    "direct-sum or equivalent rank-separation structure",
+    "known factor schema",
+    "noise model consistent with the paper's algebraic recovery story"
+  ],
+  "required_operations": [
+    "finite-field or GF(2) linear algebra",
+    "codebook generation from the paper's subcode construction",
+    "exact or approximate solve for factor recovery"
+  ],
+  "schema_version": "level3-1-native-envelope-dev-v1",
+  "validation_plan": [
+    "reproduce at least one paper-consistent clean recovery curve before any subject comparison",
+    "show that the implemented contract is U1 and not silently a weaker keyed cleanup variant"
+  ],
+  "verdict": "GO_REPLICATE_MINIMAL"
+}

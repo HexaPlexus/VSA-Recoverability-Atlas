@@ -1,0 +1,16 @@
+{
+  "checkpoint_commit": "66abd983d1626105b8c96602512a52d10a22d7d7",
+  "context_disabled": true,
+  "cuda_available": true,
+  "device": "cuda:0",
+  "ibm_upstream_clean": true,
+  "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "new_decoder_implemented": false,
+  "no_heldout_used": true,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_version": "3.11.15",
+  "same_device_timing": true,
+  "schema_version": "level3-1-native-envelope-dev-v1",
+  "torch_version": "2.5.1+cu121",
+  "torchhd_version": "5.8.4"
+}

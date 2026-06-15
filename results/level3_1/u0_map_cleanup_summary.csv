@@ -1,0 +1,5 @@
+schema_version,point_id,dimensions,bundled_pairs,item_memory_size,trials,top1_filler_recovery_rate,mean_cleanup_margin,silent_wrong_recovery_rate,mean_decode_time_sec,mean_observation_bytes,mean_codebook_bytes
+level3-1-native-envelope-dev-v1,u0_d256_pairs2_m16,256,2,16,16,1.0,0.5787626544479281,0.0,0.0005658404374999648,1024,32768
+level3-1-native-envelope-dev-v1,u0_d256_pairs4_m16,256,4,16,16,1.0,0.3981888466514647,0.0,0.00047699400000045244,1024,32768
+level3-1-native-envelope-dev-v1,u0_d256_pairs4_m64,256,4,64,16,1.0,0.3347986522130668,0.0,0.0005571090000000556,1024,131072
+level3-1-native-envelope-dev-v1,u0_d512_pairs6_m128,512,6,128,16,1.0,0.2943054190836847,0.0,0.0005153783125002587,2048,524288

@@ -1,0 +1,120 @@
+{
+  "attention_distinction": {
+    "attention_paper_algorithm_verdict": "DEFER_REPLICATION",
+    "holovec_implementation_verdict": "BLOCK_TASK_MISMATCH",
+    "holovec_is_not_the_attention_algorithm_family": true
+  },
+  "schema_version": "level3-1-native-envelope-dev-v1",
+  "source_ledger": [
+    {
+      "code_artifact": "TorchHD resonator",
+      "code_status": "UPSTREAM_AVAILABLE",
+      "code_url": "https://github.com/hyperdimensional-computing/torchhd",
+      "distinction": "paper algorithm and upstream TorchHD implementation",
+      "family": "classic_resonator",
+      "level3_verdict": "ADOPT_UPSTREAM",
+      "note": "Frozen dense MAP baseline for U0/U1.",
+      "primary_source_title": "A Resonator Network for Factoring Distributed Representations of Data Structures",
+      "primary_source_url": "https://www.frontiersin.org/articles/10.3389/fnbot.2020.00063/full"
+    },
+    {
+      "code_artifact": "No audited official upstream found in this repo",
+      "code_status": "PAPER_ONLY",
+      "code_url": "",
+      "distinction": "paper algorithm distinct from the HoloVec API",
+      "family": "attention_resonator_algorithm",
+      "level3_verdict": "DEFER_REPLICATION",
+      "note": "HoloVec mismatch does not falsify the algorithm family itself.",
+      "primary_source_title": "Self-Attention Based Semantic Decomposition in Vector Symbolic Architectures",
+      "primary_source_url": "https://arxiv.org/abs/2403.13218"
+    },
+    {
+      "code_artifact": "holovec.utils.cleanup.attention.AttentionResonatorCleanup",
+      "code_status": "THIRD_PARTY_IMPLEMENTATION",
+      "code_url": "https://github.com/Twistient/HoloVec",
+      "distinction": "audited third-party implementation, not the paper algorithm itself",
+      "family": "holovec_implementation",
+      "level3_verdict": "BLOCK_TASK_MISMATCH",
+      "note": "Shared flat codebook API blocks fair factor-specific U1 parity.",
+      "primary_source_title": "HoloVec AttentionResonatorCleanup",
+      "primary_source_url": "https://github.com/Twistient/HoloVec"
+    },
+    {
+      "code_artifact": "IBM/in-memory-factorizer",
+      "code_status": "UPSTREAM_AVAILABLE",
+      "code_url": "https://github.com/IBM/in-memory-factorizer",
+      "distinction": "official sparse block-code factorizer",
+      "family": "ibm_bcf",
+      "level3_verdict": "WRAP_UPSTREAM",
+      "note": "Primary official U1 non-MAP candidate.",
+      "primary_source_title": "Factorizers for distributed sparse block codes",
+      "primary_source_url": "https://content.iospress.com/articles/neurosymbolic-artificial-intelligence/nai240713"
+    },
+    {
+      "code_artifact": "IBM/in-memory-factorizer 100e_* experiments",
+      "code_status": "UPSTREAM_AVAILABLE_IN_REPO",
+      "code_url": "https://github.com/IBM/in-memory-factorizer",
+      "distinction": "native noise-envelope follow-up for factorizers",
+      "family": "ibm_noise_factorizers",
+      "level3_verdict": "WRAP_UPSTREAM",
+      "note": "Used to interpret native-envelope noise settings, not to run Level 3.1 noisy held-out.",
+      "primary_source_title": "On the Role of Noise in Factorizers",
+      "primary_source_url": "https://arxiv.org/search/?query=On+the+Role+of+Noise+in+Factorizers&searchtype=all"
+    },
+    {
+      "code_artifact": "No upstream pinned in repo",
+      "code_status": "PAPER_ONLY",
+      "code_url": "",
+      "distinction": "paper-only algebraic recovery candidate",
+      "family": "linear_code_hdc",
+      "level3_verdict": "DECISION_ONLY",
+      "note": "Level 3.1 creates only a replication decision artifact.",
+      "primary_source_title": "Linear Codes for Hyperdimensional Computing",
+      "primary_source_url": "https://arxiv.org/search/?query=Linear+Codes+for+Hyperdimensional+Computing&searchtype=all"
+    },
+    {
+      "code_artifact": "No audited upstream pinned in repo",
+      "code_status": "PAPER_ONLY",
+      "code_url": "",
+      "distinction": "superposition-focused U2 candidate",
+      "family": "histogram_recovery",
+      "level3_verdict": "DEFER_UPSTREAM",
+      "note": "Not run in Level 3.1 because U2 is out of scope.",
+      "primary_source_title": "Efficient Vector Symbolic Architectures from Histogram Recovery",
+      "primary_source_url": "https://arxiv.org/search/?query=Efficient+Vector+Symbolic+Architectures+from+Histogram+Recovery&searchtype=all"
+    },
+    {
+      "code_artifact": "Evaluator oracle only",
+      "code_status": "NO_UPSTREAM_NEEDED",
+      "code_url": "",
+      "distinction": "oracle-only exact representation",
+      "family": "full_tensor_product",
+      "level3_verdict": "ORACLE_ONLY",
+      "note": "Not a practical promoted substrate.",
+      "primary_source_title": "Full tensor-product representation (classical exact baseline)",
+      "primary_source_url": "https://en.wikipedia.org/wiki/Tensor_product"
+    },
+    {
+      "code_artifact": "No audited upstream pinned in repo",
+      "code_status": "PAPER_ONLY",
+      "code_url": "",
+      "distinction": "continuous-value cleanup track",
+      "family": "fhrr_cleanup",
+      "level3_verdict": "SEPARATE_U3_TRACK",
+      "note": "Explicitly out of U1 Level 3.1 runs.",
+      "primary_source_title": "Improved Cleanup and Decoding of Fractional Power Encodings",
+      "primary_source_url": "https://arxiv.org/search/?query=Improved+Cleanup+and+Decoding+of+Fractional+Power+Encodings&searchtype=all"
+    },
+    {
+      "code_artifact": "No audited upstream pinned in repo",
+      "code_status": "PAPER_ONLY",
+      "code_url": "",
+      "distinction": "paper candidate without audited upstream implementation in repo",
+      "family": "coupled_diffusion",
+      "level3_verdict": "DEFER_REPLICATION",
+      "note": "Deferred pending code or a later isolated gap-driven replication.",
+      "primary_source_title": "Coupled Inference in Diffusion Models for Semantic Decomposition",
+      "primary_source_url": "https://arxiv.org/abs/2602.09983"
+    }
+  ]
+}

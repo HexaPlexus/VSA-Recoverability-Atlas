@@ -1,0 +1,18 @@
+schema_version,substrate,config_id,point_id,search_space_log10,exact_recovery_rate,mean_decode_time_sec,mean_codebook_bytes,mean_native_operation_proxy,phase_zone,candidate_reason
+level3-1-native-envelope-dev-v1,BCF,bcf_d1024_f3_b4_m10,u1_f3_m10,3.0,1.0,0.03197827575000023,123360,61440,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d256_f3_b4_m10,u1_f3_m10,3.0,1.0,0.03218715700000008,31200,19680,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d512_f3_b4_m10,u1_f3_m10,3.0,1.0,0.029151282249999966,61920,30720,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,MAP,map_d1024,u1_f3_m10,3.0,1.0,0.004744960750000082,122880,103680,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,MAP,map_d512,u1_f3_m10,3.0,1.0,0.005143191062500607,61440,52800,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d1024_f3_b4_m22,u1_f3_m22,4.027268,1.0,0.041283977562500684,271392,202752,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d256_f3_b4_m22,u1_f3_m22,4.027268,1.0,0.10710507293749938,68640,130944,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d512_f3_b4_m22,u1_f3_m22,4.027268,1.0,0.054519953562499834,136224,141504,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d1024_f3_b4_m31,u1_f3_m31,4.474085,1.0,0.05030008656250029,382416,345216,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d256_f3_b4_m31,u1_f3_m31,4.474085,1.0,0.1833561058124995,96720,264864,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d512_f3_b4_m31,u1_f3_m31,4.474085,1.0,0.08278812149999748,191952,288672,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d1024_f3_b4_m49,u1_f3_m49,5.070588,1.0,0.14538112081250087,604464,1674624,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d256_f3_b4_m49,u1_f3_m49,5.070588,1.0,0.5888546507500005,152880,1498224,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d512_f3_b4_m49,u1_f3_m49,5.070588,1.0,0.2345177308749995,303408,1176000,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d1024_f3_b4_m68,u1_f3_m68,5.497527,1.0,0.2825554048750005,838848,4282368,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d256_f3_b4_m68,u1_f3_m68,5.497527,1.0,0.8542002974374983,212160,3378240,EASY,development nondominated or near-boundary point
+level3-1-native-envelope-dev-v1,BCF,bcf_d512_f3_b4_m68,u1_f3_m68,5.497527,1.0,0.5986638432499989,421056,4504320,EASY,development nondominated or near-boundary point

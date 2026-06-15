@@ -1,0 +1,54 @@
+{
+  "allowed_conclusions_only": true,
+  "bcf_reproduction_gate_passed": true,
+  "checkpoint_commit": "66abd983d1626105b8c96602512a52d10a22d7d7",
+  "context_or_pruning_used": false,
+  "exact_next_stage": "GO_LEVEL_3_2",
+  "git_status_at_start": "clean",
+  "heldout_used": false,
+  "level3_2_candidate_cells": [
+    {
+      "cell_id": "u1_easy_anchor",
+      "point_id": "u1_f3_m10",
+      "purpose": "shared easy anchor"
+    },
+    {
+      "cell_id": "u1_boundary_anchor",
+      "point_id": "u1_f3_m22",
+      "purpose": "first common MAP boundary candidate"
+    },
+    {
+      "cell_id": "u1_boundary_refinement",
+      "point_id": "u1_f3_m31",
+      "purpose": "second common MAP boundary candidate"
+    },
+    {
+      "cell_id": "u1_failure_anchor",
+      "point_id": "u1_f3_m68",
+      "purpose": "clear MAP failure anchor with preserved BCF success"
+    },
+    {
+      "cell_id": "bcf_native_stress_anchor",
+      "point_id": "bcf_stress_d512_f3_m110",
+      "purpose": "official BCF native-envelope stress point outside the common tiny search"
+    }
+  ],
+  "new_decoder_implemented": false,
+  "official_bcf_reproduction_precedes_common_comparison": true,
+  "pareto_candidate_count": 17,
+  "schema_version": "level3-1-native-envelope-dev-v1",
+  "u0_points": [
+    "u0_d256_pairs2_m16",
+    "u0_d256_pairs4_m16",
+    "u0_d256_pairs4_m64",
+    "u0_d512_pairs6_m128"
+  ],
+  "u0_u1_aggregated": false,
+  "u1_points": [
+    "u1_f3_m10",
+    "u1_f3_m22",
+    "u1_f3_m31",
+    "u1_f3_m49",
+    "u1_f3_m68"
+  ]
+}
