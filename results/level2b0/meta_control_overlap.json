@@ -1,0 +1,91 @@
+{
+  "schema_version": "level2b0-meta-control-closure-v1",
+  "checkpoint_commit": "8b7b24ab72962873075631d8dfd7d6def3e51f73",
+  "status": "documentation-only",
+  "meta_control_prior_art": {
+    "per_instance_algorithm_selection": {
+      "recorded": true,
+      "topics": [
+        "Rice algorithm selection problem",
+        "algorithm portfolios",
+        "SATzilla-style per-instance selection"
+      ],
+      "covered_contracts": [
+        "input or instance feature extraction",
+        "mechanism selection",
+        "predicted quality or runtime",
+        "portfolio scheduling",
+        "fallback or default algorithm",
+        "selection overhead"
+      ],
+      "verdict": "existing prior art covers this class"
+    },
+    "rational_metareasoning": {
+      "recorded": true,
+      "topics": [
+        "Russell and Wefald value of computation",
+        "metalevel MDP",
+        "bounded optimality",
+        "resource-rational compute allocation"
+      ],
+      "covered_contracts": [
+        "choose which computation to execute",
+        "allocate finite budget",
+        "continue versus terminate",
+        "account for metareasoning cost",
+        "optimize downstream utility"
+      ],
+      "verdict": "existing prior art covers this class"
+    },
+    "anytime_and_adaptive_computation": {
+      "recorded": true,
+      "topics": [
+        "interruptible anytime algorithms",
+        "performance profiles",
+        "Adaptive Computation Time"
+      ],
+      "covered_contracts": [
+        "dynamic iteration budget",
+        "expected quality as a function of compute",
+        "stopping under deadlines",
+        "compute quality trade-off"
+      ],
+      "verdict": "existing prior art covers this class"
+    }
+  },
+  "sources": [
+    {
+      "label": "Rice algorithm selection",
+      "url": "https://docs.lib.purdue.edu/cstech/99/"
+    },
+    {
+      "label": "SATzilla portfolio system",
+      "url": "https://www.cs.ubc.ca/labs/algorithms/Projects/SATzilla/"
+    },
+    {
+      "label": "Russell and Wefald metareasoning",
+      "url": "https://link.springer.com/book/10.1007/978-1-4613-9734-5"
+    },
+    {
+      "label": "Metareasoning survey",
+      "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2331"
+    },
+    {
+      "label": "Bounded optimality",
+      "url": "https://people.eecs.berkeley.edu/~russell/aima1e/aima-bounded-optimality.pdf"
+    },
+    {
+      "label": "Adaptive Computation Time",
+      "url": "https://arxiv.org/abs/1603.08983"
+    },
+    {
+      "label": "Anytime algorithms overview",
+      "url": "https://link.springer.com/referenceworkentry/10.1007/978-0-387-30164-8_43"
+    },
+    {
+      "label": "Performance profiles",
+      "url": "https://link.springer.com/article/10.1023/A:1013972813491"
+    }
+  ],
+  "narrowing_conclusion": "Mechanism selection, scheduling, stopping, and cost-aware budget allocation are adopted science. The only remaining possible seam is a thin authority-preserving context interface over unchanged native mechanisms."
+}

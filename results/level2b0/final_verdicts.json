@@ -1,0 +1,211 @@
+{
+  "schema_version": "level2b0-meta-control-closure-v1",
+  "checkpoint_commit": "8b7b24ab72962873075631d8dfd7d6def3e51f73",
+  "supersedes": "results/level2b0/verdicts.json",
+  "status": "documentation-only",
+  "level2b_entity_resolution_research": "BLOCKED / ADOPT EXISTING",
+  "general_mechanism_routing": "ADAPT EXISTING METAREASONING",
+  "typed_authority_seam": "ENGINEERING COMPOSE + PROVISIONAL THIN BUILD",
+  "portable_external_context_controller": {
+    "status": "HYPOTHESIS",
+    "classification": "RESEARCH PROTOTYPE",
+    "allowed_scope": "thin only"
+  },
+  "cnm": "DEFERRED",
+  "seam_L_decomposition": [
+    {
+      "id": "L1",
+      "name": "mechanism selection",
+      "verdict": "ADOPT",
+      "classification": "ADOPTED SCIENCE",
+      "prior_art": [
+        "Rice algorithm selection problem",
+        "algorithm portfolios",
+        "SATzilla"
+      ],
+      "mismatch": "None sufficient to justify new theory or a broad build verdict."
+    },
+    {
+      "id": "L2",
+      "name": "portfolio scheduling",
+      "verdict": "ADOPT",
+      "classification": "ADOPTED SCIENCE",
+      "prior_art": [
+        "portfolio scheduling",
+        "per-instance algorithm portfolios"
+      ],
+      "mismatch": "Only downstream mechanism wrapping remains."
+    },
+    {
+      "id": "L3",
+      "name": "budget allocation",
+      "verdict": "ADAPT",
+      "classification": "ADOPTED SCIENCE",
+      "prior_art": [
+        "value of computation",
+        "bounded optimality",
+        "resource-rational allocation"
+      ],
+      "mismatch": "Needs domain-specific utility wiring, not new allocation science."
+    },
+    {
+      "id": "L4",
+      "name": "continue stop fallback",
+      "verdict": "ADAPT",
+      "classification": "ADOPTED SCIENCE",
+      "prior_art": [
+        "anytime algorithms",
+        "interruptible computation",
+        "performance profiles"
+      ],
+      "mismatch": "Needs benchmark-specific stopping hooks, not new stopping theory."
+    },
+    {
+      "id": "L5",
+      "name": "cost-aware objective",
+      "verdict": "ADOPT",
+      "classification": "ADOPTED SCIENCE",
+      "prior_art": [
+        "utility-aware metareasoning",
+        "resource-rational cognition"
+      ],
+      "mismatch": "Objective selection is application binding."
+    },
+    {
+      "id": "L6",
+      "name": "native uncertainty normalization",
+      "verdict": "COMPOSE",
+      "classification": "ENGINEERING INTEGRATION",
+      "prior_art": [
+        "native matcher confidence outputs",
+        "tracking posterior probabilities"
+      ],
+      "mismatch": "No single shared cross-mechanism scale exists."
+    },
+    {
+      "id": "L7",
+      "name": "authority-controlled non-commit",
+      "verdict": "COMPOSE",
+      "classification": "ENGINEERING INTEGRATION",
+      "prior_art": [
+        "no-match thresholds",
+        "deferred commitment",
+        "abstention"
+      ],
+      "mismatch": "Requires a shared action authorization boundary across mechanisms."
+    },
+    {
+      "id": "L8",
+      "name": "cross-mechanism provenance",
+      "verdict": "COMPOSE",
+      "classification": "ENGINEERING INTEGRATION",
+      "prior_art": [
+        "decision provenance logging",
+        "traceable evidence records"
+      ],
+      "mismatch": "Needs a normalized schema across heterogeneous native outputs."
+    },
+    {
+      "id": "L9",
+      "name": "shared external context interface",
+      "verdict": "COMPOSE",
+      "classification": "ENGINEERING INTEGRATION",
+      "prior_art": [
+        "adapter patterns",
+        "typed integration layers"
+      ],
+      "mismatch": "Needs a common interface without replacing native mechanisms."
+    },
+    {
+      "id": "L10",
+      "name": "portable context policy across heterogeneous mechanisms",
+      "verdict": "BUILD",
+      "classification": "RESEARCH PROTOTYPE",
+      "status": "HYPOTHESIS",
+      "prior_art": [
+        "algorithm selection",
+        "metareasoning",
+        "contextual candidate restriction"
+      ],
+      "mismatch": "No audited upstream system exposed this exact context-plus-authority seam across heterogeneous native mechanisms without collapsing into ordinary blocking or routing.",
+      "allowed_build_target": [
+        "MechanismAdapter",
+        "AuthorityController"
+      ]
+    }
+  ],
+  "engineering_vs_research": [
+    {
+      "component": "wrapping native outputs",
+      "classification": "ENGINEERING INTEGRATION"
+    },
+    {
+      "component": "normalizing provenance",
+      "classification": "ENGINEERING INTEGRATION"
+    },
+    {
+      "component": "invoking resolvers",
+      "classification": "ENGINEERING INTEGRATION"
+    },
+    {
+      "component": "indexed belief lookup",
+      "classification": "ENGINEERING INTEGRATION"
+    },
+    {
+      "component": "typed adapters",
+      "classification": "ENGINEERING INTEGRATION"
+    },
+    {
+      "component": "portable external context controller",
+      "classification": "RESEARCH PROTOTYPE"
+    }
+  ],
+  "allowed_thin_build_seam": {
+    "mechanism_adapter": [
+      "native candidates",
+      "native uncertainty",
+      "provenance",
+      "estimated or observed cost"
+    ],
+    "authority_controller": [
+      "provisional acceptance",
+      "request expansion",
+      "switch mechanism",
+      "abstain",
+      "transactional commit authorization"
+    ],
+    "must_not_reimplement": [
+      "matcher",
+      "tracker",
+      "factorizer",
+      "algorithm selector theory",
+      "value of computation framework",
+      "scheduler",
+      "confidence model"
+    ]
+  },
+  "final_surviving_hypothesis": "A shared external context representation may portably control candidate fields and resource allocation across heterogeneous native mechanisms while preserving native uncertainty and preventing irreversible belief commit under context error.",
+  "required_future_experiment": {
+    "arms": [
+      "native mechanism with its standard selection or blocking",
+      "native mechanism with external context policy",
+      "external context policy plus safe broad fallback",
+      "oracle routing or budget ceiling"
+    ],
+    "primary_metrics": [
+      "downstream utility",
+      "false commit rate",
+      "coverage",
+      "candidate recall",
+      "fallback rate",
+      "mechanism-switch rate",
+      "total compute including controller overhead"
+    ],
+    "mandatory_ablations": [
+      "context only",
+      "algorithm-selection baseline",
+      "value-of-computation baseline",
+      "context plus authority boundary"
+    ]
+  }
+}
