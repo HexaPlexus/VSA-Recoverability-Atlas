@@ -1,0 +1,46 @@
+{
+  "policy_version": "level2a-threshold-policy-v1",
+  "schema_version": "level2a-temporal-memory-v1",
+  "target_selective_risk": 0.05,
+  "thresholds": {
+    "subset_min_margin": 0.01,
+    "subset_min_reconstruction": 0.0,
+    "subset_min_recency": 0.1,
+    "subset_min_confidence": 0.35,
+    "global_min_margin": 0.01,
+    "global_min_reconstruction": 0.0,
+    "global_min_recency": 0.1,
+    "global_min_confidence": 0.35
+  },
+  "calibration_seed_ranges": {
+    "A_STABLE_LOCATION": {
+      "start": 39260614,
+      "count": 64
+    },
+    "B_OBSERVED_MOVEMENT": {
+      "start": 39270614,
+      "count": 64
+    },
+    "C_UNOBSERVED_MOVEMENT": {
+      "start": 39280614,
+      "count": 64
+    },
+    "D_CONFLICTING_SOURCES": {
+      "start": 39290614,
+      "count": 64
+    }
+  },
+  "utility_weights": {
+    "CORRECT_ACTION": 1.0,
+    "CORRECT_ABSTENTION": 0.0,
+    "UNNECESSARY_ABSTENTION": -0.1,
+    "STALE_MEMORY_ACTION": -0.5,
+    "WRONG_ENTITY_ACTION": -0.5,
+    "UNSUPPORTED_ACTION": -2.0
+  },
+  "preferred_runtime_method": "semantic_MAP_with_cold_global_fallback",
+  "achieved_calibration_risk": 0.0,
+  "achieved_calibration_coverage": 0.00390625,
+  "achieved_calibration_utility": -0.070703125,
+  "selection_rule": "risk<=0.05, then max utility, then max coverage, then min compute"
+}

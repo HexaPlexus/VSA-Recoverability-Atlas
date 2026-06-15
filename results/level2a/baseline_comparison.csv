@@ -1,0 +1,8 @@
+schema_version,method_id,trials,correct_action_rate,false_commit_rate,behavioral_utility,exact_index_applicable_rate
+level2a-temporal-memory-v1,global_MAP_retrieval,256,0.585938,0.394531,0.271484,0.5
+level2a-temporal-memory-v1,latest_raw_episode_by_entity,256,0.714844,0.242188,0.339453,1.0
+level2a-temporal-memory-v1,oracle_episode_selection,256,0.714844,0.261719,0.4,0.5
+level2a-temporal-memory-v1,random_context_MAP,256,0.519531,0.421875,0.185547,0.5
+level2a-temporal-memory-v1,semantic_MAP_with_abstention,256,0.257812,0.0,-0.066406,0.5
+level2a-temporal-memory-v1,semantic_MAP_with_cold_global_fallback,256,0.257812,0.0,-0.066406,0.5
+level2a-temporal-memory-v1,semantic_context_MAP,256,0.523438,0.449219,0.200391,0.5

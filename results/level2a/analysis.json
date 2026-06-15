@@ -1,0 +1,45 @@
+{
+  "schema_version": "level2a-temporal-memory-v1",
+  "checkpoint_commit": "5d54748",
+  "policy_version": "level2a-threshold-policy-v1",
+  "no_bcf_used": true,
+  "level1_artifacts_frozen": true,
+  "semantic_vs_random_location_relevant_inclusion_gain": 0.28125,
+  "semantic_fallback_vs_random_location_stale_action_delta": 0.257812,
+  "anti_nih": {
+    "exact_indexed_retrieval": {
+      "location_index_mean_utility": 0.375,
+      "semantic_with_fallback_mean_utility": -0.066406,
+      "index_beats_semantic_on_exact_location": true
+    },
+    "approximate_associative_retrieval": {
+      "trial_count": 896,
+      "methods_evaluated": [
+        "global_MAP_retrieval",
+        "latest_raw_episode_by_entity",
+        "oracle_episode_selection",
+        "random_context_MAP",
+        "semantic_MAP_with_abstention",
+        "semantic_MAP_with_cold_global_fallback",
+        "semantic_context_MAP"
+      ]
+    }
+  },
+  "verdict": "NARROW",
+  "go_level_2b": true,
+  "calibration_summary": {
+    "coverage": 0.01171875,
+    "selective_risk": 0.0,
+    "mean_utility": -0.062109375,
+    "mean_compute": 384.703125
+  },
+  "runtime_metadata": {
+    "schema_version": "level2a-temporal-memory-v1",
+    "python_version": "3.14.5",
+    "torch_version": "2.12.0+cpu",
+    "torchhd_version": "5.8.4",
+    "platform": "Windows-11-10.0.26100-SP0"
+  },
+  "development_trial_count": 128,
+  "heldout_trial_count": 1792
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "level2a-temporal-memory-v1",
+  "rooms": [
+    "WORKSHOP",
+    "STORAGE",
+    "LAB",
+    "GARAGE",
+    "OFFICE",
+    "YARD"
+  ],
+  "room_hierarchy": {
+    "NORTH": [
+      "WORKSHOP",
+      "STORAGE"
+    ],
+    "SOUTH": [
+      "LAB",
+      "GARAGE"
+    ],
+    "EAST": [
+      "OFFICE",
+      "YARD"
+    ]
+  },
+  "entity_catalog": [
+    {
+      "entity_id": "HAMMER_1",
+      "entity_type": "TOOL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "REPAIR"
+      ]
+    },
+    {
+      "entity_id": "CUTTER_1",
+      "entity_type": "TOOL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "CUT"
+      ]
+    },
+    {
+      "entity_id": "EXTINGUISHER_1",
+      "entity_type": "TOOL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "EXTINGUISH"
+      ]
+    },
+    {
+      "entity_id": "SPILL_KIT_1",
+      "entity_type": "TOOL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "CONTAIN"
+      ]
+    },
+    {
+      "entity_id": "BATTERY_1",
+      "entity_type": "RESOURCE",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "POWER"
+      ]
+    },
+    {
+      "entity_id": "WATER_1",
+      "entity_type": "RESOURCE",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "EXTINGUISH"
+      ]
+    },
+    {
+      "entity_id": "ACID_DRUM_1",
+      "entity_type": "HAZARD",
+      "default_state": "HAZARD_PRESENT",
+      "capabilities": [
+        "CORROSIVE"
+      ]
+    },
+    {
+      "entity_id": "FIRE_CAN_1",
+      "entity_type": "HAZARD",
+      "default_state": "HAZARD_PRESENT",
+      "capabilities": [
+        "FIRE"
+      ]
+    },
+    {
+      "entity_id": "CRATE_1",
+      "entity_type": "CONTAINER",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "STORE"
+      ]
+    },
+    {
+      "entity_id": "LOCKER_1",
+      "entity_type": "CONTAINER",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "STORE"
+      ]
+    },
+    {
+      "entity_id": "RAT_1",
+      "entity_type": "NEUTRAL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "DISTRACT"
+      ]
+    },
+    {
+      "entity_id": "DRONE_1",
+      "entity_type": "NEUTRAL",
+      "default_state": "AVAILABLE",
+      "capabilities": [
+        "MOVE"
+      ]
+    }
+  ],
+  "query_types": [
+    "LOCATION",
+    "TOOL",
+    "HAZARD"
+  ],
+  "scenario_families": [
+    "A_STABLE_LOCATION",
+    "B_OBSERVED_MOVEMENT",
+    "C_UNOBSERVED_MOVEMENT",
+    "D_CONFLICTING_SOURCES"
+  ],
+  "utility_weights": {
+    "CORRECT_ACTION": 1.0,
+    "CORRECT_ABSTENTION": 0.0,
+    "UNNECESSARY_ABSTENTION": -0.1,
+    "STALE_MEMORY_ACTION": -0.5,
+    "WRONG_ENTITY_ACTION": -0.5,
+    "UNSUPPORTED_ACTION": -2.0
+  },
+  "closed_mechanisms_from_level1": [
+    "full_l2_l1_global_cascade",
+    "warm_estimate_transfer",
+    "cheap_l1_probe_verifier",
+    "holovec_attention_comparison",
+    "further_bcf_tuning"
+  ]
+}
