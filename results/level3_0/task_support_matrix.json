@@ -1,0 +1,188 @@
+{
+  "generated_on": "2026-06-15",
+  "methods": [
+    {
+      "method_id": "dense_map_classic",
+      "native_decoder": "Classic resonator plus native item-memory cleanup",
+      "representation": "Dense MAP bipolar hypervectors",
+      "task_contract": {
+        "U0": "SUPPORTED",
+        "U1": "SUPPORTED",
+        "U2": "NO_NATIVE_SET_DECODER",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "ibm_bcf",
+      "native_decoder": "Official IBM block code factorizer",
+      "representation": "Distributed sparse block codes (GSBC / block code factorizer)",
+      "task_contract": {
+        "U0": "NOT_PRIMARY",
+        "U1": "SUPPORTED",
+        "U2": "TASK_MISMATCH_FOR_CURRENT_UPSTREAM_CONTRACT",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "holovec_attention",
+      "native_decoder": "HoloVec AttentionResonatorCleanup",
+      "representation": "Attention-cleanup shared codebook VSA",
+      "task_contract": {
+        "U0": "POSSIBLE_SHARED_CODEBOOK_CLEANUP",
+        "U1": "BLOCKED_FACTOR_DOMAIN_MISMATCH",
+        "U2": "NO_NATIVE_SET_DECODER",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "coupled_diffusion",
+      "native_decoder": "Published coupled diffusion decomposition",
+      "representation": "Diffusion-based coupled inference",
+      "task_contract": {
+        "U0": "NOT_PRIMARY",
+        "U1": "PAPER_CANDIDATE",
+        "U2": "UNKNOWN",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "linear_code_hdc",
+      "native_decoder": "Exact or linear-system recovery under code/subcode assumptions",
+      "representation": "Linear-code HDC over F2",
+      "task_contract": {
+        "U0": "SUPPORTED_UNDER_PAPER_ASSUMPTIONS",
+        "U1": "CANDIDATE_REQUIRES_DIRECT_SUM_DESIGN",
+        "U2": "CANDIDATE_REQUIRES_LINEAR_SYSTEM_SOLVE",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "histogram_recovery",
+      "native_decoder": "Histogram recovery decoder",
+      "representation": "Histogram-recovery VSA with Reed-Solomon/Hadamard structure",
+      "task_contract": {
+        "U0": "NOT_PRIMARY",
+        "U1": "NOT_NATIVE_PRIORITY",
+        "U2": "SUPPORTED_IN_PRINCIPLE",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "full_tensor_product",
+      "native_decoder": "Exact tensor unbinding or enumeration oracle",
+      "representation": "Full tensor product",
+      "task_contract": {
+        "U0": "ORACLE_SUPPORTED",
+        "U1": "ORACLE_SUPPORTED",
+        "U2": "ORACLE_SUPPORTED_TINY_ONLY",
+        "U3": "NOT_APPLICABLE",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    },
+    {
+      "method_id": "fhrr_cleanup",
+      "native_decoder": "Improved cleanup and decoding of fractional power encodings",
+      "representation": "FHRR / SSP continuous-phase encodings",
+      "task_contract": {
+        "U0": "SEPARATE_CONTINUOUS_TRACK",
+        "U1": "SEPARATE_CONTINUOUS_TRACK",
+        "U2": "SEPARATE_CONTINUOUS_TRACK",
+        "U3": "SUPPORTED_IN_SEPARATE_TRACK",
+        "U4": "DEFERRED",
+        "U5": "SAFETY_DEFERRED"
+      }
+    }
+  ],
+  "schema_version": "level3-0-substrate-audit-v1",
+  "tasks": [
+    {
+      "included_in_primary_substrate_ranking": true,
+      "name": "Known-key cleanup",
+      "native_semantics": "Role-aware item-memory retrieval after native unbinding.",
+      "notes": [
+        "This is not blind factorization.",
+        "Nearest-neighbour cleanup is the native MAP baseline."
+      ],
+      "observation_contract": "Known role or key with bundled role-filler pairs; unbind then cleanup.",
+      "output_contract": "One filler per known role/key, plus detected miss if cleanup fails.",
+      "status": "ACTIVE",
+      "task_id": "U0"
+    },
+    {
+      "included_in_primary_substrate_ranking": true,
+      "name": "Blind single-product factorization",
+      "native_semantics": "Native factorizer must return a factor tuple, not an arbitrary target picked post hoc.",
+      "notes": [
+        "This is the direct descendant of the Level 1 single-product contract.",
+        "Candidate domains must be identical across paired methods within a trial."
+      ],
+      "observation_contract": "All factors unknown; x = bind(f1, ..., fF).",
+      "output_contract": "Exactly one prediction per factor domain.",
+      "status": "ACTIVE",
+      "task_id": "U1"
+    },
+    {
+      "included_in_primary_substrate_ranking": true,
+      "name": "Superposed tuple recovery",
+      "native_semantics": "Methods must natively support tuple-set or histogram recovery to be ranked here.",
+      "notes": [
+        "Semantic distractor superposition belongs here, not inside U1.",
+        "Methods that only return one tuple do not satisfy U2 without an explicit native set decoder."
+      ],
+      "observation_contract": "x = bundle(bind(tuple_1), ..., bind(tuple_K)).",
+      "output_contract": "Tuple set or histogram recovery, not an evaluator-chosen target tuple.",
+      "status": "ACTIVE",
+      "task_id": "U2"
+    },
+    {
+      "included_in_primary_substrate_ranking": false,
+      "name": "Continuous-value cleanup",
+      "native_semantics": "Report separately from discrete tuple recovery.",
+      "notes": [
+        "Do not merge U3 into discrete U0/U1/U2 scoreboards.",
+        "FHRR-specific cleanup and decoding live here."
+      ],
+      "observation_contract": "Continuous or phase-valued encodings such as FHRR/SSP.",
+      "output_contract": "Recovered continuous value or cleanup candidate under the native algebra.",
+      "status": "SEPARATE_TRACK",
+      "task_id": "U3"
+    },
+    {
+      "included_in_primary_substrate_ranking": false,
+      "name": "Nested structures",
+      "native_semantics": "Only eligible after U0-U2 closure.",
+      "notes": [
+        "No Level 3.0 benchmark cell may include U4."
+      ],
+      "observation_contract": "Compositions containing nested bindings or recursively embedded structures.",
+      "output_contract": "Structured tree or nested tuple recovery.",
+      "status": "DEFERRED",
+      "task_id": "U4"
+    },
+    {
+      "included_in_primary_substrate_ranking": false,
+      "name": "Open-set factor",
+      "native_semantics": "Safety track only; not part of the primary substrate ranking.",
+      "notes": [
+        "Do not fold open-set handling into core substrate ranking."
+      ],
+      "observation_contract": "At least one factor may be absent from all known candidate domains.",
+      "output_contract": "Recovered known factors plus detected unknown or abstention.",
+      "status": "DEFERRED_SAFETY_TRACK",
+      "task_id": "U5"
+    }
+  ]
+}

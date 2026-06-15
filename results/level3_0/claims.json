@@ -1,0 +1,13 @@
+{
+  "allowed_next_stage_claim": "Proceed to isolated native substrate evaluation only after the benchmark contract, task contracts, and implementation ladder are frozen.",
+  "forbidden_claims": [
+    "one universal best VSA",
+    "BCF or linear codes must solve every recovery task",
+    "equal dimension alone proves fairness",
+    "context mechanisms or authority control are part of this Level 3 shootout"
+  ],
+  "null_hypothesis": "No tested representation-decoder pair materially improves the Pareto frontier after native tuning and fair budget matching.",
+  "primary_hypothesis": "Does any existing native representation-decoder pair materially improve the recovery/capacity/noise Pareto frontier over dense MAP plus classic resonator under matched semantic payload, storage and compute budgets?",
+  "primary_status": "HYPOTHESIS",
+  "schema_version": "level3-0-substrate-audit-v1"
+}

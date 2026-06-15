@@ -1,0 +1,59 @@
+{
+  "context_mechanisms_disabled": [
+    "context policy",
+    "CNM or H2",
+    "semantic pruning",
+    "authority controller",
+    "warm state transfer",
+    "search hierarchy"
+  ],
+  "forbidden_shortcuts": [
+    "equal-D as the sole fairness rule",
+    "mixing setup/materialization into native decode latency",
+    "forcing a method into a task it does not natively solve",
+    "smuggling context narrowing, semantic priors, or controller logic into Level 3 substrate ranking"
+  ],
+  "generated_on": "2026-06-15",
+  "must_be_reported": [
+    "semantic payload",
+    "observation bytes",
+    "codebook bytes",
+    "runtime-state bytes",
+    "decode compute",
+    "materialization time",
+    "decode latency",
+    "end-to-end latency",
+    "peak RAM or VRAM"
+  ],
+  "must_match_within_task": [
+    "same atomic identities",
+    "same true factor indices or tuple set",
+    "same semantic payload F/M/K",
+    "same paired seed",
+    "same clean/noisy trial intent",
+    "same candidate domains inside comparable tasks"
+  ],
+  "native_axes_examples": [
+    "dimension or code length",
+    "alphabet",
+    "sparsity or block count",
+    "field size",
+    "subcode dimensions"
+  ],
+  "phase_boundary_rule": {
+    "material_effect_gate": [
+      ">= 0.5 log10 gain in recoverable M^F",
+      "materially higher noise or erasure boundary",
+      "lower silent-wrong recovery at similar coverage",
+      "same recovery with materially lower memory or compute",
+      "new nondominated Pareto point"
+    ],
+    "non_effect_example": "Tiny isolated accuracy gains do not justify production promotion."
+  },
+  "schema_version": "level3-0-substrate-audit-v1",
+  "semantic_axes": {
+    "F": "number of factors",
+    "K": "number of superposed tuples",
+    "M": "candidates per factor"
+  }
+}

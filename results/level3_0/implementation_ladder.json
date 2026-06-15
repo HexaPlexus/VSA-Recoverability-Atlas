@@ -1,0 +1,72 @@
+{
+  "allowed_verdicts": [
+    "ADOPT_UPSTREAM",
+    "WRAP_UPSTREAM",
+    "REPLICATE_PAPER",
+    "ORACLE_ONLY",
+    "DEFER_UPSTREAM",
+    "BLOCK_TASK_MISMATCH"
+  ],
+  "generated_on": "2026-06-15",
+  "methods": [
+    {
+      "method_id": "dense_map_classic",
+      "representation": "Dense MAP bipolar hypervectors",
+      "verdict": "ADOPT_UPSTREAM",
+      "why": "Frozen baseline from Level 0/1; no new decoder work authorized."
+    },
+    {
+      "method_id": "ibm_bcf",
+      "representation": "Distributed sparse block codes (GSBC / block code factorizer)",
+      "verdict": "WRAP_UPSTREAM",
+      "why": [
+        "Level 1F.3 cap saturation reflected our frozen cap=16 shootout policy, not the native envelope.",
+        "Upstream configs use uncapped or very high iteration budgets; native-envelope reproduction remains possible without modifying upstream."
+      ]
+    },
+    {
+      "method_id": "holovec_attention",
+      "representation": "Attention-cleanup shared codebook VSA",
+      "verdict": "BLOCK_TASK_MISMATCH",
+      "why": "Previous audit already showed one flat codebook violates the current factor-specific domain contract."
+    },
+    {
+      "method_id": "coupled_diffusion",
+      "representation": "Diffusion-based coupled inference",
+      "verdict": "DEFER_UPSTREAM",
+      "why": "Do not replicate during Level 3.0; reopen only if upstream code appears or a later isolated replication becomes necessary."
+    },
+    {
+      "method_id": "linear_code_hdc",
+      "minimal_boundary": "Only the paper-defined encoder/decoder needed for U0/U1/U2 benchmark cells.",
+      "paper_curve_test": "Reproduce a paper-consistent exact/noisy recovery curve before any subject comparison.",
+      "replacement_plan": "Delete or replace the local reproduction if the authors release a suitable upstream implementation.",
+      "representation": "Linear-code HDC over F2",
+      "verdict": "REPLICATE_PAPER",
+      "why": {
+        "minimal_boundary": "Only the paper-defined encoder/decoder needed for U0/U1/U2 benchmark cells.",
+        "paper_curve_test": "Reproduce a paper-consistent exact/noisy recovery curve before any subject comparison.",
+        "replacement_plan": "Delete or replace the local reproduction if the authors release a suitable upstream implementation."
+      }
+    },
+    {
+      "method_id": "histogram_recovery",
+      "representation": "Histogram-recovery VSA with Reed-Solomon/Hadamard structure",
+      "verdict": "DEFER_UPSTREAM",
+      "why": "Do not force into U1. Reopen only if U2 becomes a primary next-step target and no upstream implementation appears."
+    },
+    {
+      "method_id": "full_tensor_product",
+      "representation": "Full tensor product",
+      "verdict": "ORACLE_ONLY",
+      "why": "Use only as evaluator or tiny-domain reference, never as a practical latency claim."
+    },
+    {
+      "method_id": "fhrr_cleanup",
+      "representation": "FHRR / SSP continuous-phase encodings",
+      "verdict": "DEFER_UPSTREAM",
+      "why": "Keep entirely separate from U0-U2 rankings."
+    }
+  ],
+  "schema_version": "level3-0-substrate-audit-v1"
+}

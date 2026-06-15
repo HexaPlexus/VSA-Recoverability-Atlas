@@ -1,0 +1,30 @@
+{
+  "bcf_cap_audit": {
+    "native_envelope_reproduction_possible_without_upstream_modification": true,
+    "prior_shootout_cap": 16,
+    "reason_for_saturation": "The Level 1F.3 shootout intentionally used a short frozen cap for fair paired single-product comparison. IBM upstream native configs instead run uncapped or with much larger iteration ceilings, so cap saturation does not falsify the native method."
+  },
+  "checkpoint_commit": "b5bfa89ba0440d18c1ea803c02a015e231df1b96",
+  "context_mechanisms_disabled": true,
+  "generated_on": "2026-06-15",
+  "git_status_at_start": "clean",
+  "level1_level2_cnm_artifacts_modified": false,
+  "limitation": "Code availability and licensing were frozen at audit time, but unsupported paper-only methods remain unverified until a dedicated reproduction stage.",
+  "long_benchmark_run_added": false,
+  "new_decoder_added": false,
+  "recommended_next_stage": {
+    "allowed_actions": [
+      "reproduce the MAP U0/U1 baseline under the frozen protocol",
+      "reproduce IBM BCF in its native U1 envelope on development cells",
+      "decide whether linear-code HDC minimal replication is necessary"
+    ],
+    "forbidden_actions": [
+      "long held-out benchmark before development freeze",
+      "new decoder invention",
+      "context/controller reintroduction",
+      "task-contract drift"
+    ],
+    "name": "Level 3.1 native-envelope reproduction and tiny development search"
+  },
+  "schema_version": "level3-0-substrate-audit-v1"
+}

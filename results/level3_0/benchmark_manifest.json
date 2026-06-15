@@ -1,0 +1,45 @@
+{
+  "context_and_controller_policy": "Disabled for the entire Level 3 substrate shootout.",
+  "development_protocol": {
+    "forbidden": [
+      "full combinatorial grid",
+      "held-out tuning"
+    ],
+    "purpose": [
+      "coarse search",
+      "identify >90%, ~50%, and <10% regions"
+    ],
+    "trials_per_point": 16
+  },
+  "freeze_protocol": {
+    "freeze_after_development": [
+      "easy anchors",
+      "boundary cells",
+      "failure anchors",
+      "selected noise cells"
+    ],
+    "held_out_trials_per_cell": "64-128 paired trials",
+    "retuning_after_held_out": false,
+    "statistics": [
+      "Wilson intervals",
+      "bootstrap intervals where appropriate"
+    ]
+  },
+  "hypothesis_status": "HYPOTHESIS",
+  "long_experiments_run_during_level3_0": false,
+  "mandatory_baselines": [
+    "MAP + classic resonator",
+    "native nearest-neighbour cleanup for U0",
+    "exact enumeration for tiny domains",
+    "full tensor product oracle where feasible"
+  ],
+  "noise_categories": [
+    "clean capacity",
+    "native coordinate corruption",
+    "erasure",
+    "semantic distractor superposition"
+  ],
+  "null_hypothesis": "No tested representation-decoder pair materially improves the Pareto frontier after native tuning and fair budget matching.",
+  "primary_hypothesis": "Does any existing native representation-decoder pair materially improve the recovery/capacity/noise Pareto frontier over dense MAP plus classic resonator under matched semantic payload, storage and compute budgets?",
+  "schema_version": "level3-0-substrate-audit-v1"
+}

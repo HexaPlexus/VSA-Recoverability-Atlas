@@ -1,0 +1,58 @@
+{
+  "baseline_and_candidates": [
+    {
+      "license": "MIT",
+      "method_id": "dense_map_classic",
+      "status": "ADOPT_BASELINE",
+      "upstream": "https://github.com/hyperdimensional-computing/torchhd"
+    },
+    {
+      "license": "Apache-2.0",
+      "method_id": "ibm_bcf",
+      "native_envelope_note": "Upstream configs such as 200a_bcf and 100e_* use uncapped or very high iteration budgets. The earlier cap=16 saturation was a harness choice, not an upstream algorithm limit.",
+      "pinned_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+      "status": "ADOPT_OR_WRAP",
+      "upstream": "https://github.com/IBM/in-memory-factorizer"
+    },
+    {
+      "license": "Apache-2.0",
+      "method_id": "holovec_attention",
+      "status": "BLOCK_TASK_MISMATCH",
+      "upstream": "https://github.com/Twistient/HoloVec"
+    },
+    {
+      "license": "UNKNOWN",
+      "method_id": "coupled_diffusion",
+      "status": "DEFER_UPSTREAM",
+      "upstream": "https://arxiv.org/abs/2602.09983"
+    },
+    {
+      "license": "UNKNOWN",
+      "method_id": "linear_code_hdc",
+      "status": "REPLICATE_MINIMAL_CANDIDATE",
+      "upstream": "paper-only audited; no upstream code pinned in repo"
+    },
+    {
+      "license": "UNKNOWN",
+      "method_id": "histogram_recovery",
+      "status": "DEFER_UPSTREAM",
+      "upstream": "paper-only audited; upstream implementation not pinned in repo"
+    },
+    {
+      "license": "UNKNOWN",
+      "method_id": "fhrr_cleanup",
+      "status": "SEPARATE_TRACK",
+      "upstream": "paper-only audited; separate U3 track"
+    }
+  ],
+  "checkpoint_commit": "b5bfa89ba0440d18c1ea803c02a015e231df1b96",
+  "generated_on": "2026-06-15",
+  "host_lock_versions": {
+    "numpy": "2.4.6",
+    "python_contract": "CPython 3.14 on Windows host for the core repo",
+    "torch": "2.12.0",
+    "torch_hd": "5.8.4"
+  },
+  "repo_level3_directory": "research/level3",
+  "schema_version": "level3-0-substrate-audit-v1"
+}
