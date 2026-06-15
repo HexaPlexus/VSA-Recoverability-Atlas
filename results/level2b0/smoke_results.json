@@ -1,0 +1,52 @@
+{
+  "bayesian_er_public_code": {
+    "install": "not_attempted_locally",
+    "reason": "Audited as public prior art, but ecosystem mismatch kept it out of thin-smoke integration on this stage."
+  },
+  "dedupe": {
+    "import": "success",
+    "install": "success",
+    "minimal_smoke": "Instantiated a Gazetteer with structured String variables and inspected search/index signatures.",
+    "observed_api": [
+      "Gazetteer.index(data)",
+      "Gazetteer.search(data, threshold=0.0, n_matches=1, generator=False)",
+      "StaticGazetteer.search(...)",
+      "uncertain_pairs()"
+    ],
+    "version": "3.0.3",
+    "windows_note": "Docs require __main__ guard for multiprocessing on Windows and macOS."
+  },
+  "environment": {
+    "bcf_invoked": false,
+    "core_repo_environment_modified": false,
+    "python": "3.14 (temporary audit venv on Windows)"
+  },
+  "generated_on": "2026-06-15",
+  "schema_version": "level2b0-anti-nih-audit-v1",
+  "splink": {
+    "import": "success",
+    "install": "success",
+    "minimal_smoke": "Created a Linker over a tiny pandas DataFrame with external blocking rules and DuckDB backend.",
+    "observed_api": [
+      "Linker(..., settings, db_api=...)",
+      "linker.inference.predict(...)",
+      "linker.inference.find_matches_to_new_records(...)",
+      "linker.training.*",
+      "linker.evaluation.*"
+    ],
+    "version": "4.0.16"
+  },
+  "stonesoup": {
+    "import": "success",
+    "install": "success",
+    "minimal_smoke": "Imported PDA, JPDA, PDAHypothesiser, MultiMeasurementInitiator, and UpdateTimeDeleter.",
+    "observed_api": [
+      "PDA(hypothesiser)",
+      "JPDA(hypothesiser)",
+      "PDAHypothesiser(...)",
+      "MultiMeasurementInitiator(...)",
+      "UpdateTimeDeleter(...)"
+    ],
+    "version": "1.8"
+  }
+}

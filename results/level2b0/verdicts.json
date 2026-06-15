@@ -1,0 +1,76 @@
+{
+  "checkpoint_commit": "be8d7d9e4be07cb6665c6db744d49f5d6bafcb64",
+  "component_verdicts": {
+    "A": {
+      "mismatch": "None for closed-world exact-id queries.",
+      "name": "Exact identity lookup",
+      "verdict": "ADOPT"
+    },
+    "B": {
+      "mismatch": "Libraries expect tabular records and need a thin adapter from query-cue objects.",
+      "name": "Structured fuzzy entity resolution",
+      "verdict": "WRAP"
+    },
+    "C": {
+      "mismatch": "No first-class action-layer abstention label; unresolved must be wrapped around zero/low-score outputs.",
+      "name": "Canonical gazetteer matching",
+      "verdict": "ADOPT"
+    },
+    "D": {
+      "mismatch": "Context-generated blocking is not novel by itself and must be compared to ordinary blocking baselines.",
+      "name": "Candidate blocking",
+      "verdict": "ADAPT"
+    },
+    "E": {
+      "mismatch": "Native interfaces are tracking-centric, so structured symbolic observations require a representation adapter.",
+      "name": "Streaming observation-to-entity association",
+      "verdict": "WRAP"
+    },
+    "F": {
+      "mismatch": "Not a canonical tabular gazetteer matcher; best fit is sequential sensor-style association.",
+      "name": "Multi-hypothesis identity tracking",
+      "verdict": "WRAP"
+    },
+    "G": {
+      "mismatch": "Whole architectures are much larger than the current seam and do not natively satisfy typed external authority contracts.",
+      "name": "Cue-based episodic retrieval",
+      "verdict": "ADAPT"
+    },
+    "H": {
+      "mismatch": "Patterns exist, but not as a drop-in Python component for mixed ER/tracking pipelines.",
+      "name": "Context-biased declarative retrieval",
+      "verdict": "ADAPT"
+    },
+    "I": {
+      "mismatch": "No single audited library owns both symbolic event provenance and downstream action authority.",
+      "name": "Temporal belief projection",
+      "verdict": "COMPOSE"
+    },
+    "J": {
+      "mismatch": "Authority boundary across heterogeneous native systems is integration-specific, but not enough to justify a new matcher.",
+      "name": "Uncertainty-preserving commit authority",
+      "verdict": "COMPOSE"
+    },
+    "K": {
+      "mismatch": "Full provisional-identity lifecycle crosses ER, tracking, and memory governance and is outside current benchmark scope.",
+      "name": "Open-world new-entity lifecycle",
+      "verdict": "BLOCK"
+    },
+    "L": {
+      "mismatch": "Audited libraries expose native matchers or trackers, but none provides a shared external context/routing/budget interface with authority-preserving fallback across heterogeneous mechanisms.",
+      "name": "Cross-mechanism routing and budget allocation",
+      "verdict": "BUILD"
+    }
+  },
+  "disallowed_builds": [
+    "custom weighted attribute matcher",
+    "custom fuzzy entity resolver",
+    "custom tracker",
+    "custom episodic database",
+    "custom spreading-activation memory"
+  ],
+  "next_stage_gate": "GO_BUILD_CONTROLLER",
+  "overall_interpretation": "Only the cross-mechanism controller seam survives; native matchers and trackers should be adopted or wrapped.",
+  "overall_verdict": "BUILD",
+  "schema_version": "level2b0-anti-nih-audit-v1"
+}

@@ -1,0 +1,30 @@
+{
+  "aborted_pre_audit_level2b": {
+    "active_mainline_detected": false,
+    "note": "No active uncommitted Level 2B runtime code was detected in the worktree, so no abort patch was required.",
+    "patch_saved": false
+  },
+  "bcf_invoked": false,
+  "checkpoint_commit": "be8d7d9e4be07cb6665c6db744d49f5d6bafcb64",
+  "exact_next_experiment": {
+    "compare": [
+      "standard blocking",
+      "context-generated blocking",
+      "context-generated blocking plus safe global fallback",
+      "oracle blocking ceiling",
+      "optional MAP/VSA blocker only for genuinely distributed cues"
+    ],
+    "freeze": [
+      "no custom matcher",
+      "no custom tracker",
+      "indexed belief projection remains explicit"
+    ],
+    "native_matcher": "Keep matcher fixed."
+  },
+  "git_status_at_start": "clean",
+  "level2a_artifacts_modified": false,
+  "recommended_status": "GO_BUILD_CONTROLLER",
+  "research_risk": "High overlap with ordinary blocking/routing; future experiments must isolate controller benefit from standard ER heuristics.",
+  "schema_version": "level2b0-anti-nih-audit-v1",
+  "surviving_research_seam": "External context controls resolver selection, blocking policy, and compute budget across heterogeneous native systems while preserving uncertainty and non-commit authority."
+}

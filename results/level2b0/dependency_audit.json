@@ -1,0 +1,161 @@
+{
+  "generated_on": "2026-06-15",
+  "libraries": {
+    "actr": {
+      "activity_status": "Canonical cognitive-memory prior art.",
+      "capabilities": [
+        "partial matching",
+        "spreading activation",
+        "retrieval threshold"
+      ],
+      "category": "Cognitive architecture / declarative retrieval theory",
+      "docs": "https://act-r.psy.cmu.edu/",
+      "license": "Architecture/runtime audit only; no adoption attempt here.",
+      "limitations": [
+        "theory/pattern source, not a direct plug-in resolver for our repo",
+        "does not provide the typed cross-mechanism authority seam by itself"
+      ],
+      "local_smoke": null,
+      "name": "ACT-R",
+      "requires_python": "Not audited as a Python package for this stage.",
+      "upstream": "https://act-r.psy.cmu.edu/"
+    },
+    "bayesian_er_public_code": {
+      "activity_status": "Useful audit reference, but not the preferred near-term integration substrate.",
+      "capabilities": [
+        "Bayesian uncertainty over entity assignments",
+        "distributed Bayesian ER in Spark",
+        "public code exists"
+      ],
+      "category": "Bayesian entity resolution",
+      "docs": "https://github.com/cleanzr/exchanger",
+      "license": "GPL-3.0 family",
+      "limitations": [
+        "ecosystem mismatch for the current Python-only audit seam",
+        "heavier runtime and licensing trade-offs than Splink/dedupe"
+      ],
+      "local_smoke": {
+        "import_ok": false,
+        "install_on_windows_py314": false,
+        "reason": "Not a thin Python drop-in for the current repo contracts."
+      },
+      "name": "dblink / exchanger family",
+      "requires_python": "Not primary Python-first path; Spark/Scala or R ecosystems dominate.",
+      "upstream": "https://github.com/cleanzr/dblink"
+    },
+    "coala": {
+      "activity_status": "Useful architectural taxonomy, not a closed implementation.",
+      "capabilities": [
+        "working/episodic/semantic/procedural decomposition",
+        "structured internal/external action framing"
+      ],
+      "category": "Memory/action decomposition framework",
+      "docs": "https://openreview.net/forum?id=1i6ZCvflQJ",
+      "license": "Paper/framework audit only.",
+      "limitations": [
+        "taxonomy rather than a ready-made resolver or tracker",
+        "does not remove the need to evaluate ordinary blocking/routing baselines"
+      ],
+      "local_smoke": null,
+      "name": "CoALA",
+      "requires_python": "Not applicable.",
+      "upstream": "https://arxiv.org/abs/2309.02427"
+    },
+    "dedupe": {
+      "activity_status": "Mature, widely used Python ER library with long commit history and maintained docs.",
+      "capabilities": [
+        "gazetteer and record-link workflows",
+        "ranked matches with confidence",
+        "blocking/fingerprinter primitives",
+        "active-learning training path"
+      ],
+      "category": "Entity resolution / gazetteer / fuzzy matching",
+      "docs": "https://docs.dedupe.io/en/latest/API-documentation.html",
+      "license": "MIT",
+      "limitations": [
+        "training-oriented workflow adds setup cost",
+        "Windows multiprocessing requires __main__ guard",
+        "no first-class action-layer unresolved taxonomy"
+      ],
+      "local_smoke": {
+        "gazetteer_object_ok": true,
+        "import_ok": true,
+        "install_on_windows_py314": true,
+        "local_version": "3.0.3"
+      },
+      "name": "dedupe",
+      "requires_python": ">=3.8",
+      "upstream": "https://github.com/dedupeio/dedupe"
+    },
+    "soar": {
+      "activity_status": "Long-lived architecture with tutorials and manuals.",
+      "capabilities": [
+        "episodic memory",
+        "semantic memory",
+        "working-memory driven retrieval"
+      ],
+      "category": "Cognitive architecture",
+      "docs": "https://soar.eecs.umich.edu/",
+      "license": "Architecture/runtime audit only; full integration not pursued here.",
+      "limitations": [
+        "whole-architecture adoption is much broader than the Level 2B seam",
+        "does not directly solve our Python-side authority/routing contract"
+      ],
+      "local_smoke": null,
+      "name": "Soar",
+      "requires_python": "Not audited as a Python package for this stage.",
+      "upstream": "https://soar.eecs.umich.edu/"
+    },
+    "splink": {
+      "activity_status": "Active open-source project with documented releases and substantial community usage.",
+      "capabilities": [
+        "probabilistic record linkage",
+        "external blocking rules",
+        "evaluation and threshold tooling",
+        "incremental matching to new records"
+      ],
+      "category": "Entity resolution / probabilistic record linkage",
+      "docs": "https://moj-analytical-services.github.io/splink/",
+      "license": "MIT",
+      "limitations": [
+        "tabular structured-record matcher rather than temporal tracker",
+        "no built-in downstream action authority layer"
+      ],
+      "local_smoke": {
+        "import_ok": true,
+        "install_on_windows_py314": true,
+        "local_version": "4.0.16",
+        "minimal_linker_ok": true
+      },
+      "name": "Splink",
+      "requires_python": ">=3.9,<4.0",
+      "upstream": "https://github.com/moj-analytical-services/splink"
+    },
+    "stonesoup": {
+      "activity_status": "Active tracking framework with examples, tutorials, and recent release history.",
+      "capabilities": [
+        "PDA and JPDA data association",
+        "track initiation and deletion",
+        "multiple competing hypotheses",
+        "missed-detection handling"
+      ],
+      "category": "Tracking / data association / state estimation",
+      "docs": "https://stonesoup.readthedocs.io/en/latest/",
+      "license": "MIT",
+      "limitations": [
+        "tracking-centric abstractions rather than canonical gazetteer matching",
+        "symbolic/tabular entities require observation adapters"
+      ],
+      "local_smoke": {
+        "association_classes_ok": true,
+        "import_ok": true,
+        "install_on_windows_py314": true,
+        "local_version": "1.8"
+      },
+      "name": "Stone Soup",
+      "requires_python": ">=3.10",
+      "upstream": "https://github.com/dstl/Stone-Soup"
+    }
+  },
+  "schema_version": "level2b0-anti-nih-audit-v1"
+}
