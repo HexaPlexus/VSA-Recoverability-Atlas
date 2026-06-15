@@ -1,0 +1,13 @@
+{
+  "checkpoint_commit": "86efbb8927069cdc057fe3ba4ddacd41cd938acb",
+  "exact_next_stage": "Level 3.3: Minimal NeCo / Linear-Code U1 Paper Reproduction",
+  "final_verdict": "MAP_INTERMEDIATE_REGION",
+  "git_status_at_start": "clean",
+  "heldout_used": false,
+  "no_context_used": true,
+  "no_new_decoder": true,
+  "no_noise_used": true,
+  "schema_version": "level3-2b-map-budget-robustness-dev-v1",
+  "split": "development_robustness",
+  "trial_count": 2400
+}

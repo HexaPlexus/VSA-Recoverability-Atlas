@@ -1,0 +1,394 @@
+{
+  "compute_matched_budgets": {
+    "u1_boundary_22_d1024_median": {
+      "bcf_budget_sec": 0.04790915550000818,
+      "map_reference_decode_sec": 0.015239509499963333
+    },
+    "u1_boundary_22_d1024_p90": {
+      "bcf_budget_sec": 0.091926824699965,
+      "map_reference_decode_sec": 0.015239509499963333
+    },
+    "u1_boundary_22_d512_median": {
+      "bcf_budget_sec": 0.04790915550000818,
+      "map_reference_decode_sec": 0.018204466500037597
+    },
+    "u1_boundary_22_d512_p90": {
+      "bcf_budget_sec": 0.091926824699965,
+      "map_reference_decode_sec": 0.018204466500037597
+    },
+    "u1_boundary_31_d1024_median": {
+      "bcf_budget_sec": 0.05849883450002835,
+      "map_reference_decode_sec": 0.019328099500000917
+    },
+    "u1_boundary_31_d1024_p90": {
+      "bcf_budget_sec": 0.11911793030005813,
+      "map_reference_decode_sec": 0.019328099500000917
+    },
+    "u1_boundary_31_d512_median": {
+      "bcf_budget_sec": 0.05849883450002835,
+      "map_reference_decode_sec": 0.019509658000004038
+    },
+    "u1_boundary_31_d512_p90": {
+      "bcf_budget_sec": 0.11911793030005813,
+      "map_reference_decode_sec": 0.019509658000004038
+    },
+    "u1_easy_sanity_d1024_median": {
+      "bcf_budget_sec": 0.030350226999985352,
+      "map_reference_decode_sec": 0.005920729500019206
+    },
+    "u1_easy_sanity_d1024_p90": {
+      "bcf_budget_sec": 0.04079984420000074,
+      "map_reference_decode_sec": 0.005920729500019206
+    },
+    "u1_easy_sanity_d512_median": {
+      "bcf_budget_sec": 0.030350226999985352,
+      "map_reference_decode_sec": 0.006675343499921382
+    },
+    "u1_easy_sanity_d512_p90": {
+      "bcf_budget_sec": 0.04079984420000074,
+      "map_reference_decode_sec": 0.006675343499921382
+    },
+    "u1_separation_68_d1024_median": {
+      "bcf_budget_sec": 0.17349543949995905,
+      "map_reference_decode_sec": 0.017818077500010077
+    },
+    "u1_separation_68_d1024_p90": {
+      "bcf_budget_sec": 0.6303894464999986,
+      "map_reference_decode_sec": 0.017818077500010077
+    },
+    "u1_separation_68_d512_median": {
+      "bcf_budget_sec": 0.17349543949995905,
+      "map_reference_decode_sec": 0.017277240999987953
+    },
+    "u1_separation_68_d512_p90": {
+      "bcf_budget_sec": 0.6303894464999986,
+      "map_reference_decode_sec": 0.017277240999987953
+    }
+  },
+  "frozen_bcf_reference": {
+    "blocks": 4,
+    "config_family": "bcf_d512_f3_b4",
+    "convergence_detection_threshold": 0.9,
+    "decoding": "sequential",
+    "dimensions": 512,
+    "factor_count": 3,
+    "permutation": false,
+    "similarity": "inf",
+    "topa_pu": true
+  },
+  "map_arms": [
+    {
+      "arm_id": "map_512_step12",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 12,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_512_step32",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 32,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_512_step64",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 64,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_512_step128",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 128,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_512_step12_r4_majority_vote",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "majority_vote"
+    },
+    {
+      "arm_id": "map_512_step12_r4_best_native_reconstruction",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_512_step12_r4_random_restart_selection",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "random_restart_selection"
+    },
+    {
+      "arm_id": "map_512_step32_r4_majority_vote",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "majority_vote"
+    },
+    {
+      "arm_id": "map_512_step32_r4_best_native_reconstruction",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_512_step32_r4_random_restart_selection",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "random_restart_selection"
+    },
+    {
+      "arm_id": "map_512_wallclock_matched_bcf_median",
+      "budget_source_substrate": "BCF",
+      "budget_statistic": "median",
+      "compute_matching_mode": "sequential_cold_restarts",
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": -1.0,
+      "frozen_wallclock_budget_sec": -1.0,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 0,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_512_wallclock_matched_bcf_p90",
+      "budget_source_substrate": "BCF",
+      "budget_statistic": "p90",
+      "compute_matching_mode": "sequential_cold_restarts",
+      "dimensions": 512,
+      "frozen_map_reference_decode_sec": -1.0,
+      "frozen_wallclock_budget_sec": -1.0,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 0,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_1024_step12",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 12,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_1024_step32",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 32,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_1024_step64",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 64,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_1024_step128",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "baseline",
+      "max_iterations": 128,
+      "restart_count": 1,
+      "selection_rule": "first"
+    },
+    {
+      "arm_id": "map_1024_step12_r4_majority_vote",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "majority_vote"
+    },
+    {
+      "arm_id": "map_1024_step12_r4_best_native_reconstruction",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_1024_step12_r4_random_restart_selection",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 4,
+      "selection_rule": "random_restart_selection"
+    },
+    {
+      "arm_id": "map_1024_step32_r4_majority_vote",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "majority_vote"
+    },
+    {
+      "arm_id": "map_1024_step32_r4_best_native_reconstruction",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_1024_step32_r4_random_restart_selection",
+      "budget_source_substrate": null,
+      "budget_statistic": null,
+      "compute_matching_mode": null,
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": null,
+      "frozen_wallclock_budget_sec": null,
+      "init_mode": "random",
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "random_restart_selection"
+    },
+    {
+      "arm_id": "map_1024_wallclock_matched_bcf_median",
+      "budget_source_substrate": "BCF",
+      "budget_statistic": "median",
+      "compute_matching_mode": "sequential_cold_restarts",
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": -1.0,
+      "frozen_wallclock_budget_sec": -1.0,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 0,
+      "selection_rule": "best_native_reconstruction"
+    },
+    {
+      "arm_id": "map_1024_wallclock_matched_bcf_p90",
+      "budget_source_substrate": "BCF",
+      "budget_statistic": "p90",
+      "compute_matching_mode": "sequential_cold_restarts",
+      "dimensions": 1024,
+      "frozen_map_reference_decode_sec": -1.0,
+      "frozen_wallclock_budget_sec": -1.0,
+      "init_mode": "random",
+      "max_iterations": 12,
+      "restart_count": 0,
+      "selection_rule": "best_native_reconstruction"
+    }
+  ],
+  "schema_version": "level3-2b-map-budget-robustness-dev-v1"
+}

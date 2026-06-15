@@ -1,0 +1,67 @@
+{
+  "allowed_claims": [
+    "development robustness interpretation of the frozen Level 3.2 separation",
+    "whether extra MAP compute narrows or preserves the gap",
+    "whether an intermediate MAP operating region exists"
+  ],
+  "bcf_pareto_advantage_supported": true,
+  "bcf_representation_decoder_advantage_supported": true,
+  "details": [
+    {
+      "bcf_exact_recovery_rate": 1.0,
+      "bcf_median_decode_time_sec": 0.0606397500000071,
+      "best_map_arm": "map_512_step32_r4_majority_vote",
+      "best_map_exact_recovery_rate": 0.375,
+      "best_map_median_decode_time_sec": 0.20580759649998015,
+      "cell_id": "u1_boundary_31",
+      "dimensions": 512,
+      "recovery_gap_vs_bcf": 0.625
+    },
+    {
+      "bcf_exact_recovery_rate": 1.0,
+      "bcf_median_decode_time_sec": 0.0606397500000071,
+      "best_map_arm": "map_1024_step32_r4_best_native_reconstruction",
+      "best_map_exact_recovery_rate": 0.5625,
+      "best_map_median_decode_time_sec": 0.16114545900001076,
+      "cell_id": "u1_boundary_31",
+      "dimensions": 1024,
+      "recovery_gap_vs_bcf": 0.4375
+    },
+    {
+      "bcf_exact_recovery_rate": 1.0,
+      "bcf_median_decode_time_sec": 0.2827130979999879,
+      "best_map_arm": "map_512_step12",
+      "best_map_exact_recovery_rate": 0.0,
+      "best_map_median_decode_time_sec": 0.0187921865000078,
+      "cell_id": "u1_separation_68",
+      "dimensions": 512,
+      "recovery_gap_vs_bcf": 1.0
+    },
+    {
+      "bcf_exact_recovery_rate": 1.0,
+      "bcf_median_decode_time_sec": 0.2827130979999879,
+      "best_map_arm": "map_1024_wallclock_matched_bcf_p90",
+      "best_map_exact_recovery_rate": 0.0625,
+      "best_map_median_decode_time_sec": 0.6218097734999048,
+      "cell_id": "u1_separation_68",
+      "dimensions": 1024,
+      "recovery_gap_vs_bcf": 0.9375
+    }
+  ],
+  "forbidden_claims": [
+    "held-out substrate confirmation",
+    "production promotion",
+    "router selection",
+    "noise/U2/U3 conclusions"
+  ],
+  "level3_2_frozen_claim_remains_valid": true,
+  "map_budget_artifact": false,
+  "map_intermediate_region": true,
+  "no_benefit_from_extra_map_compute": false,
+  "primary_cells": [
+    "u1_boundary_31",
+    "u1_separation_68"
+  ],
+  "schema_version": "level3-2b-map-budget-robustness-dev-v1",
+  "status": "development_robustness_only"
+}

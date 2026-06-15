@@ -1,0 +1,149 @@
+{
+  "bcf_reference": {
+    "config_family": "bcf_d512_f3_b4",
+    "native_stopping": true,
+    "retuned": false
+  },
+  "cells": [
+    {
+      "F": 3,
+      "M": 10,
+      "cell_id": "u1_easy_sanity",
+      "classification": "SANITY",
+      "heavy_exploratory": false,
+      "trials": 16
+    },
+    {
+      "F": 3,
+      "M": 22,
+      "cell_id": "u1_boundary_22",
+      "classification": "PRIMARY",
+      "heavy_exploratory": false,
+      "trials": 32
+    },
+    {
+      "F": 3,
+      "M": 31,
+      "cell_id": "u1_boundary_31",
+      "classification": "PRIMARY",
+      "heavy_exploratory": false,
+      "trials": 32
+    },
+    {
+      "F": 3,
+      "M": 68,
+      "cell_id": "u1_separation_68",
+      "classification": "HEAVY_EXPLORATORY",
+      "heavy_exploratory": true,
+      "trials": 16
+    }
+  ],
+  "checkpoint_commit": "86efbb8927069cdc057fe3ba4ddacd41cd938acb",
+  "frozen_compute_matched_budgets": {
+    "u1_boundary_22_d1024_median": {
+      "bcf_budget_sec": 0.04790915550000818,
+      "map_reference_decode_sec": 0.015239509499963333
+    },
+    "u1_boundary_22_d1024_p90": {
+      "bcf_budget_sec": 0.091926824699965,
+      "map_reference_decode_sec": 0.015239509499963333
+    },
+    "u1_boundary_22_d512_median": {
+      "bcf_budget_sec": 0.04790915550000818,
+      "map_reference_decode_sec": 0.018204466500037597
+    },
+    "u1_boundary_22_d512_p90": {
+      "bcf_budget_sec": 0.091926824699965,
+      "map_reference_decode_sec": 0.018204466500037597
+    },
+    "u1_boundary_31_d1024_median": {
+      "bcf_budget_sec": 0.05849883450002835,
+      "map_reference_decode_sec": 0.019328099500000917
+    },
+    "u1_boundary_31_d1024_p90": {
+      "bcf_budget_sec": 0.11911793030005813,
+      "map_reference_decode_sec": 0.019328099500000917
+    },
+    "u1_boundary_31_d512_median": {
+      "bcf_budget_sec": 0.05849883450002835,
+      "map_reference_decode_sec": 0.019509658000004038
+    },
+    "u1_boundary_31_d512_p90": {
+      "bcf_budget_sec": 0.11911793030005813,
+      "map_reference_decode_sec": 0.019509658000004038
+    },
+    "u1_easy_sanity_d1024_median": {
+      "bcf_budget_sec": 0.030350226999985352,
+      "map_reference_decode_sec": 0.005920729500019206
+    },
+    "u1_easy_sanity_d1024_p90": {
+      "bcf_budget_sec": 0.04079984420000074,
+      "map_reference_decode_sec": 0.005920729500019206
+    },
+    "u1_easy_sanity_d512_median": {
+      "bcf_budget_sec": 0.030350226999985352,
+      "map_reference_decode_sec": 0.006675343499921382
+    },
+    "u1_easy_sanity_d512_p90": {
+      "bcf_budget_sec": 0.04079984420000074,
+      "map_reference_decode_sec": 0.006675343499921382
+    },
+    "u1_separation_68_d1024_median": {
+      "bcf_budget_sec": 0.17349543949995905,
+      "map_reference_decode_sec": 0.017818077500010077
+    },
+    "u1_separation_68_d1024_p90": {
+      "bcf_budget_sec": 0.6303894464999986,
+      "map_reference_decode_sec": 0.017818077500010077
+    },
+    "u1_separation_68_d512_median": {
+      "bcf_budget_sec": 0.17349543949995905,
+      "map_reference_decode_sec": 0.017277240999987953
+    },
+    "u1_separation_68_d512_p90": {
+      "bcf_budget_sec": 0.6303894464999986,
+      "map_reference_decode_sec": 0.017277240999987953
+    }
+  },
+  "level3_2_artifacts_unchanged": true,
+  "protocol_frozen_before_first_run": true,
+  "restart_selection_rules": [
+    "majority_vote",
+    "best_native_reconstruction",
+    "random_restart_selection"
+  ],
+  "schema_version": "level3-2b-map-budget-robustness-dev-v1",
+  "scope": {
+    "candidate_pruning": false,
+    "cnm_h2": false,
+    "context": false,
+    "controller": false,
+    "erasures": false,
+    "new_decoder": false,
+    "noise": false,
+    "task_contract": "U1_blind_single_product_factorization",
+    "u1_clean_only": true,
+    "u2": false,
+    "u3": false
+  },
+  "seed_ranges": {
+    "u1_boundary_22": {
+      "count": 32,
+      "start": 71260615
+    },
+    "u1_boundary_31": {
+      "count": 32,
+      "start": 72260615
+    },
+    "u1_easy_sanity": {
+      "count": 16,
+      "start": 70260615
+    },
+    "u1_separation_68": {
+      "count": 16,
+      "start": 73260615
+    }
+  },
+  "source_level3_2_checkpoint": "dea30d81c89dd344abfddcaa0eaaf85c7958c662",
+  "status": "development_robustness_only"
+}
