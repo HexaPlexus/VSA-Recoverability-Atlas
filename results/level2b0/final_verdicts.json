@@ -7,9 +7,11 @@
   "general_mechanism_routing": "ADAPT EXISTING METAREASONING",
   "typed_authority_seam": "ENGINEERING COMPOSE + PROVISIONAL THIN BUILD",
   "portable_external_context_controller": {
-    "status": "HYPOTHESIS",
+    "status": "DEFERRED",
     "classification": "RESEARCH PROTOTYPE",
-    "allowed_scope": "thin only"
+    "allowed_scope": "thin only",
+    "maturity": "HYPOTHESIS",
+    "implementation_authorized": false
   },
   "cnm": "DEFERRED",
   "seam_L_decomposition": [
@@ -119,9 +121,11 @@
     {
       "id": "L10",
       "name": "portable context policy across heterogeneous mechanisms",
-      "verdict": "BUILD",
+      "verdict": "PROTOTYPE",
       "classification": "RESEARCH PROTOTYPE",
-      "status": "HYPOTHESIS",
+      "status": "DEFERRED",
+      "maturity": "HYPOTHESIS",
+      "implementation_authorized": false,
       "prior_art": [
         "algorithm selection",
         "metareasoning",
