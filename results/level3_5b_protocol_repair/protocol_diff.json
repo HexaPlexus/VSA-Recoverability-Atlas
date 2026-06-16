@@ -1,0 +1,82 @@
+{
+  "allowed_change_types": [
+    "CONFIG_COMPLETENESS_REPAIR",
+    "COUNT_CONSISTENCY_REPAIR",
+    "METADATA_ONLY",
+    "SEED_LEAKAGE_REPAIR"
+  ],
+  "rows": [
+    {
+      "change_type": "SEED_LEAKAGE_REPAIR",
+      "description": "Replace invalid leaked binary held-out seeds with fresh non-overlapping ranges.",
+      "new_value": {
+        "u1_f3_m10": {
+          "count": 64,
+          "end": 910350163,
+          "start": 910350100
+        },
+        "u1_f3_m31": {
+          "count": 64,
+          "end": 910351163,
+          "start": 910351100
+        },
+        "u1_f3_m68": {
+          "count": 64,
+          "end": 910352163,
+          "start": 910352100
+        }
+      },
+      "path": "fresh_seed_ranges.binary_track"
+    },
+    {
+      "change_type": "SEED_LEAKAGE_REPAIR",
+      "description": "Replace invalid leaked MAP held-out seeds with fresh non-overlapping ranges.",
+      "new_value": {
+        "u1_f3_m10": {
+          "count": 64,
+          "end": 920350163,
+          "start": 920350100
+        },
+        "u1_f3_m31": {
+          "count": 64,
+          "end": 920351163,
+          "start": 920351100
+        },
+        "u1_f3_m68": {
+          "count": 64,
+          "end": 920352163,
+          "start": 920352100
+        }
+      },
+      "path": "fresh_seed_ranges.map_track"
+    },
+    {
+      "change_type": "COUNT_CONSISTENCY_REPAIR",
+      "description": "Restore exact 64-seed availability for each binary cell to match the frozen 64-trial target.",
+      "path": "trial_counts.binary_track_vs_seed_counts"
+    },
+    {
+      "change_type": "COUNT_CONSISTENCY_REPAIR",
+      "description": "Restore exact 64-seed availability for each MAP cell to match the frozen 64-trial target.",
+      "path": "trial_counts.map_track_vs_seed_counts"
+    },
+    {
+      "change_type": "CONFIG_COMPLETENESS_REPAIR",
+      "description": "Add the complete immutable MAP fast-arm execution record and hash.",
+      "path": "complete_config_records.map_track.map_d1024"
+    },
+    {
+      "change_type": "CONFIG_COMPLETENESS_REPAIR",
+      "description": "Add the complete immutable MAP extended-arm execution record and hash.",
+      "path": "complete_config_records.map_track.map_d1024_step32_r4_best_native_reconstruction"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "description": "Version the repaired held-out protocol and record supersession metadata.",
+      "new_hash": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+      "old_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+      "path": "protocol_version"
+    }
+  ],
+  "schema_version": "level3-5b-protocol-repair-v1"
+}

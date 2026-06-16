@@ -1,0 +1,113 @@
+{
+  "audit_verdict": "PASS",
+  "counts": {
+    "binary": {
+      "u1_f3_m10": 64,
+      "u1_f3_m31": 64,
+      "u1_f3_m68": 64
+    },
+    "map": {
+      "u1_f3_m10": 64,
+      "u1_f3_m31": 64,
+      "u1_f3_m68": 64
+    }
+  },
+  "new_proposed_ranges": {
+    "binary_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 910350163,
+        "start": 910350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 910351163,
+        "start": 910351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 910352163,
+        "start": 910352100
+      }
+    },
+    "map_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 920350163,
+        "start": 920350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 920351163,
+        "start": 920351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 920352163,
+        "start": 920352100
+      }
+    }
+  },
+  "overlap_checks": {
+    "binary_vs_dev_overlap": [],
+    "binary_vs_invalid_v1_overlap": [],
+    "binary_vs_map_overlap": [],
+    "binary_vs_prior_overlap": [],
+    "map_vs_dev_overlap": [],
+    "map_vs_invalid_v1_overlap": [],
+    "map_vs_prior_overlap": []
+  },
+  "prior_seed_ranges": {
+    "aggregated_prior_known": {
+      "count": 1840,
+      "max": 93260630,
+      "min": 330001
+    },
+    "invalid_v1_heldout_protocol": {
+      "count": 120,
+      "max": 130262623,
+      "min": 110260616
+    },
+    "level3_5b_dev": {
+      "count": 120,
+      "max": 130262623,
+      "min": 110260616
+    }
+  },
+  "scanned_prior_manifests": [
+    {
+      "count": 220,
+      "source": "src/cgrn_hsr/level3_2_confirmation.py::prior_level3_1_seed_set"
+    },
+    {
+      "count": 448,
+      "source": "src/cgrn_hsr/level3_2_confirmation.py::level3_2_heldout_seed_set"
+    },
+    {
+      "count": 96,
+      "source": "src/cgrn_hsr/level3_2b_map_budget_robustness.py::level3_2b_seed_set"
+    },
+    {
+      "count": 64,
+      "source": "src/cgrn_hsr/level3_4_algebraic_baselines.py::level3_4_seed_set"
+    },
+    {
+      "count": 120,
+      "source": "src/cgrn_hsr/level3_5b_native_noise_frontiers.py::level3_5b_dev_seed_set"
+    },
+    {
+      "count": 120,
+      "source": "results/level3_5b_dev/heldout_protocol.json"
+    },
+    {
+      "count": 120,
+      "source": "results/level3_5b_heldout/execution_manifest.json"
+    }
+  ],
+  "schema_version": "level3-5b-protocol-repair-v1",
+  "uniqueness_checks": {
+    "binary_unique": true,
+    "combined_unique": true,
+    "map_unique": true
+  }
+}

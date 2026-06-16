@@ -1,0 +1,605 @@
+{
+  "claim_limits": {
+    "binary_track": [
+      "No cross-track universal winner",
+      "No BCH-vs-BCF superiority claim across incompatible channels"
+    ],
+    "global": [
+      "No cross-track universal winner",
+      "No production promotion",
+      "No BCF noisy claim"
+    ],
+    "map_track": [
+      "No calibrated abstention policy",
+      "No production promotion"
+    ]
+  },
+  "complete_config_records": {
+    "bcf_track": {
+      "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY"
+    },
+    "binary_track": {
+      "bch_config_file_hash": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+      "binary_method_source_hash": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec",
+      "transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+    },
+    "map_track": {
+      "map_d1024": {
+        "aggregation": "single-attempt",
+        "arm_id": "map_d1024",
+        "codebook_construction": {
+          "baseline_config": {
+            "dimensions": 1024,
+            "domain_size": "task.domain_size_per_factor[0]",
+            "max_iterations": 12,
+            "num_factors": "task.factor_count",
+            "stable_patience": 3,
+            "structured_distractor_count": 0
+          },
+          "device_policy": "\"cuda:0\" if torch.cuda.is_available() else \"cpu\"",
+          "dimensions": 1024,
+          "dtype_policy": "runtime torchhd / torch default floating MAP tensor dtype",
+          "helper": "prepare_map_task",
+          "initial_estimate_construction": "build_initial_estimates(domains)",
+          "observation_construction": "bind_sequence(factors_from_indices(domains, target_indices))",
+          "representation_seed_policy": {
+            "manifest_field": "map_representation_seed",
+            "offset_from_trial_seed": 63000
+          },
+          "source_module": "src/cgrn_hsr/level3_2b_map_budget_robustness.py"
+        },
+        "config_hash": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+        "dimensions": 1024,
+        "domain_size_by_cell": {
+          "u1_f3_m10": 10,
+          "u1_f3_m31": 31,
+          "u1_f3_m68": 68
+        },
+        "external_corruption_contract": {
+          "applied_after_clean_product_construction": true,
+          "channel_id": "MAP_SIGN_FLIP",
+          "helper": "bernoulli_sign_flips",
+          "source_module": "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+        },
+        "factor_count_by_cell": {
+          "u1_f3_m10": 3,
+          "u1_f3_m31": 3,
+          "u1_f3_m68": 3
+        },
+        "implementation_version": "level3-5b-dev-native-noise-frontiers-v1",
+        "initialization": "baseline_estimates.clone()",
+        "max_iterations": 12,
+        "native_reconstruction_definition": "selected.normalized_reconstruction_similarity from run_map_attempt output",
+        "proposal_selection": "first",
+        "representation_family": "MAP / TorchHD resonator",
+        "restart_count": 1,
+        "seed_policy": {
+          "attempt_init_seed": "trial_seed + 100000",
+          "corruption_seed_offsets": {
+            "adaptive_midpoints": 6000000,
+            "initial_points": 4000000
+          }
+        },
+        "selection_rule": "first",
+        "semantic_cells": [
+          "u1_f3_m10",
+          "u1_f3_m31",
+          "u1_f3_m68"
+        ],
+        "source_hashes": {
+          "level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+          "level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+          "level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+        },
+        "stable_patience": 3,
+        "stopping_behavior": "early stop when stable_iterations >= MAP_STABLE_PATIENCE else stop at max_iterations",
+        "task_contract": "U1_noisy_single_product_factorization_development_only"
+      },
+      "map_d1024_step32_r4_best_native_reconstruction": {
+        "aggregation": "best_native_reconstruction across 4 restarts",
+        "arm_id": "map_d1024_step32_r4_best_native_reconstruction",
+        "codebook_construction": {
+          "baseline_config": {
+            "dimensions": 1024,
+            "domain_size": "task.domain_size_per_factor[0]",
+            "max_iterations": 12,
+            "num_factors": "task.factor_count",
+            "stable_patience": 3,
+            "structured_distractor_count": 0
+          },
+          "device_policy": "\"cuda:0\" if torch.cuda.is_available() else \"cpu\"",
+          "dimensions": 1024,
+          "dtype_policy": "runtime torchhd / torch default floating MAP tensor dtype",
+          "helper": "prepare_map_task",
+          "initial_estimate_construction": "build_initial_estimates(domains)",
+          "observation_construction": "bind_sequence(factors_from_indices(domains, target_indices))",
+          "representation_seed_policy": {
+            "manifest_field": "map_representation_seed",
+            "offset_from_trial_seed": 63000
+          },
+          "source_module": "src/cgrn_hsr/level3_2b_map_budget_robustness.py"
+        },
+        "config_hash": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff",
+        "dimensions": 1024,
+        "domain_size_by_cell": {
+          "u1_f3_m10": 10,
+          "u1_f3_m31": 31,
+          "u1_f3_m68": 68
+        },
+        "external_corruption_contract": {
+          "applied_after_clean_product_construction": true,
+          "channel_id": "MAP_SIGN_FLIP",
+          "helper": "bernoulli_sign_flips",
+          "source_module": "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+        },
+        "factor_count_by_cell": {
+          "u1_f3_m10": 3,
+          "u1_f3_m31": 3,
+          "u1_f3_m68": 3
+        },
+        "implementation_version": "level3-5b-dev-native-noise-frontiers-v1",
+        "initialization": "four cold random restarts via torchhd.random",
+        "max_iterations": 32,
+        "native_reconstruction_definition": "selected.normalized_reconstruction_similarity from run_map_attempt output",
+        "proposal_selection": "highest native reconstruction, tie-break mean_margin then earliest restart",
+        "representation_family": "MAP / TorchHD resonator",
+        "restart_count": 4,
+        "seed_policy": {
+          "corruption_seed_offsets": {
+            "adaptive_midpoints": 7000000,
+            "initial_points": 5000000
+          },
+          "restart_init_seed": "trial_seed + 200000 + restart_index",
+          "selection_seed": "trial_seed + 300000"
+        },
+        "selection_rule": "best_native_reconstruction",
+        "semantic_cells": [
+          "u1_f3_m10",
+          "u1_f3_m31",
+          "u1_f3_m68"
+        ],
+        "source_hashes": {
+          "level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+          "level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+          "level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+        },
+        "stable_patience": 3,
+        "stopping_behavior": "each restart early-stops at stable_patience else max_iterations; best proposal selected post hoc",
+        "task_contract": "U1_noisy_single_product_factorization_development_only"
+      }
+    }
+  },
+  "config_hashes": {
+    "bch_configs_hash": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+    "blocked_artifact_hashes": {
+      "docs/LEVEL3_5B_HELDOUT_NOISE_CONFIRMATION.md": "0fbd0dd8375ce6e761fcae91fe140faa6c82c5f28c2f892394a0e7926ebc68ed",
+      "results/level3_5b_heldout/analysis.json": "7e2055fba681e2e8bf3f509fbf9dc30cfdec411c918e4d030de8cfc3398ccb49",
+      "results/level3_5b_heldout/bcf_status.json": "4b8dbdab31df5b9c02ddba48def9a9eef9fc12372c8c94c3687194ba9484123e",
+      "results/level3_5b_heldout/binary_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/binary_trials.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/claims.json": "0ee1b2c6011e95e212c0af8a9f59b7b0c8e2c9b0ed4961e5e29370566fc50ba9",
+      "results/level3_5b_heldout/completion_manifest.json": "59cefeb44ca5b50adbdb084728bafb9d118c40dedeacb4638b74003c61fdaee7",
+      "results/level3_5b_heldout/environment.json": "a3f9a34144b3f7fde87816e52327a07f6541c324e73f0b435e3f2bf060a3b4b9",
+      "results/level3_5b_heldout/execution_manifest.json": "fdab8a22b82c1778fbc1d36c3beece55660aa480e1ff8cceb7c605d846c85e8e",
+      "results/level3_5b_heldout/map_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/map_trials.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/protocol_integrity.json": "b21bae1990adda4b0abd30488a8d55bbe2ad623544d47ffd969f77f9ebd7293e",
+      "results/level3_5b_heldout/resource_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/semantic_manifests.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/silent_error_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/timing_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/verdicts.json": "3fd21212ebee45a9a10911274a3b3b165875600f640ff590cf854588762c52ea"
+    },
+    "heldout_protocol_v1_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+    "map_arm_hashes": {
+      "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+      "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+    },
+    "source_hashes": {
+      "src/cgrn_hsr/level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+      "src/cgrn_hsr/level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+      "src/cgrn_hsr/level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+    },
+    "transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+  },
+  "fresh_seed_ranges": {
+    "bcf_track": {
+      "execution_authorized": false,
+      "seed_ranges": {
+        "u1_f3_m10": {
+          "count": 8,
+          "start": 130260616
+        },
+        "u1_f3_m31": {
+          "count": 8,
+          "start": 130261616
+        },
+        "u1_f3_m68": {
+          "count": 8,
+          "start": 130262616
+        }
+      },
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY"
+    },
+    "binary_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 910350163,
+        "start": 910350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 910351163,
+        "start": 910351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 910352163,
+        "start": 910352100
+      }
+    },
+    "map_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 920350163,
+        "start": 920350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 920351163,
+        "start": 920351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 920352163,
+        "start": 920352100
+      }
+    }
+  },
+  "gates": [
+    "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+    "BCH_DOMINANCE_NOT_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+    "MAP_GRACEFUL_REGION_CONFIRMED",
+    "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+    "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "NO_SHARED_NOISE_WINNER"
+  ],
+  "metrics": {
+    "binary_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "detected_failure_rate",
+      "conditional_wrong_given_nonfailure"
+    ],
+    "map_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "mean_correct_factors",
+      "native_reconstruction_score"
+    ],
+    "outcome_taxonomy": [
+      "EXACT_RECOVERY",
+      "PARTIAL_RECOVERY",
+      "WRONG_RECOVERY",
+      "SILENT_WRONG",
+      "DETECTED_UNCORRECTABLE",
+      "AMBIGUOUS",
+      "INCONSISTENT",
+      "RANK_DEFICIENT",
+      "UNASSIGNED_CODEWORD",
+      "NATIVE_LIMIT_REACHED",
+      "UNSUPPORTED_CHANNEL"
+    ]
+  },
+  "no_trials_observed_before_repair": true,
+  "preserved_scientific_fields": {
+    "bcf_track": {
+      "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+      "trial_count_per_selected_point": 32
+    },
+    "binary_track": {
+      "bch_configs": [
+        {
+          "correctable_errors_t": 1,
+          "library_version": "0.4.11",
+          "minimum_distance": 3,
+          "parent_k": 26,
+          "parent_n": 31,
+          "payload_bits": 12,
+          "redundancy_bits": 5,
+          "shortened_k": 12,
+          "shortened_n": 17,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 3,
+          "library_version": "0.4.11",
+          "minimum_distance": 7,
+          "parent_k": 16,
+          "parent_n": 31,
+          "payload_bits": 12,
+          "redundancy_bits": 15,
+          "shortened_k": 12,
+          "shortened_n": 27,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "tier_id": "BCH_HIGH"
+        },
+        {
+          "correctable_errors_t": 1,
+          "library_version": "0.4.11",
+          "minimum_distance": 3,
+          "parent_k": 26,
+          "parent_n": 31,
+          "payload_bits": 15,
+          "redundancy_bits": 5,
+          "shortened_k": 15,
+          "shortened_n": 20,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 3,
+          "library_version": "0.4.11",
+          "minimum_distance": 7,
+          "parent_k": 16,
+          "parent_n": 31,
+          "payload_bits": 15,
+          "redundancy_bits": 15,
+          "shortened_k": 15,
+          "shortened_n": 30,
+          "shortening_positions": [
+            0
+          ],
+          "tier_id": "BCH_HIGH"
+        },
+        {
+          "correctable_errors_t": 2,
+          "library_version": "0.4.11",
+          "minimum_distance": 5,
+          "parent_k": 21,
+          "parent_n": 31,
+          "payload_bits": 21,
+          "redundancy_bits": 10,
+          "shortened_k": 21,
+          "shortened_n": 31,
+          "shortening_positions": [],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 4,
+          "library_version": "0.4.11",
+          "minimum_distance": 9,
+          "parent_k": 39,
+          "parent_n": 63,
+          "payload_bits": 21,
+          "redundancy_bits": 24,
+          "shortened_k": 21,
+          "shortened_n": 45,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "tier_id": "BCH_HIGH"
+        }
+      ],
+      "claim_limits": [
+        "No cross-track universal winner",
+        "No BCH-vs-BCF superiority claim across incompatible channels"
+      ],
+      "corruption_channels": [
+        "EXACT_WEIGHT_BIT_FLIPS",
+        "BERNOULLI_BIT_FLIPS"
+      ],
+      "corruption_points_by_cell": {
+        "u1_f3_m10": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m31": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m68": [
+          "e=0",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=5",
+          "e=8"
+        ]
+      },
+      "methods": [
+        "uncoded_packed_tuple",
+        "packed_tuple_bch_low_redundancy",
+        "packed_tuple_bch_high_redundancy",
+        "generic_full_rank_linear_mix",
+        "raw_neco_algebraic_recovery"
+      ],
+      "primary_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate",
+        "conditional_wrong_given_nonfailure"
+      ],
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "trial_count_per_selected_point": 64
+    },
+    "confirmatory_dispositions": [
+      "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+      "BCH_DOMINANCE_NOT_CONFIRMED",
+      "RAW_NECO_NOISE_GAP_CONFIRMED",
+      "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+      "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+      "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+      "MAP_SILENT_COLLAPSE_CONFIRMED",
+      "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+      "MAP_GRACEFUL_REGION_CONFIRMED",
+      "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+      "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+      "NO_SHARED_NOISE_WINNER"
+    ],
+    "development_transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161",
+    "map_track": {
+      "claim_limits": [
+        "No calibrated abstention policy",
+        "No production promotion"
+      ],
+      "corruption_channels": [
+        "MAP_SIGN_FLIP"
+      ],
+      "corruption_points_by_cell": {
+        "u1_f3_m10": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.015",
+          "p=0.02",
+          "p=0.05"
+        ],
+        "u1_f3_m31": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05",
+          "p=0.075"
+        ],
+        "u1_f3_m68": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05",
+          "p=0.1"
+        ]
+      },
+      "methods": [
+        "map_d1024",
+        "map_d1024_step32_r4_best_native_reconstruction"
+      ],
+      "primary_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "mean_correct_factors",
+        "native_reconstruction_score"
+      ],
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "trial_count_per_selected_point": 64
+    },
+    "outcome_taxonomy": [
+      "EXACT_RECOVERY",
+      "PARTIAL_RECOVERY",
+      "WRONG_RECOVERY",
+      "SILENT_WRONG",
+      "DETECTED_UNCORRECTABLE",
+      "AMBIGUOUS",
+      "INCONSISTENT",
+      "RANK_DEFICIENT",
+      "UNASSIGNED_CODEWORD",
+      "NATIVE_LIMIT_REACHED",
+      "UNSUPPORTED_CHANNEL"
+    ],
+    "schema_version": "level3-5b-protocol-repair-v1",
+    "semantic_payloads": {
+      "u1_f3_m10": {
+        "domain_size": 10,
+        "factor_count": 3,
+        "payload_bits": 12
+      },
+      "u1_f3_m31": {
+        "domain_size": 31,
+        "factor_count": 3,
+        "payload_bits": 15
+      },
+      "u1_f3_m68": {
+        "domain_size": 68,
+        "factor_count": 3,
+        "payload_bits": 21
+      }
+    }
+  },
+  "protocol_version": "level3.5b-heldout-v2",
+  "repair_reason": {
+    "P1": "HELDOUT_SEED_LEAKAGE",
+    "P2": "TRIAL_COUNT_SEED_COUNT_MISMATCH",
+    "P3": "MAP_CONFIG_UNDERSPECIFICATION"
+  },
+  "repair_statement": "No held-out outcomes were observed before repair, so a pre-execution administrative re-freeze is permitted. The repair must not alter outcome-facing scientific choices.",
+  "schema_version": "level3-5b-protocol-repair-v1",
+  "supersedes_protocol_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+  "trial_counts": {
+    "bcf_track": 32,
+    "binary_track": 64,
+    "map_track": 64
+  }
+}

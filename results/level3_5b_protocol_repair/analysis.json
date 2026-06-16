@@ -1,0 +1,13 @@
+{
+  "benchmark_execution_invoked": false,
+  "old_blocked_checkpoint": "8fcef7e7123c4d5dd4d401a4521b51ca85af8e1d",
+  "preserved_scientific_fields_hash": "dc2dab99c6c04db0eb8c9fdc7b7a0a8beb8b897b4bc0876abb42464326165894",
+  "protocol_v1_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+  "protocol_v2_hash": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "ready_status": "READY_FOR_LEVEL_3_5B_HELDOUT_V2",
+  "repair_verdict": "PROTOCOL_REPAIRED_AND_REFROZEN",
+  "schema_version": "level3-5b-protocol-repair-v1",
+  "seed_audit_verdict": "PASS",
+  "validator_result": "PROTOCOL_REPAIRED_AND_REFROZEN",
+  "zero_trials_executed_before_repair": true
+}

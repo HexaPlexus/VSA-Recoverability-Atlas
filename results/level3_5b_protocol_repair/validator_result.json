@@ -1,0 +1,25 @@
+{
+  "all_new_seeds_unique": true,
+  "bcf_blocked": true,
+  "bch_hash_unchanged": true,
+  "benchmark_execution_invoked": false,
+  "complete_map_config_hashes_match": true,
+  "corruption_points_identical": true,
+  "gates_identical": true,
+  "method_sets_identical": true,
+  "metrics_identical": true,
+  "new_seeds_non_overlapping": true,
+  "old_blocked_artifacts_unchanged_in_git_diff": true,
+  "old_protocol_unchanged_hash": true,
+  "protocol_v2_hash_guard_valid": true,
+  "ready_for_level3_5b_heldout_v2": true,
+  "schema_version": "level3-5b-protocol-repair-v1",
+  "scientific_fields_preserved": true,
+  "trial_count_equals_seed_count": {
+    "binary_track": true,
+    "map_track": true
+  },
+  "unsupported_protocol_diff_types": [],
+  "validator_verdict": "PROTOCOL_REPAIRED_AND_REFROZEN",
+  "zero_heldout_trials_before_repair": true
+}
