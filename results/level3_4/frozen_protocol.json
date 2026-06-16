@@ -1,0 +1,49 @@
+{
+  "ambient_code_length": 500,
+  "bcf_arm_frozen": "bcf_d512_f3_b4",
+  "cells": [
+    {
+      "cell_id": "u1_clean_m10",
+      "domain_size": 10,
+      "factor_count": 3,
+      "include_bcf": true,
+      "trials": 16
+    },
+    {
+      "cell_id": "u1_clean_m22",
+      "domain_size": 22,
+      "factor_count": 3,
+      "include_bcf": true,
+      "trials": 16
+    },
+    {
+      "cell_id": "u1_clean_m31",
+      "domain_size": 31,
+      "factor_count": 3,
+      "include_bcf": true,
+      "trials": 16
+    },
+    {
+      "cell_id": "u1_clean_m68",
+      "domain_size": 68,
+      "factor_count": 3,
+      "include_bcf": true,
+      "trials": 16
+    }
+  ],
+  "checkpoint_commit": "2b8d6f98d1135e7f19d8d3447de8b5695d96e0b3",
+  "context_disabled": true,
+  "generic_linear_control_included": true,
+  "heldout_used": false,
+  "map_arm_frozen": "map_d1024",
+  "map_extended_arm_frozen": "map_d1024_step32_r4_best_native_reconstruction",
+  "neco_imports_level3_3_public_helpers_only": true,
+  "noise_disabled": true,
+  "packed_baseline_included": true,
+  "schema_version": "level3-4-clean-u1-algebraic-baseline-dev-v1",
+  "seeds_are_fresh": true,
+  "split": "development_algebraic_closure",
+  "task_contract": "U1_blind_clean_single_product_factorization",
+  "trials_per_cell": 16,
+  "u2_disabled": true
+}

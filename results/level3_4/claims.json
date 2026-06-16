@@ -1,0 +1,20 @@
+{
+  "algebraic_equivalence_verdict": "ALGEBRAIC_EQUIVALENCE_SUPPORTED",
+  "allowed_claims": [
+    "clean algebraic baselines compared",
+    "NeCo resource and schema costs measured",
+    "generic linear equivalence supported or rejected",
+    "symbolic clean-U1 baseline assessed",
+    "common-U1 representation trade-offs characterized"
+  ],
+  "forbidden_claims": [
+    "NeCo superior to MAP/BCF generally",
+    "NeCo useful for subject memory",
+    "noise robustness",
+    "production readiness",
+    "universal VSA benefit"
+  ],
+  "ready_for_noise_frontier": true,
+  "schema_version": "level3-4-clean-u1-algebraic-baseline-dev-v1",
+  "symbolic_baseline_verdict": "SYMBOLIC_BASELINE_DOMINATES_CLEAN_U1"
+}

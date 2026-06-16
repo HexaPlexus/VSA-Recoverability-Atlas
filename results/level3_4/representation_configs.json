@@ -1,0 +1,148 @@
+{
+  "frozen_context_disabled": true,
+  "generic_same_length_required": true,
+  "paper_native_neco_ambient_length": 500,
+  "rows": [
+    {
+      "ambient_code_length": 500,
+      "assigned_identities_per_factor": [
+        10,
+        10,
+        10
+      ],
+      "available_codewords_per_subcode": [
+        16,
+        16,
+        16
+      ],
+      "cell_id": "u1_clean_m10",
+      "domain_size": 10,
+      "factor_count": 3,
+      "generator_rank": 12,
+      "message_dimension_per_factor": [
+        4,
+        4,
+        4
+      ],
+      "payload_bits": 12,
+      "redundancy_ratio": 41.666666666666664,
+      "subcode_intersections": [
+        0,
+        0,
+        0
+      ],
+      "total_message_dimension": 12,
+      "unassigned_messages_per_factor": [
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "ambient_code_length": 500,
+      "assigned_identities_per_factor": [
+        22,
+        22,
+        22
+      ],
+      "available_codewords_per_subcode": [
+        32,
+        32,
+        32
+      ],
+      "cell_id": "u1_clean_m22",
+      "domain_size": 22,
+      "factor_count": 3,
+      "generator_rank": 15,
+      "message_dimension_per_factor": [
+        5,
+        5,
+        5
+      ],
+      "payload_bits": 15,
+      "redundancy_ratio": 33.333333333333336,
+      "subcode_intersections": [
+        0,
+        0,
+        0
+      ],
+      "total_message_dimension": 15,
+      "unassigned_messages_per_factor": [
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "ambient_code_length": 500,
+      "assigned_identities_per_factor": [
+        31,
+        31,
+        31
+      ],
+      "available_codewords_per_subcode": [
+        32,
+        32,
+        32
+      ],
+      "cell_id": "u1_clean_m31",
+      "domain_size": 31,
+      "factor_count": 3,
+      "generator_rank": 15,
+      "message_dimension_per_factor": [
+        5,
+        5,
+        5
+      ],
+      "payload_bits": 15,
+      "redundancy_ratio": 33.333333333333336,
+      "subcode_intersections": [
+        0,
+        0,
+        0
+      ],
+      "total_message_dimension": 15,
+      "unassigned_messages_per_factor": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_code_length": 500,
+      "assigned_identities_per_factor": [
+        68,
+        68,
+        68
+      ],
+      "available_codewords_per_subcode": [
+        128,
+        128,
+        128
+      ],
+      "cell_id": "u1_clean_m68",
+      "domain_size": 68,
+      "factor_count": 3,
+      "generator_rank": 21,
+      "message_dimension_per_factor": [
+        7,
+        7,
+        7
+      ],
+      "payload_bits": 21,
+      "redundancy_ratio": 23.80952380952381,
+      "subcode_intersections": [
+        0,
+        0,
+        0
+      ],
+      "total_message_dimension": 21,
+      "unassigned_messages_per_factor": [
+        60,
+        60,
+        60
+      ]
+    }
+  ],
+  "schema_version": "level3-4-clean-u1-algebraic-baseline-dev-v1"
+}

@@ -1,0 +1,17 @@
+{
+  "algebraic_equivalence_verdict": "ALGEBRAIC_EQUIVALENCE_SUPPORTED",
+  "checkpoint_commit": "2b8d6f98d1135e7f19d8d3447de8b5695d96e0b3",
+  "clean_u1_only_claims": true,
+  "common_u1_status_from_level3_3": "COMMON_U1_COMPATIBLE_WITH_CONSTRAINTS",
+  "context_disabled": true,
+  "generic_control_not_described_as_neco": true,
+  "heldout_used": false,
+  "map_bcf_frozen_contextual_only": true,
+  "noise_implemented": false,
+  "ready_for_noise_frontier": true,
+  "schema_rigidity_material": true,
+  "schema_version": "level3-4-clean-u1-algebraic-baseline-dev-v1",
+  "split": "development_algebraic_closure",
+  "symbolic_baseline_verdict": "SYMBOLIC_BASELINE_DOMINATES_CLEAN_U1",
+  "u2_implemented": false
+}

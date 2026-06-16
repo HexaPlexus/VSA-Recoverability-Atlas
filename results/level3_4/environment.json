@@ -1,0 +1,12 @@
+{
+  "checkpoint_commit": "2b8d6f98d1135e7f19d8d3447de8b5695d96e0b3",
+  "cuda_available": false,
+  "device": "cpu",
+  "galois_version": null,
+  "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.14.5",
+  "same_device_timing_for_map_bcf": false,
+  "schema_version": "level3-4-clean-u1-algebraic-baseline-dev-v1",
+  "torch_version": "2.12.0+cpu"
+}

@@ -1,0 +1,5 @@
+schema_version,cell_id,same_ambient_length,neco_exact_recovery_rate,generic_exact_recovery_rate,exact_recovery_delta,neco_persistent_spec_bytes,generic_persistent_spec_bytes,neco_runtime_materialized_bytes,generic_runtime_materialized_bytes,neco_mean_decode_time_sec,generic_mean_decode_time_sec,algebraic_equivalence_supported
+level3-4-clean-u1-algebraic-baseline-dev-v1,u1_clean_m10,True,1.0,1.0,0.0,794.0,794.0,1563.0,1626.0,0.011988031241344288,0.006775412519345991,True
+level3-4-clean-u1-algebraic-baseline-dev-v1,u1_clean_m22,True,1.0,1.0,0.0,982.0,982.0,1939.0,2002.0,0.01459939999767812,0.007736287501757033,True
+level3-4-clean-u1-algebraic-baseline-dev-v1,u1_clean_m31,True,1.0,1.0,0.0,982.0,982.0,1939.0,2002.0,0.014631768746767193,0.00785221248952439,True
+level3-4-clean-u1-algebraic-baseline-dev-v1,u1_clean_m68,True,1.0,1.0,0.0,1357.0,1357.0,2689.0,2752.0,0.02160707501025172,0.009850806265603751,True
