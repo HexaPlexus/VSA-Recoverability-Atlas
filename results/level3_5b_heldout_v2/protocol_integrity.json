@@ -1,0 +1,78 @@
+{
+  "ancestry_ok": true,
+  "bch_hash_expected": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+  "bch_hash_observed": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+  "blocked": true,
+  "blocked_because_missing_gate_rules": true,
+  "checkpoint_commit_required": "6aeafedb0b4025afbf9cbce9ff02e4b9aa10a32e",
+  "current_git_commit": "6aeafedb0b4025afbf9cbce9ff02e4b9aa10a32e",
+  "frozen_gates_loaded": [
+    "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+    "BCH_DOMINANCE_NOT_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+    "MAP_GRACEFUL_REGION_CONFIRMED",
+    "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+    "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "NO_SHARED_NOISE_WINNER"
+  ],
+  "frozen_metrics_loaded": {
+    "binary_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "detected_failure_rate",
+      "conditional_wrong_given_nonfailure"
+    ],
+    "map_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "mean_correct_factors",
+      "native_reconstruction_score"
+    ],
+    "outcome_taxonomy": [
+      "EXACT_RECOVERY",
+      "PARTIAL_RECOVERY",
+      "WRONG_RECOVERY",
+      "SILENT_WRONG",
+      "DETECTED_UNCORRECTABLE",
+      "AMBIGUOUS",
+      "INCONSISTENT",
+      "RANK_DEFICIENT",
+      "UNASSIGNED_CODEWORD",
+      "NATIVE_LIMIT_REACHED",
+      "UNSUPPORTED_CHANNEL"
+    ]
+  },
+  "integrity_failures": [
+    "Protocol v2 lacks executable confirmatory gate semantics: `gates` contains only disposition labels and no serialized decision rules."
+  ],
+  "map_hashes_expected": {
+    "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+    "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+  },
+  "map_hashes_observed": {
+    "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+    "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+  },
+  "old_blocked_artifacts_unchanged": true,
+  "old_blocked_changed_paths": [],
+  "prior_execution_present": false,
+  "prior_trials_present": false,
+  "protocol_has_executable_gate_rules": false,
+  "protocol_v2_file_hash_observed": "99aefc15db00bf527cca0b6fdcdbebd151bd3be393af2e7629c005c0db12f3e9",
+  "protocol_v2_hash_expected": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "protocol_v2_hash_observed": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "protocol_v2_path": "results/level3_5b_protocol_repair/heldout_protocol_v2.json",
+  "repair_analysis_no_trials": true,
+  "repair_artifacts_unchanged": true,
+  "repair_changed_paths": [],
+  "repair_validator_ready": true,
+  "results_dir_preexisting": false,
+  "schema_version": "level3-5b-heldout-v2-confirmation-v1",
+  "scientific_fields_preserved": true,
+  "seed_audit_pass": true
+}

@@ -1,0 +1,9 @@
+{
+  "blocked_before_trials": true,
+  "completed_at": "2026-06-16T21:59:45+00:00",
+  "executed_trials": 0,
+  "execution_manifest_written": true,
+  "overall_verdict": "BLOCKED_BY_V2_PROTOCOL_INTEGRITY_FAILURE",
+  "rerun_after_completion_forbidden": true,
+  "schema_version": "level3-5b-heldout-v2-confirmation-v1"
+}

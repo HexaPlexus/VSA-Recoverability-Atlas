@@ -1,0 +1,13 @@
+{
+  "allowed_claims": [
+    "Protocol v2 preserved the frozen scientific choices but remained non-executable due to missing serialized confirmatory gate semantics.",
+    "No held-out trial outcome was observed before this block.",
+    "BCF remains blocked by contract ambiguity and was not invoked."
+  ],
+  "forbidden_claims": [
+    "Any confirmatory noise-frontier claim for binary, BCH, raw NeCo, generic linear or MAP.",
+    "Any improvised gate logic derived outside heldout_protocol_v2.json.",
+    "Any statement that Level 3.5b held-out v2 completed successfully."
+  ],
+  "schema_version": "level3-5b-heldout-v2-confirmation-v1"
+}

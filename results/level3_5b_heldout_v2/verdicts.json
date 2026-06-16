@@ -1,0 +1,26 @@
+{
+  "allowed_dispositions": [
+    "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+    "BCH_DOMINANCE_NOT_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+    "MAP_GRACEFUL_REGION_CONFIRMED",
+    "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+    "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "NO_SHARED_NOISE_WINNER"
+  ],
+  "blocked_reason": [
+    "Protocol v2 lacks executable confirmatory gate semantics: `gates` contains only disposition labels and no serialized decision rules."
+  ],
+  "confirmatory_verdicts": {
+    "bcf_track": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "binary_track": "NOT_EXECUTED",
+    "map_track": "NOT_EXECUTED"
+  },
+  "overall_verdict": "BLOCKED_BY_V2_PROTOCOL_INTEGRITY_FAILURE",
+  "schema_version": "level3-5b-heldout-v2-confirmation-v1"
+}

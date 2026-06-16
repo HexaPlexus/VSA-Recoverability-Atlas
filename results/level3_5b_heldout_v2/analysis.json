@@ -1,0 +1,16 @@
+{
+  "bcf_invoked": false,
+  "benchmark_execution_invoked": false,
+  "blocked_because_missing_gate_rules": true,
+  "executed": false,
+  "final_stage_status": "LEVEL_3_5B_HELDOUT_V2_COMPLETE",
+  "frozen_metrics_and_gates_loaded_only": true,
+  "integrity_failures": [
+    "Protocol v2 lacks executable confirmatory gate semantics: `gates` contains only disposition labels and no serialized decision rules."
+  ],
+  "no_trials_observed": true,
+  "overall_verdict": "BLOCKED_BY_V2_PROTOCOL_INTEGRITY_FAILURE",
+  "promotion_status": "NO_PRODUCTION_PROMOTION",
+  "schema_version": "level3-5b-heldout-v2-confirmation-v1",
+  "trials_executed": 0
+}
