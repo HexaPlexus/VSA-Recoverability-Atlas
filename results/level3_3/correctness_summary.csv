@@ -1,0 +1,4 @@
+stage,trial_count,exact_recovery_count,ambiguous_count,collision_case_count
+algebra_smoke,2,2,0,0
+exhaustive_oracle,5,4,1,1
+paper_native_reproduction,30,30,0,0

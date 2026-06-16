@@ -1,0 +1,25 @@
+{
+  "algebra_smoke_passed": true,
+  "author_correspondence_status": {
+    "author_reported_minimal_algorithm": "little beyond Gaussian elimination over F2",
+    "histogram_recovery_upstream_status": "separate workstream, not implemented here",
+    "independent_reproduction_expected": true,
+    "official_public_neco_implementation_available": false,
+    "replacement_when_upstream_appears": true,
+    "this_repo_is_not_official_implementation": true
+  },
+  "checkpoint_commit": "a3ca3b3536837447a6d8177e1b0b36a5258772fa",
+  "common_u1_verdict": "COMMON_U1_COMPATIBLE_WITH_CONSTRAINTS",
+  "context_or_controller_used": false,
+  "exhaustive_oracle_exact_agreement": true,
+  "histogram_recovery_implemented": false,
+  "noise_implemented": false,
+  "official_upstream_available": false,
+  "paper_native_successes": 30,
+  "paper_native_trials": 30,
+  "paper_title": "Linear Codes for Hyperdimensional Computing",
+  "paper_url": "https://arxiv.org/abs/2403.03278",
+  "reproduction_verdict": "REPRODUCED",
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1",
+  "u2_implemented": false
+}

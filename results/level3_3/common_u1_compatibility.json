@@ -1,0 +1,19 @@
+{
+  "constraints": [
+    "Factor domains are constrained to linear subcodes over F_2 rather than arbitrary random atomic codebooks.",
+    "Unique clean recovery depends on direct-sum/trivial-intersection assumptions across factor subcodes.",
+    "The clean reproduction does not cover noise, erasure, or superposed-tuple U2 contracts."
+  ],
+  "mapping": {
+    "F": "Number of factor subcodes C_i.",
+    "M": "Native factor-domain size is 2^k_i when the full subcode is used; smaller M requires a deterministic subset of codewords rather than arbitrary independent atoms.",
+    "arbitrary_atomic_identities": false,
+    "candidate_dictionary": "A factor domain is a subcode-generated dictionary, not a free set of unrelated atomic vectors.",
+    "code_length_dependency": "Code length n is native and independent of MAP D; fairness should match semantic payload and stored generator state, not equal D alone.",
+    "dynamic_insertion": "Possible only by choosing new coefficient vectors or extending code construction under schema-aware constraints; arbitrary open-world insertion is not free.",
+    "generator_and_state_accounting": "Storage must include generator matrices, observation bits, and any solve-state buffers.",
+    "new_factor_concept_rebuild_required": "Potentially yes if the factor dictionary must exceed the current subcode dimension or preserve direct-sum assumptions."
+  },
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1",
+  "verdict": "COMMON_U1_COMPATIBLE_WITH_CONSTRAINTS"
+}

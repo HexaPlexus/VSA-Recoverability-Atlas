@@ -1,0 +1,11 @@
+{
+  "checkpoint_commit": "a3ca3b3536837447a6d8177e1b0b36a5258772fa",
+  "clean_only_scope": true,
+  "galois_version": "0.4.11",
+  "numpy_version": "2.4.6",
+  "paper_source_available": true,
+  "paper_source_path": "C:\\Users\\Thanatos\\AppData\\Local\\Temp\\neco_linear_codes_source\\arXiv_version.tex",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.14.5",
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1"
+}

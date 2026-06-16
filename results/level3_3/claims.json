@@ -1,0 +1,21 @@
+{
+  "allowed_claims": [
+    "paper contract extracted",
+    "minimal clean binding recovery reproduced",
+    "algebraic decoder agrees with exhaustive tiny oracle",
+    "paper-native scaling approximately reproduced",
+    "common-U1 compatibility assessed"
+  ],
+  "common_u1_verdict": "COMMON_U1_COMPATIBLE_WITH_CONSTRAINTS",
+  "forbidden_claims": [
+    "linear-code HDC is superior to MAP",
+    "linear-code HDC is superior to BCF",
+    "noise robustness",
+    "production readiness",
+    "universal factorization",
+    "official implementation"
+  ],
+  "reproduction_verdict": "REPRODUCED",
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1",
+  "superiority_claim_authorized": false
+}

@@ -58,14 +58,25 @@ sha256 = "dac1648087d5115554850d113e7dd8c83ab2d38e3435dde2d4f163847e57b767"
 
 [[packages]]
 name = "fsspec"
-version = "2026.4.0"
+version = "2026.6.0"
 
 [[packages.wheels]]
-name = "fsspec-2026.4.0-py3-none-any.whl"
-url = "https://files.pythonhosted.org/packages/d5/0c/043d5e551459da400957a1395e0febbf771446ff34291afcbe3d8be2a279/fsspec-2026.4.0-py3-none-any.whl"
+name = "fsspec-2026.6.0-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/e5/22/4222d7ddf3da30f363edaa98e329c2bce6c65497c9cb2810931c8b2c0fbc/fsspec-2026.6.0-py3-none-any.whl"
 
 [packages.wheels.hashes]
-sha256 = "11ef7bb35dab8a394fde6e608221d5cf3e8499401c249bebaeaad760a1a8dec2"
+sha256 = "02e0b71817df9b2169dc30a16832045764def1191b43dcff5bb85bdee212d2a1"
+
+[[packages]]
+name = "galois"
+version = "0.4.11"
+
+[[packages.wheels]]
+name = "galois-0.4.11-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/05/89/dc69acbd34bde07b9dee9f9f88d7ce61ff97fd99d6d576d72d2db1461349/galois-0.4.11-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "d2e12a2b7fd44b108cc15d7de27dabcb8a98a556ea2c69c94fe695139629d9aa"
 
 [[packages]]
 name = "idna"
@@ -101,6 +112,17 @@ url = "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d57187
 sha256 = "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
 
 [[packages]]
+name = "llvmlite"
+version = "0.47.0"
+
+[[packages.wheels]]
+name = "llvmlite-0.47.0-cp314-cp314-win_amd64.whl"
+url = "https://files.pythonhosted.org/packages/be/f7/19e2a09c62809c9e63bbd14ce71fb92c6ff7b7b3045741bb00c781efc3c9/llvmlite-0.47.0-cp314-cp314-win_amd64.whl"
+
+[packages.wheels.hashes]
+sha256 = "694e3c2cdc472ed2bd8bd4555ca002eec4310961dd58ef791d508f57b5cc4c94"
+
+[[packages]]
 name = "markupsafe"
 version = "3.0.3"
 
@@ -132,6 +154,17 @@ url = "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab
 
 [packages.wheels.hashes]
 sha256 = "d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762"
+
+[[packages]]
+name = "numba"
+version = "0.65.1"
+
+[[packages.wheels]]
+name = "numba-0.65.1-cp314-cp314-win_amd64.whl"
+url = "https://files.pythonhosted.org/packages/56/46/3f7fc04fb853559e74b210e0b62c19974ec844cefec611f9e535f4da3761/numba-0.65.1-cp314-cp314-win_amd64.whl"
+
+[packages.wheels.hashes]
+sha256 = "2a20fcdabdefbdacf88d85caf70c3b18c4bcb7ebb8f82e6a19486383dd26ab63"
 
 [[packages]]
 name = "numpy"

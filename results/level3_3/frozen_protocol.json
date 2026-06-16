@@ -1,0 +1,13 @@
+{
+  "context_disabled": true,
+  "noise_disabled": true,
+  "official_upstream_missing": true,
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1",
+  "stages": {
+    "A": "deterministic algebra smoke",
+    "B": "exhaustive tiny oracle",
+    "C": "paper-native clean reproduction"
+  },
+  "task_contract": "U1_blind_clean_single_product_factorization",
+  "u2_disabled": true
+}

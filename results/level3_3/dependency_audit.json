@@ -1,0 +1,24 @@
+{
+  "dependency_decisions": [
+    {
+      "candidate": "galois==0.4.11",
+      "component": "GF(2) arrays, rank, row-space, null-space",
+      "verdict": "ADOPT",
+      "why": "Mature finite-field algebra library explicitly used in the paper experiments."
+    },
+    {
+      "candidate": "galois built-ins only",
+      "component": "Rectangular left-solve for xB = c over GF(2)",
+      "verdict": "WRAP",
+      "why": "The library provides rank and row reduction, but the reproduction needs a tiny paper-local Gauss-Jordan helper for a rectangular unique-solve path."
+    },
+    {
+      "candidate": "custom framework",
+      "component": "Generic finite-field framework",
+      "verdict": "BLOCK",
+      "why": "Out of scope; only paper-specific assembly and solving are authorized."
+    }
+  ],
+  "generic_finite_field_framework_added": false,
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1"
+}

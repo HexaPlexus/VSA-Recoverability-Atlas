@@ -1,0 +1,68 @@
+{
+  "contract_status": "UNAMBIGUOUS_PAPER_CONTRACT",
+  "entries": [
+    {
+      "key": "representation_alphabet_field",
+      "source_reference": "Section 'A primer on linear codes', lines 304-305; Tables 1-2.",
+      "value": "Binary field F_2 represented as real {+1,-1}; Boolean 1 is encoded as real -1 and Boolean 0 as real +1."
+    },
+    {
+      "key": "hypervector_codeword_construction",
+      "source_reference": "Section 'A primer on linear codes', lines 340-342.",
+      "value": "An [n,k]_2 linear code is represented by a generator matrix G in F_2^{k x n}; codewords are xG for x in F_2^k."
+    },
+    {
+      "key": "factor_subcode_construction",
+      "source_reference": "Subcode discussion and example, lines 368-376.",
+      "value": "Factor domains are subcodes formed from disjoint subsets of a linearly independent basis so that the global code is a direct sum/product of subcodes."
+    },
+    {
+      "key": "binding_operation",
+      "source_reference": "Section 'A primer on linear codes', line 304; Section 'oplus-recovery', lines 580-584.",
+      "value": "Binding for clean recovery is Boolean addition/XOR, implemented as point-wise multiplication in the +/-1 representation."
+    },
+    {
+      "key": "recovery_inputs",
+      "source_reference": "Section 'oplus-recovery', lines 580-584.",
+      "value": "Input is an observation c in {+1,-1}^n and linear factor codes C_1,...,C_F."
+    },
+    {
+      "key": "recovery_outputs",
+      "source_reference": "Section 'oplus-recovery', lines 580-584.",
+      "value": "Output is one vector c_i in each factor code C_i such that c equals XOR/bind of the recovered factors."
+    },
+    {
+      "key": "basis_recovery_algorithm",
+      "source_reference": "Theorem and proof in Section 'oplus-recovery', lines 594-606.",
+      "value": "Find a maximal linearly independent subset B' from the union of factor-code bases, arrange it as matrix B, solve xB = c over F_2, then reconstruct each factor from coefficients in B' intersect B_i."
+    },
+    {
+      "key": "uniqueness_condition",
+      "source_reference": "Remark XORuniqueness, lines 606-608; subcode product discussion lines 368-376.",
+      "value": "Unique factor recovery requires the factor subcodes to behave as a direct sum/product with trivial intersections."
+    },
+    {
+      "key": "failure_conditions",
+      "source_reference": "Remark XORuniqueness lines 606-608; decoding-with-noise caveat near end of preliminaries.",
+      "value": "Non-unique decomposition appears when factor subcodes overlap nontrivially; clean noise-free decoding does not cover noisy linear-code decoding."
+    },
+    {
+      "key": "complexity_claim",
+      "source_reference": "Complexity paragraph immediately after the oplus-recovery proof.",
+      "value": "The clean XOR-recovery algorithm has complexity at most O(Delta^3 n), where Delta is the sum of factor-code dimensions."
+    },
+    {
+      "key": "native_benchmark_setup",
+      "source_reference": "Experiments subsection 'oplus-recovery', lines 765-773.",
+      "value": "The paper reports n in {500,1000,2000}, k in {3,5,7}, F in {3,4,5}, each repeated 10 times, with success defined by factor membership plus exact rebind to the observation."
+    },
+    {
+      "key": "dependency_note",
+      "source_reference": "Experiments subsection 'oplus-recovery', lines 766 and 792.",
+      "value": "The experiments were implemented with standard Python libraries including galois for F_2 computations."
+    }
+  ],
+  "paper_title": "Linear Codes for Hyperdimensional Computing",
+  "paper_url": "https://arxiv.org/abs/2403.03278",
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1"
+}

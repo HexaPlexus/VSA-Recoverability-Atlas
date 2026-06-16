@@ -1,0 +1,21 @@
+{
+  "custom_reproduction_files": [
+    "src/cgrn_hsr/level3_3_neco_reproduction.py",
+    "experiments/level3_3_neco_reproduction.py",
+    "tests/test_level3_3_neco_reproduction.py"
+  ],
+  "deletion_plan": "Delete or replace the custom reproduction module after differential tests pass; do not keep a permanent fork without a fresh review.",
+  "interfaces_that_may_survive": [
+    "paper_contract.json schema",
+    "common_u1_compatibility.json schema",
+    "typed failure taxonomy for clean algebraic reproduction"
+  ],
+  "official_upstream_available": false,
+  "required_differential_tests": [
+    "Exact agreement on deterministic algebra smoke trials.",
+    "Exact agreement with exhaustive tiny-oracle collision detection.",
+    "Equivalent typed failures for ambiguous, rank-deficient, and inconsistent cases."
+  ],
+  "schema_version": "level3-3-neco-clean-u1-reproduction-v1",
+  "trigger": "A suitable audited upstream NeCo or TorchHD-compatible linear-code implementation becomes publicly available."
+}
