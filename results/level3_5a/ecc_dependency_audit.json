@@ -1,0 +1,50 @@
+{
+  "controls": [
+    {
+      "control_id": "binary_bch",
+      "coverage": "short binary payloads, errors, and erasures",
+      "verdict": "ADOPT_ECC_CONTROL",
+      "why": "Mature maintained implementation already in the Level 3 environment; strong exact typed-record control for channel noise."
+    },
+    {
+      "control_id": "reed_solomon",
+      "coverage": "q-ary symbol errors and erasures",
+      "verdict": "DEFER_SYMBOL_CHANNEL",
+      "why": "Strong mature control, but not the default baseline for raw binary flips without a separately frozen symbol serialization policy."
+    },
+    {
+      "candidate_library": "pyldpc",
+      "control_id": "ldpc",
+      "official_repo": "https://github.com/hichamjanati/pyldpc",
+      "verdict": "DEFER_COMPLEX_CONTROL",
+      "why": "Useful for longer soft-decision channels, but high setup and fairness burden for 12-21 bit payloads."
+    },
+    {
+      "candidate_library": "polar-codes",
+      "control_id": "polar",
+      "official_repo": "https://github.com/mcba1n/polar-codes",
+      "verdict": "DEFER_COMPLEX_CONTROL",
+      "why": "Mature enough to exist, but not required if BCH already provides a strong short-block control for Level 3.5b."
+    },
+    {
+      "control_id": "neco_noisy_decoder",
+      "coverage": "raw NeCo off-subspace noise decoding",
+      "verdict": "BLOCK",
+      "why": "The paper and Level 3.3 reproduction do not authorize inventing a separate noisy NeCo decoder."
+    }
+  ],
+  "galois_dependency": {
+    "local_smoke_summary": {
+      "bch_class_available": true,
+      "bch_decode_signature": "decode(codeword, erasures=None, output='message', errors=False)",
+      "native_shortened_constructor_available": false,
+      "reed_solomon_class_available": true,
+      "reed_solomon_decode_signature": "decode(codeword, erasures=None, output='message', errors=False)",
+      "shortening_requires_wrapper": true
+    },
+    "official_docs": "https://mhostetter.github.io/galois/latest/",
+    "official_repo": "https://github.com/mhostetter/galois",
+    "resolved_version_from_lock": "0.4.11"
+  },
+  "schema_version": "level3-5a-noise-audit-v1"
+}

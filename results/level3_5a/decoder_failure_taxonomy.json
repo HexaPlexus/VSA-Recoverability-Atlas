@@ -1,0 +1,29 @@
+{
+  "common_outcomes": [
+    "EXACT_RECOVERY",
+    "WRONG_RECOVERY",
+    "DETECTED_UNCORRECTABLE",
+    "AMBIGUOUS",
+    "INCONSISTENT",
+    "UNASSIGNED_CODEWORD",
+    "NATIVE_LIMIT_REACHED",
+    "UNSUPPORTED_CHANNEL"
+  ],
+  "ecc_specific": [
+    "corrected",
+    "detected_uncorrectable",
+    "miscorrected_silently"
+  ],
+  "notes": [
+    "A decoder-reported success must not be treated as semantic truth without a semantic re-encoding check.",
+    "Silent miscorrection is a first-class failure mode."
+  ],
+  "safety_metrics": [
+    "exact_recovery",
+    "silent_wrong_recovery",
+    "detected_failure",
+    "abstention_or_failure_coverage",
+    "miscorrection_rate"
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}

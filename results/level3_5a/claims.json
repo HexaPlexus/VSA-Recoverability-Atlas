@@ -1,0 +1,17 @@
+{
+  "allowed_claims": [
+    "channel contracts were separated by lawful corruption semantics",
+    "mature BCH symbolic controls are mandatory for Level 3.5b",
+    "BCF internal stochasticity remains distinct from observation corruption",
+    "raw NeCo has no authorized noisy decoder",
+    "Level 3.5b must compare separate lawful channel families rather than one universal raw-p frontier"
+  ],
+  "forbidden_claims": [
+    "equal bit-flip rate means equal semantic damage across representations",
+    "ordinary coding theory can be ignored for noisy typed records",
+    "raw NeCo has a validated noisy decoder",
+    "Level 3.5a confirms a substrate winner",
+    "one universal noise benchmark covers U1 and U2 simultaneously"
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}

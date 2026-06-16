@@ -1,0 +1,62 @@
+{
+  "entries": [
+    {
+      "contract_role": "frozen MAP noisy-U1 baseline candidate under lawful sign-flip corruption",
+      "family": "dense_map_classic",
+      "official_implementation_title": "TorchHD",
+      "official_implementation_url": "https://github.com/hyperdimensional-computing/torchhd",
+      "primary_source_title": "A Resonator Network for Factoring Distributed Representations of Data Structures",
+      "primary_source_url": "https://www.frontiersin.org/articles/10.3389/fnbot.2020.00063/full"
+    },
+    {
+      "contract_role": "official GSBC/BCF native noisy-product and block-symbol factorization reference",
+      "family": "ibm_bcf",
+      "official_implementation_title": "IBM/in-memory-factorizer",
+      "official_implementation_url": "https://github.com/IBM/in-memory-factorizer",
+      "pinned_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+      "primary_source_title": "Factorizers for distributed sparse block codes",
+      "primary_source_url": "https://content.iospress.com/articles/neurosymbolic-artificial-intelligence/nai240713"
+    },
+    {
+      "contract_role": "native internal stochasticity and noisy-product envelope reference",
+      "family": "ibm_noise_factorizers",
+      "official_implementation_title": "IBM/in-memory-factorizer native noise experiments",
+      "official_implementation_url": "https://github.com/IBM/in-memory-factorizer",
+      "primary_source_title": "On the Role of Noise in Factorizers",
+      "primary_source_url": "https://arxiv.org/search/?query=On+the+Role+of+Noise+in+Factorizers&searchtype=all"
+    },
+    {
+      "contract_role": "clean algebraic U1 reproduction; no authorized noisy decoder",
+      "family": "linear_code_hdc_neco",
+      "official_implementation_title": "No public upstream; Level 3.3 independent reproduction only",
+      "official_implementation_url": "",
+      "primary_source_title": "Linear Codes for Hyperdimensional Computing",
+      "primary_source_url": "https://arxiv.org/abs/2403.03278"
+    },
+    {
+      "contract_role": "future U2/noisy-composition candidate, not active in Level 3.5a",
+      "family": "histogram_recovery",
+      "official_implementation_title": "Deferred upstream or author implementation",
+      "official_implementation_url": "",
+      "primary_source_title": "Efficient Vector Symbolic Architectures from Histogram Recovery",
+      "primary_source_url": "https://arxiv.org/search/?query=Efficient+Vector+Symbolic+Architectures+from+Histogram+Recovery&searchtype=all"
+    },
+    {
+      "contract_role": "mature ECC implementation substrate for BCH and Reed-Solomon controls",
+      "family": "galois_bch_rs",
+      "official_implementation_title": "galois Python library",
+      "official_implementation_url": "https://github.com/mhostetter/galois",
+      "primary_source_title": "galois documentation",
+      "primary_source_url": "https://mhostetter.github.io/galois/latest/"
+    },
+    {
+      "contract_role": "binary full-rank linear anti-NIH control under matched ambient length",
+      "family": "generic_linear_mix_control",
+      "official_implementation_title": "Local clean-U1 anti-NIH control",
+      "official_implementation_url": "",
+      "primary_source_title": "Level 3.4 algebraic baseline closure",
+      "primary_source_url": "https://github.com/Thanatos/CGRN-HSR"
+    }
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}

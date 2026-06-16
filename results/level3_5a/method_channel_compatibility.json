@@ -1,0 +1,156 @@
+{
+  "rows": [
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED_NO_ROBUSTNESS",
+        "N2_COORDINATE_ERASURE": "SUPPORTED_NO_ROBUSTNESS",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "uncoded_packed_tuple",
+      "native_decoder": "deterministic slicing",
+      "representation": "concatenated packed factor-local indices",
+      "typed_failure_behavior": "UNASSIGNED_CODEWORD or WRONG_RECOVERY depending on corrupted bit pattern"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED",
+        "N2_COORDINATE_ERASURE": "SUPPORTED",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "native_decoder": "galois BCH decode with optional erasures",
+      "representation": "packed tuple protected by shortened BCH",
+      "typed_failure_behavior": "CORRECTED, DETECTED_UNCORRECTABLE, or MISCORRECTED silently"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED",
+        "N2_COORDINATE_ERASURE": "SUPPORTED",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "native_decoder": "galois BCH decode with optional erasures",
+      "representation": "packed tuple protected by higher-redundancy shortened BCH",
+      "typed_failure_behavior": "CORRECTED, DETECTED_UNCORRECTABLE, or MISCORRECTED silently"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED_BUT_NO_ERROR_CORRECTION",
+        "N2_COORDINATE_ERASURE": "SUPPORTED_WITH_EXPLICIT_ERASURE_MASK",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "generic_full_rank_linear_mix",
+      "native_decoder": "GF(2) exact linear solve",
+      "representation": "binary full-column-rank linear transform of packed payload",
+      "typed_failure_behavior": "EXACT_RECOVERY, AMBIGUOUS, INCONSISTENT, or WRONG_RECOVERY"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N2_COORDINATE_ERASURE": "UNSUPPORTED_CHANNEL",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "raw_neco_algebraic_recovery",
+      "native_decoder": "paper clean algebraic solve only",
+      "notes": [
+        "No custom NeCo noisy decoder is authorized."
+      ],
+      "representation": "paper-compatible direct-sum linear-code construction",
+      "typed_failure_behavior": "EXACT_RECOVERY, AMBIGUOUS, RANK_DEFICIENT, INCONSISTENT, or COLLISION"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED_NATIVE_SIGN_FLIP_CHANNEL",
+        "N2_COORDINATE_ERASURE": "WRAP_PREPROCESSING_REQUIRED",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "map_classic_resonator",
+      "native_decoder": "frozen classic TorchHD resonator",
+      "representation": "dense MAP bipolar hypervectors",
+      "typed_failure_behavior": "EXACT_RECOVERY, WRONG_RECOVERY, or NATIVE_LIMIT_REACHED"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED_NATIVE_SIGN_FLIP_CHANNEL",
+        "N2_COORDINATE_ERASURE": "WRAP_PREPROCESSING_REQUIRED",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "UNSUPPORTED_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "map_extended_restarted",
+      "native_decoder": "frozen extended/restarted MAP arm",
+      "representation": "dense MAP bipolar hypervectors",
+      "typed_failure_behavior": "EXACT_RECOVERY, WRONG_RECOVERY, or NATIVE_LIMIT_REACHED"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "TASK_MISMATCH_FOR_N1",
+        "N2_COORDINATE_ERASURE": "TASK_MISMATCH_FOR_N2",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "SUPPORTED_NATIVE_BLOCK_SYMBOL_CHANNEL",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_PRODUCT_TRACK",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "SUPPORTED_NATIVE_INITIALIZATION_AND_ITERATIVE_NOISE",
+      "method_id": "official_ibm_bcf",
+      "native_decoder": "official IBM BCF with native stopping",
+      "notes": [
+        "Internal stochasticity must remain separate from external corruption."
+      ],
+      "representation": "GSBC sparse block code factorization",
+      "typed_failure_behavior": "EXACT_RECOVERY, WRONG_RECOVERY, or NATIVE_LIMIT_REACHED"
+    },
+    {
+      "channels": {
+        "N0_CLEAN_REFERENCE": "SUPPORTED",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION": "SUPPORTED_TINY_ONLY",
+        "N2_COORDINATE_ERASURE": "SUPPORTED_TINY_ONLY",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION": "SUPPORTED_TINY_ONLY",
+        "N4_SEMANTIC_FACTOR_CORRUPTION": "DEFER_SEMANTIC_CORRUPTION",
+        "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION": "DEFER_APPROXIMATE_OBSERVATION",
+        "N6_SUPERPOSITION_INTERFERENCE": "TASK_MISMATCH_U2"
+      },
+      "internal_decoder_noise_spec": "NONE",
+      "method_id": "tiny_nearest_codeword_oracle",
+      "native_decoder": "exhaustive oracle",
+      "representation": "evaluator-only nearest valid semantic codeword",
+      "typed_failure_behavior": "EXACT_RECOVERY, AMBIGUOUS, or WRONG_RECOVERY"
+    }
+  ],
+  "schema_version": "level3-5a-noise-audit-v1",
+  "unsupported_channel_token": "UNSUPPORTED_CHANNEL"
+}

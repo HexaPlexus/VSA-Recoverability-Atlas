@@ -1,0 +1,68 @@
+{
+  "development_policy": {
+    "coarse_trials_per_corruption_point": 16,
+    "freeze_rule": "2 easy points, 2 boundary points, 1 failure point per lawful channel family",
+    "search_style": "adaptive phase-boundary search"
+  },
+  "no_heldout_frozen_yet": true,
+  "no_universal_probability_grid": true,
+  "schema_version": "level3-5a-noise-audit-v1",
+  "semantic_cells": [
+    {
+      "cell_id": "u1_f3_m10",
+      "payload_bits": 12,
+      "role": "easy non-regression"
+    },
+    {
+      "cell_id": "u1_f3_m31",
+      "payload_bits": 15,
+      "role": "MAP intermediate boundary"
+    },
+    {
+      "cell_id": "u1_f3_m68",
+      "payload_bits": 21,
+      "role": "BCF separation/high-capacity anchor"
+    }
+  ],
+  "tracks": [
+    {
+      "channels": [
+        "N0_CLEAN_REFERENCE",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION",
+        "N2_COORDINATE_ERASURE"
+      ],
+      "methods": [
+        "uncoded_packed_tuple",
+        "packed_tuple_bch_low_redundancy",
+        "packed_tuple_bch_high_redundancy",
+        "generic_full_rank_linear_mix",
+        "raw_neco_algebraic_recovery",
+        "tiny_nearest_codeword_oracle"
+      ],
+      "track_id": "binary_channel_controls"
+    },
+    {
+      "channels": [
+        "N0_CLEAN_REFERENCE",
+        "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION",
+        "N2_COORDINATE_ERASURE"
+      ],
+      "methods": [
+        "map_classic_resonator",
+        "map_extended_restarted"
+      ],
+      "track_id": "map_sign_flip"
+    },
+    {
+      "channels": [
+        "N0_CLEAN_REFERENCE",
+        "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION"
+      ],
+      "internal_noise_reported_separately": true,
+      "methods": [
+        "official_ibm_bcf"
+      ],
+      "track_id": "bcf_native_block_or_symbol"
+    }
+  ]
+}

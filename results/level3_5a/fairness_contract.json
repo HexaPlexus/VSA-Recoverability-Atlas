@@ -1,0 +1,39 @@
+{
+  "context_disabled": true,
+  "controller_disabled": true,
+  "matching_regimes": [
+    {
+      "contract": [
+        "same factor count F",
+        "same domain size M",
+        "same true tuple",
+        "same payload bit count"
+      ],
+      "regime_id": "payload_matched"
+    },
+    {
+      "contract": [
+        "compare total persistent bytes",
+        "compare total runtime bytes",
+        "compare codeword or observation length",
+        "compare redundancy ratio"
+      ],
+      "regime_id": "storage_or_redundancy_matched"
+    },
+    {
+      "contract": [
+        "only inside a lawful shared channel",
+        "always report native corruption rate separately from semantic damage"
+      ],
+      "regime_id": "corruption_matched"
+    }
+  ],
+  "no_heldout_consumed": true,
+  "not_allowed": [
+    "equal D as the only fairness rule",
+    "equal raw flip probability as universal semantic equivalence",
+    "mixing external corruption and internal decoder stochasticity"
+  ],
+  "phase_boundary_search_required": true,
+  "schema_version": "level3-5a-noise-audit-v1"
+}

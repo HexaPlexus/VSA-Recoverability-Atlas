@@ -1,0 +1,26 @@
+{
+  "checkpoint_commit": "9fa47d9bb9aded882dc20ba8b4438c74bd817b05",
+  "cnm_disabled": true,
+  "common_frontier_requires_separate_lawful_tracks": true,
+  "context_disabled": true,
+  "controller_disabled": true,
+  "external_internal_noise_separated": true,
+  "full_benchmark_executed": false,
+  "heldout_consumed": false,
+  "histogram_recovery_deferred": true,
+  "limitations": [
+    "No corruption probabilities are frozen until native channel ranges are searched.",
+    "BCF does not yet share a universal raw bit-flip contract with the binary controls.",
+    "Shortened BCH requires a thin wrapper over parent codes in galois rather than a direct constructor."
+  ],
+  "mandatory_bch_control_present": true,
+  "new_decoder_implemented": false,
+  "next_stage": "Level 3.5b noisy-U1 frontier development",
+  "overall_completion_verdict": "READY_FOR_LEVEL_3_5B",
+  "raw_neco_noisy_decoder_authorized": false,
+  "ready_for_level3_5b": true,
+  "schema_version": "level3-5a-noise-audit-v1",
+  "task_scope": "Level 3.5a audit/design only",
+  "u1_u2_separated": true,
+  "uncoded_packed_not_only_non_vsa_baseline": true
+}

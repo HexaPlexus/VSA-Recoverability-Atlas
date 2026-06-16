@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "method_id": "uncoded_packed_tuple",
+      "verdict": "ADOPT_BASELINE"
+    },
+    {
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "verdict": "ADOPT_ECC_CONTROL"
+    },
+    {
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "verdict": "ADOPT_ECC_CONTROL"
+    },
+    {
+      "method_id": "generic_full_rank_linear_mix",
+      "verdict": "WRAP_EXISTING_CONTROL"
+    },
+    {
+      "method_id": "raw_neco_algebraic_recovery",
+      "verdict": "WRAP_EXISTING_CLEAN_ONLY"
+    },
+    {
+      "method_id": "raw_neco_noise_decoder",
+      "verdict": "BLOCK"
+    },
+    {
+      "method_id": "generic_linear_mix_plus_ecc",
+      "verdict": "DEFER_REDUNDANT_CONTROL"
+    },
+    {
+      "method_id": "official_ibm_bcf",
+      "verdict": "WRAP_UPSTREAM"
+    },
+    {
+      "method_id": "official_ibm_bcf_internal_noise",
+      "verdict": "WRAP_UPSTREAM"
+    },
+    {
+      "method_id": "reed_solomon_control",
+      "verdict": "DEFER_SYMBOL_CHANNEL"
+    },
+    {
+      "method_id": "ldpc_control",
+      "verdict": "DEFER_COMPLEX_CONTROL"
+    },
+    {
+      "method_id": "polar_control",
+      "verdict": "DEFER_COMPLEX_CONTROL"
+    },
+    {
+      "method_id": "histogram_recovery",
+      "verdict": "DEFER_UPSTREAM_FOR_U2_OR_NOISY_COMPOSITION"
+    }
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}

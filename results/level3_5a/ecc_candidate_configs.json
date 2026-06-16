@@ -1,0 +1,139 @@
+{
+  "galois_shortening_requires_wrapper": true,
+  "payload_specs": [
+    {
+      "payload_bits": 12,
+      "semantic_cells": [
+        "u1_clean_m10"
+      ],
+      "tiers": [
+        {
+          "effective_code": {
+            "k": 12,
+            "minimum_distance_lower_bound": 3,
+            "n": 17,
+            "t": 1
+          },
+          "family": "shortened_BCH",
+          "parent_code": {
+            "d": 3,
+            "k": 26,
+            "n": 31,
+            "t": 1
+          },
+          "redundancy_bits": 5,
+          "tier_id": "ECC_LOW_REDUNDANCY",
+          "wrapper_required": true
+        },
+        {
+          "effective_code": {
+            "k": 12,
+            "minimum_distance_lower_bound": 7,
+            "n": 27,
+            "t": 3
+          },
+          "family": "shortened_BCH",
+          "parent_code": {
+            "d": 7,
+            "k": 16,
+            "n": 31,
+            "t": 3
+          },
+          "redundancy_bits": 15,
+          "tier_id": "ECC_HIGH_REDUNDANCY",
+          "wrapper_required": true
+        }
+      ]
+    },
+    {
+      "payload_bits": 15,
+      "semantic_cells": [
+        "u1_clean_m22",
+        "u1_clean_m31"
+      ],
+      "tiers": [
+        {
+          "effective_code": {
+            "k": 15,
+            "minimum_distance_lower_bound": 3,
+            "n": 20,
+            "t": 1
+          },
+          "family": "shortened_BCH",
+          "parent_code": {
+            "d": 3,
+            "k": 26,
+            "n": 31,
+            "t": 1
+          },
+          "redundancy_bits": 5,
+          "tier_id": "ECC_LOW_REDUNDANCY",
+          "wrapper_required": true
+        },
+        {
+          "effective_code": {
+            "k": 15,
+            "minimum_distance_lower_bound": 7,
+            "n": 30,
+            "t": 3
+          },
+          "family": "shortened_BCH",
+          "parent_code": {
+            "d": 7,
+            "k": 16,
+            "n": 31,
+            "t": 3
+          },
+          "redundancy_bits": 15,
+          "tier_id": "ECC_HIGH_REDUNDANCY",
+          "wrapper_required": true
+        }
+      ]
+    },
+    {
+      "payload_bits": 21,
+      "semantic_cells": [
+        "u1_clean_m68"
+      ],
+      "tiers": [
+        {
+          "effective_code": {
+            "k": 21,
+            "minimum_distance_lower_bound": 5,
+            "n": 31,
+            "t": 2
+          },
+          "family": "primitive_BCH",
+          "parent_code": {
+            "d": 5,
+            "k": 21,
+            "n": 31,
+            "t": 2
+          },
+          "redundancy_bits": 10,
+          "tier_id": "ECC_LOW_REDUNDANCY",
+          "wrapper_required": false
+        },
+        {
+          "effective_code": {
+            "k": 21,
+            "minimum_distance_lower_bound": 9,
+            "n": 45,
+            "t": 4
+          },
+          "family": "shortened_BCH",
+          "parent_code": {
+            "d": 9,
+            "k": 39,
+            "n": 63,
+            "t": 4
+          },
+          "redundancy_bits": 24,
+          "tier_id": "ECC_HIGH_REDUNDANCY",
+          "wrapper_required": true
+        }
+      ]
+    }
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}

@@ -1,0 +1,89 @@
+{
+  "channels": [
+    {
+      "channel_class": "external",
+      "channel_id": "N0_CLEAN_REFERENCE",
+      "contract": "No observation corruption; non-regression anchor only.",
+      "included_in_level3_5b_primary": true,
+      "name": "Clean reference"
+    },
+    {
+      "channel_class": "external",
+      "channel_id": "N1_BINARY_SYMMETRIC_COORDINATE_CORRUPTION",
+      "contract": "Independent coordinate flips on a lawful binary or bipolar serialization.",
+      "guardrails": [
+        "Equal raw p must not be interpreted as equal semantic damage across representations.",
+        "BCF participates only if a lawful coordinate serialization is explicitly frozen."
+      ],
+      "included_in_level3_5b_primary": true,
+      "name": "Binary symmetric coordinate corruption"
+    },
+    {
+      "channel_class": "external",
+      "channel_id": "N2_COORDINATE_ERASURE",
+      "contract": "A known subset of coordinates or symbols is marked erased.",
+      "guardrails": [
+        "Zero-fill must not be presented as native erasure decoding.",
+        "The erasure mask must be explicit when the decoder actually uses it."
+      ],
+      "included_in_level3_5b_primary": true,
+      "name": "Coordinate erasure"
+    },
+    {
+      "channel_class": "external",
+      "channel_id": "N3_NATIVE_SYMBOL_OR_BLOCK_CORRUPTION",
+      "contract": "Representation-specific symbol, block, or finite-field corruption channel.",
+      "guardrails": [
+        "Compare only inside lawful native symbol families.",
+        "Do not build a universal ranking from one raw corruption percentage."
+      ],
+      "included_in_level3_5b_primary": true,
+      "name": "Native symbol or block corruption"
+    },
+    {
+      "channel_class": "semantic",
+      "channel_id": "N4_SEMANTIC_FACTOR_CORRUPTION",
+      "contract": "The semantic source tuple is changed before encoding; not a channel noise model.",
+      "included_in_level3_5b_primary": false,
+      "name": "Semantic factor corruption"
+    },
+    {
+      "channel_class": "external",
+      "channel_id": "N5_APPROXIMATE_PERCEPTUAL_OBSERVATION",
+      "contract": "The observation is off-manifold or approximately produced rather than a corrupted valid codeword.",
+      "included_in_level3_5b_primary": false,
+      "name": "Approximate perceptual observation",
+      "notes": [
+        "Most subject-relevant long-term direction.",
+        "Deferred until N1/N2/N3 closure."
+      ]
+    },
+    {
+      "channel_class": "semantic",
+      "channel_id": "N6_SUPERPOSITION_INTERFERENCE",
+      "contract": "Multiple valid tuples are bundled or superposed.",
+      "included_in_level3_5b_primary": false,
+      "name": "Superposition interference",
+      "notes": [
+        "This is U2, not U1 noise."
+      ]
+    }
+  ],
+  "external_internal_distinction": {
+    "bcf_internal_noise_not_external_corruption": true,
+    "external_observation_corruption": "clean representation -> external corruption channel -> decoder",
+    "internal_algorithmic_stochasticity": "clean or noisy observation -> decoder initialization or iteration noise",
+    "must_not_be_mixed": true
+  },
+  "schema_version": "level3-5a-noise-audit-v1",
+  "task_scope": "U1 noisy single-product design only; U2 remains separate",
+  "trial_fields": [
+    "external_corruption_spec",
+    "internal_decoder_noise_spec"
+  ],
+  "u1_u2_separation": {
+    "mixed_protocol_forbidden": true,
+    "u1_contract": "one clean or corrupted single bound tuple -> exactly one factor index per domain",
+    "u2_contract": "superposed tuples -> tuple set or histogram output"
+  }
+}

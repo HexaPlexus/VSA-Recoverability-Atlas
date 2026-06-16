@@ -1,0 +1,69 @@
+{
+  "persistent_bytes_must_include": [
+    "generator_matrices",
+    "subcode_definitions",
+    "identity_to_message_mappings",
+    "decoder metadata"
+  ],
+  "rows": [
+    {
+      "cell_id": "u1_clean_m10",
+      "domain_size": 10,
+      "ecc_high_bits": 27,
+      "ecc_high_redundancy_ratio": 2.25,
+      "ecc_low_bits": 17,
+      "ecc_low_redundancy_ratio": 1.416667,
+      "factor_count": 3,
+      "neco_generic_ambient_bits": 500,
+      "neco_generic_redundancy_ratio": 41.666667,
+      "payload_bits": 12,
+      "uncoded_bits": 12
+    },
+    {
+      "cell_id": "u1_clean_m22",
+      "domain_size": 22,
+      "ecc_high_bits": 30,
+      "ecc_high_redundancy_ratio": 2.0,
+      "ecc_low_bits": 20,
+      "ecc_low_redundancy_ratio": 1.333333,
+      "factor_count": 3,
+      "neco_generic_ambient_bits": 500,
+      "neco_generic_redundancy_ratio": 33.333333,
+      "payload_bits": 15,
+      "uncoded_bits": 15
+    },
+    {
+      "cell_id": "u1_clean_m31",
+      "domain_size": 31,
+      "ecc_high_bits": 30,
+      "ecc_high_redundancy_ratio": 2.0,
+      "ecc_low_bits": 20,
+      "ecc_low_redundancy_ratio": 1.333333,
+      "factor_count": 3,
+      "neco_generic_ambient_bits": 500,
+      "neco_generic_redundancy_ratio": 33.333333,
+      "payload_bits": 15,
+      "uncoded_bits": 15
+    },
+    {
+      "cell_id": "u1_clean_m68",
+      "domain_size": 68,
+      "ecc_high_bits": 45,
+      "ecc_high_redundancy_ratio": 2.142857,
+      "ecc_low_bits": 31,
+      "ecc_low_redundancy_ratio": 1.47619,
+      "factor_count": 3,
+      "neco_generic_ambient_bits": 500,
+      "neco_generic_redundancy_ratio": 23.809524,
+      "payload_bits": 21,
+      "uncoded_bits": 21
+    }
+  ],
+  "runtime_bytes_must_include": [
+    "materialized_codebooks_if_used",
+    "observation",
+    "decoder_state",
+    "temporary_solve_or_decode_buffers"
+  ],
+  "schema_version": "level3-5a-noise-audit-v1"
+}
