@@ -1,0 +1,51 @@
+{
+  "ancestry_ok": true,
+  "bch_configs_match": true,
+  "benchmark_development_checkpoint": "110404917fbcbd5a10623058ef8ce36d7ad36a04",
+  "blocked": true,
+  "blocked_verdict": "BLOCKED_BY_PROTOCOL_INTEGRITY_FAILURE",
+  "changed_frozen_paths_after_development_checkpoint": [],
+  "documentation_checkpoint": "87f3997c10f7d2e6ac3df58f5b00c6834dea648c",
+  "frozen_file_hashes": {
+    "results/level3_5b_dev/bch_configs.json": {
+      "exists": true,
+      "sha256": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3"
+    },
+    "results/level3_5b_dev/frozen_development_protocol.json": {
+      "exists": true,
+      "sha256": "fc2898b04c6dd9691f75b90f58a529d139cd1c69e60f44468924ba435c9bb36d"
+    },
+    "results/level3_5b_dev/heldout_protocol.json": {
+      "exists": true,
+      "sha256": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29"
+    },
+    "results/level3_5b_dev/transition_regions.json": {
+      "exists": true,
+      "sha256": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+    }
+  },
+  "integrity_failures": [
+    "heldout protocol MAP configs do not match frozen_development_protocol.json",
+    "binary_track:u1_f3_m10 seed_range.count=16 != trial_count_per_selected_point=64",
+    "binary_track:u1_f3_m31 seed_range.count=16 != trial_count_per_selected_point=64",
+    "binary_track:u1_f3_m68 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m10 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m31 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m68 seed_range.count=16 != trial_count_per_selected_point=64",
+    "heldout seeds overlap development seeds (120 overlaps; sample=[110260616, 110260617, 110260618, 110260619, 110260620])"
+  ],
+  "map_configs_match": false,
+  "override_hash_checks": {
+    "bch_configs_hash_matches_canonical": true,
+    "frozen_development_protocol_hash_matches_canonical": true,
+    "heldout_protocol_hash_matches_canonical": true,
+    "transition_regions_hash_matches_canonical": true
+  },
+  "schema_version": "level3-5b-heldout-native-noise-frontiers-v1",
+  "seed_range_checks": {
+    "bcf_seed_ranges_match": true,
+    "binary_seed_ranges_match": true,
+    "map_seed_ranges_match": true
+  },
+  "transition_rows_present": true
+}

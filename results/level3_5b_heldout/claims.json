@@ -1,0 +1,13 @@
+{
+  "allowed_claims": [
+    "Held-out execution was blocked by protocol integrity failure before first trial.",
+    "No confirmatory native-noise claims were authorized from this stage.",
+    "BCF noisy-track status remains blocked by contract ambiguity."
+  ],
+  "forbidden_claims": [
+    "Any held-out confirmation claim for BCH, raw NeCo, generic linear mix, or MAP.",
+    "Any repaired or inferred held-out seed schedule.",
+    "Any claim based on rerunning or silently fixing the frozen protocol."
+  ],
+  "schema_version": "level3-5b-heldout-native-noise-frontiers-v1"
+}

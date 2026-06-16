@@ -1,0 +1,7 @@
+{
+  "blocked_before_trials": true,
+  "completed_at": "2026-06-16T21:27:32+00:00",
+  "executed_trials": 0,
+  "overall_verdict": "BLOCKED_BY_PROTOCOL_INTEGRITY_FAILURE",
+  "schema_version": "level3-5b-heldout-native-noise-frontiers-v1"
+}

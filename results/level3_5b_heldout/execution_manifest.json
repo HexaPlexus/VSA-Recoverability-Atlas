@@ -1,0 +1,147 @@
+{
+  "blocked_before_trials": true,
+  "cells": {
+    "binary_track": [
+      "u1_f3_m10",
+      "u1_f3_m31",
+      "u1_f3_m68"
+    ],
+    "map_track": [
+      "u1_f3_m10",
+      "u1_f3_m31",
+      "u1_f3_m68"
+    ]
+  },
+  "config_hashes": {
+    "bch_configs.json": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+    "frozen_development_protocol.json": "fc2898b04c6dd9691f75b90f58a529d139cd1c69e60f44468924ba435c9bb36d",
+    "heldout_protocol.json": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+    "transition_regions.json": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+  },
+  "corruption_points": {
+    "binary_track": {
+      "u1_f3_m10": [
+        "e=0",
+        "e=1",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=6"
+      ],
+      "u1_f3_m31": [
+        "e=0",
+        "e=1",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=6"
+      ],
+      "u1_f3_m68": [
+        "e=0",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=5",
+        "e=8"
+      ]
+    },
+    "map_track": {
+      "u1_f3_m10": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.015",
+        "p=0.02",
+        "p=0.05"
+      ],
+      "u1_f3_m31": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.02",
+        "p=0.05",
+        "p=0.075"
+      ],
+      "u1_f3_m68": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.02",
+        "p=0.05",
+        "p=0.1"
+      ]
+    }
+  },
+  "environment": {
+    "git_commit": "87f3997c10f7d2e6ac3df58f5b00c6834dea648c",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python_version": "3.14.5",
+    "schema_version": "level3-5b-heldout-native-noise-frontiers-v1",
+    "timestamp_utc": "2026-06-16T21:27:31+00:00"
+  },
+  "execution_authorized": false,
+  "git_commit": "87f3997c10f7d2e6ac3df58f5b00c6834dea648c",
+  "methods": {
+    "bcf_track": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "binary_track": [
+      "uncoded_packed_tuple",
+      "packed_tuple_bch_low_redundancy",
+      "packed_tuple_bch_high_redundancy",
+      "generic_full_rank_linear_mix",
+      "raw_neco_algebraic_recovery"
+    ],
+    "map_track": [
+      "map_d1024",
+      "map_d1024_step32_r4_best_native_reconstruction"
+    ]
+  },
+  "protocol_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+  "schema_version": "level3-5b-heldout-native-noise-frontiers-v1",
+  "seed_ranges": {
+    "bcf_track": {
+      "u1_f3_m10": {
+        "count": 8,
+        "start": 130260616
+      },
+      "u1_f3_m31": {
+        "count": 8,
+        "start": 130261616
+      },
+      "u1_f3_m68": {
+        "count": 8,
+        "start": 130262616
+      }
+    },
+    "binary_track": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 110260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 110261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 110262616
+      }
+    },
+    "map_track": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 120260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 120261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 120262616
+      }
+    }
+  },
+  "start_time": "2026-06-16T21:27:32+00:00",
+  "trial_counts": {
+    "bcf_track": 32,
+    "binary_track": 64,
+    "map_track": 64
+  }
+}

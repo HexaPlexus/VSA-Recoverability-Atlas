@@ -1,0 +1,29 @@
+{
+  "bcf_status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+  "blocked_because_heldout_overlaps_development": true,
+  "blocked_because_heldout_overlaps_prior": false,
+  "blocked_because_map_config_protocol_mismatch": true,
+  "blocked_because_protocol_internal_counts_mismatch": true,
+  "confirmatory_verdicts": {
+    "bcf_track": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "binary_track": "NOT_EXECUTED",
+    "map_track": "NOT_EXECUTED"
+  },
+  "executed": false,
+  "final_stage_status": "LEVEL_3_5B_HELDOUT_COMPLETE",
+  "integrity_failures": [
+    "heldout protocol MAP configs do not match frozen_development_protocol.json",
+    "binary_track:u1_f3_m10 seed_range.count=16 != trial_count_per_selected_point=64",
+    "binary_track:u1_f3_m31 seed_range.count=16 != trial_count_per_selected_point=64",
+    "binary_track:u1_f3_m68 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m10 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m31 seed_range.count=16 != trial_count_per_selected_point=64",
+    "map_track:u1_f3_m68 seed_range.count=16 != trial_count_per_selected_point=64",
+    "heldout seeds overlap development seeds (120 overlaps; sample=[110260616, 110260617, 110260618, 110260619, 110260620])"
+  ],
+  "overall_verdict": "BLOCKED_BY_PROTOCOL_INTEGRITY_FAILURE",
+  "promotion_status": "NO_PRODUCTION_PROMOTION",
+  "schema_version": "level3-5b-heldout-native-noise-frontiers-v1",
+  "trials_executed": 0,
+  "tuning_performed": false
+}
