@@ -1,0 +1,39 @@
+{
+  "block_structure": "B sparse blocks with one active position per block in each factor codeword",
+  "clean_product_construction": "block-wise circular convolution via blockcodefactorizer.encode()",
+  "corruption_operation": null,
+  "corruption_severity_parameter": null,
+  "external_corruption_unit": null,
+  "internal_initialization_noise": "not exposed for blockcodefactorizer; native noise sweeps in upstream target other factorizer families",
+  "internal_iterative_noise": "not exposed for blockcodefactorizer; documented noise experiments point to dense/asymmetric factorizer paths",
+  "multiple_corruptions_per_block_possible": null,
+  "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+  "representation_alphabet": "block-local one-hot symbol positions over L = D / B",
+  "representation_validity_preserved": null,
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1",
+  "source_references": [
+    {
+      "note": "Lists 100e_* noise sweeps and 200a_bcf separately; no explicit noisy 200a_bcf external channel is declared.",
+      "path": "competitors\\ibm_in_memory_factorizer\\README.md"
+    },
+    {
+      "note": "Programming-noise sweep belongs to densebipolarbatched rather than blockcodefactorizer.",
+      "path": "competitors\\ibm_in_memory_factorizer\\experiments\\100e_prnoise\\config.json"
+    },
+    {
+      "note": "Read-noise sweep belongs to densebipolarbatched rather than blockcodefactorizer.",
+      "path": "competitors\\ibm_in_memory_factorizer\\experiments\\100e_rdnoise\\config.json"
+    },
+    {
+      "note": "Clean official BCF config with no external corruption parameters.",
+      "path": "competitors\\ibm_in_memory_factorizer\\experiments\\200a_bcf\\config.json"
+    },
+    {
+      "note": "Code comments describe block-wise convolution robustness qualitatively but do not freeze a development external corruption channel.",
+      "path": "competitors\\ibm_in_memory_factorizer\\models\\blockcodefactorizer.py"
+    }
+  ],
+  "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+  "stopping_contract": "official native stopping via decode(max_iter) and model._get_number_iter()",
+  "upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7"
+}

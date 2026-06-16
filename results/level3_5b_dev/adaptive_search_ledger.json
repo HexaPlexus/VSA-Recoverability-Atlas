@@ -1,0 +1,170 @@
+{
+  "rows": [
+    {
+      "added_point": 0.075,
+      "cell_id": "u1_f3_m10",
+      "parent_observations": [
+        {
+          "exact_rate": 1.0,
+          "p": 0.001
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.005
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.01
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.02
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.05
+        },
+        {
+          "exact_rate": 0.8125,
+          "p": 0.1
+        }
+      ],
+      "reason_for_addition": "binary Bernoulli transition refinement around representative BCH_HIGH exact-rate change",
+      "time_added": "2026-06-16T20:27:44",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "added_point": 0.075,
+      "cell_id": "u1_f3_m31",
+      "parent_observations": [
+        {
+          "exact_rate": 1.0,
+          "p": 0.001
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.005
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.01
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.02
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.05
+        },
+        {
+          "exact_rate": 0.625,
+          "p": 0.1
+        }
+      ],
+      "reason_for_addition": "binary Bernoulli transition refinement around representative BCH_HIGH exact-rate change",
+      "time_added": "2026-06-16T20:27:53",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "added_point": 0.075,
+      "cell_id": "u1_f3_m68",
+      "parent_observations": [
+        {
+          "exact_rate": 1.0,
+          "p": 0.001
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.005
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.01
+        },
+        {
+          "exact_rate": 1.0,
+          "p": 0.02
+        },
+        {
+          "exact_rate": 0.9375,
+          "p": 0.05
+        },
+        {
+          "exact_rate": 0.4375,
+          "p": 0.1
+        }
+      ],
+      "reason_for_addition": "binary Bernoulli transition refinement around representative BCH_HIGH exact-rate change",
+      "time_added": "2026-06-16T20:28:08",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "added_point": 0.015,
+      "cell_id": "u1_f3_m10",
+      "parent_observations": [
+        {
+          "exact_rate": 0.5,
+          "p": 0.0
+        },
+        {
+          "exact_rate": 0.6875,
+          "p": 0.01
+        },
+        {
+          "exact_rate": 0.3125,
+          "p": 0.02
+        },
+        {
+          "exact_rate": 0.6875,
+          "p": 0.05
+        },
+        {
+          "exact_rate": 0.625,
+          "p": 0.1
+        },
+        {
+          "exact_rate": 0.625,
+          "p": 0.2
+        }
+      ],
+      "reason_for_addition": "MAP Bernoulli sign-flip transition refinement around representative extended-MAP exact-rate change",
+      "time_added": "2026-06-16T20:28:14",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "added_point": 0.075,
+      "cell_id": "u1_f3_m31",
+      "parent_observations": [
+        {
+          "exact_rate": 0.6875,
+          "p": 0.0
+        },
+        {
+          "exact_rate": 0.625,
+          "p": 0.01
+        },
+        {
+          "exact_rate": 0.5,
+          "p": 0.02
+        },
+        {
+          "exact_rate": 0.625,
+          "p": 0.05
+        },
+        {
+          "exact_rate": 0.1875,
+          "p": 0.1
+        },
+        {
+          "exact_rate": 0.0625,
+          "p": 0.2
+        }
+      ],
+      "reason_for_addition": "MAP Bernoulli sign-flip transition refinement around representative extended-MAP exact-rate change",
+      "time_added": "2026-06-16T20:28:26",
+      "track_id": "map_native_sign_flip"
+    }
+  ],
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1"
+}

@@ -1,0 +1,138 @@
+{
+  "frozen_before_trial_outcomes": true,
+  "rows": [
+    {
+      "correctable_errors_t": 1,
+      "library_version": "0.4.11",
+      "minimum_distance": 3,
+      "parent_k": 26,
+      "parent_n": 31,
+      "payload_bits": 12,
+      "redundancy_bits": 5,
+      "shortened_k": 12,
+      "shortened_n": 17,
+      "shortening_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "tier_id": "BCH_LOW"
+    },
+    {
+      "correctable_errors_t": 3,
+      "library_version": "0.4.11",
+      "minimum_distance": 7,
+      "parent_k": 16,
+      "parent_n": 31,
+      "payload_bits": 12,
+      "redundancy_bits": 15,
+      "shortened_k": 12,
+      "shortened_n": 27,
+      "shortening_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "tier_id": "BCH_HIGH"
+    },
+    {
+      "correctable_errors_t": 1,
+      "library_version": "0.4.11",
+      "minimum_distance": 3,
+      "parent_k": 26,
+      "parent_n": 31,
+      "payload_bits": 15,
+      "redundancy_bits": 5,
+      "shortened_k": 15,
+      "shortened_n": 20,
+      "shortening_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "tier_id": "BCH_LOW"
+    },
+    {
+      "correctable_errors_t": 3,
+      "library_version": "0.4.11",
+      "minimum_distance": 7,
+      "parent_k": 16,
+      "parent_n": 31,
+      "payload_bits": 15,
+      "redundancy_bits": 15,
+      "shortened_k": 15,
+      "shortened_n": 30,
+      "shortening_positions": [
+        0
+      ],
+      "tier_id": "BCH_HIGH"
+    },
+    {
+      "correctable_errors_t": 2,
+      "library_version": "0.4.11",
+      "minimum_distance": 5,
+      "parent_k": 21,
+      "parent_n": 31,
+      "payload_bits": 21,
+      "redundancy_bits": 10,
+      "shortened_k": 21,
+      "shortened_n": 31,
+      "shortening_positions": [],
+      "tier_id": "BCH_LOW"
+    },
+    {
+      "correctable_errors_t": 4,
+      "library_version": "0.4.11",
+      "minimum_distance": 9,
+      "parent_k": 39,
+      "parent_n": 63,
+      "payload_bits": 21,
+      "redundancy_bits": 24,
+      "shortened_k": 21,
+      "shortened_n": 45,
+      "shortening_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "tier_id": "BCH_HIGH"
+    }
+  ],
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1",
+  "tier_policy": "frozen by code properties before corruption trials"
+}

@@ -1,0 +1,16 @@
+{
+  "allowed_claims": [
+    "BCH controls dominate or do not dominate the binary exact-record development frontier",
+    "raw NeCo shows or does not show a lawful noisy recovery gap",
+    "MAP exhibits or does not exhibit a graceful approximate region under sign flips",
+    "BCF native-noise track is blocked if the external corruption contract remains ambiguous"
+  ],
+  "forbidden_claims": [
+    "universal noise winner",
+    "equal semantic damage at equal raw corruption percentage across tracks",
+    "NeCo noisy robustness",
+    "BCF superiority over BCH",
+    "held-out confirmation"
+  ],
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1"
+}

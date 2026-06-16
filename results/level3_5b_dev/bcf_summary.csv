@@ -1,0 +1,2 @@
+schema_version,track_id,method_id,status,reason,trials
+level3-5b-dev-native-noise-frontiers-v1,bcf_native_symbol_block,bcf_d512_f3_b4,BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY,"Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",0

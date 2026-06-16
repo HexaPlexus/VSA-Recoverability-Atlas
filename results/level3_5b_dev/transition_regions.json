@@ -1,0 +1,1871 @@
+{
+  "rows": [
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.005",
+        "detected": 0.875,
+        "exact": 0.125,
+        "severity": 0.005,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=2",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 2.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "generic_full_rank_linear_mix",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.05,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.75,
+        "severity": 0.075,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.75,
+        "severity": 0.075,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.75,
+        "severity": 0.075,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=4",
+        "detected": 0.9375,
+        "exact": 0.0,
+        "severity": 4.0,
+        "silent": 0.0625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=3",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 3.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.05,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.1",
+        "detected": 0.3125,
+        "exact": 0.625,
+        "severity": 0.1,
+        "silent": 0.0625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.1",
+        "detected": 0.3125,
+        "exact": 0.625,
+        "severity": 0.1,
+        "silent": 0.0625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.1",
+        "detected": 0.3125,
+        "exact": 0.625,
+        "severity": 0.1,
+        "silent": 0.0625
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=4",
+        "detected": 0.9375,
+        "exact": 0.0,
+        "severity": 4.0,
+        "silent": 0.0625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=3",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 3.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.1",
+        "detected": 0.5625,
+        "exact": 0.4375,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0625,
+        "exact": 0.9375,
+        "severity": 0.05,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.1",
+        "detected": 0.5625,
+        "exact": 0.4375,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.1",
+        "detected": 0.5625,
+        "exact": 0.4375,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.1",
+        "detected": 0.5625,
+        "exact": 0.4375,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=5",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 5.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=4",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 4.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_high_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.02",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.02,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.075",
+        "detected": 0.125,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.375
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.075",
+        "detected": 0.125,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.375
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.075",
+        "detected": 0.125,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.375
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=2",
+        "detected": 0.375,
+        "exact": 0.0,
+        "severity": 2.0,
+        "silent": 0.625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=1",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.01",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.01,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.1",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.1,
+        "silent": 0.625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.1",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.1,
+        "silent": 0.625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.1",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.1,
+        "silent": 0.625
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=2",
+        "detected": 0.0625,
+        "exact": 0.0,
+        "severity": 2.0,
+        "silent": 0.9375
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=1",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.1",
+        "detected": 0.625,
+        "exact": 0.3125,
+        "severity": 0.1,
+        "silent": 0.0625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.02",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.02,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.6875,
+        "severity": 0.075,
+        "silent": 0.0625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.6875,
+        "severity": 0.075,
+        "silent": 0.0625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.075",
+        "detected": 0.25,
+        "exact": 0.6875,
+        "severity": 0.075,
+        "silent": 0.0625
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=3",
+        "detected": 0.6875,
+        "exact": 0.0,
+        "severity": 3.0,
+        "silent": 0.3125
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=2",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 2.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "packed_tuple_bch_low_redundancy",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.4375,
+        "exact": 0.5625,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.005",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 0.005,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.4375,
+        "exact": 0.5625,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.4375,
+        "exact": 0.5625,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.4375,
+        "exact": 0.5625,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.5,
+        "exact": 0.5,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.005",
+        "detected": 0.875,
+        "exact": 0.125,
+        "severity": 0.005,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.3125,
+        "exact": 0.6875,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=2",
+        "detected": 1.0,
+        "exact": 0.0,
+        "severity": 2.0,
+        "silent": 0.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "raw_neco_algebraic_recovery",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.1",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "tiny_oracle_generic",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "e=6",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 6.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "tiny_oracle_generic",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.1",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.1,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "tiny_oracle_neco",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "e=6",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 6.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "tiny_oracle_neco",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.005",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.005,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0625,
+        "exact": 0.5625,
+        "severity": 0.05,
+        "silent": 0.375
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0625,
+        "exact": 0.5625,
+        "severity": 0.05,
+        "silent": 0.375
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0625,
+        "exact": 0.5625,
+        "severity": 0.05,
+        "silent": 0.375
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "tiny_oracle_packed",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 0.375,
+        "exact": 0.0625,
+        "severity": 1.0,
+        "silent": 0.5625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=1",
+        "detected": 0.375,
+        "exact": 0.0625,
+        "severity": 1.0,
+        "silent": 0.5625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=1",
+        "detected": 0.375,
+        "exact": 0.0625,
+        "severity": 1.0,
+        "silent": 0.5625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=1",
+        "detected": 0.375,
+        "exact": 0.0625,
+        "severity": 1.0,
+        "silent": 0.5625
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "tiny_oracle_packed",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.005",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.005,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.075",
+        "detected": 0.1875,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.3125
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.075",
+        "detected": 0.1875,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.3125
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.075",
+        "detected": 0.1875,
+        "exact": 0.5,
+        "severity": 0.075,
+        "silent": 0.3125
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 0.3125,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 0.6875
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 0.9375,
+        "severity": 0.001,
+        "silent": 0.0625
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.075",
+        "detected": 0.0,
+        "exact": 0.4375,
+        "severity": 0.075,
+        "silent": 0.5625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.075",
+        "detected": 0.0,
+        "exact": 0.4375,
+        "severity": 0.075,
+        "silent": 0.5625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.075",
+        "detected": 0.0,
+        "exact": 0.4375,
+        "severity": 0.075,
+        "silent": 0.5625
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=1",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 1.0,
+        "silent": 1.0
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.1",
+        "detected": 0.5,
+        "exact": 0.0625,
+        "severity": 0.1,
+        "silent": 0.4375
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.001",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.001,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.01",
+        "detected": 0.125,
+        "exact": 0.625,
+        "severity": 0.01,
+        "silent": 0.25
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.01",
+        "detected": 0.125,
+        "exact": 0.625,
+        "severity": 0.01,
+        "silent": 0.25
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.01",
+        "detected": 0.125,
+        "exact": 0.625,
+        "severity": 0.01,
+        "silent": 0.25
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "BERNOULLI_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "e=2",
+        "detected": 0.375,
+        "exact": 0.0,
+        "severity": 2.0,
+        "silent": 0.625
+      },
+      "ROBUST_POINT": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "e=0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+      "method_id": "uncoded_packed_tuple",
+      "track_id": "binary_exact_record"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.0,
+        "silent": 0.0
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": {
+        "corruption_label": "p=0.05",
+        "detected": 0.0,
+        "exact": 1.0,
+        "severity": 0.05,
+        "silent": 0.0
+      },
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.2",
+        "detected": 0.0,
+        "exact": 0.75,
+        "severity": 0.2,
+        "silent": 0.25
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.2",
+        "detected": 0.0,
+        "exact": 0.75,
+        "severity": 0.2,
+        "silent": 0.25
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.2",
+        "detected": 0.0,
+        "exact": 0.75,
+        "severity": 0.2,
+        "silent": 0.25
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.0,
+        "silent": 0.625
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.075",
+        "detected": 0.0,
+        "exact": 0.0625,
+        "severity": 0.075,
+        "silent": 0.9375
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.0,
+        "silent": 0.625
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.0,
+        "silent": 0.625
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.375,
+        "severity": 0.0,
+        "silent": 0.625
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.0,
+        "silent": 0.5
+      },
+      "FAILURE_POINT": null,
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.0,
+        "silent": 0.5
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.0,
+        "silent": 0.5
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.0,
+        "silent": 0.5
+      },
+      "cell_id": "u1_f3_m10",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024_step32_r4_best_native_reconstruction",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.6875,
+        "severity": 0.0,
+        "silent": 0.3125
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.2",
+        "detected": 0.0,
+        "exact": 0.0625,
+        "severity": 0.2,
+        "silent": 0.9375
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.02",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.02,
+        "silent": 0.5
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.02",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.02,
+        "silent": 0.5
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.02",
+        "detected": 0.0,
+        "exact": 0.5,
+        "severity": 0.02,
+        "silent": 0.5
+      },
+      "cell_id": "u1_f3_m31",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024_step32_r4_best_native_reconstruction",
+      "track_id": "map_native_sign_flip"
+    },
+    {
+      "CLEAN_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "FAILURE_POINT": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "ROBUST_POINT": null,
+      "TRANSITION_HIGH": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "TRANSITION_LOW": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "TRANSITION_MID": {
+        "corruption_label": "p=0.0",
+        "detected": 0.0,
+        "exact": 0.0,
+        "severity": 0.0,
+        "silent": 1.0
+      },
+      "cell_id": "u1_f3_m68",
+      "channel_id": "MAP_SIGN_FLIP",
+      "method_id": "map_d1024_step32_r4_best_native_reconstruction",
+      "track_id": "map_native_sign_flip"
+    }
+  ],
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1"
+}

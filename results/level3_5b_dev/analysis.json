@@ -1,0 +1,70 @@
+{
+  "adaptive_binary_midpoints": {
+    "u1_f3_m10": 0.075,
+    "u1_f3_m31": 0.075,
+    "u1_f3_m68": 0.075
+  },
+  "adaptive_map_midpoints": {
+    "u1_f3_m10": 0.015,
+    "u1_f3_m31": 0.075
+  },
+  "bcf_dev_verdict": "BLOCK_BCF_TRACK",
+  "binary_dev_verdict": "BCH_DOMINATES_BINARY_EXACT_RECORD_DEV",
+  "checkpoint_commit": "d6f222f5417a24c03c5b282d0cd4f4f5578a43b6",
+  "device_confounded_cross_track_latency": true,
+  "fresh_seed_ranges": {
+    "bcf_track": {
+      "u1_f3_m10": {
+        "count": 8,
+        "start": 130260616
+      },
+      "u1_f3_m31": {
+        "count": 8,
+        "start": 130261616
+      },
+      "u1_f3_m68": {
+        "count": 8,
+        "start": 130262616
+      }
+    },
+    "binary_track": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 110260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 110261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 110262616
+      }
+    },
+    "map_track": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 120260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 120261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 120262616
+      }
+    }
+  },
+  "fresh_seeds_non_overlapping": true,
+  "generic_linear_noise_equivalence_verdict": "GENERIC_LINEAR_NOISE_EQUIVALENCE_DEV",
+  "heldout_executed": false,
+  "heldout_protocol_generated_only": true,
+  "map_dev_verdict": "MAP_SILENT_COLLAPSE_DEV",
+  "no_context_or_meta_control": true,
+  "no_histogram_or_u2": true,
+  "no_new_decoder": true,
+  "raw_neco_noise_gap_verdict": "RAW_NECO_NOISE_GAP_CONFIRMED_DEV",
+  "ready_for_level3_5b_heldout": true,
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1"
+}

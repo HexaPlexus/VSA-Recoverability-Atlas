@@ -1,0 +1,88 @@
+{
+  "bcf_coarse_trials_per_point": 8,
+  "bcf_seed_ranges": {
+    "u1_f3_m10": {
+      "count": 8,
+      "start": 130260616
+    },
+    "u1_f3_m31": {
+      "count": 8,
+      "start": 130261616
+    },
+    "u1_f3_m68": {
+      "count": 8,
+      "start": 130262616
+    }
+  },
+  "bch_configs_frozen_before_trials": true,
+  "binary_initial_bernoulli_p": [
+    0.001,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "binary_seed_ranges": {
+    "u1_f3_m10": {
+      "count": 16,
+      "start": 110260616
+    },
+    "u1_f3_m31": {
+      "count": 16,
+      "start": 110261616
+    },
+    "u1_f3_m68": {
+      "count": 16,
+      "start": 110262616
+    }
+  },
+  "binary_trials_per_point": 16,
+  "checkpoint_commit": "d6f222f5417a24c03c5b282d0cd4f4f5578a43b6",
+  "frozen_bcf_config": {
+    "arm_id": "bcf_d512_f3_b4",
+    "config_family": "bcf_d512_f3_b4",
+    "upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7"
+  },
+  "frozen_map_configs": [
+    {
+      "arm_id": "map_d1024",
+      "dimensions": 1024,
+      "max_iterations": 12,
+      "stable_patience": 3
+    },
+    {
+      "arm_id": "map_d1024_step32_r4_best_native_reconstruction",
+      "dimensions": 1024,
+      "max_iterations": 32,
+      "restart_count": 4,
+      "selection_rule": "best_native_reconstruction"
+    }
+  ],
+  "heldout_executed": false,
+  "map_initial_p": [
+    0.0,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "map_seed_ranges": {
+    "u1_f3_m10": {
+      "count": 16,
+      "start": 120260616
+    },
+    "u1_f3_m31": {
+      "count": 16,
+      "start": 120261616
+    },
+    "u1_f3_m68": {
+      "count": 16,
+      "start": 120262616
+    }
+  },
+  "no_context_or_meta_control": true,
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1",
+  "task_contract": "U1_noisy_single_product_factorization_development_only"
+}

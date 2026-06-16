@@ -1,0 +1,316 @@
+{
+  "bcf_track": {
+    "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+    "seed_ranges": {
+      "u1_f3_m10": {
+        "count": 8,
+        "start": 130260616
+      },
+      "u1_f3_m31": {
+        "count": 8,
+        "start": 130261616
+      },
+      "u1_f3_m68": {
+        "count": 8,
+        "start": 130262616
+      }
+    },
+    "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "trial_count_per_selected_point": 32
+  },
+  "binary_track": {
+    "bch_configs": [
+      {
+        "correctable_errors_t": 1,
+        "library_version": "0.4.11",
+        "minimum_distance": 3,
+        "parent_k": 26,
+        "parent_n": 31,
+        "payload_bits": 12,
+        "redundancy_bits": 5,
+        "shortened_k": 12,
+        "shortened_n": 17,
+        "shortening_positions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "tier_id": "BCH_LOW"
+      },
+      {
+        "correctable_errors_t": 3,
+        "library_version": "0.4.11",
+        "minimum_distance": 7,
+        "parent_k": 16,
+        "parent_n": 31,
+        "payload_bits": 12,
+        "redundancy_bits": 15,
+        "shortened_k": 12,
+        "shortened_n": 27,
+        "shortening_positions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tier_id": "BCH_HIGH"
+      },
+      {
+        "correctable_errors_t": 1,
+        "library_version": "0.4.11",
+        "minimum_distance": 3,
+        "parent_k": 26,
+        "parent_n": 31,
+        "payload_bits": 15,
+        "redundancy_bits": 5,
+        "shortened_k": 15,
+        "shortened_n": 20,
+        "shortening_positions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "tier_id": "BCH_LOW"
+      },
+      {
+        "correctable_errors_t": 3,
+        "library_version": "0.4.11",
+        "minimum_distance": 7,
+        "parent_k": 16,
+        "parent_n": 31,
+        "payload_bits": 15,
+        "redundancy_bits": 15,
+        "shortened_k": 15,
+        "shortened_n": 30,
+        "shortening_positions": [
+          0
+        ],
+        "tier_id": "BCH_HIGH"
+      },
+      {
+        "correctable_errors_t": 2,
+        "library_version": "0.4.11",
+        "minimum_distance": 5,
+        "parent_k": 21,
+        "parent_n": 31,
+        "payload_bits": 21,
+        "redundancy_bits": 10,
+        "shortened_k": 21,
+        "shortened_n": 31,
+        "shortening_positions": [],
+        "tier_id": "BCH_LOW"
+      },
+      {
+        "correctable_errors_t": 4,
+        "library_version": "0.4.11",
+        "minimum_distance": 9,
+        "parent_k": 39,
+        "parent_n": 63,
+        "payload_bits": 21,
+        "redundancy_bits": 24,
+        "shortened_k": 21,
+        "shortened_n": 45,
+        "shortening_positions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "tier_id": "BCH_HIGH"
+      }
+    ],
+    "claim_limits": [
+      "No cross-track universal winner",
+      "No BCH-vs-BCF superiority claim across incompatible channels"
+    ],
+    "corruption_channels": [
+      "EXACT_WEIGHT_BIT_FLIPS",
+      "BERNOULLI_BIT_FLIPS"
+    ],
+    "corruption_points_by_cell": {
+      "u1_f3_m10": [
+        "e=0",
+        "e=1",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=6"
+      ],
+      "u1_f3_m31": [
+        "e=0",
+        "e=1",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=6"
+      ],
+      "u1_f3_m68": [
+        "e=0",
+        "e=2",
+        "e=3",
+        "e=4",
+        "e=5",
+        "e=8"
+      ]
+    },
+    "decoder_configs": "frozen from Level 3.4 and Level 3.5a",
+    "methods": [
+      "uncoded_packed_tuple",
+      "packed_tuple_bch_low_redundancy",
+      "packed_tuple_bch_high_redundancy",
+      "generic_full_rank_linear_mix",
+      "raw_neco_algebraic_recovery"
+    ],
+    "primary_metrics": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "detected_failure_rate",
+      "conditional_wrong_given_nonfailure"
+    ],
+    "seed_ranges": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 110260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 110261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 110262616
+      }
+    },
+    "semantic_cells": [
+      "u1_f3_m10",
+      "u1_f3_m31",
+      "u1_f3_m68"
+    ],
+    "trial_count_per_selected_point": 64
+  },
+  "executed": false,
+  "map_track": {
+    "claim_limits": [
+      "No calibrated abstention policy",
+      "No production promotion"
+    ],
+    "corruption_channels": [
+      "MAP_SIGN_FLIP"
+    ],
+    "corruption_points_by_cell": {
+      "u1_f3_m10": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.015",
+        "p=0.02",
+        "p=0.05"
+      ],
+      "u1_f3_m31": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.02",
+        "p=0.05",
+        "p=0.075"
+      ],
+      "u1_f3_m68": [
+        "p=0.0",
+        "p=0.01",
+        "p=0.02",
+        "p=0.05",
+        "p=0.1"
+      ]
+    },
+    "map_configs": [
+      {
+        "arm_id": "map_d1024",
+        "dimensions": 1024,
+        "max_iterations": 12,
+        "restarts": 1
+      },
+      {
+        "arm_id": "map_d1024_step32_r4_best_native_reconstruction",
+        "dimensions": 1024,
+        "max_iterations": 32,
+        "restarts": 4,
+        "selection_rule": "best_native_reconstruction"
+      }
+    ],
+    "methods": [
+      "map_d1024",
+      "map_d1024_step32_r4_best_native_reconstruction"
+    ],
+    "primary_metrics": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "mean_correct_factors",
+      "native_reconstruction_score"
+    ],
+    "seed_ranges": {
+      "u1_f3_m10": {
+        "count": 16,
+        "start": 120260616
+      },
+      "u1_f3_m31": {
+        "count": 16,
+        "start": 120261616
+      },
+      "u1_f3_m68": {
+        "count": 16,
+        "start": 120262616
+      }
+    },
+    "semantic_cells": [
+      "u1_f3_m10",
+      "u1_f3_m31",
+      "u1_f3_m68"
+    ],
+    "trial_count_per_selected_point": 64
+  },
+  "outcome_taxonomy": [
+    "EXACT_RECOVERY",
+    "PARTIAL_RECOVERY",
+    "WRONG_RECOVERY",
+    "SILENT_WRONG",
+    "DETECTED_UNCORRECTABLE",
+    "AMBIGUOUS",
+    "INCONSISTENT",
+    "RANK_DEFICIENT",
+    "UNASSIGNED_CODEWORD",
+    "NATIVE_LIMIT_REACHED",
+    "UNSUPPORTED_CHANNEL"
+  ],
+  "schema_version": "level3-5b-dev-native-noise-frontiers-v1"
+}
