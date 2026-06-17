@@ -12,6 +12,22 @@ anti_nih_verdict: COMPOSE
 
 Working abbreviation: `LCR`
 
+## Child Hypotheses
+
+LCR now explicitly contains a deferred child hypothesis:
+
+- [DECODE_CARRYING_HYPERVECTORS_HYPOTHESIS.md](C:/Users/Thanatos/Desktop/CGRN-HSR/docs/research/DECODE_CARRYING_HYPERVECTORS_HYPOTHESIS.md)
+
+Parent-child relation:
+
+```text
+Hierarchical shallow-composition VSA
+    -> Lazy Composite Reification
+        -> Decode-Carrying Hypervectors
+```
+
+LCR remains the parent hypothesis. The child hypothesis does not authorize implementation, experiments, or protocol changes.
+
 ## Verdict
 
 `COMPOSE`
@@ -143,6 +159,31 @@ The following are forbidden:
 - using an LSH bucket as identity;
 - using an approximate result as authoritative traversal;
 - using a PRNG-generated chunk vector as a replacement for canonical structure.
+
+## Parent-State Update
+
+Before the child-hypothesis extension, LCR centered on:
+
+```text
+canonical structure
++ exact handle
++ flat chunk atom
++ semantic fingerprint
+```
+
+After the child-hypothesis extension, the backlog design space additionally includes:
+
+```text
+canonical structure
++ exact handle
++ flat chunk atom
++ semantic fingerprint
++ local decode capsule
++ operation-trace fingerprint
++ recursive parent derivation
+```
+
+This does not change the authoritative role of the exact canonical graph. It only widens the deferred backlog around how decode-relevant metadata might be composed with reified chunk atoms.
 
 ## Conceptual Record
 
@@ -739,6 +780,12 @@ The first admissible future step is still documentation or audit work, not imple
 
 ```text
 Prior-art and necessity kill-test for LCR against graph + ANN, memoized DAG, and typed shared-space cleanup baselines.
+```
+
+For the child hypothesis specifically:
+
+```text
+Do not implement before Level 3.5 held-out confirmation is closed and a separate anti-NIH/prior-art audit is completed.
 ```
 
 ## References to Reuse
