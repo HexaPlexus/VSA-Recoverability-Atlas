@@ -919,6 +919,15 @@ def pass_result(gate: dict[str, Any], reasons: list[str]) -> dict[str, Any]:
     }
 
 
+def exception_result(gate: dict[str, Any], reasons: list[str]) -> dict[str, Any]:
+    return {
+        "gate_id": gate["id"],
+        "state": "EXCEPTION",
+        "disposition": None,
+        "reasons": reasons,
+    }
+
+
 def evaluate_bch_gate(gate: dict[str, Any], binary_lookup: dict[tuple[str, str, str, str, str], SummaryRow]) -> dict[str, Any]:
     reasons: list[str] = []
     candidate = gate["methods"]["candidate"]
@@ -1083,6 +1092,58 @@ def evaluate_map_graceful_gate(gate: dict[str, Any], map_lookup: dict[tuple[str,
 
 
 def evaluate_no_shared_winner_gate(gate: dict[str, Any], protocol_v3: dict[str, Any]) -> dict[str, Any]:
+    metadata = protocol_v3.get("contract_gate_metadata", {}).get("no_shared_noise_winner_contract_v1")
+    if metadata is not None:
+        required_keys = {
+            "binary_track_channel_ids",
+            "map_track_channel_ids",
+            "shared_calibrated_severity_mapping_exists",
+            "cross_track_equal_difficulty_claim_allowed",
+            "bcf_track_status",
+        }
+        missing = sorted(required_keys.difference(metadata))
+        if missing:
+            return exception_result(
+                gate,
+                [f"Missing required contract metadata keys: {', '.join(missing)}."],
+            )
+        if not isinstance(metadata["binary_track_channel_ids"], list) or not all(
+            isinstance(item, str) for item in metadata["binary_track_channel_ids"]
+        ):
+            return exception_result(gate, ["binary_track_channel_ids must be a list of strings."])
+        if not isinstance(metadata["map_track_channel_ids"], list) or not all(
+            isinstance(item, str) for item in metadata["map_track_channel_ids"]
+        ):
+            return exception_result(gate, ["map_track_channel_ids must be a list of strings."])
+        if not isinstance(metadata["shared_calibrated_severity_mapping_exists"], bool):
+            return exception_result(
+                gate,
+                ["shared_calibrated_severity_mapping_exists must be a boolean."],
+            )
+        if not isinstance(metadata["cross_track_equal_difficulty_claim_allowed"], bool):
+            return exception_result(
+                gate,
+                ["cross_track_equal_difficulty_claim_allowed must be a boolean."],
+            )
+        if not isinstance(metadata["bcf_track_status"], str):
+            return exception_result(gate, ["bcf_track_status must be a string."])
+
+        reasons: list[str] = []
+        binary_channels = set(metadata["binary_track_channel_ids"])
+        map_channels = set(metadata["map_track_channel_ids"])
+        if binary_channels == map_channels:
+            reasons.append("Binary and MAP channel sets are identical, so incompatibility is not established.")
+        if metadata["shared_calibrated_severity_mapping_exists"]:
+            reasons.append("Protocol metadata claims a shared calibrated severity mapping exists.")
+        if metadata["cross_track_equal_difficulty_claim_allowed"]:
+            reasons.append("Protocol metadata allows a cross-track equal-difficulty winner claim.")
+        if metadata["bcf_track_status"] != BCF_BLOCKED:
+            reasons.append("BCF track is no longer blocked.")
+        return fail_result(gate, reasons) if reasons else pass_result(
+            gate,
+            ["Protocol contract still forbids a shared cross-track noise winner."],
+        )
+
     reasons: list[str] = []
     binary_channels = set(protocol_v3["preserved_scientific_fields"]["binary_track"]["corruption_channels"])
     map_channels = set(protocol_v3["preserved_scientific_fields"]["map_track"]["corruption_channels"])

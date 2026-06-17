@@ -1,0 +1,21 @@
+{
+  "allowed_diff_classes": [
+    "CONTRACT_GATE_DRY_RUN_CONSISTENCY_REPAIR",
+    "METADATA_ONLY"
+  ],
+  "benchmark_execution_invoked": false,
+  "completion_verdict": "CONTRACT_GATE_CONSISTENCY_REPAIRED",
+  "heldout_trials_observed": 0,
+  "performance_gate_hashes_unchanged": {
+    "bch_binary_exact_record_dominance_v1": true,
+    "generic_linear_practical_equivalence_v1": true,
+    "map_graceful_region_v1": true,
+    "map_silent_collapse_v1": true,
+    "raw_neco_noise_gap_v1": true
+  },
+  "readiness_status": "READY_FOR_LEVEL_3_5B_HELDOUT_V4",
+  "repaired_side": "serialized contract-gate rule, evaluator validation path and synthetic contract fixtures",
+  "schema_version": "level3-5b-contract-gate-consistency-v1",
+  "v3_hash": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2",
+  "v4_hash": "c08696d9d5d2924f7d5e4a2e819dcab2669d0dcd72cfc2b5e6a8a00e4747e5a3"
+}

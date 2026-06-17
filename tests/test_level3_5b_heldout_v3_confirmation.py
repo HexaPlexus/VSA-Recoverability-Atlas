@@ -57,64 +57,40 @@ def test_execution_manifest_created_before_trials() -> None:
     manifest = _load("results/level3_5b_heldout_v3/execution_manifest.json")
     completion = _load("results/level3_5b_heldout_v3/completion_manifest.json")
     assert manifest["trials_executed_before_manifest"] == 0
-    assert manifest["execution_authorized"] is True
+    assert manifest["execution_authorized"] is False
     assert completion["rerun_after_completion_forbidden"] is True
+    assert completion["trials_executed_binary"] == 0
+    assert completion["trials_executed_map"] == 0
 
 
-def test_exact_assigned_seed_usage_and_uniqueness() -> None:
+def test_assigned_seed_lists_are_frozen_and_unique_even_though_no_trials_ran() -> None:
     manifest = _load("results/level3_5b_heldout_v3/execution_manifest.json")
-    binary_trials = _read_jsonl("results/level3_5b_heldout_v3/binary_trials.jsonl")
-    map_trials = _read_jsonl("results/level3_5b_heldout_v3/map_trials.jsonl")
-
-    for track_name, trial_rows in (("binary_track", binary_trials), ("map_track", map_trials)):
-        by_cell: dict[str, set[int]] = {}
-        for row in trial_rows:
-            by_cell.setdefault(row["cell_id"], set()).add(int(row["trial_seed"]))
+    for track_name in ("binary_track", "map_track"):
         for cell_id, seeds in manifest["exact_concrete_seeds"][track_name].items():
-            assert set(seeds) == by_cell[cell_id]
             assert len(seeds) == 64
             assert len(set(seeds)) == 64
 
 
-def test_every_seed_executes_exactly_once_per_assigned_point() -> None:
-    protocol = _load("results/level3_5b_gate_specification/heldout_protocol_v3.json")
+def test_no_trials_were_executed_and_no_replacement_or_extra_seeds_exist() -> None:
     binary_trials = _read_jsonl("results/level3_5b_heldout_v3/binary_trials.jsonl")
     map_trials = _read_jsonl("results/level3_5b_heldout_v3/map_trials.jsonl")
-
-    expected_binary_methods = set(protocol["preserved_scientific_fields"]["binary_track"]["methods"])
-    expected_map_methods = set(protocol["preserved_scientific_fields"]["map_track"]["methods"])
-
-    binary_counts: dict[tuple[str, str, str, int], int] = {}
-    for row in binary_trials:
-        key = (row["cell_id"], row["method_id"], row["corruption_label"], int(row["trial_seed"]))
-        binary_counts[key] = binary_counts.get(key, 0) + 1
-        assert row["method_id"] in expected_binary_methods
-    assert all(value == 1 for value in binary_counts.values())
-
-    map_counts: dict[tuple[str, str, str, int], int] = {}
-    for row in map_trials:
-        key = (row["cell_id"], row["method_id"], row["corruption_label"], int(row["trial_seed"]))
-        map_counts[key] = map_counts.get(key, 0) + 1
-        assert row["method_id"] in expected_map_methods
-    assert all(value == 1 for value in map_counts.values())
+    assert binary_trials == []
+    assert map_trials == []
 
 
-def test_no_replacement_extra_or_adaptive_points() -> None:
-    protocol = _load("results/level3_5b_gate_specification/heldout_protocol_v3.json")
-    binary_trials = _read_jsonl("results/level3_5b_heldout_v3/binary_trials.jsonl")
-    map_trials = _read_jsonl("results/level3_5b_heldout_v3/map_trials.jsonl")
-    binary_points = protocol["preserved_scientific_fields"]["binary_track"]["corruption_points_by_cell"]
-    map_points = protocol["preserved_scientific_fields"]["map_track"]["corruption_points_by_cell"]
-    assert {row["corruption_label"] for row in binary_trials if row["cell_id"] == "u1_f3_m10"} == set(binary_points["u1_f3_m10"])
-    assert {row["corruption_label"] for row in map_trials if row["cell_id"] == "u1_f3_m31"} == set(map_points["u1_f3_m31"])
+def test_block_reason_is_the_contract_gate_dry_run_mismatch() -> None:
+    verdicts = _load("results/level3_5b_heldout_v3/verdicts.json")
+    assert verdicts["overall_verdict"] == "BLOCKED_BY_V3_PROTOCOL_INTEGRITY_FAILURE"
+    assert any(
+        "no_shared_noise_winner_contract_v1/contradictory_metrics_case" in item
+        for item in verdicts["blocked_reason"]
+    )
 
 
-def test_truth_not_passed_and_map_corruption_after_clean_construction() -> None:
-    binary_trials = _read_jsonl("results/level3_5b_heldout_v3/binary_trials.jsonl")
-    map_trials = _read_jsonl("results/level3_5b_heldout_v3/map_trials.jsonl")
-    assert all(row["uses_truth_in_decoder"] is False for row in binary_trials)
-    assert all(row["uses_truth_in_decoder"] is False for row in map_trials)
-    assert all(row["corruption_after_clean_product_construction"] is True for row in map_trials)
+def test_truth_never_reached_decoders_because_runner_blocked_pretrial() -> None:
+    analysis = _load("results/level3_5b_heldout_v3/analysis.json")
+    assert analysis["benchmark_execution_invoked"] is False
+    assert analysis["trials_executed"] == 0
 
 
 def test_bcf_never_invoked_and_remains_blocked() -> None:
@@ -123,28 +99,21 @@ def test_bcf_never_invoked_and_remains_blocked() -> None:
     assert payload["executed"] is False
 
 
-def test_gate_evaluation_uses_serialized_rules_only_and_order_is_fixed() -> None:
-    protocol = _load("results/level3_5b_gate_specification/heldout_protocol_v3.json")
-    gate_results = _load("results/level3_5b_heldout_v3/gate_results.json")["rows"]
-    assert [row["gate_id"] for row in gate_results] == protocol["deterministic_verdict_evaluation_order"]
-    for row in gate_results:
-        assert row["rule_hash"] == protocol["canonical_gate_hashes"][row["gate_id"]]
-        assert row["missing_or_exception_handling"]["missing_trial_policy"] is not None
+def test_gate_evaluation_was_not_invoked_after_integrity_block() -> None:
+    assert (ROOT / "results" / "level3_5b_heldout_v3" / "gate_results.json").read_text(encoding="utf-8") == ""
+    assert (ROOT / "results" / "level3_5b_heldout_v3" / "gate_inputs.json").read_text(encoding="utf-8") == ""
 
 
-def test_silent_wrong_separate_and_practical_equivalence_wording_preserved() -> None:
+def test_silent_wrong_metric_still_exists_in_frozen_protocol() -> None:
     protocol = _load("results/level3_5b_gate_specification/heldout_protocol_v3.json")
-    gate_results = _load("results/level3_5b_heldout_v3/gate_results.json")["rows"]
     assert "silent_wrong_rate" in protocol["metric_definitions"]
-    generic_gate = next(row for row in gate_results if row["gate_id"] == "generic_linear_practical_equivalence_v1")
-    assert "practical" in generic_gate["reasons"][0].lower() or generic_gate["pass_or_fail"] in {"FAIL", "PASS"}
 
 
-def test_no_manual_override_or_universal_cross_track_leaderboard() -> None:
+def test_no_manual_override_and_no_confirmatory_claims_after_block() -> None:
     analysis = _load("results/level3_5b_heldout_v3/analysis.json")
     claims = _load("results/level3_5b_heldout_v3/claims.json")
-    assert analysis["no_manual_override"] is True
-    assert any("universal cross-track" in item.lower() for item in claims["forbidden_claims"])
+    assert analysis["final_stage_status"] == "BLOCKED_BY_V3_PROTOCOL_INTEGRITY_FAILURE"
+    assert any("no held-out v3 outcome was observed" in item.lower() for item in claims["allowed_claims"])
 
 
 def test_rerun_after_completion_is_blocked() -> None:

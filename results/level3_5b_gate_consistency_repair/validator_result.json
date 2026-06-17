@@ -1,0 +1,29 @@
+{
+  "allowed_diff_only": true,
+  "benchmark_execution_invoked": false,
+  "blocked_v3_attempt_committed_and_immutable": true,
+  "cells_unchanged": true,
+  "changed_immutable_paths": [],
+  "configs_unchanged": true,
+  "methods_unchanged": true,
+  "metrics_unchanged": true,
+  "pass_fail_exception_distinguishable": true,
+  "points_unchanged": true,
+  "refrozen_ready_status": "READY_FOR_LEVEL_3_5B_HELDOUT_V4",
+  "schema_version": "level3-5b-contract-gate-consistency-v1",
+  "seeds_unchanged": true,
+  "synthetic_dry_run_failures": [],
+  "synthetic_dry_runs_pass": true,
+  "trial_counts_unchanged": true,
+  "unauthorized_diff_rows": [],
+  "unchanged_performance_gate_hashes": {
+    "bch_binary_exact_record_dominance_v1": true,
+    "generic_linear_practical_equivalence_v1": true,
+    "map_graceful_region_v1": true,
+    "map_silent_collapse_v1": true,
+    "raw_neco_noise_gap_v1": true
+  },
+  "v1_v2_v3_unchanged": true,
+  "validator_verdict": "CONTRACT_GATE_CONSISTENCY_REPAIRED",
+  "zero_heldout_trials": true
+}

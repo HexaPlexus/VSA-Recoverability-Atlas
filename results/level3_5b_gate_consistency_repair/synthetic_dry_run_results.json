@@ -1,0 +1,359 @@
+{
+  "rows": {
+    "bch_binary_exact_record_dominance_v1": {
+      "boundary_case": {
+        "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "All required rows satisfied BCH dominance semantics."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "silent_wrong_rate=1.5 is outside [0,1]"
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "Candidate row for u1_f3_m10/e=1 has trials=63, expected 64."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "fail_case": {
+        "disposition": "BCH_DOMINANCE_NOT_CONFIRMED",
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "u1_f3_m10/e=1 silent_wrong_rate=0.2 exceeds ceiling.",
+          "u1_f3_m10/e=1 candidate exact 0.0 is below comparator packed_tuple_bch_low_redundancy exact 0.5."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "Missing candidate row for u1_f3_m10/e=1."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "pass_case": {
+        "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "All required rows satisfied BCH dominance semantics."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "All required rows satisfied BCH dominance semantics."
+        ],
+        "state": "PASS"
+      }
+    },
+    "generic_linear_practical_equivalence_v1": {
+      "boundary_case": {
+        "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Raw NeCo and generic linear stay within all practical margins."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "detected_failure_rate=1.5 is outside [0,1]"
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Unexpected trial count for u1_f3_m10/e=1."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "fail_case": {
+        "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "u1_f3_m10/e=1 exact delta 0.5 exceeds margin.",
+          "u1_f3_m10/e=1 detected delta 0.5 exceeds margin."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Missing paired rows for u1_f3_m10/e=1."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "pass_case": {
+        "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Raw NeCo and generic linear stay within all practical margins."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Raw NeCo and generic linear stay within all practical margins."
+        ],
+        "state": "PASS"
+      }
+    },
+    "map_graceful_region_v1": {
+      "boundary_case": {
+        "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Extended MAP satisfies the frozen graceful-region rule on all selected points."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "silent_wrong_rate=1.5 is outside [0,1]"
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Unexpected trials for graceful-region row p=0.02: 63."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "fail_case": {
+        "disposition": "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "p=0.02 exact 0.2 below minimum.",
+          "p=0.02 silent 0.6 above maximum.",
+          "p=0.02 mean_correct 1.0 below minimum."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Missing graceful-region row for p=0.02."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "pass_case": {
+        "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Extended MAP satisfies the frozen graceful-region rule on all selected points."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Extended MAP satisfies the frozen graceful-region rule on all selected points."
+        ],
+        "state": "PASS"
+      }
+    },
+    "map_silent_collapse_v1": {
+      "boundary_case": {
+        "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Both MAP arms satisfy the frozen high-capacity silent-collapse rule."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "silent_wrong_rate=1.5 is outside [0,1]"
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Unexpected trials for map_d1024 p=0.0: 63."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "fail_case": {
+        "disposition": "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "map_d1024/p=0.0 exact 0.4 exceeds collapse max.",
+          "map_d1024/p=0.0 silent 0.6 below collapse min."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Missing MAP row for map_d1024 p=0.0."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "pass_case": {
+        "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Both MAP arms satisfy the frozen high-capacity silent-collapse rule."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Both MAP arms satisfy the frozen high-capacity silent-collapse rule."
+        ],
+        "state": "PASS"
+      }
+    },
+    "no_shared_noise_winner_contract_v1": {
+      "boundary_case": {
+        "disposition": "NO_SHARED_NOISE_WINNER",
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Protocol contract still forbids a shared cross-track noise winner."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "binary_track_channel_ids must be a list of strings."
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Missing required contract metadata keys: shared_calibrated_severity_mapping_exists."
+        ],
+        "state": "EXCEPTION"
+      },
+      "fail_case": {
+        "disposition": "NO_SHARED_NOISE_WINNER_NOT_CONFIRMED",
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Protocol metadata claims a shared calibrated severity mapping exists."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Missing required contract metadata keys: shared_calibrated_severity_mapping_exists."
+        ],
+        "state": "EXCEPTION"
+      },
+      "pass_case": {
+        "disposition": "NO_SHARED_NOISE_WINNER",
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Protocol contract still forbids a shared cross-track noise winner."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "NO_SHARED_NOISE_WINNER",
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Protocol contract still forbids a shared cross-track noise winner."
+        ],
+        "state": "PASS"
+      }
+    },
+    "raw_neco_noise_gap_v1": {
+      "boundary_case": {
+        "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Raw NeCo clean-to-noisy gap satisfied in every required cell."
+        ],
+        "state": "PASS"
+      },
+      "contradictory_metrics_case": {
+        "disposition": null,
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "detected_failure_rate=1.5 is outside [0,1]"
+        ],
+        "state": "EXCEPTION"
+      },
+      "exceptional_trial_case": {
+        "disposition": null,
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Unexpected trial count for u1_f3_m10."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "fail_case": {
+        "disposition": "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "u1_f3_m10 first nonzero exact 0.5 above maximum.",
+          "u1_f3_m10 first nonzero detected_failure 0.5 below minimum."
+        ],
+        "state": "FAIL"
+      },
+      "missing_data_case": {
+        "disposition": null,
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Missing raw NeCo row(s) for u1_f3_m10."
+        ],
+        "state": "INCOMPLETE_INPUT"
+      },
+      "pass_case": {
+        "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Raw NeCo clean-to-noisy gap satisfied in every required cell."
+        ],
+        "state": "PASS"
+      },
+      "tie_case": {
+        "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Raw NeCo clean-to-noisy gap satisfied in every required cell."
+        ],
+        "state": "PASS"
+      }
+    }
+  },
+  "schema_version": "level3-5b-contract-gate-consistency-v1"
+}

@@ -1,0 +1,39 @@
+{
+  "allowed_change_types": [
+    "CONTRACT_GATE_DRY_RUN_CONSISTENCY_REPAIR",
+    "METADATA_ONLY"
+  ],
+  "rows": [
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "protocol_version"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "supersedes_protocol_v3_hash"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "heldout_trials_observed_before_v4"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "repair_scope"
+    },
+    {
+      "change_type": "CONTRACT_GATE_DRY_RUN_CONSISTENCY_REPAIR",
+      "field": "contract_gate_metadata"
+    },
+    {
+      "change_type": "CONTRACT_GATE_DRY_RUN_CONSISTENCY_REPAIR",
+      "field": "confirmatory_gates.no_shared_noise_winner_contract_v1"
+    },
+    {
+      "change_type": "CONTRACT_GATE_DRY_RUN_CONSISTENCY_REPAIR",
+      "field": "canonical_gate_hashes.no_shared_noise_winner_contract_v1"
+    }
+  ],
+  "schema_version": "level3-5b-contract-gate-consistency-v1",
+  "v3_canonical_hash": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2",
+  "v4_canonical_hash": "c08696d9d5d2924f7d5e4a2e819dcab2669d0dcd72cfc2b5e6a8a00e4747e5a3"
+}

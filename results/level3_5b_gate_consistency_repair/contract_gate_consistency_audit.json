@@ -1,0 +1,15 @@
+{
+  "evaluator_actual_outcome": "FAIL",
+  "exception_semantics": "EXCEPTION for missing or malformed contract metadata.",
+  "fail_semantics": "FAIL for valid metadata that removes the cross-track incompatibility guardrail.",
+  "fixture_expected_outcome": "EXCEPTION",
+  "fixture_input_validity": "VALID_FAIL_CASE",
+  "gate_rule": "no_shared_noise_winner_contract_v1",
+  "gate_rule_hash": "a59f988bc4e19b1c38783154a1eaecd00a33b40ad54a998b90618d2702be6a54",
+  "missing_data_semantics": "EXCEPTION for absent required contract metadata.",
+  "repaired_gate_rule_hash": "88a17a9dce5214b992a96804908b2457e356eae44abe4fa098452504bb5311d1",
+  "root_cause": "AMBIGUOUS_RULE_SEMANTICS",
+  "rule_semantics": "PASS for established incompatibility; FAIL for valid metadata that permits or implies a shared comparable noise scale; EXCEPTION for missing or malformed contract metadata.",
+  "schema_version": "level3-5b-contract-gate-consistency-v1",
+  "synthetic_fixture": "contradictory_metrics_case in v3 dry-run validator"
+}
