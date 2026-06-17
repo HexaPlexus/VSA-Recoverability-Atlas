@@ -1,0 +1,33 @@
+{
+  "bad_rule_hashes": [],
+  "bcf_remains_blocked": true,
+  "benchmark_execution_invoked": false,
+  "cells_unchanged": true,
+  "changed_immutable_paths": [],
+  "configs_unchanged": true,
+  "corruption_points_unchanged": true,
+  "deterministic_gate_order": [
+    "bch_binary_exact_record_dominance_v1",
+    "raw_neco_noise_gap_v1",
+    "generic_linear_practical_equivalence_v1",
+    "map_silent_collapse_v1",
+    "map_graceful_region_v1",
+    "no_shared_noise_winner_contract_v1"
+  ],
+  "gate_schema_complete": true,
+  "heldout_outcomes_available_to_gate_design": false,
+  "heldout_trials_observed": 0,
+  "methods_unchanged": true,
+  "metrics_unchanged": true,
+  "missing_provenance": [],
+  "repair_seed_audit_pass": true,
+  "repair_validator_ready": true,
+  "schema_version": "level3-5b-gate-specification-v1",
+  "seeds_unchanged_from_v2": true,
+  "trial_counts_unchanged": true,
+  "undefined_thresholds": [],
+  "unsupported_protocol_diff_types": [],
+  "v1_and_v2_unchanged_since_previous_blocked_checkpoint": true,
+  "validator_verdict": "GATES_SPECIFIED_AND_FINAL_PROTOCOL_FROZEN",
+  "zero_heldout_trials_before_v3": true
+}

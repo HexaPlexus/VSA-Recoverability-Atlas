@@ -1,0 +1,28 @@
+{
+  "benchmark_execution_invoked": false,
+  "completion_verdict": "GATES_SPECIFIED_AND_FINAL_PROTOCOL_FROZEN",
+  "gate_ids": [
+    "bch_binary_exact_record_dominance_v1",
+    "raw_neco_noise_gap_v1",
+    "generic_linear_practical_equivalence_v1",
+    "map_silent_collapse_v1",
+    "map_graceful_region_v1",
+    "no_shared_noise_winner_contract_v1"
+  ],
+  "heldout_outcomes_available_to_gate_design": false,
+  "heldout_trials_observed": 0,
+  "newly_defined_gate_ids": [
+    "bch_binary_exact_record_dominance_v1",
+    "raw_neco_noise_gap_v1",
+    "generic_linear_practical_equivalence_v1",
+    "map_silent_collapse_v1",
+    "map_graceful_region_v1"
+  ],
+  "ready_verdict": "READY_FOR_LEVEL_3_5B_HELDOUT_V3",
+  "recovered_gate_ids": [
+    "no_shared_noise_winner_contract_v1"
+  ],
+  "schema_version": "level3-5b-gate-specification-v1",
+  "v2_protocol_hash": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "v3_protocol_hash": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2"
+}

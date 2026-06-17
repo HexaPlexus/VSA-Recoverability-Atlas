@@ -1,0 +1,69 @@
+{
+  "allowed_change_types": [
+    "CONFIRMATORY_GATE_SEMANTICS_ADDED",
+    "METADATA_ONLY",
+    "MISSING_OUTCOME_POLICY_ADDED",
+    "STATISTICAL_POLICY_ADDED"
+  ],
+  "rows": [
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "protocol_version"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "supersedes_protocol_v2_hash"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "heldout_trials_observed_before_v3"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "heldout_outcomes_available_to_gate_design"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "stage_classification"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "correct_classification_statement"
+    },
+    {
+      "change_type": "STATISTICAL_POLICY_ADDED",
+      "field": "statistics_policy"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "metric_definitions"
+    },
+    {
+      "change_type": "CONFIRMATORY_GATE_SEMANTICS_ADDED",
+      "field": "confirmatory_dispositions"
+    },
+    {
+      "change_type": "CONFIRMATORY_GATE_SEMANTICS_ADDED",
+      "field": "confirmatory_gates"
+    },
+    {
+      "change_type": "CONFIRMATORY_GATE_SEMANTICS_ADDED",
+      "field": "canonical_gate_hashes"
+    },
+    {
+      "change_type": "CONFIRMATORY_GATE_SEMANTICS_ADDED",
+      "field": "deterministic_verdict_evaluation_order"
+    },
+    {
+      "change_type": "MISSING_OUTCOME_POLICY_ADDED",
+      "field": "missing_outcome_policy"
+    },
+    {
+      "change_type": "METADATA_ONLY",
+      "field": "gate_source_audit_hash"
+    }
+  ],
+  "schema_version": "level3-5b-gate-specification-v1",
+  "v2_canonical_hash": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "v3_canonical_hash": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2"
+}

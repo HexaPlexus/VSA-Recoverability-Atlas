@@ -1,0 +1,246 @@
+{
+  "rows": [
+    {
+      "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": true,
+      "missing_fields": [
+        "comparators",
+        "cells",
+        "corruption points",
+        "dominance operator",
+        "silent-wrong ceiling",
+        "miscorrection handling",
+        "tie policy"
+      ],
+      "original_rule_text": "binary_verdict = \"BCH_DOMINATES_BINARY_EXACT_RECORD_DEV\" if has_method(binary_summary, \"packed_tuple_bch_high_redundancy\") else \"BLOCK_BINARY_TRACK\"",
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/analysis.json",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/analysis.json:12",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1515",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md:5"
+      ]
+    },
+    {
+      "disposition": "BCH_DOMINANCE_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "full pass/fail rule"
+      ],
+      "original_rule_text": "Disposition label present without executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json"
+      ],
+      "source_locations": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json:261-272"
+      ]
+    },
+    {
+      "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": true,
+      "missing_fields": [
+        "which cells",
+        "which corruption points",
+        "comparison against clean baseline",
+        "quantitative threshold"
+      ],
+      "original_rule_text": "raw_neco_gap = any(row[\"method_id\"] == \"raw_neco_algebraic_recovery\" and (row[\"silent_wrong_rate\"] > 0.0 or row[\"detected_failure_rate\"] > 0.0) for row in binary_summary)",
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/analysis.json",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/analysis.json:67",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1516-1519,1538"
+      ]
+    },
+    {
+      "disposition": "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "full pass/fail rule"
+      ],
+      "original_rule_text": "Disposition label present without executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json"
+      ],
+      "source_locations": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json:261-272"
+      ]
+    },
+    {
+      "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "comparator",
+        "equivalence interpretation",
+        "margin",
+        "cells",
+        "corruption points"
+      ],
+      "original_rule_text": "\"generic_linear_noise_equivalence_verdict\": \"GENERIC_LINEAR_NOISE_EQUIVALENCE_DEV\"",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_dev/analysis.json",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/analysis.json:60",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1539"
+      ]
+    },
+    {
+      "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "full pass/fail rule"
+      ],
+      "original_rule_text": "Disposition label present without executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json"
+      ],
+      "source_locations": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json:261-272"
+      ]
+    },
+    {
+      "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": true,
+      "missing_fields": [
+        "direct collapse criterion",
+        "cells",
+        "points",
+        "silent threshold",
+        "detected-failure criterion"
+      ],
+      "original_rule_text": "map_verdict = \"MAP_GRACEFUL_REGION_DEV\" if map_graceful else \"MAP_SILENT_COLLAPSE_DEV\"",
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/analysis.json",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/analysis.json:63",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1521-1525",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md:6"
+      ]
+    },
+    {
+      "disposition": "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "full pass/fail rule"
+      ],
+      "original_rule_text": "Disposition label present without executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json"
+      ],
+      "source_locations": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json:261-272"
+      ]
+    },
+    {
+      "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": true,
+      "missing_fields": [
+        "which arm(s)",
+        "which cells",
+        "which corruption points",
+        "partial-recovery interpretation",
+        "region definition"
+      ],
+      "original_rule_text": "map_graceful = any(row[\"method_id\"] == MAP_EXTENDED_ARM_ID and row[\"exact_recovery_rate\"] < 0.90 and row[\"exact_recovery_rate\"] > 0.10 and row[\"silent_wrong_rate\"] <= 0.25 for row in map_summary)",
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/analysis.json",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/analysis.json:63",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1521-1525"
+      ]
+    },
+    {
+      "disposition": "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [
+        "full pass/fail rule"
+      ],
+      "original_rule_text": "Disposition label present without executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json"
+      ],
+      "source_locations": [
+        "results/level3_5b_protocol_repair/heldout_protocol_v2.json:261-272"
+      ]
+    },
+    {
+      "disposition": "NO_SHARED_NOISE_WINNER",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": true,
+      "missing_fields": [
+        "machine-readable compatibility predicate"
+      ],
+      "original_rule_text": "claim_limits include \"No cross-track universal winner\" and guardrail text states that equal corruption percentages across incompatible channels are not interpreted as equal semantic damage.",
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/heldout_protocol.json",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/heldout_protocol.json:156-157",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md:24",
+        "src/cgrn_hsr/level3_5b_native_noise_frontiers.py:1136,1215"
+      ]
+    },
+    {
+      "disposition": "NO_SHARED_NOISE_WINNER_NOT_CONFIRMED",
+      "executable_semantics_complete": false,
+      "explicit_rule_found": false,
+      "missing_fields": [],
+      "original_rule_text": "Fail complement added in v3 for complete executable pass/fail semantics.",
+      "source_class": "LABEL_ONLY",
+      "source_files": [],
+      "source_locations": []
+    },
+    {
+      "disposition": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+      "executable_semantics_complete": true,
+      "explicit_rule_found": true,
+      "missing_fields": [],
+      "original_rule_text": "BCF track blocked because no lawful external corruption contract was frozen.",
+      "source_class": "EXPLICIT_PREEXISTING_RULE",
+      "source_files": [
+        "results/level3_5b_dev/heldout_protocol.json",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md"
+      ],
+      "source_locations": [
+        "results/level3_5b_dev/heldout_protocol.json:2-18",
+        "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md:20"
+      ]
+    }
+  ],
+  "schema_version": "level3-5b-gate-specification-v1"
+}

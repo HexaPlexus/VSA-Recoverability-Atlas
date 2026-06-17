@@ -1,0 +1,1275 @@
+{
+  "canonical_gate_hashes": {
+    "bch_binary_exact_record_dominance_v1": "5494ddce226a1d300a4346941e81cd5eef43597eeafc391c8678cd861a84da3b",
+    "generic_linear_practical_equivalence_v1": "f2ace569814590940fcf68a3efe61628d8e9f6a301524beb12dd7f9724928f2e",
+    "map_graceful_region_v1": "1267e41a4cd4fd88232ddfaaf707217b6727eb9709a59530c271a08e58b73bea",
+    "map_silent_collapse_v1": "7adc424025cf731627cfbc95cac4c1948f5f6a629ce450dc7bfdc7004ec9c33a",
+    "no_shared_noise_winner_contract_v1": "a59f988bc4e19b1c38783154a1eaecd00a33b40ad54a998b90618d2702be6a54",
+    "raw_neco_noise_gap_v1": "015ddf4b6be9a68d784f463204a5297108565df44329a36f7684538aa0032ad7"
+  },
+  "claim_limits": {
+    "binary_track": [
+      "No cross-track universal winner",
+      "No BCH-vs-BCF superiority claim across incompatible channels"
+    ],
+    "global": [
+      "No cross-track universal winner",
+      "No production promotion",
+      "No BCF noisy claim"
+    ],
+    "map_track": [
+      "No calibrated abstention policy",
+      "No production promotion"
+    ]
+  },
+  "complete_config_records": {
+    "bcf_track": {
+      "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY"
+    },
+    "binary_track": {
+      "bch_config_file_hash": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+      "binary_method_source_hash": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec",
+      "transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+    },
+    "map_track": {
+      "map_d1024": {
+        "aggregation": "single-attempt",
+        "arm_id": "map_d1024",
+        "codebook_construction": {
+          "baseline_config": {
+            "dimensions": 1024,
+            "domain_size": "task.domain_size_per_factor[0]",
+            "max_iterations": 12,
+            "num_factors": "task.factor_count",
+            "stable_patience": 3,
+            "structured_distractor_count": 0
+          },
+          "device_policy": "\"cuda:0\" if torch.cuda.is_available() else \"cpu\"",
+          "dimensions": 1024,
+          "dtype_policy": "runtime torchhd / torch default floating MAP tensor dtype",
+          "helper": "prepare_map_task",
+          "initial_estimate_construction": "build_initial_estimates(domains)",
+          "observation_construction": "bind_sequence(factors_from_indices(domains, target_indices))",
+          "representation_seed_policy": {
+            "manifest_field": "map_representation_seed",
+            "offset_from_trial_seed": 63000
+          },
+          "source_module": "src/cgrn_hsr/level3_2b_map_budget_robustness.py"
+        },
+        "config_hash": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+        "dimensions": 1024,
+        "domain_size_by_cell": {
+          "u1_f3_m10": 10,
+          "u1_f3_m31": 31,
+          "u1_f3_m68": 68
+        },
+        "external_corruption_contract": {
+          "applied_after_clean_product_construction": true,
+          "channel_id": "MAP_SIGN_FLIP",
+          "helper": "bernoulli_sign_flips",
+          "source_module": "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+        },
+        "factor_count_by_cell": {
+          "u1_f3_m10": 3,
+          "u1_f3_m31": 3,
+          "u1_f3_m68": 3
+        },
+        "implementation_version": "level3-5b-dev-native-noise-frontiers-v1",
+        "initialization": "baseline_estimates.clone()",
+        "max_iterations": 12,
+        "native_reconstruction_definition": "selected.normalized_reconstruction_similarity from run_map_attempt output",
+        "proposal_selection": "first",
+        "representation_family": "MAP / TorchHD resonator",
+        "restart_count": 1,
+        "seed_policy": {
+          "attempt_init_seed": "trial_seed + 100000",
+          "corruption_seed_offsets": {
+            "adaptive_midpoints": 6000000,
+            "initial_points": 4000000
+          }
+        },
+        "selection_rule": "first",
+        "semantic_cells": [
+          "u1_f3_m10",
+          "u1_f3_m31",
+          "u1_f3_m68"
+        ],
+        "source_hashes": {
+          "level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+          "level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+          "level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+        },
+        "stable_patience": 3,
+        "stopping_behavior": "early stop when stable_iterations >= MAP_STABLE_PATIENCE else stop at max_iterations",
+        "task_contract": "U1_noisy_single_product_factorization_development_only"
+      },
+      "map_d1024_step32_r4_best_native_reconstruction": {
+        "aggregation": "best_native_reconstruction across 4 restarts",
+        "arm_id": "map_d1024_step32_r4_best_native_reconstruction",
+        "codebook_construction": {
+          "baseline_config": {
+            "dimensions": 1024,
+            "domain_size": "task.domain_size_per_factor[0]",
+            "max_iterations": 12,
+            "num_factors": "task.factor_count",
+            "stable_patience": 3,
+            "structured_distractor_count": 0
+          },
+          "device_policy": "\"cuda:0\" if torch.cuda.is_available() else \"cpu\"",
+          "dimensions": 1024,
+          "dtype_policy": "runtime torchhd / torch default floating MAP tensor dtype",
+          "helper": "prepare_map_task",
+          "initial_estimate_construction": "build_initial_estimates(domains)",
+          "observation_construction": "bind_sequence(factors_from_indices(domains, target_indices))",
+          "representation_seed_policy": {
+            "manifest_field": "map_representation_seed",
+            "offset_from_trial_seed": 63000
+          },
+          "source_module": "src/cgrn_hsr/level3_2b_map_budget_robustness.py"
+        },
+        "config_hash": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff",
+        "dimensions": 1024,
+        "domain_size_by_cell": {
+          "u1_f3_m10": 10,
+          "u1_f3_m31": 31,
+          "u1_f3_m68": 68
+        },
+        "external_corruption_contract": {
+          "applied_after_clean_product_construction": true,
+          "channel_id": "MAP_SIGN_FLIP",
+          "helper": "bernoulli_sign_flips",
+          "source_module": "src/cgrn_hsr/level3_5b_native_noise_frontiers.py"
+        },
+        "factor_count_by_cell": {
+          "u1_f3_m10": 3,
+          "u1_f3_m31": 3,
+          "u1_f3_m68": 3
+        },
+        "implementation_version": "level3-5b-dev-native-noise-frontiers-v1",
+        "initialization": "four cold random restarts via torchhd.random",
+        "max_iterations": 32,
+        "native_reconstruction_definition": "selected.normalized_reconstruction_similarity from run_map_attempt output",
+        "proposal_selection": "highest native reconstruction, tie-break mean_margin then earliest restart",
+        "representation_family": "MAP / TorchHD resonator",
+        "restart_count": 4,
+        "seed_policy": {
+          "corruption_seed_offsets": {
+            "adaptive_midpoints": 7000000,
+            "initial_points": 5000000
+          },
+          "restart_init_seed": "trial_seed + 200000 + restart_index",
+          "selection_seed": "trial_seed + 300000"
+        },
+        "selection_rule": "best_native_reconstruction",
+        "semantic_cells": [
+          "u1_f3_m10",
+          "u1_f3_m31",
+          "u1_f3_m68"
+        ],
+        "source_hashes": {
+          "level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+          "level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+          "level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+        },
+        "stable_patience": 3,
+        "stopping_behavior": "each restart early-stops at stable_patience else max_iterations; best proposal selected post hoc",
+        "task_contract": "U1_noisy_single_product_factorization_development_only"
+      }
+    }
+  },
+  "config_hashes": {
+    "bch_configs_hash": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+    "blocked_artifact_hashes": {
+      "docs/LEVEL3_5B_HELDOUT_NOISE_CONFIRMATION.md": "0fbd0dd8375ce6e761fcae91fe140faa6c82c5f28c2f892394a0e7926ebc68ed",
+      "results/level3_5b_heldout/analysis.json": "7e2055fba681e2e8bf3f509fbf9dc30cfdec411c918e4d030de8cfc3398ccb49",
+      "results/level3_5b_heldout/bcf_status.json": "4b8dbdab31df5b9c02ddba48def9a9eef9fc12372c8c94c3687194ba9484123e",
+      "results/level3_5b_heldout/binary_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/binary_trials.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/claims.json": "0ee1b2c6011e95e212c0af8a9f59b7b0c8e2c9b0ed4961e5e29370566fc50ba9",
+      "results/level3_5b_heldout/completion_manifest.json": "59cefeb44ca5b50adbdb084728bafb9d118c40dedeacb4638b74003c61fdaee7",
+      "results/level3_5b_heldout/environment.json": "a3f9a34144b3f7fde87816e52327a07f6541c324e73f0b435e3f2bf060a3b4b9",
+      "results/level3_5b_heldout/execution_manifest.json": "fdab8a22b82c1778fbc1d36c3beece55660aa480e1ff8cceb7c605d846c85e8e",
+      "results/level3_5b_heldout/map_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/map_trials.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/protocol_integrity.json": "b21bae1990adda4b0abd30488a8d55bbe2ad623544d47ffd969f77f9ebd7293e",
+      "results/level3_5b_heldout/resource_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/semantic_manifests.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/silent_error_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/timing_summary.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "results/level3_5b_heldout/verdicts.json": "3fd21212ebee45a9a10911274a3b3b165875600f640ff590cf854588762c52ea"
+    },
+    "heldout_protocol_v1_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+    "map_arm_hashes": {
+      "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+      "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+    },
+    "source_hashes": {
+      "src/cgrn_hsr/level3_2b_map_budget_robustness.py": "776a3869835eb5140aa76be4b17003fe349f4441983a8730fc0f58109a872291",
+      "src/cgrn_hsr/level3_4_algebraic_baselines.py": "c100c408365437f4a0e5ca5db5a02ecc21fbf95799595b247eff8cc45a3c17f0",
+      "src/cgrn_hsr/level3_5b_native_noise_frontiers.py": "ccbe3108343f2a08ee58ebab329dc7f92a7069090bcfe529c5e94c74868ed8ec"
+    },
+    "transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161"
+  },
+  "confirmatory_dispositions": [
+    "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+    "BCH_DOMINANCE_NOT_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+    "MAP_GRACEFUL_REGION_CONFIRMED",
+    "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+    "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "NO_SHARED_NOISE_WINNER",
+    "NO_SHARED_NOISE_WINNER_NOT_CONFIRMED"
+  ],
+  "confirmatory_gates": [
+    {
+      "aggregation_unit": "summary row (method x cell x channel x corruption point)",
+      "comparison_operator": "candidate exact must be >= every comparator exact on every required row; ties allowed",
+      "confidence_interval_policy": "Wilson 95% reported descriptively only; not used in pass/fail",
+      "corruption_points": {
+        "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+        "required_points": {
+          "u1_f3_m10": [
+            "e=1",
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=6"
+          ],
+          "u1_f3_m31": [
+            "e=1",
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=6"
+          ],
+          "u1_f3_m68": [
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=5",
+            "e=8"
+          ]
+        }
+      },
+      "deterministic_evaluation_order": [
+        "u1_f3_m10:e=1,e=2,e=3,e=4,e=6",
+        "u1_f3_m31:e=1,e=2,e=3,e=4,e=6",
+        "u1_f3_m68:e=2,e=3,e=4,e=5,e=8"
+      ],
+      "disposition_if_fail": "BCH_DOMINANCE_NOT_CONFIRMED",
+      "disposition_if_pass": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+      "exceptional_trial_policy": "INCOMPLETE_INPUT if any required summary row is absent or has trials != 64",
+      "excluded_metrics": [
+        "latency",
+        "resource bytes",
+        "bernoulli points"
+      ],
+      "id": "bch_binary_exact_record_dominance_v1",
+      "included_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate",
+        "miscorrection_rate"
+      ],
+      "methods": {
+        "candidate": "packed_tuple_bch_high_redundancy",
+        "comparators": [
+          "uncoded_packed_tuple",
+          "packed_tuple_bch_low_redundancy",
+          "generic_full_rank_linear_mix",
+          "raw_neco_algebraic_recovery"
+        ]
+      },
+      "minimum_effect_requirement": {
+        "description": "At least one nonzero required point per cell must show >=0.50 exact-rate advantage over the strongest non-BCH comparator.",
+        "minimum_exact_advantage": 0.5,
+        "per_cell_required": true,
+        "target_methods": [
+          "uncoded_packed_tuple",
+          "generic_full_rank_linear_mix",
+          "raw_neco_algebraic_recovery"
+        ]
+      },
+      "missing_trial_policy": "INCOMPLETE_INPUT",
+      "multiplicity_policy": "none; all rows are fixed ex ante and evaluated conjunctively",
+      "required_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "required_points": {
+        "u1_f3_m10": [
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m31": [
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m68": [
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=5",
+          "e=8"
+        ]
+      },
+      "resource_constraint": {
+        "policy": "descriptive only",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "5494ddce226a1d300a4346941e81cd5eef43597eeafc391c8678cd861a84da3b",
+      "rule_version": "v1",
+      "scientific_question": "Does frozen high-redundancy BCH remain the preferred exact-record binary control on the frozen exact-weight U1 cells and points?",
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "silent_error_constraint": {
+        "metric": "silent_wrong_rate",
+        "operator": "<=",
+        "value": 0.125
+      },
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_provenance": {
+        "audit_disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+        "development_sources": [
+          "results/level3_5b_dev/binary_summary.csv",
+          "results/level3_5b_dev/heldout_protocol.json"
+        ],
+        "rule_origin": "NEW_PROSPECTIVE_RULE_DEFINED_FROM_DEVELOPMENT_ONLY"
+      },
+      "thresholds": {
+        "miscorrection_rate_max": 0.375,
+        "per_row_exact_margin_min": 0.0,
+        "silent_wrong_rate_max": 0.125
+      },
+      "tie_policy": "ties on exact_recovery_rate are allowed; candidate still must satisfy silent and miscorrection ceilings"
+    },
+    {
+      "aggregation_unit": "summary row per cell at clean and first nonzero exact-weight point",
+      "comparison_operator": "all required cells must satisfy clean exact threshold and first-nonzero failure thresholds",
+      "confidence_interval_policy": "Wilson 95% descriptive only",
+      "corruption_points": {
+        "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+        "clean_point": {
+          "u1_f3_m10": "e=0",
+          "u1_f3_m31": "e=0",
+          "u1_f3_m68": "e=0"
+        },
+        "required_points": {
+          "u1_f3_m10": "e=1",
+          "u1_f3_m31": "e=1",
+          "u1_f3_m68": "e=2"
+        }
+      },
+      "deterministic_evaluation_order": [
+        "u1_f3_m10:e=0 then e=1",
+        "u1_f3_m31:e=0 then e=1",
+        "u1_f3_m68:e=0 then e=2"
+      ],
+      "disposition_if_fail": "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+      "disposition_if_pass": "RAW_NECO_NOISE_GAP_CONFIRMED",
+      "exceptional_trial_policy": "INCOMPLETE_INPUT if any required row is absent or has trials != 64",
+      "excluded_metrics": [
+        "latency",
+        "bernoulli points",
+        "cross-method ranking"
+      ],
+      "id": "raw_neco_noise_gap_v1",
+      "included_metrics": [
+        "exact_recovery_rate",
+        "detected_failure_rate",
+        "silent_wrong_rate"
+      ],
+      "methods": {
+        "candidate": "raw_neco_algebraic_recovery"
+      },
+      "minimum_effect_requirement": {
+        "description": "Immediate post-clean degradation is required at the first nonzero exact-weight point in every cell."
+      },
+      "missing_trial_policy": "INCOMPLETE_INPUT",
+      "multiplicity_policy": "none; all required cells must satisfy the same thresholds",
+      "required_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "required_points": {
+        "clean": {
+          "u1_f3_m10": "e=0",
+          "u1_f3_m31": "e=0",
+          "u1_f3_m68": "e=0"
+        },
+        "nonzero": {
+          "u1_f3_m10": "e=1",
+          "u1_f3_m31": "e=1",
+          "u1_f3_m68": "e=2"
+        }
+      },
+      "resource_constraint": {
+        "policy": "descriptive only",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "015ddf4b6be9a68d784f463204a5297108565df44329a36f7684538aa0032ad7",
+      "rule_version": "v1",
+      "scientific_question": "Does raw NeCo clean algebraic recovery lose exact noisy decoding immediately after the first nonzero exact-weight corruption point?",
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "silent_error_constraint": {
+        "metric": "clean silent_wrong_rate",
+        "operator": "<=",
+        "value": 0.05
+      },
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_provenance": {
+        "audit_disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+        "development_sources": [
+          "results/level3_5b_dev/binary_summary.csv"
+        ],
+        "rule_origin": "NEW_PROSPECTIVE_RULE_DEFINED_FROM_DEVELOPMENT_ONLY"
+      },
+      "thresholds": {
+        "clean_exact_min": 0.95,
+        "clean_silent_wrong_max": 0.05,
+        "nonzero_detected_failure_min": 0.9,
+        "nonzero_exact_max": 0.1
+      },
+      "tie_policy": "not applicable"
+    },
+    {
+      "aggregation_unit": "summary row pair (raw NeCo vs generic linear) at each frozen exact-weight point",
+      "comparison_operator": "maximum absolute metric difference across required rows must stay within frozen practical margins",
+      "confidence_interval_policy": "Wilson 95% descriptive only; no formal statistical equivalence claim",
+      "corruption_points": {
+        "channel_id": "EXACT_WEIGHT_BIT_FLIPS",
+        "required_points": {
+          "u1_f3_m10": [
+            "e=0",
+            "e=1",
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=6"
+          ],
+          "u1_f3_m31": [
+            "e=0",
+            "e=1",
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=6"
+          ],
+          "u1_f3_m68": [
+            "e=0",
+            "e=2",
+            "e=3",
+            "e=4",
+            "e=5",
+            "e=8"
+          ]
+        }
+      },
+      "deterministic_evaluation_order": [
+        "u1_f3_m10:e=0,e=1,e=2,e=3,e=4,e=6",
+        "u1_f3_m31:e=0,e=1,e=2,e=3,e=4,e=6",
+        "u1_f3_m68:e=0,e=2,e=3,e=4,e=5,e=8"
+      ],
+      "disposition_if_fail": "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+      "disposition_if_pass": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+      "exceptional_trial_policy": "INCOMPLETE_INPUT if any paired row is absent or has trials != 64",
+      "excluded_metrics": [
+        "latency",
+        "resource bytes",
+        "bernoulli points"
+      ],
+      "id": "generic_linear_practical_equivalence_v1",
+      "included_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate"
+      ],
+      "methods": {
+        "candidate": "raw_neco_algebraic_recovery",
+        "comparator": "generic_full_rank_linear_mix"
+      },
+      "minimum_effect_requirement": {
+        "description": "No row may exceed the practical separation margins."
+      },
+      "missing_trial_policy": "INCOMPLETE_INPUT",
+      "multiplicity_policy": "none; all paired rows must satisfy the same margins",
+      "required_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "required_points": {
+        "u1_f3_m10": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m31": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m68": [
+          "e=0",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=5",
+          "e=8"
+        ]
+      },
+      "resource_constraint": {
+        "policy": "descriptive only",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "f2ace569814590940fcf68a3efe61628d8e9f6a301524beb12dd7f9724928f2e",
+      "rule_version": "v1",
+      "scientific_question": "Is no material separation detected between raw NeCo and the same-length generic full-rank linear control on the frozen exact-weight binary points?",
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "silent_error_constraint": {
+        "metric": "absolute silent_wrong_rate difference",
+        "operator": "<=",
+        "value": 0.05
+      },
+      "source_class": "LABEL_ONLY",
+      "source_provenance": {
+        "audit_disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+        "development_sources": [
+          "results/level3_5b_dev/binary_summary.csv"
+        ],
+        "interpretation_mode": "PRACTICAL_EQUIVALENCE_WITH_MARGIN",
+        "rule_origin": "NEW_PROSPECTIVE_RULE_DEFINED_FROM_DEVELOPMENT_ONLY"
+      },
+      "thresholds": {
+        "detected_failure_rate_abs_margin_max": 0.1,
+        "exact_recovery_rate_abs_margin_max": 0.1,
+        "silent_wrong_rate_abs_margin_max": 0.05
+      },
+      "tie_policy": "exact equality is allowed and sufficient"
+    },
+    {
+      "aggregation_unit": "summary row per MAP arm and frozen point in u1_f3_m68",
+      "comparison_operator": "all required rows must satisfy collapse thresholds",
+      "confidence_interval_policy": "Wilson 95% descriptive only",
+      "corruption_points": {
+        "channel_id": "MAP_SIGN_FLIP",
+        "required_points": {
+          "u1_f3_m68": [
+            "p=0.0",
+            "p=0.01",
+            "p=0.02",
+            "p=0.05",
+            "p=0.1"
+          ]
+        }
+      },
+      "deterministic_evaluation_order": [
+        "map_d1024:u1_f3_m68:p=0.0,p=0.01,p=0.02,p=0.05,p=0.1",
+        "map_d1024_step32_r4_best_native_reconstruction:u1_f3_m68:p=0.0,p=0.01,p=0.02,p=0.05,p=0.1"
+      ],
+      "disposition_if_fail": "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+      "disposition_if_pass": "MAP_SILENT_COLLAPSE_CONFIRMED",
+      "exceptional_trial_policy": "INCOMPLETE_INPUT if any required row is absent or has trials != 64",
+      "excluded_metrics": [
+        "native reconstruction score as abstention surrogate",
+        "latency"
+      ],
+      "id": "map_silent_collapse_v1",
+      "included_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate"
+      ],
+      "methods": {
+        "candidates": [
+          "map_d1024",
+          "map_d1024_step32_r4_best_native_reconstruction"
+        ]
+      },
+      "minimum_effect_requirement": {
+        "description": "Collapse must persist throughout the entire frozen u1_f3_m68 point set for both arms."
+      },
+      "missing_trial_policy": "INCOMPLETE_INPUT",
+      "multiplicity_policy": "none; both frozen arms and all frozen points must satisfy the same thresholds",
+      "required_cells": [
+        "u1_f3_m68"
+      ],
+      "required_points": {
+        "u1_f3_m68": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05",
+          "p=0.1"
+        ]
+      },
+      "resource_constraint": {
+        "policy": "descriptive only",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "7adc424025cf731627cfbc95cac4c1948f5f6a629ce450dc7bfdc7004ec9c33a",
+      "rule_version": "v1",
+      "scientific_question": "In the frozen high-capacity MAP cell, do both frozen MAP arms continue returning full tuples after semantic correctness has collapsed, without detected failure?",
+      "semantic_cells": [
+        "u1_f3_m68"
+      ],
+      "silent_error_constraint": {
+        "metric": "silent_wrong_rate",
+        "operator": ">=",
+        "value": 0.9
+      },
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_provenance": {
+        "audit_disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+        "development_sources": [
+          "results/level3_5b_dev/map_summary.csv"
+        ],
+        "rule_origin": "NEW_PROSPECTIVE_RULE_DEFINED_FROM_DEVELOPMENT_ONLY"
+      },
+      "thresholds": {
+        "detected_failure_rate_max": 0.05,
+        "exact_recovery_rate_max": 0.1,
+        "silent_wrong_rate_min": 0.9
+      },
+      "tie_policy": "not applicable"
+    },
+    {
+      "aggregation_unit": "summary row per selected graceful-region point",
+      "comparison_operator": "all selected points must satisfy the same region thresholds",
+      "confidence_interval_policy": "Wilson 95% descriptive only",
+      "corruption_points": {
+        "channel_id": "MAP_SIGN_FLIP",
+        "required_points": {
+          "u1_f3_m31": [
+            "p=0.0",
+            "p=0.01",
+            "p=0.02",
+            "p=0.05"
+          ]
+        }
+      },
+      "deterministic_evaluation_order": [
+        "map_d1024_step32_r4_best_native_reconstruction:u1_f3_m31:p=0.0,p=0.01,p=0.02,p=0.05"
+      ],
+      "disposition_if_fail": "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+      "disposition_if_pass": "MAP_GRACEFUL_REGION_CONFIRMED",
+      "exceptional_trial_policy": "INCOMPLETE_INPUT if any required row is absent or has trials != 64",
+      "excluded_metrics": [
+        "detected_failure_rate as primary",
+        "latency"
+      ],
+      "id": "map_graceful_region_v1",
+      "included_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "mean_correct_factors"
+      ],
+      "methods": {
+        "candidate": "map_d1024_step32_r4_best_native_reconstruction"
+      },
+      "minimum_effect_requirement": {
+        "description": "The selected region must maintain intermediate exact recovery and bounded silent-wrong on every required point."
+      },
+      "missing_trial_policy": "INCOMPLETE_INPUT",
+      "multiplicity_policy": "none; all selected points are fixed ex ante and evaluated conjunctively",
+      "required_cells": [
+        "u1_f3_m31"
+      ],
+      "required_points": {
+        "u1_f3_m31": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05"
+        ]
+      },
+      "resource_constraint": {
+        "policy": "descriptive only",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "1267e41a4cd4fd88232ddfaaf707217b6727eb9709a59530c271a08e58b73bea",
+      "rule_version": "v1",
+      "scientific_question": "Does the extended frozen MAP arm retain an intermediate exact/partial region with bounded silent-wrong behavior on the selected frozen u1_f3_m31 points?",
+      "semantic_cells": [
+        "u1_f3_m31"
+      ],
+      "silent_error_constraint": {
+        "metric": "silent_wrong_rate",
+        "operator": "<=",
+        "value": 0.5
+      },
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_provenance": {
+        "audit_disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+        "development_sources": [
+          "results/level3_5b_dev/map_summary.csv"
+        ],
+        "rule_origin": "NEW_PROSPECTIVE_RULE_DEFINED_FROM_DEVELOPMENT_ONLY"
+      },
+      "thresholds": {
+        "exact_recovery_rate_max": 0.75,
+        "exact_recovery_rate_min": 0.25,
+        "mean_correct_factors_min": 1.5,
+        "silent_wrong_rate_max": 0.5
+      },
+      "tie_policy": "threshold equality counts as pass"
+    },
+    {
+      "aggregation_unit": "protocol contract only",
+      "comparison_operator": "binary and MAP channel sets must differ and claim limits must forbid cross-track winner claims",
+      "confidence_interval_policy": "not applicable",
+      "corruption_points": {
+        "track_compatibility_only": true
+      },
+      "deterministic_evaluation_order": [
+        "protocol binary channels",
+        "protocol map channels",
+        "protocol claim limits"
+      ],
+      "disposition_if_fail": "NO_SHARED_NOISE_WINNER_NOT_CONFIRMED",
+      "disposition_if_pass": "NO_SHARED_NOISE_WINNER",
+      "exceptional_trial_policy": "not applicable",
+      "excluded_metrics": [
+        "all held-out outcome metrics"
+      ],
+      "id": "no_shared_noise_winner_contract_v1",
+      "included_metrics": [],
+      "methods": {
+        "binary_track_methods": [
+          "uncoded_packed_tuple",
+          "packed_tuple_bch_low_redundancy",
+          "packed_tuple_bch_high_redundancy",
+          "generic_full_rank_linear_mix",
+          "raw_neco_algebraic_recovery"
+        ],
+        "map_track_methods": [
+          "map_d1024",
+          "map_d1024_step32_r4_best_native_reconstruction"
+        ]
+      },
+      "minimum_effect_requirement": {
+        "description": "No common calibrated severity mapping may be available across binary exact-weight and MAP sign-flip channels."
+      },
+      "missing_trial_policy": "not applicable",
+      "multiplicity_policy": "not applicable",
+      "required_cells": [],
+      "required_points": {},
+      "resource_constraint": {
+        "policy": "not applicable",
+        "primary_confirmatory_role": false
+      },
+      "rule_hash": "a59f988bc4e19b1c38783154a1eaecd00a33b40ad54a998b90618d2702be6a54",
+      "rule_version": "v1",
+      "scientific_question": "Does the frozen protocol still forbid a shared cross-track noise winner because the binary and MAP tracks use incompatible native corruption channels with no calibrated common severity mapping?",
+      "semantic_cells": [],
+      "silent_error_constraint": {
+        "metric": null,
+        "operator": null,
+        "value": null
+      },
+      "source_class": "PARTIAL_PREEXISTING_RULE",
+      "source_provenance": {
+        "audit_disposition": "NO_SHARED_NOISE_WINNER",
+        "development_sources": [
+          "results/level3_5b_dev/heldout_protocol.json",
+          "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md"
+        ],
+        "rule_origin": "RECOVERED_PREHELDOUT_RULE"
+      },
+      "thresholds": {
+        "requires_cross_track_claim_forbidden": true,
+        "requires_distinct_channel_sets": true
+      },
+      "tie_policy": "not applicable"
+    }
+  ],
+  "correct_classification_statement": "This stage is not an administrative repair of existing executable gates, because executable quantitative gate semantics did not previously exist.",
+  "deterministic_verdict_evaluation_order": [
+    "bch_binary_exact_record_dominance_v1",
+    "raw_neco_noise_gap_v1",
+    "generic_linear_practical_equivalence_v1",
+    "map_silent_collapse_v1",
+    "map_graceful_region_v1",
+    "no_shared_noise_winner_contract_v1"
+  ],
+  "fresh_seed_ranges": {
+    "bcf_track": {
+      "execution_authorized": false,
+      "seed_ranges": {
+        "u1_f3_m10": {
+          "count": 8,
+          "start": 130260616
+        },
+        "u1_f3_m31": {
+          "count": 8,
+          "start": 130261616
+        },
+        "u1_f3_m68": {
+          "count": 8,
+          "start": 130262616
+        }
+      },
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY"
+    },
+    "binary_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 910350163,
+        "start": 910350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 910351163,
+        "start": 910351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 910352163,
+        "start": 910352100
+      }
+    },
+    "map_track": {
+      "u1_f3_m10": {
+        "count": 64,
+        "end": 920350163,
+        "start": 920350100
+      },
+      "u1_f3_m31": {
+        "count": 64,
+        "end": 920351163,
+        "start": 920351100
+      },
+      "u1_f3_m68": {
+        "count": 64,
+        "end": 920352163,
+        "start": 920352100
+      }
+    }
+  },
+  "gate_semantics_newly_specified": true,
+  "gate_source_audit_hash": "a8bc43f479d793912fd9ba0143a3430d71985630db657839c1496923967aeeec",
+  "gates": [
+    "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+    "BCH_DOMINANCE_NOT_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_CONFIRMED",
+    "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+    "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_CONFIRMED",
+    "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+    "MAP_GRACEFUL_REGION_CONFIRMED",
+    "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+    "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+    "NO_SHARED_NOISE_WINNER"
+  ],
+  "heldout_outcomes_available_to_gate_design": false,
+  "heldout_trials_observed_before_v3": 0,
+  "metric_definitions": {
+    "conditional_wrong_given_nonfailure": "wrong full-tuple rate among trials that did not produce detected failure",
+    "detected_failure_rate": "fraction of trials returning typed detected failure instead of a valid semantic tuple",
+    "exact_recovery_rate": "fraction of trials whose decoded tuple exactly matches the true factor indices",
+    "full_wrong_rate": "fraction of trials returning a full but incorrect tuple",
+    "mean_correct_factors": "mean number of correctly recovered factors per trial",
+    "miscorrection_rate": "BCH-only fraction of trials that decode to the wrong valid or unassigned payload",
+    "partial_factor_recovery_rate": "fraction of trials with nonzero but incomplete factor recovery",
+    "silent_wrong_rate": "fraction of trials returning a wrong tuple without detected failure"
+  },
+  "metrics": {
+    "binary_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "detected_failure_rate",
+      "conditional_wrong_given_nonfailure"
+    ],
+    "map_track": [
+      "exact_recovery_rate",
+      "silent_wrong_rate",
+      "mean_correct_factors",
+      "native_reconstruction_score"
+    ],
+    "outcome_taxonomy": [
+      "EXACT_RECOVERY",
+      "PARTIAL_RECOVERY",
+      "WRONG_RECOVERY",
+      "SILENT_WRONG",
+      "DETECTED_UNCORRECTABLE",
+      "AMBIGUOUS",
+      "INCONSISTENT",
+      "RANK_DEFICIENT",
+      "UNASSIGNED_CODEWORD",
+      "NATIVE_LIMIT_REACHED",
+      "UNSUPPORTED_CHANNEL"
+    ]
+  },
+  "missing_outcome_policy": {
+    "exceptional_summary_metrics": "EXCEPTION",
+    "no_substantive_verdict_without_complete_inputs": true,
+    "summary_row_missing": "INCOMPLETE_INPUT",
+    "trial_count_mismatch": "INCOMPLETE_INPUT"
+  },
+  "no_trials_observed_before_repair": true,
+  "preserved_scientific_fields": {
+    "bcf_track": {
+      "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+      "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+      "trial_count_per_selected_point": 32
+    },
+    "binary_track": {
+      "bch_configs": [
+        {
+          "correctable_errors_t": 1,
+          "library_version": "0.4.11",
+          "minimum_distance": 3,
+          "parent_k": 26,
+          "parent_n": 31,
+          "payload_bits": 12,
+          "redundancy_bits": 5,
+          "shortened_k": 12,
+          "shortened_n": 17,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 3,
+          "library_version": "0.4.11",
+          "minimum_distance": 7,
+          "parent_k": 16,
+          "parent_n": 31,
+          "payload_bits": 12,
+          "redundancy_bits": 15,
+          "shortened_k": 12,
+          "shortened_n": 27,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "tier_id": "BCH_HIGH"
+        },
+        {
+          "correctable_errors_t": 1,
+          "library_version": "0.4.11",
+          "minimum_distance": 3,
+          "parent_k": 26,
+          "parent_n": 31,
+          "payload_bits": 15,
+          "redundancy_bits": 5,
+          "shortened_k": 15,
+          "shortened_n": 20,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 3,
+          "library_version": "0.4.11",
+          "minimum_distance": 7,
+          "parent_k": 16,
+          "parent_n": 31,
+          "payload_bits": 15,
+          "redundancy_bits": 15,
+          "shortened_k": 15,
+          "shortened_n": 30,
+          "shortening_positions": [
+            0
+          ],
+          "tier_id": "BCH_HIGH"
+        },
+        {
+          "correctable_errors_t": 2,
+          "library_version": "0.4.11",
+          "minimum_distance": 5,
+          "parent_k": 21,
+          "parent_n": 31,
+          "payload_bits": 21,
+          "redundancy_bits": 10,
+          "shortened_k": 21,
+          "shortened_n": 31,
+          "shortening_positions": [],
+          "tier_id": "BCH_LOW"
+        },
+        {
+          "correctable_errors_t": 4,
+          "library_version": "0.4.11",
+          "minimum_distance": 9,
+          "parent_k": 39,
+          "parent_n": 63,
+          "payload_bits": 21,
+          "redundancy_bits": 24,
+          "shortened_k": 21,
+          "shortened_n": 45,
+          "shortening_positions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "tier_id": "BCH_HIGH"
+        }
+      ],
+      "claim_limits": [
+        "No cross-track universal winner",
+        "No BCH-vs-BCF superiority claim across incompatible channels"
+      ],
+      "corruption_channels": [
+        "EXACT_WEIGHT_BIT_FLIPS",
+        "BERNOULLI_BIT_FLIPS"
+      ],
+      "corruption_points_by_cell": {
+        "u1_f3_m10": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m31": [
+          "e=0",
+          "e=1",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=6"
+        ],
+        "u1_f3_m68": [
+          "e=0",
+          "e=2",
+          "e=3",
+          "e=4",
+          "e=5",
+          "e=8"
+        ]
+      },
+      "methods": [
+        "uncoded_packed_tuple",
+        "packed_tuple_bch_low_redundancy",
+        "packed_tuple_bch_high_redundancy",
+        "generic_full_rank_linear_mix",
+        "raw_neco_algebraic_recovery"
+      ],
+      "primary_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate",
+        "conditional_wrong_given_nonfailure"
+      ],
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "trial_count_per_selected_point": 64
+    },
+    "confirmatory_dispositions": [
+      "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+      "BCH_DOMINANCE_NOT_CONFIRMED",
+      "RAW_NECO_NOISE_GAP_CONFIRMED",
+      "RAW_NECO_NOISE_GAP_NOT_CONFIRMED",
+      "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+      "GENERIC_LINEAR_NOISE_EQUIVALENCE_NOT_CONFIRMED",
+      "MAP_SILENT_COLLAPSE_CONFIRMED",
+      "MAP_SILENT_COLLAPSE_NOT_CONFIRMED",
+      "MAP_GRACEFUL_REGION_CONFIRMED",
+      "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+      "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+      "NO_SHARED_NOISE_WINNER"
+    ],
+    "development_transition_regions_hash": "d8406ce43e3100df482e1335a5dc74d24af45d4d0ce484a70747f1fc2d3d8161",
+    "map_track": {
+      "claim_limits": [
+        "No calibrated abstention policy",
+        "No production promotion"
+      ],
+      "corruption_channels": [
+        "MAP_SIGN_FLIP"
+      ],
+      "corruption_points_by_cell": {
+        "u1_f3_m10": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.015",
+          "p=0.02",
+          "p=0.05"
+        ],
+        "u1_f3_m31": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05",
+          "p=0.075"
+        ],
+        "u1_f3_m68": [
+          "p=0.0",
+          "p=0.01",
+          "p=0.02",
+          "p=0.05",
+          "p=0.1"
+        ]
+      },
+      "methods": [
+        "map_d1024",
+        "map_d1024_step32_r4_best_native_reconstruction"
+      ],
+      "primary_metrics": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "mean_correct_factors",
+        "native_reconstruction_score"
+      ],
+      "semantic_cells": [
+        "u1_f3_m10",
+        "u1_f3_m31",
+        "u1_f3_m68"
+      ],
+      "trial_count_per_selected_point": 64
+    },
+    "outcome_taxonomy": [
+      "EXACT_RECOVERY",
+      "PARTIAL_RECOVERY",
+      "WRONG_RECOVERY",
+      "SILENT_WRONG",
+      "DETECTED_UNCORRECTABLE",
+      "AMBIGUOUS",
+      "INCONSISTENT",
+      "RANK_DEFICIENT",
+      "UNASSIGNED_CODEWORD",
+      "NATIVE_LIMIT_REACHED",
+      "UNSUPPORTED_CHANNEL"
+    ],
+    "schema_version": "level3-5b-protocol-repair-v1",
+    "semantic_payloads": {
+      "u1_f3_m10": {
+        "domain_size": 10,
+        "factor_count": 3,
+        "payload_bits": 12
+      },
+      "u1_f3_m31": {
+        "domain_size": 31,
+        "factor_count": 3,
+        "payload_bits": 15
+      },
+      "u1_f3_m68": {
+        "domain_size": 68,
+        "factor_count": 3,
+        "payload_bits": 21
+      }
+    }
+  },
+  "protocol_version": "level3.5b-heldout-v3",
+  "repair_reason": {
+    "P1": "HELDOUT_SEED_LEAKAGE",
+    "P2": "TRIAL_COUNT_SEED_COUNT_MISMATCH",
+    "P3": "MAP_CONFIG_UNDERSPECIFICATION"
+  },
+  "repair_statement": "No held-out outcomes were observed before repair, so a pre-execution administrative re-freeze is permitted. The repair must not alter outcome-facing scientific choices.",
+  "schema_version": "level3-5b-protocol-repair-v1",
+  "stage_classification": [
+    "PRE_EXECUTION_PROTOCOL_COMPLETION",
+    "PROSPECTIVE_GATE_SPECIFICATION",
+    "NO_HELDOUT_LEAKAGE"
+  ],
+  "statistics_policy": {
+    "confidence_intervals": {
+      "enabled": true,
+      "method": "Wilson 95%",
+      "purpose": "descriptive reporting only",
+      "used_for_verdicts": false
+    },
+    "deterministic_threshold_decision": true,
+    "exceptional_trial_policy": "typed exceptional outcomes remain in observed summary; if summary integrity is broken, gate returns INCOMPLETE_INPUT",
+    "hypothesis_tests": {
+      "alpha": null,
+      "enabled": false,
+      "multiple_comparison_correction": null
+    },
+    "minimum_sample_validity": {
+      "binary_track": 64,
+      "map_track": 64
+    },
+    "missing_outcome_policy": "missing required summary row or trials < minimum sample validity => INCOMPLETE_INPUT and no substantive disposition",
+    "paired_structure": "not used; confirmatory rules operate on per-method frozen summary rows",
+    "point_estimates": "observed summary rates from frozen held-out summaries",
+    "raw_p_cross_track_policy": "forbidden; incompatible channel severities are not ranked on equal raw p",
+    "zero_count_policy": "rate comparisons use observed 0.0 directly; no continuity correction in pass/fail logic"
+  },
+  "supersedes_protocol_hash": "1166adeb42d72c270ee777aef1d6046fcb3cbe168822cc63383518ad955c2d29",
+  "supersedes_protocol_v2_hash": "649a51d389967f9930f432f608a99b387f3bde96ba97e598b3f2df00ee1eadbf",
+  "trial_counts": {
+    "bcf_track": 32,
+    "binary_track": 64,
+    "map_track": 64
+  }
+}

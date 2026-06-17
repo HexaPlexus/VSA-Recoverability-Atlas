@@ -1,0 +1,274 @@
+{
+  "heldout_trials_observed": 0,
+  "rows": [
+    {
+      "candidate_threshold_rationale": {
+        "miscorrection_rate_max": 0.375,
+        "per_row_exact_margin_min": 0.0,
+        "silent_wrong_rate_max": 0.125
+      },
+      "development_metrics_used": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate",
+        "miscorrection_rate"
+      ],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+        "gate_id": "bch_binary_exact_record_dominance_v1",
+        "reasons": [
+          "All required rows satisfied BCH dominance semantics."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+      "expected_interpretation": "Does frozen high-redundancy BCH remain the preferred exact-record binary control on the frozen exact-weight U1 cells and points?",
+      "gate_id": "bch_binary_exact_record_dominance_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "BCH_DOMINANCE_NOT_CONFIRMED",
+          "parameter": "miscorrection_rate_max",
+          "state": "FAIL",
+          "value": 0.2
+        },
+        {
+          "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+          "parameter": "miscorrection_rate_max",
+          "state": "PASS",
+          "value": 0.375
+        },
+        {
+          "disposition": "BCH_DOMINATES_BINARY_EXACT_RECORD_CONFIRMED",
+          "parameter": "miscorrection_rate_max",
+          "state": "PASS",
+          "value": 0.5
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    },
+    {
+      "candidate_threshold_rationale": {
+        "clean_exact_min": 0.95,
+        "clean_silent_wrong_max": 0.05,
+        "nonzero_detected_failure_min": 0.9,
+        "nonzero_exact_max": 0.1
+      },
+      "development_metrics_used": [
+        "exact_recovery_rate",
+        "detected_failure_rate",
+        "silent_wrong_rate"
+      ],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+        "gate_id": "raw_neco_noise_gap_v1",
+        "reasons": [
+          "Raw NeCo clean-to-noisy gap satisfied in every required cell."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "RAW_NECO_NOISE_GAP_CONFIRMED",
+      "expected_interpretation": "Does raw NeCo clean algebraic recovery lose exact noisy decoding immediately after the first nonzero exact-weight corruption point?",
+      "gate_id": "raw_neco_noise_gap_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+          "parameter": "nonzero_detected_failure_min",
+          "state": "PASS",
+          "value": 1.0
+        },
+        {
+          "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+          "parameter": "nonzero_detected_failure_min",
+          "state": "PASS",
+          "value": 0.9
+        },
+        {
+          "disposition": "RAW_NECO_NOISE_GAP_CONFIRMED",
+          "parameter": "nonzero_detected_failure_min",
+          "state": "PASS",
+          "value": 0.8
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    },
+    {
+      "candidate_threshold_rationale": {
+        "detected_failure_rate_abs_margin_max": 0.1,
+        "exact_recovery_rate_abs_margin_max": 0.1,
+        "silent_wrong_rate_abs_margin_max": 0.05
+      },
+      "development_metrics_used": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate"
+      ],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+        "gate_id": "generic_linear_practical_equivalence_v1",
+        "reasons": [
+          "Raw NeCo and generic linear stay within all practical margins."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+      "expected_interpretation": "Is no material separation detected between raw NeCo and the same-length generic full-rank linear control on the frozen exact-weight binary points?",
+      "gate_id": "generic_linear_practical_equivalence_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+          "parameter": "paired_rate_margin",
+          "state": "PASS",
+          "value": 0.05
+        },
+        {
+          "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+          "parameter": "paired_rate_margin",
+          "state": "PASS",
+          "value": 0.1
+        },
+        {
+          "disposition": "GENERIC_LINEAR_NOISE_EQUIVALENCE_CONFIRMED",
+          "parameter": "paired_rate_margin",
+          "state": "PASS",
+          "value": 0.2
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    },
+    {
+      "candidate_threshold_rationale": {
+        "detected_failure_rate_max": 0.05,
+        "exact_recovery_rate_max": 0.1,
+        "silent_wrong_rate_min": 0.9
+      },
+      "development_metrics_used": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "detected_failure_rate"
+      ],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+        "gate_id": "map_silent_collapse_v1",
+        "reasons": [
+          "Both MAP arms satisfy the frozen high-capacity silent-collapse rule."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "MAP_SILENT_COLLAPSE_CONFIRMED",
+      "expected_interpretation": "In the frozen high-capacity MAP cell, do both frozen MAP arms continue returning full tuples after semantic correctness has collapsed, without detected failure?",
+      "gate_id": "map_silent_collapse_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+          "parameter": "silent_wrong_rate_min",
+          "state": "PASS",
+          "value": 0.75
+        },
+        {
+          "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+          "parameter": "silent_wrong_rate_min",
+          "state": "PASS",
+          "value": 0.9
+        },
+        {
+          "disposition": "MAP_SILENT_COLLAPSE_CONFIRMED",
+          "parameter": "silent_wrong_rate_min",
+          "state": "PASS",
+          "value": 0.95
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    },
+    {
+      "candidate_threshold_rationale": {
+        "exact_recovery_rate_max": 0.75,
+        "exact_recovery_rate_min": 0.25,
+        "mean_correct_factors_min": 1.5,
+        "silent_wrong_rate_max": 0.5
+      },
+      "development_metrics_used": [
+        "exact_recovery_rate",
+        "silent_wrong_rate",
+        "mean_correct_factors"
+      ],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+        "gate_id": "map_graceful_region_v1",
+        "reasons": [
+          "Extended MAP satisfies the frozen graceful-region rule on all selected points."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "MAP_GRACEFUL_REGION_CONFIRMED",
+      "expected_interpretation": "Does the extended frozen MAP arm retain an intermediate exact/partial region with bounded silent-wrong behavior on the selected frozen u1_f3_m31 points?",
+      "gate_id": "map_graceful_region_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "MAP_GRACEFUL_REGION_NOT_CONFIRMED",
+          "parameter": "silent_wrong_rate_max",
+          "state": "FAIL",
+          "value": 0.4
+        },
+        {
+          "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+          "parameter": "silent_wrong_rate_max",
+          "state": "PASS",
+          "value": 0.5
+        },
+        {
+          "disposition": "MAP_GRACEFUL_REGION_CONFIRMED",
+          "parameter": "silent_wrong_rate_max",
+          "state": "PASS",
+          "value": 0.6
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    },
+    {
+      "candidate_threshold_rationale": {
+        "requires_cross_track_claim_forbidden": true,
+        "requires_distinct_channel_sets": true
+      },
+      "development_metrics_used": [],
+      "development_observed_trials_per_point": 16,
+      "development_rate_only_evaluation": true,
+      "development_result": {
+        "disposition": "NO_SHARED_NOISE_WINNER",
+        "gate_id": "no_shared_noise_winner_contract_v1",
+        "reasons": [
+          "Protocol contract still forbids a shared cross-track noise winner."
+        ],
+        "state": "PASS"
+      },
+      "disposition_if_pass": "NO_SHARED_NOISE_WINNER",
+      "expected_interpretation": "Does the frozen protocol still forbid a shared cross-track noise winner because the binary and MAP tracks use incompatible native corruption channels with no calibrated common severity mapping?",
+      "gate_id": "no_shared_noise_winner_contract_v1",
+      "known_weakness": "Development sample size is 16 per point; confirmatory rules are intentionally simple and may fail to generalize on held-out.",
+      "sensitivity_to_nearby_thresholds": [
+        {
+          "disposition": "NO_SHARED_NOISE_WINNER",
+          "parameter": "contract",
+          "state": "PASS",
+          "value": "fixed"
+        }
+      ],
+      "why_not_uniquely_optimized": "Selected margins are coarse, interpretable guardrails from existing development summaries, not a search over held-out outcomes."
+    }
+  ],
+  "schema_version": "level3-5b-gate-specification-v1"
+}
