@@ -1,0 +1,10 @@
+{
+  "allowed_claims": [
+    "Protocol integrity failed before the first held-out trial.",
+    "No held-out v3 outcome was observed."
+  ],
+  "forbidden_claims": [
+    "Any substantive Level 3.5b held-out v3 noise-frontier claim."
+  ],
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1"
+}

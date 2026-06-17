@@ -1,0 +1,54 @@
+{
+  "ancestry_ok": true,
+  "bch_hash_expected": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+  "bch_hash_observed": "7974133f002cbba795ae4655f7ab8b75bc6621f86991c13bd1e4d97d3ba733f3",
+  "blocked": true,
+  "changed_immutable_paths": [],
+  "current_git_commit": "8ed61135c2da34ffa0afd57518b35b964ae48907",
+  "deterministic_gate_order": [
+    "bch_binary_exact_record_dominance_v1",
+    "raw_neco_noise_gap_v1",
+    "generic_linear_practical_equivalence_v1",
+    "map_silent_collapse_v1",
+    "map_graceful_region_v1",
+    "no_shared_noise_winner_contract_v1"
+  ],
+  "gate_hash_failures": [],
+  "gate_hashes_expected": {
+    "bch_binary_exact_record_dominance_v1": "5494ddce226a1d300a4346941e81cd5eef43597eeafc391c8678cd861a84da3b",
+    "generic_linear_practical_equivalence_v1": "f2ace569814590940fcf68a3efe61628d8e9f6a301524beb12dd7f9724928f2e",
+    "map_graceful_region_v1": "1267e41a4cd4fd88232ddfaaf707217b6727eb9709a59530c271a08e58b73bea",
+    "map_silent_collapse_v1": "7adc424025cf731627cfbc95cac4c1948f5f6a629ce450dc7bfdc7004ec9c33a",
+    "no_shared_noise_winner_contract_v1": "a59f988bc4e19b1c38783154a1eaecd00a33b40ad54a998b90618d2702be6a54",
+    "raw_neco_noise_gap_v1": "015ddf4b6be9a68d784f463204a5297108565df44329a36f7684538aa0032ad7"
+  },
+  "gate_hashes_match": true,
+  "gate_schema_complete": true,
+  "heldout_trials_observed_before_v3": 0,
+  "integrity_failures": [
+    "Synthetic dry-run no_shared_noise_winner_contract_v1/contradictory_metrics_case expected EXCEPTION, observed FAIL."
+  ],
+  "map_hashes_expected": {
+    "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+    "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+  },
+  "map_hashes_observed": {
+    "map_d1024": "11fd00e0f0ed8bd4341e51169ca7bde135299d69e11798ad4a97b96ed96e5ff9",
+    "map_d1024_step32_r4_best_native_reconstruction": "b32e989b0016c44e0d8cac61d0aead60edd43efc7ff686d1ff76e779c5747bff"
+  },
+  "old_protocols_unchanged": true,
+  "prior_execution_present": false,
+  "prior_trials_present": false,
+  "protocol_v3_file_hash_observed": "133c46a310e342b96ab99aa544d8acc5224c2a75069e36687d5b4d85422f1594",
+  "protocol_v3_hash_expected": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2",
+  "protocol_v3_hash_observed": "4b197802b51f2bf1d02798d3bca2e857cb77b22e8c39350759221725ba8a48f2",
+  "protocol_v3_path": "results/level3_5b_gate_specification/heldout_protocol_v3.json",
+  "required_checkpoint": "8ed6113",
+  "results_dir_preexisting": false,
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1",
+  "seed_audit_pass": true,
+  "synthetic_dry_run_failures": [
+    "Synthetic dry-run no_shared_noise_winner_contract_v1/contradictory_metrics_case expected EXCEPTION, observed FAIL."
+  ],
+  "synthetic_dry_run_pass": false
+}

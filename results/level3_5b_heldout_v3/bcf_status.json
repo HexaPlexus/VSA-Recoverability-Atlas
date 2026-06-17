@@ -1,0 +1,6 @@
+{
+  "executed": false,
+  "reason": "Official upstream and pinned paper artifacts expose native internal noise sweeps, but do not unambiguously freeze an external corruption channel for the blockcodefactorizer path comparable to the Level 3.5b contract.",
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1",
+  "status": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY"
+}

@@ -1,0 +1,9 @@
+{
+  "bcf_track": "BCF_TRACK_BLOCKED_BY_CONTRACT_AMBIGUITY",
+  "blocked_reason": [
+    "Synthetic dry-run no_shared_noise_winner_contract_v1/contradictory_metrics_case expected EXCEPTION, observed FAIL."
+  ],
+  "confirmatory_verdicts": {},
+  "overall_verdict": "BLOCKED_BY_V3_PROTOCOL_INTEGRITY_FAILURE",
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1"
+}

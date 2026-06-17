@@ -1,0 +1,7 @@
+{
+  "benchmark_execution_invoked": false,
+  "final_stage_status": "BLOCKED_BY_V3_PROTOCOL_INTEGRITY_FAILURE",
+  "promotion_status": "NO_PRODUCTION_PROMOTION",
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1",
+  "trials_executed": 0
+}

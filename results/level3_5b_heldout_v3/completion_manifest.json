@@ -1,0 +1,8 @@
+{
+  "completed_at": "2026-06-17T13:02:27+00:00",
+  "overall_verdict": "BLOCKED_BY_V3_PROTOCOL_INTEGRITY_FAILURE",
+  "rerun_after_completion_forbidden": true,
+  "schema_version": "level3-5b-heldout-v3-confirmation-v1",
+  "trials_executed_binary": 0,
+  "trials_executed_map": 0
+}
