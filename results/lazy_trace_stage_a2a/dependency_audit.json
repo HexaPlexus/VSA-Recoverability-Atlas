@@ -1,0 +1,26 @@
+{
+  "core_environment": {
+    "faiss_installed": true,
+    "numpy": "2.4.6",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python": "3.14.5",
+    "torch": "2.12.1+cpu"
+  },
+  "faiss": {
+    "installable": true,
+    "license": "MIT",
+    "notes": "Official CPU wheel available and importable on Python 3.14 / Windows amd64.",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "provider": "faiss-cpu",
+    "python": "3.14.5",
+    "source": "PyPI faiss-cpu cp314 win_amd64 wheel",
+    "version": "1.14.3"
+  },
+  "isolated_research_environment_recommended": true,
+  "pyproject_contains_faiss_pin": false,
+  "pyproject_requires_python": ">=3.14,<3.15",
+  "repo_dependency_setup_inspected": true,
+  "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1",
+  "stage_a1_artifacts_unchanged": true,
+  "starting_commit": "f8c4c0e3e880b6e5a9bf2d9a87a74db45b10c1c9"
+}

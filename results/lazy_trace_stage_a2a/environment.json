@@ -1,0 +1,12 @@
+{
+  "device": "cpu",
+  "faiss_version": "1.14.3",
+  "numpy_version": "2.4.6",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.14.5",
+  "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1",
+  "timing_repeats": 1,
+  "timing_warmup_queries": 8,
+  "torch_num_threads": 1,
+  "torch_version": "2.12.1+cpu"
+}

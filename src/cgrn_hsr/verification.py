@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass
+from typing import Mapping
 
 import torch
 import torch.nn.functional as F
@@ -78,6 +79,7 @@ def rerank_candidates(
     *,
     candidate_matrix: torch.Tensor | None = None,
     top_k: int | None = None,
+    validation_cache: Mapping[str, TraceValidationResult] | None = None,
 ) -> tuple[list[RerankedCandidate], float]:
     start = time.perf_counter()
     if not entries:
@@ -99,10 +101,15 @@ def rerank_candidates(
     ranked: list[RerankedCandidate] = []
     for index in order.tolist():
         entry = entries[index]
-        validation = validate_entry(entry)
+        handle = entry.trace_record.trace_handle
+        validation = (
+            validation_cache[handle]
+            if validation_cache is not None and handle in validation_cache
+            else validate_entry(entry)
+        )
         ranked.append(
             RerankedCandidate(
-                handle=entry.trace_record.trace_handle,
+                handle=handle,
                 similarity=float(similarities[index].item()),
                 validation_status=validation.status,
                 validation_message=validation.message,

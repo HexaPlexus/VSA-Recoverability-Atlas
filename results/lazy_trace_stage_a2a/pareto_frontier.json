@@ -1,0 +1,95 @@
+{
+  "dominated": [
+    {
+      "accepted_exact_trace_coverage": 0.76171875,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 0.04848590004257858,
+      "config_id": "faiss_exact_float_ip",
+      "deployable_total_bytes": 86133962,
+      "dominated_by": [
+        "B4_binary_exact_scan::faiss_binary_exact_hamming",
+        "B5_binary_hnsw::binary_hnsw_ef64",
+        "B6_binary_multi_hash::bmh_b10_h4_f1"
+      ],
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 1,
+      "index_overhead_bytes": 41040090,
+      "method_id": "B1_faiss_exact_float_scan",
+      "p50_latency_sec": 0.01477299997350201
+    },
+    {
+      "accepted_exact_trace_coverage": 0.7467447916666666,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 4.673212033308421,
+      "config_id": "float_hnsw_ef256",
+      "deployable_total_bytes": 87576215,
+      "dominated_by": [
+        "B4_binary_exact_scan::faiss_binary_exact_hamming",
+        "B5_binary_hnsw::binary_hnsw_ef64",
+        "B6_binary_multi_hash::bmh_b10_h4_f1"
+      ],
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 0.9837239583333334,
+      "index_overhead_bytes": 42482343,
+      "method_id": "B3_float_hnsw",
+      "p50_latency_sec": 0.012822300021070987
+    },
+    {
+      "accepted_exact_trace_coverage": 0.76171875,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 0.5783232999965549,
+      "config_id": "binary_hnsw_ef64",
+      "deployable_total_bytes": 47896179,
+      "dominated_by": [
+        "B4_binary_exact_scan::faiss_binary_exact_hamming",
+        "B6_binary_multi_hash::bmh_b10_h4_f1"
+      ],
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 1,
+      "index_overhead_bytes": 2802307,
+      "method_id": "B5_binary_hnsw",
+      "p50_latency_sec": 0.011517599923536181
+    },
+    {
+      "accepted_exact_trace_coverage": 0.76171875,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 0.008407699991948903,
+      "config_id": "bmh_b10_h4_f1",
+      "deployable_total_bytes": 46536340,
+      "dominated_by": [
+        "B4_binary_exact_scan::faiss_binary_exact_hamming"
+      ],
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 1,
+      "index_overhead_bytes": 1442468,
+      "method_id": "B6_binary_multi_hash",
+      "p50_latency_sec": 0.011280699982307851
+    }
+  ],
+  "nondominated": [
+    {
+      "accepted_exact_trace_coverage": 0.7421875,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 5.775718900025822,
+      "config_id": "a1p_frozen_lsh",
+      "deployable_total_bytes": 49288844,
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 0.953125,
+      "index_overhead_bytes": 4194972,
+      "method_id": "B2_current_a1p_thin_random_hyperplane_lsh",
+      "p50_latency_sec": 0.004563449998386204
+    },
+    {
+      "accepted_exact_trace_coverage": 0.76171875,
+      "ambiguous_wrong_acceptance_rate": 0,
+      "build_time_sec": 0.004423499922268093,
+      "config_id": "faiss_binary_exact_hamming",
+      "deployable_total_bytes": 46453938,
+      "exact_trace_conditional_risk": 0.0,
+      "exact_trace_recall_at_32": 1,
+      "index_overhead_bytes": 1360066,
+      "method_id": "B4_binary_exact_scan",
+      "p50_latency_sec": 0.006365200038999319
+    }
+  ]
+}

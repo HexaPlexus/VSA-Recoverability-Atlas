@@ -1,0 +1,132 @@
+{
+  "allowed_claims": [
+    "A noisy MAP semantic cue can be routed to exact creation-trace neighborhoods using adopted mature indexes within a development envelope.",
+    "Exact creation-trace retrieval remains the primary target; decoder-contract diagnostics are secondary.",
+    "A mature index can replace the thin custom LSH if it dominates the practical frontier."
+  ],
+  "build_verdict": "ADOPT_EXACT_BINARY_SCAN",
+  "forbidden_claims": [
+    "No new ANN or LSH algorithm was created.",
+    "No held-out confirmation or Stage B decoder execution was performed.",
+    "No universal self-decoding, production-readiness or exact-provenance-from-ambiguous-semantics claim is supported."
+  ],
+  "heldout_execution_count": 0,
+  "level35_frozen_artifacts_unchanged": true,
+  "next_lawful_stage": "A2B_SCALE_CROSSOVER",
+  "optional_scaling_cell": {
+    "reason": "Primary-cell mature-index shootout already resolved the near-term frontier; 50k scaling is deferred to the next lawful stage.",
+    "status": "SKIPPED_RESOURCE_PRESERVATION"
+  },
+  "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1",
+  "scientific_verdict": "SEMANTIC_SELF_ADDRESSING_PARTIAL",
+  "selected_configs": {
+    "B0_vectorized_exact_scan": "B0_vectorized_exact_scan",
+    "B1_faiss_exact_float_scan": "faiss_exact_float_ip",
+    "B2_current_a1p_thin_random_hyperplane_lsh": "a1p_frozen_lsh",
+    "B3_float_hnsw": "float_hnsw_ef256",
+    "B4_binary_exact_scan": "faiss_binary_exact_hamming",
+    "B5_binary_hnsw": "binary_hnsw_ef64",
+    "B6_binary_multi_hash": "bmh_b10_h4_f1"
+  },
+  "stage_a1_artifacts_unchanged": true,
+  "stage_a1_erratum_label": "REANALYSIS_ONLY_FROZEN_PROTOCOL",
+  "stage_a1_erratum_requires_rerun": true,
+  "stage_a1_erratum_summary": [
+    {
+      "accepted_exact_trace_coverage": 0.75,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 1.0,
+      "method_id": "B0_global_exact_semantic_scan",
+      "post_budget_exact_trace_recall": 1,
+      "post_rerank_exact_trace_recall_at_32": 1,
+      "raw_exact_trace_candidate_recall": 1,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.0,
+      "method_id": "B1_exact_content_hash_only",
+      "post_budget_exact_trace_recall": 0,
+      "post_rerank_exact_trace_recall_at_32": 0,
+      "raw_exact_trace_candidate_recall": 0,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.001953125,
+      "conditional_risk_among_accepted": 0.5,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.0,
+      "method_id": "B2_random_bucket_routing",
+      "post_budget_exact_trace_recall": 0.001953125,
+      "post_rerank_exact_trace_recall_at_32": 0.001953125,
+      "raw_exact_trace_candidate_recall": 0.001953125,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.40234375,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.4918870070646749,
+      "method_id": "B3_stage_a_four_table_lsh",
+      "post_budget_exact_trace_recall": 0.5078125,
+      "post_rerank_exact_trace_recall_at_32": 0.5078125,
+      "raw_exact_trace_candidate_recall": 0.5078125,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.708984375,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.9524860264376837,
+      "method_id": "B4_a1p_multi_table_lsh",
+      "post_budget_exact_trace_recall": 0.939453125,
+      "post_rerank_exact_trace_recall_at_32": 0.939453125,
+      "raw_exact_trace_candidate_recall": 0.939453125,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.7109375,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.9507090138187835,
+      "method_id": "B5_a1s1_multi_table_lsh",
+      "post_budget_exact_trace_recall": 0.943359375,
+      "post_rerank_exact_trace_recall_at_32": 0.943359375,
+      "raw_exact_trace_candidate_recall": 0.943359375,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.71484375,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.9504965622902318,
+      "method_id": "B6_a1s2_multi_table_lsh",
+      "post_budget_exact_trace_recall": 0.94140625,
+      "post_rerank_exact_trace_recall_at_32": 0.94140625,
+      "raw_exact_trace_candidate_recall": 0.94140625,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "accepted_exact_trace_coverage": 0.6484375,
+      "conditional_risk_among_accepted": 0.0,
+      "corruption_probability": 0.05,
+      "expected_exact_bucket_hit_probability": 0.6557548800125188,
+      "method_id": "B7_margin_aware_multi_probe_lsh",
+      "post_budget_exact_trace_recall": 0.837890625,
+      "post_rerank_exact_trace_recall_at_32": 0.837890625,
+      "raw_exact_trace_candidate_recall": 0.837890625,
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    }
+  ],
+  "thin_lsh_occupancy": {
+    "bucket_occupancy_mean": 2.7333606669400026,
+    "bucket_occupancy_p50": 2.0,
+    "bucket_occupancy_p95": 6.0,
+    "bucket_occupancy_p99": 7.0,
+    "collision_rate": 0.7553034789607155,
+    "empty_bucket_rate": 0.1068115234375
+  }
+}

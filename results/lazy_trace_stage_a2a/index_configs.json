@@ -1,0 +1,234 @@
+{
+  "candidate_budgets": [
+    32,
+    64,
+    100
+  ],
+  "configs": [
+    {
+      "build_seed": null,
+      "config_id": "faiss_exact_float_ip",
+      "kind": "float_exact",
+      "method_id": "B1_faiss_exact_float_scan",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": null,
+      "config_id": "faiss_binary_exact_hamming",
+      "kind": "binary_exact",
+      "method_id": "B4_binary_exact_scan",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "float_hnsw_ef32",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "float_hnsw_ef64",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "float_hnsw_ef128",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "float_hnsw_ef256",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "float_hnsw_ef32",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "float_hnsw_ef64",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "float_hnsw_ef128",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "float_hnsw_ef256",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "float_hnsw_ef32",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "float_hnsw_ef64",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "float_hnsw_ef128",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "float_hnsw_ef256",
+      "kind": "float_hnsw",
+      "method_id": "B3_float_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "binary_hnsw_ef32",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "binary_hnsw_ef64",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "binary_hnsw_ef128",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580101,
+      "config_id": "binary_hnsw_ef256",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "binary_hnsw_ef32",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "binary_hnsw_ef64",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "binary_hnsw_ef128",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580102,
+      "config_id": "binary_hnsw_ef256",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "binary_hnsw_ef32",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "binary_hnsw_ef64",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "binary_hnsw_ef128",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": 930580103,
+      "config_id": "binary_hnsw_ef256",
+      "kind": "binary_hnsw",
+      "method_id": "B5_binary_hnsw",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": null,
+      "config_id": "bmh_b9_h4_f0",
+      "kind": "binary_multihash",
+      "method_id": "B6_binary_multi_hash",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": null,
+      "config_id": "bmh_b9_h4_f1",
+      "kind": "binary_multihash",
+      "method_id": "B6_binary_multi_hash",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": null,
+      "config_id": "bmh_b10_h4_f1",
+      "kind": "binary_multihash",
+      "method_id": "B6_binary_multi_hash",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    },
+    {
+      "build_seed": null,
+      "config_id": "a1p_frozen_lsh",
+      "kind": "thin_custom_lsh_incumbent",
+      "method_id": "B2_current_a1p_thin_random_hyperplane_lsh",
+      "schema_version": "lazy-semantic-trace-stage-a2a-dev-v1"
+    }
+  ],
+  "coordinate_permutation_seed": 930570100,
+  "hnsw_build_seeds": [
+    930580101,
+    930580102,
+    930580103
+  ],
+  "selected_configs": {
+    "B0_vectorized_exact_scan": "B0_vectorized_exact_scan",
+    "B1_faiss_exact_float_scan": "faiss_exact_float_ip",
+    "B2_current_a1p_thin_random_hyperplane_lsh": "a1p_frozen_lsh",
+    "B3_float_hnsw": "float_hnsw_ef256",
+    "B4_binary_exact_scan": "faiss_binary_exact_hamming",
+    "B5_binary_hnsw": "binary_hnsw_ef64",
+    "B6_binary_multi_hash": "bmh_b10_h4_f1"
+  }
+}
