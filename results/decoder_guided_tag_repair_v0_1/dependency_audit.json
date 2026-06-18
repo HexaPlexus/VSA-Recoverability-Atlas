@@ -1,0 +1,53 @@
+{
+  "anti_nih_findings": [
+    {
+      "coverage": 0.4,
+      "family": "q-ary / erasure symbols",
+      "notes": "Tagged four-symbol repair overlaps with enriched alphabets and erasure-style side information, but this stage keeps semantic MAP bits unchanged and uses tags only as sparse recovery evidence.",
+      "verdict": "ADAPT"
+    },
+    {
+      "coverage": 0.5,
+      "family": "error-correcting output codes / reliability weighting",
+      "notes": "The causal idea resembles decoder-informed selective redundancy, but no existing repo primitive already performs conflict-localized sparse repair on open-world factor domains.",
+      "verdict": "ADAPT"
+    },
+    {
+      "coverage": 0.3,
+      "family": "sparse codes / sparse block codes / spreading codes",
+      "notes": "These are the honest redundancy controls; Arm F and random-tag controls are included so the stage cannot claim victory from generic extra bits.",
+      "verdict": "COMPARE"
+    },
+    {
+      "coverage": 0.3,
+      "family": "Bloom-filter-like membership sketches / confidence masks",
+      "notes": "Marker overlays act like sparse confidence hints, not canonical identity or pointer payloads.",
+      "verdict": "COMPARE"
+    },
+    {
+      "coverage": 1.0,
+      "family": "existing MAP/TorchHD resonator harness",
+      "notes": "Reuse the native semantic decoder and only add a thin marker-aware cleanup wrapper, conflict attribution, and patch protocol.",
+      "verdict": "WRAP"
+    }
+  ],
+  "level35_frozen_artifact_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5",
+  "previous_blocked_line": {
+    "commit": "c6a24d7e16eef366bf03d78db306266a00c05e0c",
+    "kill_gate": "BLOCK_DECODER_CERTIFICATION_LINE",
+    "scientific_verdict": "DECODER_CERTIFIED_RECOVERY_ADVANTAGE_NOT_SUPPORTED"
+  },
+  "schema_version": "decoder-guided-tag-repair-v0.1-dev",
+  "status": [
+    "PROTOTYPE",
+    "DEVELOPMENT_ONLY",
+    "NEW_HYPOTHESIS",
+    "NO_PRODUCTION_CLAIM"
+  ],
+  "verdict": "PROTOTYPE",
+  "why_not_scratch": [
+    "A new resonator, new VSA algebra, or learned encoder would answer a different question than the narrow causal repair hypothesis.",
+    "The repository already contains deterministic MAP domain generation, resonator iteration budgets, and exact reconstruction checks.",
+    "This stage only needs a versioned recovery view, conflict accounting, sparse tag placement, and matched controls."
+  ]
+}

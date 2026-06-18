@@ -1,0 +1,126 @@
+schema_version: "decoder-guided-tag-repair-v0.1-dev"
+task_name: "Decoder-Guided Minimal Representation Repair v0.1"
+starting_commit: "c6a24d7e16eef366bf03d78db306266a00c05e0c"
+status:
+  - "PROTOTYPE"
+  - "DEVELOPMENT_ONLY"
+  - "NEW_HYPOTHESIS"
+  - "NO_PRODUCTION_CLAIM"
+long_run_authorized: false
+heldout_execution_allowed: false
+scope_limit_reason: "Level 3.5b confirmatory closure is not complete; only audit, protocol, unit tests, and tiny smoke are lawful."
+representation_contract:
+  semantic_alphabet:
+    - "-1"
+    - "+1"
+  tagged_alphabet:
+    - "NORMAL_NEG"
+    - "NORMAL_POS"
+    - "TAGGED_NEG"
+    - "TAGGED_POS"
+  semantic_projection_preserved: true
+  marker_merge_states:
+    - "NONE"
+    - "NEG_PRESENT"
+    - "POS_PRESENT"
+    - "BOTH_PRESENT"
+  marker_score_formula: "(D * semantic_score + effective_marker_bits * marker_score) / (D + effective_marker_bits)"
+  effective_marker_bits: "number_of_tags(candidate)"
+substrate:
+  family: "MAP"
+  task_contract: "U1_blind_single_product_factorization"
+  factor_count: 3
+  decoder: "TorchHD resonator + thin marker-aware cleanup wrapper"
+  max_iterations: 12
+  stable_patience: 3
+  corruption_contract: "clean_only"
+cells:
+  -
+    cell_id: "smoke_d512_m10"
+    dimensions: 512
+    domain_size: 10
+    codebook_seed_start: 962510100
+    codebook_seed_count: 1
+    target_atom_count: 1
+    execute_in_stage: true
+    stage_role: "sanity"
+    seed_range:
+      start: 962510100
+      count: 1
+  -
+    cell_id: "transition_d1024_m22"
+    dimensions: 1024
+    domain_size: 22
+    codebook_seed_start: 962522100
+    codebook_seed_count: 1
+    target_atom_count: 1
+    execute_in_stage: true
+    stage_role: "paired_smoke"
+    seed_range:
+      start: 962522100
+      count: 1
+  -
+    cell_id: "transition_d1024_m31"
+    dimensions: 1024
+    domain_size: 31
+    codebook_seed_start: 962531100
+    codebook_seed_count: 1
+    target_atom_count: 1
+    execute_in_stage: true
+    stage_role: "paired_smoke"
+    seed_range:
+      start: 962531100
+      count: 1
+repair_ladder:
+  - 0
+  - 8
+  - 16
+  - 32
+arms:
+  - "A_BASE_BINARY"
+  - "B_RANDOM_TAGS"
+  - "C_SHUFFLED_CONFLICT_TAGS"
+  - "D_RANDOM_PATCH_SEARCH"
+  - "E_CONFLICT_GUIDED_TAGS"
+  - "F_EQUAL_BIT_EXTRA_DIMENSIONS"
+split_counts:
+  CONFLICT_DISCOVERY: 6
+  REPAIR_CERTIFICATION: 6
+  DEVELOPMENT_VALIDATION: 6
+  FINAL_DEVELOPMENT_EVALUATION: 8
+  old_only: 6
+strict_certificate:
+  verified_exact_recovery_min: 0.9
+  conditional_risk_max: 0.05
+  silent_wrong_acceptance_max: 0.0
+  accepted_coverage_min: 0.75
+seed_offsets:
+  discovery: 110000
+  certification: 210000
+  validation: 310000
+  final: 410000
+  shuffle: 510000
+  patch: 610000
+allowed_claims:
+  - "bit-exact marker recovery view exists"
+  - "conflict-guided tag placement can be compared causally against shuffled and random controls"
+  - "equal-bit extra-dimension control is included"
+forbidden_claims:
+  - "new decoder"
+  - "new VSA algebra"
+  - "production readiness"
+  - "noisy frontier"
+  - "held-out confirmation"
+  - "new coding theory"
+transition_evidence:
+  -
+    source: "docs/LEVEL3_2B_MAP_BUDGET_ROBUSTNESS.md"
+    cell_id: "transition_d1024_m22"
+    evidence: "existing MAP clean transition region"
+  -
+    source: "docs/LEVEL3_2B_MAP_BUDGET_ROBUSTNESS.md"
+    cell_id: "transition_d1024_m31"
+    evidence: "existing MAP hard clean transition region"
+seed_fresh: true
+level35_frozen_artifacts_unchanged: true
+protocol_hash: "ba57e148f752a9d77a4982c1921bab732d0c8ea4d812bb4b8d61467f69ec2c28"

@@ -1,0 +1,72 @@
+{
+  "arm_summary": [
+    {
+      "arm_id": "A_BASE_BINARY",
+      "mean_final_accepted_coverage": 0.6527777777777778,
+      "mean_final_conditional_risk": 0.33161375661375664,
+      "mean_final_exact_recovery": 0.5,
+      "mean_final_verified_reconstruction": 0.5,
+      "mean_old_only_exact_recovery": 0.5,
+      "mean_physical_bits": 853.3333333333334,
+      "rows": 9
+    },
+    {
+      "arm_id": "B_RANDOM_TAGS",
+      "mean_final_accepted_coverage": 0.6527777777777778,
+      "mean_final_conditional_risk": 0.33161375661375664,
+      "mean_final_exact_recovery": 0.5,
+      "mean_final_verified_reconstruction": 0.5,
+      "mean_old_only_exact_recovery": 0.5,
+      "mean_physical_bits": 1157.3333333333333,
+      "rows": 9
+    },
+    {
+      "arm_id": "C_SHUFFLED_CONFLICT_TAGS",
+      "mean_final_accepted_coverage": 0.6527777777777778,
+      "mean_final_conditional_risk": 0.33161375661375664,
+      "mean_final_exact_recovery": 0.5,
+      "mean_final_verified_reconstruction": 0.5,
+      "mean_old_only_exact_recovery": 0.5,
+      "mean_physical_bits": 1098.6666666666667,
+      "rows": 9
+    },
+    {
+      "arm_id": "D_RANDOM_PATCH_SEARCH",
+      "mean_final_accepted_coverage": 0.6527777777777778,
+      "mean_final_conditional_risk": 0.33161375661375664,
+      "mean_final_exact_recovery": 0.5,
+      "mean_final_verified_reconstruction": 0.5,
+      "mean_old_only_exact_recovery": 0.5,
+      "mean_physical_bits": 1157.3333333333333,
+      "rows": 9
+    },
+    {
+      "arm_id": "E_CONFLICT_GUIDED_TAGS",
+      "mean_final_accepted_coverage": 0.6527777777777778,
+      "mean_final_conditional_risk": 0.33161375661375664,
+      "mean_final_exact_recovery": 0.5,
+      "mean_final_verified_reconstruction": 0.5,
+      "mean_old_only_exact_recovery": 0.5,
+      "mean_physical_bits": 1098.6666666666667,
+      "rows": 9
+    },
+    {
+      "arm_id": "F_EQUAL_BIT_EXTRA_DIMENSIONS",
+      "mean_final_accepted_coverage": 0.8333333333333334,
+      "mean_final_conditional_risk": 0.22685185185185183,
+      "mean_final_exact_recovery": 0.6944444444444444,
+      "mean_final_verified_reconstruction": 0.6944444444444444,
+      "mean_old_only_exact_recovery": 0.6851851851851852,
+      "mean_physical_bits": 1139.5555555555557,
+      "rows": 9
+    }
+  ],
+  "build_verdict": "PROTOTYPE",
+  "claim_state": "CONFLICT_GUIDED_REPAIR_ADVANTAGE_NOT_SUPPORTED",
+  "engineering_verdict": "BLOCK_TAGGED_SYMBOL_LINE",
+  "execution_scope": "tiny_smoke_only",
+  "heldout_execution_count": 0,
+  "protocol_hash": "ba57e148f752a9d77a4982c1921bab732d0c8ea4d812bb4b8d61467f69ec2c28",
+  "scientific_verdict": "INCONCLUSIVE_REQUIRES_MORE_POWER",
+  "seed_fresh": true
+}
