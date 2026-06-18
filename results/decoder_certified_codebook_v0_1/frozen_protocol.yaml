@@ -1,0 +1,136 @@
+schema_version: "decoder-certified-codebook-v0.1-dev"
+task_name: "Decoder-Certified Codebook Construction v0.1"
+status: "development_only_smoke_pre_level3_5b_closure"
+initial_verdict:
+  - "PROTOTYPE"
+  - "DEVELOPMENT_ONLY"
+  - "NO_PRODUCTION_CLAIM"
+starting_commit: "52060ef73c41bbde2110b479120710a4f1750bb7"
+long_run_authorized: false
+heldout_execution_allowed: false
+scope_limit_reason: "Level 3.5b confirmatory closure is not complete; only audit, protocol, tests, and tiny smoke are lawful."
+substrate:
+  family: "MAP"
+  decoder: "TorchHD resonator"
+  task_contract: "U1_blind_single_product_factorization"
+  factor_count: 3
+  max_iterations: 12
+  stable_patience: 3
+  corruption_contract: "clean_only"
+cells:
+  -
+    cell_id: "smoke_d512_m10"
+    dimensions: 512
+    initial_domain_size: 8
+    final_domain_size: 10
+    codebook_seed_start: 961510100
+    codebook_seed_count: 1
+    certification_tuples_per_factor: 2
+    validation_tuples_per_factor: 2
+    final_tuples_per_factor: 3
+    old_only_tuples: 3
+    hard_templates: 1
+    execute_in_stage: true
+    stage_role: "sanity"
+    seed_range:
+      start: 961510100
+      count: 1
+  -
+    cell_id: "transition_d1024_m22"
+    dimensions: 1024
+    initial_domain_size: 20
+    final_domain_size: 22
+    codebook_seed_start: 961522100
+    codebook_seed_count: 2
+    certification_tuples_per_factor: 4
+    validation_tuples_per_factor: 4
+    final_tuples_per_factor: 6
+    old_only_tuples: 4
+    hard_templates: 2
+    execute_in_stage: true
+    stage_role: "paired_smoke"
+    seed_range:
+      start: 961522100
+      count: 2
+  -
+    cell_id: "transition_d1024_m31"
+    dimensions: 1024
+    initial_domain_size: 29
+    final_domain_size: 31
+    codebook_seed_start: 961531100
+    codebook_seed_count: 2
+    certification_tuples_per_factor: 4
+    validation_tuples_per_factor: 4
+    final_tuples_per_factor: 6
+    old_only_tuples: 4
+    hard_templates: 2
+    execute_in_stage: true
+    stage_role: "paired_smoke"
+    seed_range:
+      start: 961531100
+      count: 2
+candidate_budget:
+  k_values:
+    - 1
+    - 4
+  candidate_pool_shared_across_arms: true
+arms:
+  - "A_RANDOM_FIRST"
+  - "B_DISTANCE_MAXMIN"
+  - "C_DECODER_CERTIFIED"
+  - "D_SHUFFLED_CERTIFICATION_CONTROL"
+selection_policy:
+  - "exclude candidates that violate silent-error gate"
+  - "maximize exact factor recovery"
+  - "maximize verified reconstruction"
+  - "maximize top1-top2 margin"
+  - "minimize decoder iterations"
+  - "deterministic candidate-index tie-break"
+split_separation:
+  certification: "candidate selection only"
+  validation: "development validation only"
+  final_development_evaluation: "unseen smoke evaluation only"
+  disjoint_seed_offsets:
+    candidate_pool: 100000
+    certification: 200000
+    validation: 300000
+    final: 400000
+    shuffle: 500000
+transition_evidence:
+  -
+    source: "docs/LEVEL3_2B_MAP_BUDGET_ROBUSTNESS.md"
+    cell_id: "u1_boundary_22"
+    evidence: "existing clean U1 boundary region"
+  -
+    source: "docs/LEVEL3_2B_MAP_BUDGET_ROBUSTNESS.md"
+    cell_id: "u1_boundary_31"
+    evidence: "existing clean U1 transition region"
+metrics:
+  - "exact factor recovery"
+  - "verified reconstruction rate"
+  - "conditional risk among accepted outputs"
+  - "silent wrong acceptance rate"
+  - "abstention/no-commit rate"
+  - "top1-top2 margin"
+  - "decoder iterations"
+  - "decode latency"
+  - "candidate certification latency"
+  - "total insertion cost"
+  - "number of rejected candidates"
+  - "old-atom regression"
+  - "pairwise Hamming-distance distribution"
+  - "generalization gap"
+  - "break-even future query count"
+allowed_claims:
+  - "tiny smoke harness exists"
+  - "K=1 collapse sanity was checked"
+  - "decoder-certified admission can be compared causally against distance-only and shuffled controls"
+forbidden_claims:
+  - "general noisy superiority"
+  - "production readiness"
+  - "new decoder"
+  - "BCF or linear-code improvement"
+  - "held-out confirmation"
+seed_fresh: true
+level35_frozen_artifacts_unchanged: true
+protocol_hash: "c38252c5823def1ea86454146f62b8e3c55bcec6beaf10cbf94985800734a4f1"

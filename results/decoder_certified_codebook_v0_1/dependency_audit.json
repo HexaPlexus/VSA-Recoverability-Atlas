@@ -1,0 +1,45 @@
+{
+  "anti_nih_findings": [
+    {
+      "coverage": 0.6,
+      "family": "max-min Hamming / spherical code placement",
+      "notes": "Directly covered by the distance-maxmin baseline; no need to reinvent a packing objective.",
+      "verdict": "ADOPT"
+    },
+    {
+      "coverage": 0.5,
+      "family": "vector quantization / codebook search",
+      "notes": "Similar search-over-codebook idea exists, but not as online factor-domain admission with the repository's blind MAP resonator in the loop.",
+      "verdict": "ADAPT"
+    },
+    {
+      "coverage": 0.2,
+      "family": "learned encoder-decoder codebooks",
+      "notes": "Out of scope here because this stage forbids a new decoder, learned scorer, or full training loop.",
+      "verdict": "BLOCK"
+    },
+    {
+      "coverage": 0.4,
+      "family": "decoder-aware quantization / admission control",
+      "notes": "Motivational overlap exists, but no drop-in open-world MAP factor-codebook admission primitive is already present in the repo.",
+      "verdict": "PROTOTYPE"
+    },
+    {
+      "coverage": 1.0,
+      "family": "existing repo primitives",
+      "notes": "Reuse baseline.py and level3_2 confirmation MAP resonator path instead of building a new benchmark framework.",
+      "verdict": "WRAP"
+    }
+  ],
+  "frozen_artifact_hashes": {
+    "level35_v4_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5"
+  },
+  "schema_version": "decoder-certified-codebook-v0.1-dev",
+  "starting_commit": "52060ef73c41bbde2110b479120710a4f1750bb7",
+  "verdict": "COMPOSE",
+  "why_not_scratch": [
+    "The repository already contains deterministic MAP domain generation, upstream TorchHD resonator calls, candidate ranking margins, and seed discipline.",
+    "A new benchmark framework, optimizer, or learned codebook trainer would answer a different question than this narrow causal admission audit.",
+    "This stage only needs a small wrapper around candidate-pool generation, decoder-in-the-loop certification, and split-aware evaluation."
+  ]
+}

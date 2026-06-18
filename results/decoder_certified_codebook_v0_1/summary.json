@@ -1,0 +1,51 @@
+{
+  "arm_summary": [
+    {
+      "arm_id": "A_RANDOM_FIRST",
+      "mean_construction_cost_sec": 0.0,
+      "mean_final_accepted_coverage": 0.6818181818181819,
+      "mean_final_conditional_risk": 0.3228178903140203,
+      "mean_final_exact_recovery_rate": 0.5102272727272728,
+      "mean_final_verified_reconstruction_rate": 0.5102272727272728,
+      "mean_old_atom_regression_exact_recovery": 0.475,
+      "rows": 20
+    },
+    {
+      "arm_id": "B_DISTANCE_MAXMIN",
+      "mean_construction_cost_sec": 0.0,
+      "mean_final_accepted_coverage": 0.6659090909090909,
+      "mean_final_conditional_risk": 0.3385413902403066,
+      "mean_final_exact_recovery_rate": 0.5011363636363637,
+      "mean_final_verified_reconstruction_rate": 0.5011363636363637,
+      "mean_old_atom_regression_exact_recovery": 0.5083333333333333,
+      "rows": 20
+    },
+    {
+      "arm_id": "C_DECODER_CERTIFIED",
+      "mean_construction_cost_sec": 0.17740485688740262,
+      "mean_final_accepted_coverage": 0.7170454545454545,
+      "mean_final_conditional_risk": 0.2670343137254902,
+      "mean_final_exact_recovery_rate": 0.5734848484848485,
+      "mean_final_verified_reconstruction_rate": 0.5734848484848485,
+      "mean_old_atom_regression_exact_recovery": 0.575,
+      "rows": 20
+    },
+    {
+      "arm_id": "D_SHUFFLED_CERTIFICATION_CONTROL",
+      "mean_construction_cost_sec": 0.1717282801064853,
+      "mean_final_accepted_coverage": 0.7136363636363636,
+      "mean_final_conditional_risk": 0.3016624895572264,
+      "mean_final_exact_recovery_rate": 0.5511363636363636,
+      "mean_final_verified_reconstruction_rate": 0.5511363636363636,
+      "mean_old_atom_regression_exact_recovery": 0.5458333333333333,
+      "rows": 20
+    }
+  ],
+  "build_verdict": "PROTOTYPE",
+  "claim_state": "DECODER_CERTIFIED_RECOVERY_ADVANTAGE_NOT_SUPPORTED",
+  "execution_scope": "tiny_smoke_only",
+  "heldout_execution_count": 0,
+  "protocol_hash": "c38252c5823def1ea86454146f62b8e3c55bcec6beaf10cbf94985800734a4f1",
+  "scientific_verdict": "BLOCK_DECODER_CERTIFICATION_LINE",
+  "seed_fresh": true
+}
