@@ -1,0 +1,277 @@
+{
+  "allowed_change_classes": [
+    "ANALYTICAL_GRID_REPAIR",
+    "BASELINE_IMPLEMENTATION_REPAIR",
+    "SAMPLE_SIZE_INCREASE",
+    "METRIC_DISAMBIGUATION",
+    "ADVERSARIAL_DATASET_STRENGTHENING",
+    "METADATA_ONLY"
+  ],
+  "base_checkpoint_commit": "ccf3730aab9ada8bac3675eb298f0e755d9bb98f",
+  "branch_expectation": "codex/lazy-trace-addressing-stage-a1",
+  "changed_fields": {
+    "ambiguity_contract": "AMBIGUOUS_TRACE",
+    "analytical_lsh_configs": [
+      "A1-P",
+      "A1-S1",
+      "A1-S2",
+      "A1-MP"
+    ],
+    "query_trials_per_primary_point": 512,
+    "task_split": [
+      "decoder_contract_retrieval",
+      "exact_creation_trace_retrieval"
+    ],
+    "vectorized_global_scan": true
+  },
+  "dataset_seed_ranges": {
+    "n10000": {
+      "count": 1,
+      "start": 930450100
+    }
+  },
+  "dataset_specs": [
+    {
+      "dataset_id": "n10000",
+      "query_trials_per_point": 512,
+      "record_count": 10000
+    }
+  ],
+  "fixed_acceptance_policy": {
+    "accept_margin": 0.015,
+    "accept_similarity_threshold": 0.88,
+    "coverage_threshold_primary": 0.8,
+    "rerank_k": 32,
+    "theory_tolerance_absolute": 0.05
+  },
+  "global_scan_policy": {
+    "timed_repeats_per_query": 1,
+    "topk_only_validation": 32,
+    "warmup_queries": 8
+  },
+  "heldout_execution": false,
+  "methods": {
+    "B3_stage_a_four_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": null,
+      "candidate_budget": 96,
+      "family": "semantic_lsh",
+      "method_id": "B3_stage_a_four_table_lsh",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 12,
+      "table_count": 4
+    },
+    "B4_a1p_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": null,
+      "candidate_budget": 100,
+      "family": "semantic_lsh",
+      "method_id": "B4_a1p_multi_table_lsh",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 12,
+      "table_count": 18
+    },
+    "B5_a1s1_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": null,
+      "candidate_budget": 100,
+      "family": "semantic_lsh",
+      "method_id": "B5_a1s1_multi_table_lsh",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 11,
+      "table_count": 15
+    },
+    "B6_a1s2_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": null,
+      "candidate_budget": 100,
+      "family": "semantic_lsh",
+      "method_id": "B6_a1s2_multi_table_lsh",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 13,
+      "table_count": 21
+    },
+    "B7_margin_aware_multi_probe_lsh": {
+      "analytical_model": "primary_plus_first_order_neighbor_union_bound",
+      "budget_match_target": null,
+      "candidate_budget": 100,
+      "family": "semantic_lsh",
+      "method_id": "B7_margin_aware_multi_probe_lsh",
+      "probe_budget": 4,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "margin_probe",
+      "signature_bits": 12,
+      "table_count": 4
+    },
+    "random::B3_stage_a_four_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": "B3_stage_a_four_table_lsh",
+      "candidate_budget": 10,
+      "family": "random_routing",
+      "method_id": "B2_random_bucket_routing",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 12,
+      "table_count": 4
+    },
+    "random::B4_a1p_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": "B4_a1p_multi_table_lsh",
+      "candidate_budget": 44,
+      "family": "random_routing",
+      "method_id": "B2_random_bucket_routing",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 12,
+      "table_count": 18
+    },
+    "random::B5_a1s1_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": "B5_a1s1_multi_table_lsh",
+      "candidate_budget": 74,
+      "family": "random_routing",
+      "method_id": "B2_random_bucket_routing",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 11,
+      "table_count": 15
+    },
+    "random::B6_a1s2_multi_table_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": "B6_a1s2_multi_table_lsh",
+      "candidate_budget": 26,
+      "family": "random_routing",
+      "method_id": "B2_random_bucket_routing",
+      "probe_budget": 1,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 13,
+      "table_count": 21
+    },
+    "random::B7_margin_aware_multi_probe_lsh": {
+      "analytical_model": "primary_signature_collision",
+      "budget_match_target": "B7_margin_aware_multi_probe_lsh",
+      "candidate_budget": 40,
+      "family": "random_routing",
+      "method_id": "B2_random_bucket_routing",
+      "probe_budget": 4,
+      "projection_seed": 930470101,
+      "rerank_k": 32,
+      "routing_mode": "primary_only",
+      "signature_bits": 12,
+      "table_count": 4
+    }
+  },
+  "no_overlap_with_prior_frozen_seeds": true,
+  "preserved_fields": {
+    "corruption_channel": {
+      "channel_id": "MAP_EXTERNAL_BERNOULLI_SIGN_FLIP",
+      "points": [
+        0.0,
+        0.01,
+        0.03,
+        0.05,
+        0.1,
+        0.15
+      ],
+      "type": "independent_external_bernoulli_sign_flip"
+    },
+    "semantic_substrate": {
+      "dimensions": 1024,
+      "vsa": "MAP"
+    },
+    "stage_a_artifact_hash": "f9f770c7af19ad7fc5efb2d8191be116ecdccfd6d6b22f51d7c74da8c58f50ab"
+  },
+  "projection_seeds": [
+    930470101,
+    930470102,
+    930470103
+  ],
+  "protocol_amendment_of": "f9f770c7af19ad7fc5efb2d8191be116ecdccfd6d6b22f51d7c74da8c58f50ab",
+  "protocol_hash": "fa5f4ab38cd62f00a61951879796dfea24782ba5f16fe4c2691a33018b5bf389",
+  "query_seed_ranges": {
+    "n10000": {
+      "0.00": {
+        "count": 512,
+        "start": 930460100
+      },
+      "0.01": {
+        "count": 512,
+        "start": 930461100
+      },
+      "0.03": {
+        "count": 512,
+        "start": 930462100
+      },
+      "0.05": {
+        "count": 512,
+        "start": 930463100
+      },
+      "0.10": {
+        "count": 512,
+        "start": 930464100
+      },
+      "0.15": {
+        "count": 512,
+        "start": 930465100
+      }
+    }
+  },
+  "random_budget_matching": {
+    "B3_stage_a_four_table_lsh": {
+      "candidate_budget": 10,
+      "probe_budget": 1,
+      "signature_bits": 12,
+      "table_count": 4
+    },
+    "B4_a1p_multi_table_lsh": {
+      "candidate_budget": 44,
+      "probe_budget": 1,
+      "signature_bits": 12,
+      "table_count": 18
+    },
+    "B5_a1s1_multi_table_lsh": {
+      "candidate_budget": 74,
+      "probe_budget": 1,
+      "signature_bits": 11,
+      "table_count": 15
+    },
+    "B6_a1s2_multi_table_lsh": {
+      "candidate_budget": 26,
+      "probe_budget": 1,
+      "signature_bits": 13,
+      "table_count": 21
+    },
+    "B7_margin_aware_multi_probe_lsh": {
+      "candidate_budget": 40,
+      "probe_budget": 4,
+      "signature_bits": 12,
+      "table_count": 4
+    }
+  },
+  "results_namespace": "lazy_trace_stage_a1",
+  "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+  "smoke_seed": 930480001,
+  "stage_a_artifacts_unchanged": true,
+  "task_name": "Lazy Semantic-to-Trace Addressing - Stage A.1"
+}

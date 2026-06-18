@@ -1,0 +1,7 @@
+schema_version,ablation_id,method_id,projection_seed,decoder_contract_recall_at_32,exact_trace_recall_at_32,decoder_contract_conditional_risk,exact_trace_conditional_risk
+lazy-semantic-trace-stage-a1-dev-v1,A9_different_fixed_projection_seeds,B4_a1p_multi_table_lsh,930470101,1.0,,,
+lazy-semantic-trace-stage-a1-dev-v1,A9_different_fixed_projection_seeds,B4_a1p_multi_table_lsh,930470102,1.0,,,
+lazy-semantic-trace-stage-a1-dev-v1,A9_different_fixed_projection_seeds,B4_a1p_multi_table_lsh,930470103,1.0,,,
+lazy-semantic-trace-stage-a1-dev-v1,A6_semantic_to_exact_trace_shuffle,B4_a1p_multi_table_lsh,,1,0,0.0,1.0
+lazy-semantic-trace-stage-a1-dev-v1,A7_semantic_to_contract_shuffle,B4_a1p_multi_table_lsh,,0.953125,0,0.9166666666666666,0.0
+lazy-semantic-trace-stage-a1-dev-v1,A15_parent_handle_shuffle,B4_a1p_multi_table_lsh,,1,0,0.0,0.0

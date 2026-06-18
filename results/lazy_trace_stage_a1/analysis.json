@@ -1,0 +1,144 @@
+{
+  "allowed_claims": [
+    "Semantic LSH can be development-tested as a routing prior for decoder-contract retrieval.",
+    "Decoder-contract retrieval can be separated from exact provenance retrieval.",
+    "Ambiguous exact traces require typed ambiguity handling rather than arbitrary acceptance."
+  ],
+  "build_verdict": "PARTIAL",
+  "forbidden_claims": [
+    "No new ANN or LSH algorithm was invented.",
+    "No exact provenance recovery claim follows from decoder-contract recall.",
+    "No Stage B authorization follows automatically from Stage A.1.",
+    "No held-out or production confirmation was performed."
+  ],
+  "gates": [
+    {
+      "gate_id": "routing_gate_decoder_contract_recall_at_32",
+      "status": "PASS",
+      "threshold": 0.95,
+      "value": 0.9958333333333333
+    },
+    {
+      "gate_id": "candidate_gate_median_le_100",
+      "status": "PASS",
+      "threshold": {
+        "median": 100,
+        "p95": 100
+      },
+      "value": {
+        "median": 48.0,
+        "p95": 61.0
+      }
+    },
+    {
+      "gate_id": "safety_gate_zero_wrong_acceptance",
+      "status": "PASS",
+      "value": {
+        "ambiguous_wrong_acceptance_rate": 0,
+        "decoder_contract_conditional_risk": 0.0,
+        "exact_trace_conditional_risk": 0.0
+      }
+    },
+    {
+      "gate_id": "utility_gate_nontrivial_acceptance",
+      "status": "FAIL",
+      "threshold": {
+        "coverage": 0.8
+      },
+      "value": {
+        "candidate_reduction_ratio": 0.99521125,
+        "coverage": 0.8,
+        "random_candidate_reduction_ratio": 0.9958814583333333
+      }
+    },
+    {
+      "gate_id": "latency_gate_vs_vectorized_global_scan",
+      "status": "PASS",
+      "value": {
+        "global_p50": 0.02513080002972856,
+        "primary_p50": 0.01016809995053336
+      }
+    },
+    {
+      "gate_id": "theory_consistency_gate",
+      "status": "PASS",
+      "threshold": 0.05,
+      "value": {
+        "expected": 0.9524860264376837,
+        "observed": 0.9958333333333333
+      }
+    }
+  ],
+  "heldout_execution_count": 0,
+  "memory_rows": [
+    {
+      "bytes_per_stored_semantic_record": 4857.0061,
+      "duplicate_postings": 30000,
+      "hash_table_overhead_estimate": 2542694,
+      "index_build_latency_sec": 1.4666314999340102,
+      "method_id": "B3_stage_a_four_table_lsh",
+      "posting_bytes": 735464,
+      "projection_matrix_bytes": 196608,
+      "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+      "semantic_payload_bytes": 40960000,
+      "total_index_bytes": 48570061,
+      "trace_record_bytes": 4135295
+    },
+    {
+      "bytes_per_stored_semantic_record": 6073.3893,
+      "duplicate_postings": 170000,
+      "hash_table_overhead_estimate": 11444094,
+      "index_build_latency_sec": 5.352574400021695,
+      "method_id": "B4_a1p_multi_table_lsh",
+      "posting_bytes": 3309768,
+      "projection_matrix_bytes": 884736,
+      "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+      "semantic_payload_bytes": 40960000,
+      "total_index_bytes": 60733893,
+      "trace_record_bytes": 4135295
+    },
+    {
+      "bytes_per_stored_semantic_record": 5389.8355,
+      "duplicate_postings": 140000,
+      "hash_table_overhead_estimate": 5694096,
+      "index_build_latency_sec": 4.532728899968788,
+      "method_id": "B5_a1s1_multi_table_lsh",
+      "posting_bytes": 2433124,
+      "projection_matrix_bytes": 675840,
+      "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+      "semantic_payload_bytes": 40960000,
+      "total_index_bytes": 53898355,
+      "trace_record_bytes": 4135295
+    },
+    {
+      "bytes_per_stored_semantic_record": 7177.2819,
+      "duplicate_postings": 200000,
+      "hash_table_overhead_estimate": 21094312,
+      "index_build_latency_sec": 6.3506150000030175,
+      "method_id": "B6_a1s2_multi_table_lsh",
+      "posting_bytes": 4465004,
+      "projection_matrix_bytes": 1118208,
+      "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+      "semantic_payload_bytes": 40960000,
+      "total_index_bytes": 71772819,
+      "trace_record_bytes": 4135295
+    },
+    {
+      "bytes_per_stored_semantic_record": 4857.0061,
+      "duplicate_postings": 30000,
+      "hash_table_overhead_estimate": 2542694,
+      "index_build_latency_sec": 1.493138200021349,
+      "method_id": "B7_margin_aware_multi_probe_lsh",
+      "posting_bytes": 735464,
+      "projection_matrix_bytes": 196608,
+      "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+      "semantic_payload_bytes": 40960000,
+      "total_index_bytes": 48570061,
+      "trace_record_bytes": 4135295
+    }
+  ],
+  "next_lawful_stage": "Stage A.2: compare semantic LSH routing against mature ANN and SDM-style baselines",
+  "schema_version": "lazy-semantic-trace-stage-a1-dev-v1",
+  "stage_a_artifacts_unchanged": true,
+  "stage_a_protocol_hash": "f9f770c7af19ad7fc5efb2d8191be116ecdccfd6d6b22f51d7c74da8c58f50ab"
+}

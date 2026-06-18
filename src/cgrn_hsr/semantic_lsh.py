@@ -19,6 +19,7 @@ class SignatureConfig:
     table_count: int
     table_seed: int
     probe_budget: int = 1
+    routing_mode: str = "primary_only"
 
 
 @dataclass(frozen=True)
@@ -29,6 +30,17 @@ class RoutingResult:
     expansion_used: bool
     duplicate_postings: int
     empty_primary_bucket: bool
+    raw_postings_retrieved: int = 0
+    probed_table_indices: tuple[int, ...] = ()
+    probe_margins: tuple[float, ...] = ()
+
+
+@dataclass(frozen=True)
+class ProbeEvent:
+    table_index: int
+    signature: str
+    is_primary: bool
+    estimated_cost: float
 
 
 class RandomHyperplaneLSH:
@@ -74,17 +86,24 @@ class RandomHyperplaneLSH:
             values.append("".join(bits))
         return tuple(values)
 
-    def _neighbor_signatures(self, payload: torch.Tensor) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    def _probe_events(self, payload: torch.Tensor) -> tuple[tuple[str, ...], tuple[ProbeEvent, ...]]:
         flat = payload.detach().cpu().reshape(-1).to(dtype=torch.float32)
         primary: list[str] = []
-        ordered: list[str] = []
+        events: list[ProbeEvent] = []
         per_table_budget = max(1, self.config.probe_budget)
-        for projection in self._projections:
+        for table_index, projection in enumerate(self._projections):
             dots = projection @ flat
             base_bits = ["1" if value >= 0 else "0" for value in dots.tolist()]
             base = "".join(base_bits)
             primary.append(base)
-            ordered.append(base)
+            events.append(
+                ProbeEvent(
+                    table_index=table_index,
+                    signature=base,
+                    is_primary=True,
+                    estimated_cost=0.0,
+                )
+            )
             if per_table_budget <= 1:
                 continue
             ranked_positions = sorted(
@@ -94,19 +113,42 @@ class RandomHyperplaneLSH:
             for position in ranked_positions[: per_table_budget - 1]:
                 neighbor = list(base_bits)
                 neighbor[position] = "0" if neighbor[position] == "1" else "1"
-                ordered.append("".join(neighbor))
+                events.append(
+                    ProbeEvent(
+                        table_index=table_index,
+                        signature="".join(neighbor),
+                        is_primary=False,
+                        estimated_cost=abs(float(dots[position].item())),
+                    )
+                )
+        if self.config.routing_mode == "margin_probe":
+            primary_events = [event for event in events if event.is_primary]
+            secondary_events = [event for event in events if not event.is_primary]
+            secondary_events.sort(
+                key=lambda event: (event.estimated_cost, event.table_index, event.signature)
+            )
+            ordered = primary_events + secondary_events
+        else:
+            ordered = events
         return tuple(primary), tuple(ordered)
 
     def route(self, payload: torch.Tensor, *, candidate_budget: int) -> RoutingResult:
-        primary_signatures, ordered = self._neighbor_signatures(payload)
+        primary_signatures, ordered = self._probe_events(payload)
         seen: set[str] = set()
         candidates: list[str] = []
         duplicate_postings = 0
+        raw_postings_retrieved = 0
         empty_primary_bucket = True
-        primary_set = set(primary_signatures)
-        for table_index, signature in enumerate(ordered):
-            records = self._tables[table_index % self.config.table_count].get(signature, [])
-            if signature in primary_set and records:
+        probed_signatures: list[str] = []
+        probed_table_indices: list[int] = []
+        probe_margins: list[float] = []
+        for event in ordered:
+            probed_signatures.append(event.signature)
+            probed_table_indices.append(event.table_index)
+            probe_margins.append(event.estimated_cost)
+            records = self._tables[event.table_index].get(event.signature, [])
+            raw_postings_retrieved += len(records)
+            if event.is_primary and records:
                 empty_primary_bucket = False
             for handle in records:
                 if handle in seen:
@@ -118,18 +160,24 @@ class RandomHyperplaneLSH:
                     return RoutingResult(
                         candidate_handles=tuple(candidates),
                         primary_signatures=primary_signatures,
-                        probed_signatures=tuple(ordered),
-                        expansion_used=any(signature not in primary_set for signature in ordered),
+                        probed_signatures=tuple(probed_signatures),
+                        expansion_used=any(not event.is_primary for event in ordered),
                         duplicate_postings=duplicate_postings,
                         empty_primary_bucket=empty_primary_bucket,
+                        raw_postings_retrieved=raw_postings_retrieved,
+                        probed_table_indices=tuple(probed_table_indices),
+                        probe_margins=tuple(probe_margins),
                     )
         return RoutingResult(
             candidate_handles=tuple(candidates),
             primary_signatures=primary_signatures,
-            probed_signatures=tuple(ordered),
-            expansion_used=any(signature not in primary_set for signature in ordered),
+            probed_signatures=tuple(probed_signatures),
+            expansion_used=any(not event.is_primary for event in ordered),
             duplicate_postings=duplicate_postings,
             empty_primary_bucket=empty_primary_bucket,
+            raw_postings_retrieved=raw_postings_retrieved,
+            probed_table_indices=tuple(probed_table_indices),
+            probe_margins=tuple(probe_margins),
         )
 
     def occupancy_stats(self) -> dict[str, float]:
@@ -193,6 +241,7 @@ class RandomBucketRouter:
     def route(self, *, query_key: str, candidate_budget: int) -> RoutingResult:
         primary: list[str] = []
         probed: list[str] = []
+        probed_table_indices: list[int] = []
         bucket_count = 2**self.config.signature_bits
         rng = random.Random(_seed_from_text(query_key, self.config.table_seed))
         for table_index in range(self.config.table_count):
@@ -200,18 +249,21 @@ class RandomBucketRouter:
             signature = format(bucket, f"0{self.config.signature_bits}b")
             primary.append(signature)
             probed.append(signature)
+            probed_table_indices.append(table_index)
             if self.config.probe_budget > 1:
                 for _ in range(self.config.probe_budget - 1):
                     neighbor_bucket = rng.randrange(bucket_count)
                     probed.append(format(neighbor_bucket, f"0{self.config.signature_bits}b"))
+                    probed_table_indices.append(table_index)
         seen: set[str] = set()
         candidates: list[str] = []
         duplicate_postings = 0
+        raw_postings_retrieved = 0
         empty_primary_bucket = True
-        primary_set = set(primary)
-        for table_index, signature in enumerate(probed):
-            records = self._tables[table_index % self.config.table_count].get(signature, [])
-            if signature in primary_set and records:
+        for table_index, signature in zip(probed_table_indices, probed, strict=True):
+            records = self._tables[table_index].get(signature, [])
+            raw_postings_retrieved += len(records)
+            if signature in primary and records:
                 empty_primary_bucket = False
             for handle in records:
                 if handle in seen:
@@ -227,6 +279,9 @@ class RandomBucketRouter:
                         expansion_used=self.config.probe_budget > 1,
                         duplicate_postings=duplicate_postings,
                         empty_primary_bucket=empty_primary_bucket,
+                        raw_postings_retrieved=raw_postings_retrieved,
+                        probed_table_indices=tuple(probed_table_indices),
+                        probe_margins=tuple(0.0 for _ in probed),
                     )
         return RoutingResult(
             candidate_handles=tuple(candidates),
@@ -235,6 +290,9 @@ class RandomBucketRouter:
             expansion_used=self.config.probe_budget > 1,
             duplicate_postings=duplicate_postings,
             empty_primary_bucket=empty_primary_bucket,
+            raw_postings_retrieved=raw_postings_retrieved,
+            probed_table_indices=tuple(probed_table_indices),
+            probe_margins=tuple(0.0 for _ in probed),
         )
 
     def memory_bytes_estimate(self) -> int:

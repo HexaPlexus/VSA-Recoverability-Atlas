@@ -28,9 +28,14 @@ class RerankedCandidate:
     similarity: float
     validation_status: str
     validation_message: str
+    algebra: str
     operation_family: str
     arity: int
     operand_namespaces: tuple[str, ...]
+    operation_parameters: dict[str, int | str]
+    parent_handles: tuple[str, ...]
+    record_id: str
+    semantic_payload_checksum: str
 
 
 @dataclass(frozen=True)
@@ -72,6 +77,7 @@ def rerank_candidates(
     entries: list[TraceStoreEntry],
     *,
     candidate_matrix: torch.Tensor | None = None,
+    top_k: int | None = None,
 ) -> tuple[list[RerankedCandidate], float]:
     start = time.perf_counter()
     if not entries:
@@ -86,7 +92,10 @@ def rerank_candidates(
         )
     )
     similarities = F.cosine_similarity(query, payloads, dim=1)
-    order = torch.argsort(similarities, descending=True)
+    if top_k is not None and top_k < similarities.numel():
+        _, order = torch.topk(similarities, k=top_k, largest=True, sorted=True)
+    else:
+        order = torch.argsort(similarities, descending=True)
     ranked: list[RerankedCandidate] = []
     for index in order.tolist():
         entry = entries[index]
@@ -97,9 +106,14 @@ def rerank_candidates(
                 similarity=float(similarities[index].item()),
                 validation_status=validation.status,
                 validation_message=validation.message,
+                algebra=entry.trace_record.algebra,
                 operation_family=entry.trace_record.operation_family,
                 arity=entry.trace_record.arity,
                 operand_namespaces=entry.trace_record.operand_namespaces,
+                operation_parameters=dict(entry.trace_record.operation_parameters),
+                parent_handles=entry.trace_record.parent_handles,
+                record_id=entry.trace_record.record_id,
+                semantic_payload_checksum=entry.trace_record.semantic_payload_checksum,
             )
         )
     return ranked, time.perf_counter() - start
