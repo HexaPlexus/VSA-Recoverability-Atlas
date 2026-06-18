@@ -1,0 +1,118 @@
+{
+  "base_checkpoint_commit": "1c4fd2f",
+  "baselines": [
+    "B0_global_exact_semantic_scan",
+    "B1_exact_content_hash_only",
+    "B2_random_bucket_routing",
+    "B3_one_table_lsh",
+    "B4_multi_table_lsh",
+    "B5_bounded_multi_probe_lsh"
+  ],
+  "corruption_channel": {
+    "channel_id": "MAP_EXTERNAL_BERNOULLI_SIGN_FLIP",
+    "points": [
+      0.0,
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.15
+    ],
+    "type": "bernoulli_sign_flip_after_clean_payload"
+  },
+  "dataset_seed_ranges": {
+    "n1000": {
+      "count": 1,
+      "start": 930350100
+    },
+    "n10000": {
+      "count": 1,
+      "start": 930351100
+    }
+  },
+  "dataset_specs": [
+    {
+      "dataset_id": "n1000",
+      "query_trials_per_point": 32,
+      "record_count": 1000
+    },
+    {
+      "dataset_id": "n10000",
+      "query_trials_per_point": 32,
+      "record_count": 10000
+    }
+  ],
+  "dimensions": 1024,
+  "frozen_level3_5b_artifacts_touched": false,
+  "frozen_params": {
+    "accept_margin": 0.02,
+    "accept_similarity_threshold": 0.97,
+    "candidate_budget": 96,
+    "multi_probe_budget": 4,
+    "multi_table_count": 4,
+    "multi_table_probe_budget": 1,
+    "one_table_probe_budget": 1,
+    "signature_bits": 12
+  },
+  "heldout_execution": false,
+  "lsh_grid": {
+    "acceptance_margin": [
+      0.02
+    ],
+    "probe_budget": [
+      1,
+      4
+    ],
+    "rerank_k": [
+      32
+    ],
+    "signature_bits": [
+      12
+    ],
+    "table_count": [
+      1,
+      4
+    ]
+  },
+  "no_overlap_with_prior_frozen_seeds": true,
+  "projection_seeds": [
+    930370101,
+    930370102,
+    930370103
+  ],
+  "query_seed_ranges": {
+    "n1000": {
+      "count": 32,
+      "start": 930360100
+    },
+    "n10000": {
+      "count": 32,
+      "start": 930361100
+    }
+  },
+  "required_ablations": [
+    "A1_random_buckets",
+    "A2_one_vs_multi_table",
+    "A3_no_multi_probe",
+    "A4_without_exact_reranking",
+    "A5_without_typed_trace_validation",
+    "A6_semantic_payload_shuffled_relative_to_trace",
+    "A7_trace_family_labels_shuffled",
+    "A8_exact_vs_noisy_cue",
+    "A9_different_fixed_projection_seeds",
+    "A10_equal_candidate_budget_comparison"
+  ],
+  "results_namespace": "lazy_trace_stage_a",
+  "schema_version": "lazy-semantic-trace-stage-a-dev-v1",
+  "smoke_seed": 930380001,
+  "task_name": "Lazy Semantic-to-Trace Addressing - Stage A",
+  "trace_families": [
+    "MAP_BIND_2",
+    "MAP_BIND_3",
+    "MAP_BUNDLE_3",
+    "MAP_BUNDLE_5",
+    "MAP_PERMUTE_K",
+    "MAP_BIND_THEN_BUNDLE"
+  ],
+  "vsa": "MAP"
+}

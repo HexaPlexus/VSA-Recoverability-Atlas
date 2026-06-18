@@ -1,0 +1,94 @@
+{
+  "allowed_claims": [
+    "Locality-sensitive semantic routing can retrieve a bounded trace candidate set in this synthetic MAP Stage A harness.",
+    "Exact hash is exact-match-only and fails on noisy cues as expected.",
+    "Random routing with matched bucket budget is a negative control and can be beaten by semantic routing."
+  ],
+  "base_checkpoint_commit": "1c4fd2f",
+  "branch_expected": "codex/lazy-trace-addressing-stage-a",
+  "build_verdict": "PARTIAL",
+  "corruption_contract": {
+    "channel_id": "MAP_EXTERNAL_BERNOULLI_SIGN_FLIP",
+    "description": "External Bernoulli sign flips applied after clean MAP semantic payload construction.",
+    "points": [
+      0.0,
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.15
+    ]
+  },
+  "forbidden_claims": [
+    "new LSH algorithm",
+    "new VSA architecture",
+    "production readiness",
+    "scientific confirmation",
+    "superiority over mature ANN or SDM",
+    "full Decode-Carrying Hypervector implementation"
+  ],
+  "frozen_level3_5b_artifacts_unchanged": true,
+  "gates": [
+    {
+      "gate_id": "G1_trace_recall_at_32_n10000_p005",
+      "status": "FAIL",
+      "threshold": 0.95,
+      "value": 0.40625
+    },
+    {
+      "gate_id": "G2_candidate_median_le_1pct_n10000_p005",
+      "status": "PASS",
+      "threshold": 100.0,
+      "value": 41.0
+    },
+    {
+      "gate_id": "G3_wrong_acceptance_zero_n10000_p005",
+      "status": "PASS",
+      "threshold": 0.0,
+      "value": 0
+    },
+    {
+      "gate_id": "G4_beats_budget_matched_random_n10000_p005",
+      "status": "PASS",
+      "threshold": 0.0,
+      "value": 0.40625
+    },
+    {
+      "gate_id": "G5_query_latency_lt_global_scan_n10000_p005",
+      "status": "PASS",
+      "threshold": 1.4813428499619476,
+      "value": 0.008816400018986315
+    }
+  ],
+  "heldout_execution": false,
+  "next_lawful_stage": null,
+  "schema_version": "lazy-semantic-trace-stage-a-dev-v1",
+  "seed_ranges": {
+    "dataset": {
+      "n1000": {
+        "count": 1,
+        "start": 930350100
+      },
+      "n10000": {
+        "count": 1,
+        "start": 930351100
+      }
+    },
+    "projection": [
+      930370101,
+      930370102,
+      930370103
+    ],
+    "query": {
+      "n1000": {
+        "count": 32,
+        "start": 930360100
+      },
+      "n10000": {
+        "count": 32,
+        "start": 930361100
+      }
+    }
+  },
+  "task_name": "Lazy Semantic-to-Trace Addressing - Stage A"
+}

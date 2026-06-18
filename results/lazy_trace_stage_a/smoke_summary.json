@@ -1,0 +1,6 @@
+{
+  "mean_trace_recall_at_32": 0.25,
+  "queries": 4,
+  "schema_version": "lazy-semantic-trace-stage-a-dev-v1",
+  "smoke_seed": 930380001
+}

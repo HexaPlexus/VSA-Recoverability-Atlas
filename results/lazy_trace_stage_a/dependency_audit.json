@@ -1,0 +1,25 @@
+{
+  "exact_hash_control": {
+    "coverage": "exact equality baseline only",
+    "source": "sha256 over frozen semantic sign bits",
+    "status": "ADOPT_LOCAL_PRIMITIVE"
+  },
+  "lsh_or_ann_library": {
+    "checked": {
+      "annoy": false,
+      "datasketch": false,
+      "faiss": false,
+      "scipy": true,
+      "sklearn": false
+    },
+    "reason": "No frozen mature ANN/LSH dependency is present in the repo lock; Stage A therefore uses a tiny deterministic wrapper around standard random-hyperplane signatures and posting dictionaries rather than a new framework.",
+    "status": "BLOCK_REUSE_NOT_AVAILABLE"
+  },
+  "map_substrate": {
+    "coverage": "semantic substrate and similarity reranking",
+    "source": "torch-hd MAP random/bind/bundle/permute primitives",
+    "status": "ADOPT"
+  },
+  "schema_version": "lazy-semantic-trace-stage-a-dev-v1",
+  "verdict": "PROTOTYPE / DEVELOPMENT_ONLY"
+}

@@ -1,0 +1,2 @@
+{"adversarial_record_count": 40, "dataset_id": "n1000", "dataset_seed": 930350100, "operation_families": ["MAP_BIND_2", "MAP_BIND_3", "MAP_BIND_THEN_BUNDLE", "MAP_BUNDLE_3", "MAP_BUNDLE_5", "MAP_PERMUTE_K"], "record_count": 1000, "schema_version": "lazy-semantic-trace-stage-a-dev-v1"}
+{"adversarial_record_count": 399, "dataset_id": "n10000", "dataset_seed": 930351100, "operation_families": ["MAP_BIND_2", "MAP_BIND_3", "MAP_BIND_THEN_BUNDLE", "MAP_BUNDLE_3", "MAP_BUNDLE_5", "MAP_PERMUTE_K"], "record_count": 10000, "schema_version": "lazy-semantic-trace-stage-a-dev-v1"}
