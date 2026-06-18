@@ -1,0 +1,53 @@
+{
+  "P0_RECORD_AWARE_ACTIVATION": {
+    "capsule_available": false,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": true,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  },
+  "P1_DETACHED_SEMANTIC_CUE_ONLY": {
+    "capsule_available": false,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": false,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  },
+  "P2_DETACHED_RECORD_WITH_CARRIED_CAPSULE": {
+    "capsule_available": true,
+    "capsule_integrity_valid": true,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": false,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  },
+  "P3_DETACHED_RECORD_WITH_ERASED_CAPSULE": {
+    "capsule_available": false,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": false,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  },
+  "P4_DETACHED_RECORD_WITH_CORRUPTED_CAPSULE": {
+    "capsule_available": true,
+    "capsule_integrity_valid": false,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": false,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  },
+  "P5_DETACHED_RECORD_WITH_WRONG_VALID_CAPSULE": {
+    "capsule_available": true,
+    "capsule_integrity_valid": true,
+    "parent_handles_available": false,
+    "semantic_payload_available": true,
+    "semantic_record_id_available": false,
+    "sidecar_accessible": true,
+    "trace_id_available": false
+  }
+}

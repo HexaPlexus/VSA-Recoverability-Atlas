@@ -1,0 +1,53 @@
+{
+  "immutability": {
+    "level35_v4_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5",
+    "stage_a1_protocol_hash": "3457395A278F470F9E0DD8C8A43AE2296ED0629444E8B578218231FC241F2DD6",
+    "stage_a2a_protocol_hash": "6FD318107A2291DABB4DC48FB84F8CF26972C37BA467811F289EA98AF3A1DCD4",
+    "stage_a_protocol_hash": "F9F770C7AF19AD7FC5EFB2D8191BE116ECDCCFD6D6B22F51D7C74DA8C58F50AB"
+  },
+  "prior_art": {
+    "content_addressed_records": {
+      "coverage": 0.8,
+      "notes": "Content-addressed token arm uses digest prefix instead of a new identity system.",
+      "verdict": "ADOPT"
+    },
+    "mature_ecc": {
+      "coverage": 0.8,
+      "notes": "Reuse existing shortened BCH wrapper for 21-bit payloads; no new ECC code.",
+      "verdict": "ADOPT"
+    },
+    "semantic_lookup": {
+      "coverage": 0.9,
+      "notes": "Reuse exact packed MAP scan from Stage A.2a as the sidecar baseline.",
+      "verdict": "ADOPT"
+    },
+    "trace_coactivation": {
+      "coverage": 0.5,
+      "notes": "Only exact carried token closure is tested here; no recursive provenance or runtime orchestration.",
+      "verdict": "PROTOTYPE"
+    },
+    "transactional_commit": {
+      "coverage": 0.6,
+      "notes": "Lifecycle states are simulated in a narrow harness only.",
+      "verdict": "WRAP"
+    },
+    "typed_exact_handles": {
+      "coverage": 1.0,
+      "notes": "Plain typed field and sidecar are mandatory anti-NIH controls.",
+      "verdict": "ADOPT"
+    }
+  },
+  "reuse": {
+    "first_order_trace_coactivation": "build_store_state, replay_operation, trace validation, duplicate/ambiguity dataset structure",
+    "lazy_trace_addressing_stage_a2a": "packed exact semantic lookup and deterministic bit packing",
+    "level3_5b_native_noise_frontiers": "mature BCH wrapper and frozen config family reuse"
+  },
+  "schema_version": "exact-capsule-contract-closure-dev-v1",
+  "starting_commit": "7c385d448306de380e6b26cc4c105083fefac3d4",
+  "verdict": "COMPOSE",
+  "why_not_scratch": [
+    "The repository already contains a deterministic replay bank, typed trace validation and packed exact MAP lookup.",
+    "A new metadata runtime, ANN stack or ECC implementation would expand scope without answering the equal-information capsule question.",
+    "This stage only needs a thin exact-token closure layer around existing first-order trace records."
+  ]
+}

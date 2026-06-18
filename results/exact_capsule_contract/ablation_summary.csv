@@ -1,0 +1,17 @@
+schema_version,ablation_id,trial_seed,method_id,final_outcome,silent_wrong_provenance,silent_wrong_decoder,accepted_trace_id
+exact-capsule-contract-closure-dev-v1,A0_REMOVE_CAPSULE,941080100,E1_semantic_lookup_sidecar,AMBIGUOUS_TRACE,0,0,
+exact-capsule-contract-closure-dev-v1,A1_RANDOMIZE_TOKEN_TO_TRACE_MAPPING,941081100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A2_REMOVE_INTEGRITY_TAG,941082100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A3_CORRUPT_VALID_TOKEN,941083100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A4_REPLACE_WITH_VALID_OTHER_TOKEN,941084100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A5_REMOVE_EXACT_PARENT_HANDLES,941085100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A6_BYPASS_VERIFIER,941086100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A7_ERASE_RUNTIME_RECORD_IDENTITY,941087100,E1_semantic_lookup_sidecar,AMBIGUOUS_TRACE,0,0,
+exact-capsule-contract-closure-dev-v1,A8_PRESERVE_RUNTIME_RECORD_IDENTITY,941088100,E0_known_record_sidecar_oracle,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A9_IDENTICAL_BITS_IN_ORDINARY_FIELD,941089100,E2_ordinary_carried_typed_trace_field,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A10_EQUALIZE_BYTE_BUDGET,941090100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A11_EQUALIZE_INFORMATION_CONTRACT,941091100,E2_ordinary_carried_typed_trace_field,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A12_DISABLE_SEMANTIC_FALLBACK,941092100,E7_exact_capsule_plus_semantic_fallback,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A13_DISABLE_ECC_CORRECTION,941093100,E6_ecc_protected_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A14_REMOVE_NAMESPACE_VERSION_VALIDATION,941094100,E3_isolated_raw_exact_capsule,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010
+exact-capsule-contract-closure-dev-v1,A15_FINGERPRINT_DIAGNOSTIC,941095100,E8_fingerprint_fallback_diagnostic,ACCEPT,0,0,m0_additive_metadata_budget::trace:000:00010

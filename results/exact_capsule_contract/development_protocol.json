@@ -1,0 +1,338 @@
+{
+  "ablation_query_count": 24,
+  "branch_expectation": "codex/exact-capsule-contract-closure",
+  "budget_contracts": [
+    "M0_ADDITIVE_METADATA_BUDGET",
+    "M1_FIXED_TOTAL_RECORD_BUDGET"
+  ],
+  "corruption_cells": {
+    "C0_SEMANTIC_CLEAN_CAPSULE_CLEAN": {
+      "capsule": "clean",
+      "semantic": "clean"
+    },
+    "C10_VALID_CAPSULE_REFERENCED_TRACE_UNCOMMITTED": {
+      "capsule": "valid_reference_to_uncommitted_trace",
+      "semantic": "clean"
+    },
+    "C11_VALID_CAPSULE_REFERENCED_TRACE_MISSING": {
+      "capsule": "valid_reference_to_missing_trace",
+      "semantic": "clean"
+    },
+    "C1_SEMANTIC_NOISY_CAPSULE_CLEAN": {
+      "capsule": "clean",
+      "semantic": "bernoulli_sign_flip_p=0.05"
+    },
+    "C2_SEMANTIC_CLEAN_CAPSULE_NOISY": {
+      "capsule": "bernoulli_bit_flip_p=0.05",
+      "semantic": "clean"
+    },
+    "C3_SEMANTIC_NOISY_CAPSULE_NOISY": {
+      "capsule": "bernoulli_bit_flip_p=0.05",
+      "semantic": "bernoulli_sign_flip_p=0.05"
+    },
+    "C4_CAPSULE_ERASED": {
+      "capsule": "erased",
+      "semantic": "clean"
+    },
+    "C5_CAPSULE_TRUNCATED": {
+      "capsule": "truncated",
+      "semantic": "clean"
+    },
+    "C6_WRONG_VALID_CAPSULE": {
+      "capsule": "wrong_but_structurally_valid",
+      "semantic": "clean"
+    },
+    "C7_STALE_CAPSULE": {
+      "capsule": "stale_reference",
+      "semantic": "clean"
+    },
+    "C8_MALFORMED_VERSION_NAMESPACE": {
+      "capsule": "malformed_version_namespace",
+      "semantic": "clean"
+    },
+    "C9_INTEGRITY_TAG_CORRUPTED": {
+      "capsule": "integrity_tag_corrupted",
+      "semantic": "clean"
+    }
+  },
+  "decision_policy": {
+    "fingerprint_topk": 32,
+    "semantic_distortion_tolerance": 0.0,
+    "semantic_topk": 32,
+    "verifier_accept_margin": 0.01,
+    "verifier_accept_threshold": 0.82
+  },
+  "development_gates": {
+    "detached_activation": "capsule survives only if it helps when runtime identity is absent",
+    "ecc": "ecc coverage may only help if it preserves zero silent wrong risk",
+    "equal_information": "no primary verdict aggregates mismatched information contracts",
+    "exact_resolution": "clean capsule exact trace resolution == 1.0 for resolvable committed records",
+    "fingerprint": "diagnostic only; no LSH refinement claim",
+    "plain_handle": "if ordinary typed field matches or beats isolated capsule on accuracy, risk, latency, bytes and lifecycle, adopt plain typed handle",
+    "replay_separation": "retrieval and replay failures remain separately typed",
+    "safety": "wrong/stale/malformed capsules must yield zero silent wrong provenance and zero silent wrong decoder",
+    "sidecar": "record-aware or semantic-lookup sidecar remains mandatory baseline"
+  },
+  "fingerprint_bits": 16,
+  "immutability": {
+    "first_order_doc_hash": "C66FE1EEE89F079A2BB551EF7FD26CB13EF173F21871406A38E5FF8E6766341D",
+    "level35_v4_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5",
+    "stage_a1_protocol_hash": "3457395A278F470F9E0DD8C8A43AE2296ED0629444E8B578218231FC241F2DD6",
+    "stage_a2a_protocol_hash": "6FD318107A2291DABB4DC48FB84F8CF26972C37BA467811F289EA98AF3A1DCD4",
+    "stage_a_protocol_hash": "F9F770C7AF19AD7FC5EFB2D8191BE116ECDCCFD6D6B22F51D7C74DA8C58F50AB"
+  },
+  "information_contracts": {
+    "P0_RECORD_AWARE_ACTIVATION": {
+      "capsule_available": false,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": true,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    },
+    "P1_DETACHED_SEMANTIC_CUE_ONLY": {
+      "capsule_available": false,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": false,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    },
+    "P2_DETACHED_RECORD_WITH_CARRIED_CAPSULE": {
+      "capsule_available": true,
+      "capsule_integrity_valid": true,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": false,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    },
+    "P3_DETACHED_RECORD_WITH_ERASED_CAPSULE": {
+      "capsule_available": false,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": false,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    },
+    "P4_DETACHED_RECORD_WITH_CORRUPTED_CAPSULE": {
+      "capsule_available": true,
+      "capsule_integrity_valid": false,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": false,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    },
+    "P5_DETACHED_RECORD_WITH_WRONG_VALID_CAPSULE": {
+      "capsule_available": true,
+      "capsule_integrity_valid": true,
+      "parent_handles_available": false,
+      "semantic_payload_available": true,
+      "semantic_record_id_available": false,
+      "sidecar_accessible": true,
+      "trace_id_available": false
+    }
+  },
+  "methods": [
+    "E0_known_record_sidecar_oracle",
+    "E1_semantic_lookup_sidecar",
+    "E2_ordinary_carried_typed_trace_field",
+    "E3_isolated_raw_exact_capsule",
+    "E4_random_opaque_token_capsule",
+    "E5_content_addressed_capsule",
+    "E6_ecc_protected_exact_capsule",
+    "E7_exact_capsule_plus_semantic_fallback",
+    "E8_fingerprint_fallback_diagnostic"
+  ],
+  "protocol_hash": "213d514b6ccf17ae846a9b7a889d3e42e214a2aed884a14e1a403962b1a39fdc",
+  "query_count": 64,
+  "raw_capsule_bits": 21,
+  "record_count": 960,
+  "results_namespace": "exact_capsule_contract",
+  "schema_version": "exact-capsule-contract-closure-dev-v1",
+  "seed_ranges": {
+    "ablation_seed_ranges": {
+      "A0_REMOVE_CAPSULE": {
+        "count": 24,
+        "start": 941080100
+      },
+      "A10_EQUALIZE_BYTE_BUDGET": {
+        "count": 24,
+        "start": 941090100
+      },
+      "A11_EQUALIZE_INFORMATION_CONTRACT": {
+        "count": 24,
+        "start": 941091100
+      },
+      "A12_DISABLE_SEMANTIC_FALLBACK": {
+        "count": 24,
+        "start": 941092100
+      },
+      "A13_DISABLE_ECC_CORRECTION": {
+        "count": 24,
+        "start": 941093100
+      },
+      "A14_REMOVE_NAMESPACE_VERSION_VALIDATION": {
+        "count": 24,
+        "start": 941094100
+      },
+      "A15_FINGERPRINT_DIAGNOSTIC": {
+        "count": 24,
+        "start": 941095100
+      },
+      "A1_RANDOMIZE_TOKEN_TO_TRACE_MAPPING": {
+        "count": 24,
+        "start": 941081100
+      },
+      "A2_REMOVE_INTEGRITY_TAG": {
+        "count": 24,
+        "start": 941082100
+      },
+      "A3_CORRUPT_VALID_TOKEN": {
+        "count": 24,
+        "start": 941083100
+      },
+      "A4_REPLACE_WITH_VALID_OTHER_TOKEN": {
+        "count": 24,
+        "start": 941084100
+      },
+      "A5_REMOVE_EXACT_PARENT_HANDLES": {
+        "count": 24,
+        "start": 941085100
+      },
+      "A6_BYPASS_VERIFIER": {
+        "count": 24,
+        "start": 941086100
+      },
+      "A7_ERASE_RUNTIME_RECORD_IDENTITY": {
+        "count": 24,
+        "start": 941087100
+      },
+      "A8_PRESERVE_RUNTIME_RECORD_IDENTITY": {
+        "count": 24,
+        "start": 941088100
+      },
+      "A9_IDENTICAL_BITS_IN_ORDINARY_FIELD": {
+        "count": 24,
+        "start": 941089100
+      }
+    },
+    "dataset_seeds": {
+      "M0_ADDITIVE_METADATA_BUDGET": 941050100,
+      "M1_FIXED_TOTAL_RECORD_BUDGET": 941050200
+    },
+    "fingerprint_seed": 941100300,
+    "query_seed_ranges": {
+      "M0_ADDITIVE_METADATA_BUDGET": {
+        "C0_SEMANTIC_CLEAN_CAPSULE_CLEAN": {
+          "count": 64,
+          "start": 941051100
+        },
+        "C10_VALID_CAPSULE_REFERENCED_TRACE_UNCOMMITTED": {
+          "count": 64,
+          "start": 941061100
+        },
+        "C11_VALID_CAPSULE_REFERENCED_TRACE_MISSING": {
+          "count": 64,
+          "start": 941062100
+        },
+        "C1_SEMANTIC_NOISY_CAPSULE_CLEAN": {
+          "count": 64,
+          "start": 941052100
+        },
+        "C2_SEMANTIC_CLEAN_CAPSULE_NOISY": {
+          "count": 64,
+          "start": 941053100
+        },
+        "C3_SEMANTIC_NOISY_CAPSULE_NOISY": {
+          "count": 64,
+          "start": 941054100
+        },
+        "C4_CAPSULE_ERASED": {
+          "count": 64,
+          "start": 941055100
+        },
+        "C5_CAPSULE_TRUNCATED": {
+          "count": 64,
+          "start": 941056100
+        },
+        "C6_WRONG_VALID_CAPSULE": {
+          "count": 64,
+          "start": 941057100
+        },
+        "C7_STALE_CAPSULE": {
+          "count": 64,
+          "start": 941058100
+        },
+        "C8_MALFORMED_VERSION_NAMESPACE": {
+          "count": 64,
+          "start": 941059100
+        },
+        "C9_INTEGRITY_TAG_CORRUPTED": {
+          "count": 64,
+          "start": 941060100
+        }
+      },
+      "M1_FIXED_TOTAL_RECORD_BUDGET": {
+        "C0_SEMANTIC_CLEAN_CAPSULE_CLEAN": {
+          "count": 64,
+          "start": 941063100
+        },
+        "C10_VALID_CAPSULE_REFERENCED_TRACE_UNCOMMITTED": {
+          "count": 64,
+          "start": 941073100
+        },
+        "C11_VALID_CAPSULE_REFERENCED_TRACE_MISSING": {
+          "count": 64,
+          "start": 941074100
+        },
+        "C1_SEMANTIC_NOISY_CAPSULE_CLEAN": {
+          "count": 64,
+          "start": 941064100
+        },
+        "C2_SEMANTIC_CLEAN_CAPSULE_NOISY": {
+          "count": 64,
+          "start": 941065100
+        },
+        "C3_SEMANTIC_NOISY_CAPSULE_NOISY": {
+          "count": 64,
+          "start": 941066100
+        },
+        "C4_CAPSULE_ERASED": {
+          "count": 64,
+          "start": 941067100
+        },
+        "C5_CAPSULE_TRUNCATED": {
+          "count": 64,
+          "start": 941068100
+        },
+        "C6_WRONG_VALID_CAPSULE": {
+          "count": 64,
+          "start": 941069100
+        },
+        "C7_STALE_CAPSULE": {
+          "count": 64,
+          "start": 941070100
+        },
+        "C8_MALFORMED_VERSION_NAMESPACE": {
+          "count": 64,
+          "start": 941071100
+        },
+        "C9_INTEGRITY_TAG_CORRUPTED": {
+          "count": 64,
+          "start": 941072100
+        }
+      }
+    },
+    "token_content_seed": 941100200,
+    "token_random_seed": 941100100,
+    "wrong_token_selection_seed": 941100400
+  },
+  "semantic_substrate": {
+    "base_dimensions": 1024,
+    "vsa": "MAP"
+  },
+  "starting_commit": "7c385d448306de380e6b26cc4c105083fefac3d4",
+  "task_name": "First-Order Trace Co-Activation - Exact Capsule Contract Closure"
+}

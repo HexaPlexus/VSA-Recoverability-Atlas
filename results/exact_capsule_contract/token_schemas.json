@@ -1,0 +1,27 @@
+{
+  "ecc": {
+    "correctable_errors_t": 4,
+    "minimum_distance": 9,
+    "parent_k": 39,
+    "parent_n": 63,
+    "shortened_k": 21,
+    "shortened_n": 45,
+    "tier_id": "BCH_HIGH"
+  },
+  "raw_capsule": {
+    "capsule_version_bits": 2,
+    "integrity_bits": 7,
+    "total_bits": 21,
+    "trace_namespace_bits": 2,
+    "trace_token_bits": 10,
+    "valid_namespace": "01",
+    "valid_version": "01"
+  },
+  "schema_version": "exact-capsule-contract-closure-dev-v1",
+  "schemes": {
+    "content_addressed": "CONTENT_ADDRESSED_DIGEST",
+    "fingerprint_fallback": "LOCALITY_SENSITIVE_FINGERPRINT",
+    "plain_exact": "SEQUENTIAL_INTEGER_ID",
+    "random_opaque": "RANDOM_OPAQUE_TOKEN"
+  }
+}

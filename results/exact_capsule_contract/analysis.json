@@ -1,0 +1,41 @@
+{
+  "allowed_claims": [
+    "carried exact trace information can be tested under equal-information contracts",
+    "ordinary typed fields and isolated exact capsules can be compared under equal bit budgets",
+    "detached activation can be evaluated separately from record-aware activation"
+  ],
+  "build_verdict": "ADOPT_PLAIN_TYPED_HANDLE",
+  "forbidden_claims": [
+    "new LSH algorithm",
+    "new VSA",
+    "production readiness",
+    "recursive provenance solved",
+    "exact provenance from similarity alone"
+  ],
+  "gates": {
+    "detached_activation_gate": "PASS",
+    "ecc_gate": "PASS",
+    "equal_information_gate": "PASS",
+    "exact_resolution_gate": "PASS",
+    "fingerprint_gate": "FAIL",
+    "plain_handle_gate": "PASS",
+    "replay_separation_gate": "PASS",
+    "safety_gate": "FAIL",
+    "sidecar_gate": "FAIL"
+  },
+  "heldout_execution_count": 0,
+  "immutability": {
+    "first_order_doc_hash": "C66FE1EEE89F079A2BB551EF7FD26CB13EF173F21871406A38E5FF8E6766341D",
+    "level35_v4_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5",
+    "stage_a1_protocol_hash": "3457395A278F470F9E0DD8C8A43AE2296ED0629444E8B578218231FC241F2DD6",
+    "stage_a2a_protocol_hash": "6FD318107A2291DABB4DC48FB84F8CF26972C37BA467811F289EA98AF3A1DCD4",
+    "stage_a_protocol_hash": "F9F770C7AF19AD7FC5EFB2D8191BE116ECDCCFD6D6B22F51D7C74DA8C58F50AB"
+  },
+  "implementation_verdict": "NO_RUNTIME",
+  "protocol_hash": "213d514b6ccf17ae846a9b7a889d3e42e214a2aed884a14e1a403962b1a39fdc",
+  "schema_version": "exact-capsule-contract-closure-dev-v1",
+  "scientific_verdict": "ISOLATED_CAPSULE_ADVANTAGE_NOT_SUPPORTED",
+  "seed_fresh": true,
+  "starting_commit": "7c385d448306de380e6b26cc4c105083fefac3d4",
+  "task_name": "First-Order Trace Co-Activation - Exact Capsule Contract Closure"
+}
