@@ -1,0 +1,7 @@
+schema_version,budget_contract,trace_dimensions,semantic_payload_bytes,trace_bridge_bytes,trace_payload_bytes,exact_capsule_bytes,fingerprint_capsule_bytes,bytes_per_record,total_bytes
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,0,8650752,8650752,2006172,0,0,9141.892045454546,19307676
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,64,8650752,8650752,2006172,16896,16896,9157.892045454546,19341468
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,128,8650752,8650752,2006172,33792,33792,9173.892045454546,19375260
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,0,8650752,8650752,1993500,0,0,9135.892045454546,19295004
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,64,8110080,8110080,1993500,16896,16896,8639.892045454546,18247452
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,128,7569408,7569408,1993500,33792,33792,8143.892045454545,17199900

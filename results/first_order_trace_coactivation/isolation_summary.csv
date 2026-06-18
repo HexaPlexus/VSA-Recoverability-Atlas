@@ -1,0 +1,7 @@
+schema_version,budget_contract,trace_dimensions,semantic_dimensions,semantic_similarity_distortion,semantic_rank_change,semantic_capacity_loss,cross_zone_leakage,trace_zone_corruption_tolerance,unrelated_trace_activation_rate,semantic_bridge_acceptance_under_semantic_noise,lawful_zone_preserving_contract
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,0,1024,0.0,0.0,0.0,0.0,0.0,0.0,0.4296875,True
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,64,1024,0.0,0.0,0.0,0.0,0.671875,0.015625,0.4453125,True
+first-order-trace-coactivation-dev-v1,FIXED_SEMANTIC_CAPACITY,128,1024,0.0,0.0,0.0,0.0,0.6640625,0.0078125,0.4296875,True
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,0,1024,0.0,0.0,0.0,0.0,0.0,0.0,0.4140625,True
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,64,960,0.0,0.0,0.0625,0.0,0.6796875,0.015625,0.421875,True
+first-order-trace-coactivation-dev-v1,FIXED_TOTAL_CAPACITY,128,896,0.0,0.0,0.125,0.0,0.65625,0.0078125,0.4453125,True

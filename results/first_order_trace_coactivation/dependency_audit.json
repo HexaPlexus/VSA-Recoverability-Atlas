@@ -1,0 +1,68 @@
+{
+  "level35_frozen_artifacts_unchanged": true,
+  "prior_art": {
+    "associative_memories": {
+      "coverage": 0.6,
+      "notes": "Semantic bridge and trace spike remain thin harness objects only.",
+      "verdict": "WRAP"
+    },
+    "content_addressed_records": {
+      "coverage": 0.8,
+      "notes": "Stable record ids and integrity hashes reused instead of custom store.",
+      "verdict": "ADOPT"
+    },
+    "error_correcting_sparse_codes": {
+      "coverage": 0.0,
+      "notes": "No new ECC implementation authorized.",
+      "verdict": "DEFER"
+    },
+    "exact_sidecar_handles": {
+      "coverage": 1.0,
+      "notes": "Baseline B0/B1 use exact record or trace handles.",
+      "verdict": "ADOPT"
+    },
+    "lsh_ann_routing": {
+      "coverage": 0.7,
+      "notes": "Reuse existing random-hyperplane primitive only for carried fingerprint generation.",
+      "verdict": "WRAP"
+    },
+    "orthogonal_subspace_partitioning": {
+      "coverage": 0.5,
+      "notes": "Minimal separated semantic/capsule blocks only; no new algebra.",
+      "verdict": "PROTOTYPE"
+    },
+    "provenance_dag_event_sourcing": {
+      "coverage": 0.8,
+      "notes": "Typed exact sidecar payload + transactional write manifest.",
+      "verdict": "ADOPT"
+    },
+    "sdm_style_activation": {
+      "coverage": 0.0,
+      "notes": "Deferred; no custom SDM in this stage.",
+      "verdict": "DEFER"
+    },
+    "selective_prediction_abstention": {
+      "coverage": 0.7,
+      "notes": "Explicit ACCEPT/EXPAND/AMBIGUOUS/ABSTAIN policy with verifier.",
+      "verdict": "ADOPT"
+    },
+    "transactional_commit": {
+      "coverage": 0.6,
+      "notes": "Harness-level transactional lifecycle only.",
+      "verdict": "WRAP"
+    },
+    "vsa_role_filler_records": {
+      "coverage": 0.9,
+      "notes": "MAP operations from existing TorchHD stack.",
+      "verdict": "ADOPT"
+    }
+  },
+  "schema_version": "first-order-trace-coactivation-dev-v1",
+  "starting_commit": "eefd4e7d9381dff840c42c44b2cc965ddd1492c8",
+  "verdict": "COMPOSE",
+  "why_not_scratch": [
+    "Existing MAP/TorchHD operations already cover the semantic algebra.",
+    "Existing Stage A/A.1/A.2a exact scans, bit packing and LSH primitives already cover the routing substrate.",
+    "This seam only needs typed first-order glue, not a new provenance runtime or vector database."
+  ]
+}

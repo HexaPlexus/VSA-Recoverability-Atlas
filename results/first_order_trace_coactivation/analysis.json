@@ -1,0 +1,50 @@
+{
+  "allowed_claims": [
+    "A semantic operation can create a first-order trace association whose later co-activation can be measured in a development harness.",
+    "The harness separates semantic-only lookup, semantic-to-trace bridge, exact/random capsule, carried fingerprint and trace-free replay baselines.",
+    "Any benefit remains bounded to the measured development envelope and exact typed contracts."
+  ],
+  "engineering_verdict": "ADOPT_EXACT_CAPSULE",
+  "forbidden_claims": [
+    "No new VSA, LSH or provenance algorithm was invented.",
+    "No recursive trace history or full self-decoding memory was tested.",
+    "No production runtime or held-out confirmation was executed."
+  ],
+  "gates": [
+    {
+      "bridge_recall": 0.75,
+      "gate_id": "causal_coactivation_gate",
+      "random_recall": 0.015625,
+      "status": "PASS"
+    },
+    {
+      "bridge_decoder_invocations": 0.4453125,
+      "gate_id": "decoder_reduction_gate",
+      "status": "FAIL",
+      "tracefree_decoder_invocations": 16304
+    },
+    {
+      "capsule_silent_wrong": 0,
+      "gate_id": "ambiguity_gate",
+      "semantic_only_silent_wrong": 0,
+      "status": "PASS"
+    },
+    {
+      "bridge_coverage": 0.4453125,
+      "combined_coverage": 0.65625,
+      "exact_capsule_coverage": 0.75,
+      "gate_id": "sidecar_gate",
+      "sidecar_coverage": 0.4453125,
+      "status": "PASS"
+    }
+  ],
+  "heldout_execution_count": 0,
+  "implementation_verdict": "NO_RUNTIME",
+  "level35_frozen_artifacts_unchanged": true,
+  "next_lawful_stage": "CARRIED_FINGERPRINT_REFINEMENT",
+  "schema_version": "first-order-trace-coactivation-dev-v1",
+  "scientific_verdict": "FIRST_ORDER_COACTIVATION_PARTIAL",
+  "stage_a1_artifacts_unchanged": true,
+  "stage_a2a_artifacts_unchanged": true,
+  "stage_a_artifacts_unchanged": true
+}

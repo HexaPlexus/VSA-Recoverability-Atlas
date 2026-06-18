@@ -1,0 +1,208 @@
+{
+  "ablation_query_count": 32,
+  "branch_expectation": "codex/first-order-trace-coactivation",
+  "budget_contracts": [
+    "FIXED_SEMANTIC_CAPACITY",
+    "FIXED_TOTAL_CAPACITY"
+  ],
+  "candidate_budget": 32,
+  "corruption_matrix": {
+    "C0_CLEAN": {
+      "capsule": "none",
+      "semantic": "none"
+    },
+    "C1_SEMANTIC_ONLY": {
+      "capsule": "none",
+      "semantic": "bernoulli_sign_flip_p=0.05"
+    },
+    "C2_CAPSULE_ONLY": {
+      "capsule": "bernoulli_bit_flip_p=0.05",
+      "semantic": "none"
+    },
+    "C3_SEMANTIC_AND_CAPSULE": {
+      "capsule": "bernoulli_bit_flip_p=0.05",
+      "semantic": "bernoulli_sign_flip_p=0.05"
+    },
+    "C4_CAPSULE_MISSING": {
+      "capsule": "missing",
+      "semantic": "none"
+    },
+    "C5_SEMANTIC_PARTIAL_MASK": {
+      "capsule": "none",
+      "semantic": "coordinate_mask_p=0.2"
+    },
+    "C6_WRONG_VALID_CAPSULE": {
+      "capsule": "valid_capsule_from_other_trace",
+      "semantic": "none"
+    }
+  },
+  "decision_policy": {
+    "accept_margin": 0.01,
+    "accept_similarity_threshold": 0.82,
+    "ambiguity_epsilon": 1e-08,
+    "combined_fusion_policy": "intersection_then_ranked_union"
+  },
+  "development_gates": {
+    "ambiguity": "semantic-only arms must never silently accept exact provenance for U3",
+    "coactivation_vs_random": "correct trace-spike inclusion must improve materially under equal candidate budget",
+    "decoder_reduction": "median decoder invocations reduced vs trace-free without lowering verified reconstruction and with zero silent-wrong decoder rate",
+    "isolation": "cross-zone leakage <= 0.0",
+    "sidecar": "special mechanism survives only if it shows a measurable advantage over semantic lookup + exact sidecar under equal information"
+  },
+  "families": [
+    "MAP_BIND_2",
+    "MAP_BIND_3",
+    "MAP_BUNDLE_3",
+    "MAP_BUNDLE_5",
+    "MAP_PERMUTE_K",
+    "MAP_BIND_THEN_BUNDLE"
+  ],
+  "heldout_execution_count": 0,
+  "kill_gates": [
+    "coactivation no better than random",
+    "ordinary sidecar dominates",
+    "exact/random capsule dominates fingerprint with no residual advantage",
+    "trace zone materially damages semantic capacity",
+    "cross-zone leakage not preventable",
+    "trace corruption causes confident wrong decoder selection",
+    "identical semantics produce false provenance",
+    "benefit exists only from extra information",
+    "exact parent handles trivialize result with no residual benefit",
+    "validation or write cost erases benefit",
+    "unknown or uncommitted inputs receive fabricated traces"
+  ],
+  "namespace_sizes": {
+    "ATTR": 6,
+    "CTX": 6,
+    "OBS": 8,
+    "REL": 6,
+    "ROLE": 6,
+    "STATE": 6
+  },
+  "protocol_hash": "d541a877ee8344ebfa31ab784ef7da364ac79712cf593c169e7fbeb9e469f03b",
+  "query_count": 128,
+  "record_count": 2048,
+  "rerank_topk": 32,
+  "results_namespace": "first_order_trace_coactivation",
+  "schema_version": "first-order-trace-coactivation-dev-v1",
+  "seed_freshness": true,
+  "seed_ranges": {
+    "ablation_seed_ranges": {
+      "A0_REMOVE_TRACE": {
+        "count": 32,
+        "start": 930658100
+      },
+      "A10_BOTH_CORRUPTED": {
+        "count": 32,
+        "start": 930668100
+      },
+      "A11_ILLEGAL_GLOBAL_OPERATION": {
+        "count": 32,
+        "start": 930669100
+      },
+      "A12_IDENTICAL_SEMANTICS": {
+        "count": 32,
+        "start": 930670100
+      },
+      "A13_UNCOMMITTED_TRACE": {
+        "count": 32,
+        "start": 930671100
+      },
+      "A14_DISABLE_VERIFIER": {
+        "count": 32,
+        "start": 930672100
+      },
+      "A15_EQUAL_MEMORY_SIDECAR": {
+        "count": 32,
+        "start": 930673100
+      },
+      "A16_EQUAL_TOTAL_DIMENSION": {
+        "count": 32,
+        "start": 930674100
+      },
+      "A1_RANDOM_BRIDGE": {
+        "count": 32,
+        "start": 930659100
+      },
+      "A2_REMOVE_CARRIED_CAPSULE": {
+        "count": 32,
+        "start": 930660100
+      },
+      "A3_EXACT_CAPSULE": {
+        "count": 32,
+        "start": 930661100
+      },
+      "A4_SHUFFLE_ASSOCIATION": {
+        "count": 32,
+        "start": 930662100
+      },
+      "A5_SHUFFLE_OPERATION_FAMILY": {
+        "count": 32,
+        "start": 930663100
+      },
+      "A6_SHUFFLE_PARENT_HANDLES": {
+        "count": 32,
+        "start": 930664100
+      },
+      "A7_REMOVE_EXACT_PARENT_HANDLES": {
+        "count": 32,
+        "start": 930665100
+      },
+      "A8_SEMANTIC_ONLY_CORRUPTION": {
+        "count": 32,
+        "start": 930666100
+      },
+      "A9_TRACE_ONLY_CORRUPTION": {
+        "count": 32,
+        "start": 930667100
+      }
+    },
+    "bridge_permutation_seed": 930675100,
+    "capsule_random_seed": 930676100,
+    "dataset_seed": 930650100,
+    "fingerprint_seed": 930677100,
+    "query_seed_ranges": {
+      "C0_CLEAN": {
+        "count": 128,
+        "start": 930651100
+      },
+      "C1_SEMANTIC_ONLY": {
+        "count": 128,
+        "start": 930652100
+      },
+      "C2_CAPSULE_ONLY": {
+        "count": 128,
+        "start": 930653100
+      },
+      "C3_SEMANTIC_AND_CAPSULE": {
+        "count": 128,
+        "start": 930654100
+      },
+      "C4_CAPSULE_MISSING": {
+        "count": 128,
+        "start": 930655100
+      },
+      "C5_SEMANTIC_PARTIAL_MASK": {
+        "count": 128,
+        "start": 930656100
+      },
+      "C6_WRONG_VALID_CAPSULE": {
+        "count": 128,
+        "start": 930657100
+      }
+    },
+    "wrong_capsule_selection_seed": 930678100
+  },
+  "semantic_substrate": {
+    "base_dimensions": 1024,
+    "vsa": "MAP"
+  },
+  "stage_a_protocol_hash_canonical": "f9f770c7af19ad7fc5efb2d8191be116ecdccfd6d6b22f51d7c74da8c58f50ab",
+  "starting_commit": "eefd4e7d9381dff840c42c44b2cc965ddd1492c8",
+  "task_name": "First-Order Trace Co-Activation - Causal Seam Prototype",
+  "trace_dimension_grid": [
+    0,
+    64,
+    128
+  ]
+}
