@@ -1,6 +1,6 @@
 {
   "schema_version": "vsa-recoverability-atlas-rc-manifest-v0.1",
-  "generated_from_commit": "b0126e86b187713604df43e6dc553cffbc64868e",
+  "generated_from_commit": "985a7fdc310cfbd2d9f824d97d6ac45df46811ff",
   "generated_from_commit_semantics": "Ancestor commit whose clean tracked inputs were used to build the release candidate artifacts.",
   "generation_date": "2026-06-19",
   "held_out_status": {
@@ -19,7 +19,7 @@
   "reference_hash": "31e7b7cdb790e405a4b661c05309b9c9be79ab729291e423a56ba99c37a15eeb",
   "claim_ledger_hash": "ce356669a10651f849f6012b7efd1a20b264f2c750a947105db0991d4eb09e67",
   "evidence_registry_hash": "f9403992d1e181e5dc95169705a2bf0bd4a9ce2c3fa9f8ad9df852679bb70b19",
-  "supplement_hash": "7a1839742d5db3c514ef6f6db62d5a229d6ab8d12a0af535d9f5960fc89113c3",
+  "supplement_hash": "f728c0e0c9ae55ab495a089d703e1c324bfb6af99b9d71d3f6bb7b697b4ad5a5",
   "figure_hashes": {
     "paper/release_candidate/figures/figure1_budget_map.png": "58d92d4e33fe09adbd93c65f1663327ce569d658f1426c6d989e548abc2ba9e7",
     "paper/release_candidate/figures/figure1_budget_map.svg": "860cd471c35959f93add7ddad5ea7cb023e43a4abf0c57d18b57ca8a45a50237",
