@@ -1,4 +1,4 @@
-# Public Release Audit
+﻿# Public Release Audit
 
 ## Current Audit Verdict
 
@@ -18,7 +18,9 @@
 Current classification:
 
 - `P2_DOCUMENT_BEFORE_PUSH`
-  - secret scanning used standard local grep/log heuristics because heavyweight scanners were unavailable
+  - local grep/log heuristics were used historically because heavyweight scanners were unavailable
+- `P2_DOCUMENT_BEFORE_PUSH`
+  - dedicated history-aware secret scan is still pending for public release
 
 ## 2. Personal and Machine-Specific Information
 
@@ -38,6 +40,8 @@ Current classification:
 
 - `P1_SHOULD_FIX_BEFORE_PUSH` at baseline
 - target state after release hardening: resolved in tracked files, with any unavoidable archival exceptions documented
+- `P1_SHOULD_FIX_BEFORE_PUSH`
+  - owner-facing metadata placeholders remain intentionally unresolved until the owner chooses public identity fields
 
 ## 3. Large and Inappropriate Tracked Files
 
@@ -114,10 +118,12 @@ Owner-dependent file:
 | severity | issue | status |
 | --- | --- | --- |
 | `P0_PUBLICATION_BLOCKER` | missing explicit top-level license | unresolved owner decision required |
+| `P1_SHOULD_FIX_BEFORE_PUSH` | owner metadata placeholders still unresolved | expected until owner approves public identity package |
 | `P1_SHOULD_FIX_BEFORE_PUSH` | absolute local paths in tracked docs/results | release hardening in progress |
 | `P1_SHOULD_FIX_BEFORE_PUSH` | old README unsuitable for public release | fixed in this stage |
 | `P2_DOCUMENT_BEFORE_PUSH` | large raw result artifacts need explicit explanation | documented |
-| `P2_DOCUMENT_BEFORE_PUSH` | local secret audit used grep/log heuristics because dedicated scanners were unavailable | documented |
+| `P2_DOCUMENT_BEFORE_PUSH` | dedicated history-aware secret scan still pending | documented in `paper/SECRET_SCAN_PREPARATION.md` |
+| `P2_DOCUMENT_BEFORE_PUSH` | bibliography has residual non-core unresolved entries for venue-grade polish | acceptable for review RC, not fully submission-polished |
 | `P3_OPTIONAL_POLISH` | no issue templates or extensive community boilerplate | intentionally deferred |
 
 ## 8. Final Public-Push Condition
@@ -127,6 +133,8 @@ The repository is ready for public push only if all of the following are true:
 - no known exposed secrets
 - no unresolved local-path or personal-data leakage in tracked public files
 - explicit owner license decision is present
+- owner metadata placeholders are intentionally resolved or removed for public-facing surfaces
+- dedicated history-aware secret scan has been completed and reviewed
 - public README and reproducibility instructions are consistent with actual commands
 - atlas claims match the evidence registry and claim ledger
 - frozen artifacts remain unchanged
@@ -134,3 +142,4 @@ The repository is ready for public push only if all of the following are true:
 As of this audit, the expected final verdict is:
 
 `READY_AFTER_OWNER_LICENSE_DECISION`
+
