@@ -38,7 +38,11 @@ ALLOWED_DIRTY_OUTPUTS = {
 
 def is_release_output_path(path: str) -> bool:
     normalized = path.replace("\\", "/")
-    return normalized.startswith("paper/release_candidate/figures/") or normalized in ALLOWED_DIRTY_OUTPUTS
+    return (
+        normalized.startswith("paper/figures/")
+        or normalized.startswith("paper/release_candidate/figures/")
+        or normalized in ALLOWED_DIRTY_OUTPUTS
+    )
 
 
 def resolve_generated_from_commit() -> str:
@@ -84,6 +88,7 @@ def require_clean_tree() -> None:
     if status.returncode != 0:
         raise RuntimeError("Could not determine git working tree status.")
 
+    blocking_paths: list[str] = []
     for line in status.stdout.splitlines():
         if not line:
             continue
@@ -91,10 +96,8 @@ def require_clean_tree() -> None:
         if is_release_output_path(path):
             continue
         if line.startswith("?? "):
-            raise RuntimeError(
-                "build_release_candidate.py requires a clean working tree. "
-                "Commit source changes first or use --allow-dirty only during local repair."
-            )
+            blocking_paths.append(path)
+            continue
         worktree_diff = subprocess.run(
             ["git", "diff", "--quiet", "--ignore-cr-at-eol", "--", path],
             cwd=ROOT,
@@ -111,9 +114,13 @@ def require_clean_tree() -> None:
         )
         if worktree_diff.returncode == 0 and index_diff.returncode == 0:
             continue
+        blocking_paths.append(path)
+    if blocking_paths:
+        formatted = "\n".join(f"- {path}" for path in blocking_paths)
         raise RuntimeError(
             "build_release_candidate.py requires a clean working tree. "
-            "Commit source changes first or use --allow-dirty only during local repair."
+            "Commit source changes first or use --allow-dirty only during local repair.\n"
+            f"Blocking paths:\n{formatted}"
         )
 
 

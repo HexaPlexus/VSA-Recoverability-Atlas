@@ -104,6 +104,23 @@ def test_release_candidate_rebuild_and_manifest() -> None:
     )
 
 
+def test_release_candidate_rebuild_allows_generated_figure_drift() -> None:
+    subprocess.run(
+        [sys.executable, "scripts/build_manuscript_figures.py"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    subprocess.run(
+        [sys.executable, "scripts/build_release_candidate.py"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+
 def test_review_packet_sections_resolve() -> None:
     manuscript = (ROOT / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
     headings = set(extract_markdown_headings(manuscript))
