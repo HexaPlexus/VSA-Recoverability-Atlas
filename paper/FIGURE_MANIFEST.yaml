@@ -1,0 +1,113 @@
+{
+  "schema_version": "vsa-recoverability-atlas-figure-manifest-v0.1",
+  "generator": "python scripts/build_manuscript_figures.py",
+  "figures": [
+    {
+      "figure_id": "figure1_budget_map",
+      "title": "Recoverability budget map",
+      "files": [
+        "paper/figures/figure1_budget_map.svg",
+        "paper/figures/figure1_budget_map.png"
+      ],
+      "source_data": [],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Conceptual map from task and risk contract to resource allocation, representation choice, verification, fallback, and abstention. This is a conceptual systems figure, not a measured result.",
+      "claim_ids": [
+        "claim_recoverability_resource_accounting"
+      ],
+      "comparability_class": "CONCEPTUAL_ONLY",
+      "measured_result": false
+    },
+    {
+      "figure_id": "figure2_evidence_atlas",
+      "title": "Repository evidence atlas overview",
+      "files": [
+        "paper/figures/figure2_evidence_atlas.svg",
+        "paper/figures/figure2_evidence_atlas.png"
+      ],
+      "source_data": [
+        "paper/evidence_registry.yaml"
+      ],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Overview of the 24 normalized repository hypotheses, grouped by category and colored by evidence status. Disposition labels are descriptive summaries rather than new verdicts.",
+      "claim_ids": [],
+      "comparability_class": "DIRECT_COMMON_HARNESS",
+      "measured_result": true
+    },
+    {
+      "figure_id": "figure3_clean_f3_frontier",
+      "title": "Clean F=3 capacity frontier",
+      "files": [
+        "paper/figures/figure3_clean_f3_frontier.svg",
+        "paper/figures/figure3_clean_f3_frontier.png"
+      ],
+      "source_data": [
+        "results/level3_2/recovery_summary.csv"
+      ],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Exact recovery versus domain size M for the frozen common clean F=3 envelope. The figure compares MAP D512, MAP D1024, and the native BCF arm without mixing incompatible noise or task contracts.",
+      "claim_ids": [
+        "claim_map_intermediate_region",
+        "claim_bcf_dominates_clean_non_easy_f3"
+      ],
+      "comparability_class": "DIRECT_COMMON_HARNESS",
+      "measured_result": true
+    },
+    {
+      "figure_id": "figure4_repair_costs",
+      "title": "Where repair methods paid their cost",
+      "files": [
+        "paper/figures/figure4_repair_costs.svg",
+        "paper/figures/figure4_repair_costs.png"
+      ],
+      "source_data": [
+        "results/codebook_residue_v0_1/arm_summary.csv"
+      ],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Physical bits per bundle versus full-member enumeration recall for comparable residue and equal-bit controls at the final K=31 evaluation cell. The figure stays within one lawful repository contract and does not rank against unrelated literature points.",
+      "claim_ids": [
+        "claim_block_residue_advantage_not_supported",
+        "claim_decoder_repair_not_free_in_tested_envelopes"
+      ],
+      "comparability_class": "DIRECT_COMMON_HARNESS",
+      "measured_result": true
+    },
+    {
+      "figure_id": "figure5_escalation",
+      "title": "Sequential escalation economics",
+      "files": [
+        "paper/figures/figure5_escalation.svg",
+        "paper/figures/figure5_escalation.png"
+      ],
+      "source_data": [
+        "results/oracle_portfolio_v0_1/method_summary.csv",
+        "results/oracle_portfolio_v0_1/summary.json"
+      ],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Measured fast-path exit rate, break-even exit threshold, expected MAP→BCF cascade cost, and always-BCF cost for the clean non-easy common F=3 cell. This figure addresses sequential economics, not reverse rescue symmetry.",
+      "claim_ids": [
+        "claim_current_map_bcf_escalation_not_cost_effective",
+        "claim_static_cell_route_sufficient_in_current_envelope",
+        "claim_instance_router_not_supported_in_common_clean_envelope"
+      ],
+      "comparability_class": "DIRECT_COMMON_HARNESS",
+      "measured_result": true
+    },
+    {
+      "figure_id": "figure6_architecture_flow",
+      "title": "Resource-aware architectural decision flow",
+      "files": [
+        "paper/figures/figure6_architecture_flow.svg",
+        "paper/figures/figure6_architecture_flow.png"
+      ],
+      "source_data": [],
+      "generator_script": "scripts/build_manuscript_figures.py",
+      "caption": "Conceptual decision flow from task contract to exact structural preservation, approximate representation, native decoder choice, verification, fallback, and abstention. This is an architectural synthesis figure rather than a benchmark plot.",
+      "claim_ids": [
+        "claim_recoverability_resource_accounting"
+      ],
+      "comparability_class": "CONCEPTUAL_ONLY",
+      "measured_result": false
+    }
+  ]
+}

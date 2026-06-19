@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import subprocess
 import sys
@@ -76,12 +77,16 @@ def main() -> int:
     claim_payload = load_json_yaml(PAPER_DIR / "claim_ledger.yaml")
     failure_payload = load_json_yaml(PAPER_DIR / "failure_mode_atlas.yaml")
     prior_payload = load_json_yaml(PAPER_DIR / "prior_art_registry.yaml")
+    figure_payload = load_json_yaml(PAPER_DIR / "FIGURE_MANIFEST.yaml") if (PAPER_DIR / "FIGURE_MANIFEST.yaml").exists() else {"figures": []}
 
     evidence_entries = evidence_payload.get("entries", [])  # type: ignore[assignment]
     claims = claim_payload.get("claims", [])  # type: ignore[assignment]
     failures = failure_payload.get("failures", [])  # type: ignore[assignment]
     prior_entries = prior_payload.get("entries", [])  # type: ignore[assignment]
     manuscript_text = (PAPER_DIR / "manuscript.md").read_text(encoding="utf-8") if (PAPER_DIR / "manuscript.md").exists() else ""
+    claim_traceability_text = (PAPER_DIR / "CLAIM_TRACEABILITY.md").read_text(encoding="utf-8") if (PAPER_DIR / "CLAIM_TRACEABILITY.md").exists() else ""
+    references_text = (PAPER_DIR / "references.bib").read_text(encoding="utf-8") if (PAPER_DIR / "references.bib").exists() else ""
+    figures = figure_payload.get("figures", [])  # type: ignore[assignment]
 
     required_evidence_fields = {
         "hypothesis_id",
@@ -270,6 +275,15 @@ def main() -> int:
         PAPER_DIR / "REVIEWER_RISK_REGISTER.md",
         PAPER_DIR / "manuscript.md",
         PAPER_DIR / "supplementary_evidence_atlas.md",
+        PAPER_DIR / "references.bib",
+        PAPER_DIR / "CLAIM_TRACEABILITY.md",
+        PAPER_DIR / "CITATION_AUDIT.md",
+        PAPER_DIR / "FIGURE_MANIFEST.yaml",
+        PAPER_DIR / "RED_TEAM_REVIEW.md",
+        PAPER_DIR / "RED_TEAM_RESPONSE.md",
+        PAPER_DIR / "OWNER_REVIEW_CHECKLIST.md",
+        PAPER_DIR / "LITERATURE_SCREENING_AUDIT.md",
+        PAPER_DIR / "literature_rescreening.csv",
     ]
     for path in required_generated:
         if not path.exists():
@@ -291,6 +305,78 @@ def main() -> int:
         errors.append("Manuscript is missing the no-universal-impossibility scope guard.")
     if "within the evaluated" not in manuscript_text:
         errors.append("Manuscript is missing bounded-scope wording using 'within the evaluated ...'.")
+    for banned in ["paradigm shift", "production-ready", "production ready"]:
+        if banned in manuscript_text.lower():
+            errors.append(f"Manuscript contains banned wording: {banned}")
+    if "not measured in this repository" not in manuscript_text.lower():
+        errors.append("Manuscript must explicitly mark hardware discussion as not measured in this repository.")
+
+    abstract_match = re.search(r"## Abstract\s+(.*?)\s+## 1\.", manuscript_text, re.S)
+    if not abstract_match:
+        errors.append("Could not locate manuscript abstract.")
+    else:
+        abstract_words = len(re.findall(r"\b\w+\b", abstract_match.group(1)))
+        if not (200 <= abstract_words <= 300):
+            errors.append(f"Abstract word count out of range: {abstract_words}")
+
+    manuscript_words = len(re.findall(r"\b\w+\b", manuscript_text))
+    if manuscript_words < 7000:
+        errors.append(f"Manuscript is still too short for a full draft: {manuscript_words} words")
+
+    bib_keys = set(re.findall(r"@\w+\{([^,]+),", references_text))
+    citation_chunks = re.findall(r"\[@([^\]]+)\]", manuscript_text)
+    cited_keys: set[str] = set()
+    for chunk in citation_chunks:
+        for part in chunk.split(";"):
+            key = part.strip()
+            if key.startswith("@"):
+                key = key[1:]
+            if key:
+                cited_keys.add(key)
+    for key in cited_keys:
+        if key not in bib_keys:
+            errors.append(f"Manuscript cites missing bibliography key: {key}")
+        if key not in seen_prior:
+            errors.append(f"Manuscript cites key not present in prior-art registry: {key}")
+
+    for claim_ref in claim_refs:
+        if claim_ref not in claim_traceability_text:
+            errors.append(f"Claim traceability file is missing manuscript claim: {claim_ref}")
+
+    screening_rows = []
+    rescreen_rows = []
+    screening_path = PAPER_DIR / "literature_screening.csv"
+    if screening_path.exists():
+        screening_rows = screening_path.read_text(encoding="utf-8").strip().splitlines()[1:]
+    rescreen_path = PAPER_DIR / "literature_rescreening.csv"
+    if rescreen_path.exists():
+        rescreen_rows = rescreen_path.read_text(encoding="utf-8").strip().splitlines()[1:]
+    min_rescreen = math.ceil(len(screening_rows) * 0.25) if screening_rows else 0
+    if len(rescreen_rows) < min_rescreen:
+        errors.append(
+            f"Rescreening sample too small: have {len(rescreen_rows)}, need at least {min_rescreen} for 25% coverage."
+        )
+
+    if not isinstance(figures, list) or not figures:
+        errors.append("Figure manifest must contain a non-empty 'figures' list.")
+    if isinstance(figures, list) and not (1 <= len(figures) <= 8):
+        errors.append(f"Unexpected number of manuscript figures: {len(figures)}")
+    for figure in figures:
+        for field in {"figure_id", "title", "files", "source_data", "generator_script", "caption", "claim_ids", "comparability_class", "measured_result"}:
+            if field not in figure:
+                errors.append(f"Figure manifest entry missing field {field}: {figure}")
+        for file_text in figure.get("files", []):
+            if not (ROOT / file_text).exists():
+                errors.append(f"Missing figure file: {file_text}")
+        for source_text in figure.get("source_data", []):
+            if not (ROOT / source_text).exists():
+                errors.append(f"Missing figure source data path: {source_text}")
+        generator_path = ROOT / figure.get("generator_script", "")
+        if figure.get("generator_script") and not generator_path.exists():
+            errors.append(f"Missing figure generator script: {figure.get('generator_script')}")
+        for claim_id in figure.get("claim_ids", []):
+            if claim_id not in claim_ids:
+                errors.append(f"Figure manifest references unknown claim id: {claim_id}")
 
     if errors:
         for error in errors:

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+<title>Recoverability budget map</title>
+<rect x="0" y="0" width="1200" height="700" rx="0" fill="#f8f9fb" stroke="none" stroke-width="1"/>
+<text x="24" y="34" fill="#1c222b" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Figure 1. Recoverability budget map</text>
+<text x="24" y="58" fill="#6c7a89" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Conceptual workflow. Not a measured result.</text>
+<rect x="60" y="120" width="210" height="100" rx="12" fill="#dce9fa" stroke="#1c222b" stroke-width="1"/>
+<text x="165.0" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Task and</text>
+<text x="165.0" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">risk contract</text>
+<rect x="330" y="120" width="220" height="100" rx="12" fill="#dbf1f1" stroke="#1c222b" stroke-width="1"/>
+<text x="440.0" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Budget</text>
+<text x="440.0" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">allocation</text>
+<rect x="620" y="70" width="220" height="100" rx="12" fill="#e7f4e6" stroke="#1c222b" stroke-width="1"/>
+<text x="730.0" y="98" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Representation</text>
+<text x="730.0" y="120" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and decoder</text>
+<rect x="620" y="190" width="220" height="100" rx="12" fill="#fff1dc" stroke="#1c222b" stroke-width="1"/>
+<text x="730.0" y="218" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Verification</text>
+<text x="730.0" y="240" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and abstention</text>
+<rect x="910" y="70" width="220" height="100" rx="12" fill="#f5e8fb" stroke="#1c222b" stroke-width="1"/>
+<text x="1020.0" y="98" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Accepted</text>
+<text x="1020.0" y="120" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">result</text>
+<rect x="910" y="190" width="220" height="100" rx="12" fill="#f9e0e0" stroke="#1c222b" stroke-width="1"/>
+<text x="1020.0" y="218" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Fallback or</text>
+<text x="1020.0" y="240" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">abstention</text>
+<line x1="270" y1="170" x2="330" y2="170" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="323.0717967697245,174.0 330,170 323.0717967697245,166.0" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<line x1="550" y1="145" x2="620" y2="120" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="614.8207662339954,126.0971745585212 620,120 612.1300750580102,118.5632392657625" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<line x1="550" y1="195" x2="620" y2="240" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="612.0091142044039,239.61823541057203 620,240 616.335174934912,232.8888076075596" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<line x1="840" y1="120" x2="910" y2="120" stroke="#3b914e" stroke-width="2"/>
+<polyline points="903.0717967697245,124.0 910,120 903.0717967697245,116.0" fill="none" stroke="#3b914e" stroke-width="2"/>
+<line x1="840" y1="240" x2="910" y2="240" stroke="#d67924" stroke-width="2"/>
+<polyline points="903.0717967697245,244.0 910,240 903.0717967697245,236.0" fill="none" stroke="#d67924" stroke-width="2"/>
+<text x="340" y="340" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">R1–R14 identify where additional authority or cost is paid.</text>
+<text x="340" y="366" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Promote extra mechanisms only if they create a verified nondominated point.</text>
+</svg>
