@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
@@ -10,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = ROOT / "paper"
+RELEASE_CANDIDATE_DIR = PAPER_DIR / "release_candidate"
+REVIEW_PACKETS_DIR = PAPER_DIR / "review_packets"
 
 EVIDENCE_STATUSES = {
     "REPRODUCED_IN_REPO",
@@ -54,7 +57,13 @@ LITERATURE_EVIDENCE_STRENGTHS = {
 
 
 def load_json_yaml(path: Path) -> object:
-    return json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    digest.update(path.read_bytes())
+    return digest.hexdigest()
 
 
 def git_commit_exists(commit: str) -> bool:
@@ -68,6 +77,14 @@ def git_commit_exists(commit: str) -> bool:
         check=False,
     )
     return result.returncode == 0
+
+
+def parse_packet_sections(path: Path) -> list[str]:
+    text = path.read_text(encoding="utf-8")
+    match = re.match(r"^---\n(.*?)\n---\n", text, re.S)
+    if not match:
+        return []
+    return re.findall(r'- "([^"]+)"', match.group(1))
 
 
 def main() -> int:
@@ -284,6 +301,15 @@ def main() -> int:
         PAPER_DIR / "OWNER_REVIEW_CHECKLIST.md",
         PAPER_DIR / "LITERATURE_SCREENING_AUDIT.md",
         PAPER_DIR / "literature_rescreening.csv",
+        PAPER_DIR / "BIBLIOGRAPHY_HARDENING_REPORT.md",
+        PAPER_DIR / "OWNER_METADATA_FORM.md",
+        PAPER_DIR / "SECRET_SCAN_PREPARATION.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_TARGETS.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv",
+        PAPER_DIR / "EXTERNAL_REVIEW_BUNDLE.md",
+        PAPER_DIR / "PREPRINT_PLATFORM_DECISION.md",
+        PAPER_DIR / "VENUE_CANDIDATES.md",
+        PAPER_DIR / "RELEASE_CANDIDATE_MANIFEST.yaml",
     ]
     for path in required_generated:
         if not path.exists():
@@ -342,6 +368,144 @@ def main() -> int:
     for claim_ref in claim_refs:
         if claim_ref not in claim_traceability_text:
             errors.append(f"Claim traceability file is missing manuscript claim: {claim_ref}")
+
+    required_release_candidate = [
+        RELEASE_CANDIDATE_DIR / "manuscript_rc1.md",
+        RELEASE_CANDIDATE_DIR / "abstract.txt",
+        RELEASE_CANDIDATE_DIR / "title_and_metadata.md",
+        RELEASE_CANDIDATE_DIR / "references.bib",
+        RELEASE_CANDIDATE_DIR / "figure_captions.md",
+        RELEASE_CANDIDATE_DIR / "table_captions.md",
+        RELEASE_CANDIDATE_DIR / "release_notes.md",
+    ]
+    for path in required_release_candidate:
+        if not path.exists():
+            errors.append(f"Missing release-candidate artifact: {path.relative_to(ROOT)}")
+
+    required_review_packets = [
+        REVIEW_PACKETS_DIR / "00_PLAIN_LANGUAGE_SYNOPSIS.md",
+        REVIEW_PACKETS_DIR / "01_TECHNICAL_ONE_PAGER.md",
+        REVIEW_PACKETS_DIR / "A_MAP_RESONATOR_REVIEW.md",
+        REVIEW_PACKETS_DIR / "B_BCF_GSBC_REVIEW.md",
+        REVIEW_PACKETS_DIR / "C_EXPERIMENTAL_METHODS_REVIEW.md",
+        REVIEW_PACKETS_DIR / "D_SYSTEMATIC_MAPPING_REVIEW.md",
+        REVIEW_PACKETS_DIR / "E_HARDWARE_REVIEW.md",
+        REVIEW_PACKETS_DIR / "F_GENERAL_READER_REVIEW.md",
+        REVIEW_PACKETS_DIR / "REVIEW_RESPONSE_FORM.md",
+        REVIEW_PACKETS_DIR / "OUTREACH_TEMPLATES.md",
+    ]
+    for path in required_review_packets:
+        if not path.exists():
+            errors.append(f"Missing review packet: {path.relative_to(ROOT)}")
+        elif path.name not in {"REVIEW_RESPONSE_FORM.md", "OUTREACH_TEMPLATES.md"}:
+            for section in parse_packet_sections(path):
+                if not re.search(rf"^#+\s+{re.escape(section)}\s*$", manuscript_text, re.M):
+                    errors.append(f"Review packet {path.name} references missing manuscript section: {section}")
+
+    release_candidate_text = ""
+    rc_path = RELEASE_CANDIDATE_DIR / "manuscript_rc1.md"
+    if rc_path.exists():
+        release_candidate_text = rc_path.read_text(encoding="utf-8")
+        if "[claim:" in release_candidate_text:
+            errors.append("Release-candidate manuscript still contains internal claim anchors.")
+    metadata_path = RELEASE_CANDIDATE_DIR / "title_and_metadata.md"
+    if metadata_path.exists():
+        metadata_text = metadata_path.read_text(encoding="utf-8")
+        if "<OWNER_DECISION_REQUIRED>" not in metadata_text:
+            errors.append("Release-candidate metadata file must preserve explicit owner-decision placeholders.")
+
+    public_docs = [
+        PAPER_DIR / "manuscript.md",
+        PAPER_DIR / "CITATION_AUDIT.md",
+        PAPER_DIR / "CLAIM_TRACEABILITY.md",
+        PAPER_DIR / "LITERATURE_SCREENING_AUDIT.md",
+        PAPER_DIR / "supplementary_evidence_atlas.md",
+        PAPER_DIR / "BIBLIOGRAPHY_HARDENING_REPORT.md",
+        PAPER_DIR / "OWNER_METADATA_FORM.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_TARGETS.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_BUNDLE.md",
+        PAPER_DIR / "PREPRINT_PLATFORM_DECISION.md",
+        PAPER_DIR / "VENUE_CANDIDATES.md",
+        RELEASE_CANDIDATE_DIR / "manuscript_rc1.md",
+        RELEASE_CANDIDATE_DIR / "title_and_metadata.md",
+        *required_review_packets,
+        ROOT / "docs" / "LICENSE_DECISION.md",
+        ROOT / "docs" / "PUBLIC_RELEASE_AUDIT.md",
+    ]
+    local_path_pattern = re.compile(r"C:/Users/Thanatos|C:\\Users\\Thanatos|/home/|file://", re.I)
+    email_pattern = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+    for path in public_docs:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        if local_path_pattern.search(text):
+            errors.append(f"Public-facing file still contains machine-specific path: {path.relative_to(ROOT)}")
+        if path != PAPER_DIR / "OWNER_METADATA_FORM.md":
+            if email_pattern.search(text):
+                errors.append(f"Unexpected email address found in public-facing file: {path.relative_to(ROOT)}")
+
+    release_manifest = load_json_yaml(PAPER_DIR / "RELEASE_CANDIDATE_MANIFEST.yaml")
+    expected_manifest_fields = {
+        "schema_version",
+        "generating_commit",
+        "generation_date",
+        "held_out_status",
+        "release_candidate_hashes",
+        "reference_hash",
+        "claim_ledger_hash",
+        "evidence_registry_hash",
+        "supplement_hash",
+        "figure_hashes",
+    }
+    missing_manifest = sorted(expected_manifest_fields - set(release_manifest))
+    if missing_manifest:
+        errors.append(f"Release candidate manifest missing fields: {missing_manifest}")
+    generating_commit = release_manifest.get("generating_commit", "")
+    if generating_commit and not git_commit_exists(generating_commit):
+        errors.append(f"Unknown generating_commit in release manifest: {generating_commit}")
+    held_out_status = release_manifest.get("held_out_status", {})
+    if not isinstance(held_out_status, dict) or held_out_status.get("official_held_out_execution_count") != 0:
+        errors.append("Release manifest must record official_held_out_execution_count == 0.")
+    release_candidate_hashes = release_manifest.get("release_candidate_hashes", {})
+    if isinstance(release_candidate_hashes, dict):
+        for relpath, expected_hash in release_candidate_hashes.items():
+            path = ROOT / relpath
+            if not path.exists():
+                errors.append(f"Release manifest references missing file: {relpath}")
+            elif sha256_file(path) != expected_hash:
+                errors.append(f"Release manifest hash mismatch for {relpath}")
+    if release_manifest.get("reference_hash") and sha256_file(PAPER_DIR / "references.bib") != release_manifest.get("reference_hash"):
+        errors.append("Release manifest reference_hash does not match paper/references.bib.")
+    if release_manifest.get("claim_ledger_hash") and sha256_file(PAPER_DIR / "claim_ledger.yaml") != release_manifest.get("claim_ledger_hash"):
+        errors.append("Release manifest claim_ledger_hash does not match paper/claim_ledger.yaml.")
+    if release_manifest.get("evidence_registry_hash") and sha256_file(PAPER_DIR / "evidence_registry.yaml") != release_manifest.get("evidence_registry_hash"):
+        errors.append("Release manifest evidence_registry_hash does not match paper/evidence_registry.yaml.")
+    if release_manifest.get("supplement_hash") and sha256_file(PAPER_DIR / "supplementary_evidence_atlas.md") != release_manifest.get("supplement_hash"):
+        errors.append("Release manifest supplement_hash does not match paper/supplementary_evidence_atlas.md.")
+    figure_hashes = release_manifest.get("figure_hashes", {})
+    if isinstance(figure_hashes, dict):
+        for relpath, expected_hash in figure_hashes.items():
+            path = ROOT / relpath
+            if not path.exists():
+                errors.append(f"Release manifest references missing figure: {relpath}")
+            elif sha256_file(path) != expected_hash:
+                errors.append(f"Release manifest figure hash mismatch for {relpath}")
+
+    review_log_path = PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv"
+    if review_log_path.exists():
+        review_log_lines = review_log_path.read_text(encoding="utf-8").strip().splitlines()
+        if len(review_log_lines) != 1:
+            errors.append("External review log must be empty except for the CSV header at RC1.")
+
+    frozen_results_status = subprocess.run(
+        ["git", "status", "--porcelain", "--", "results"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if frozen_results_status.stdout.strip():
+        errors.append("Frozen result artifacts were modified in the working tree.")
 
     screening_rows = []
     rescreen_rows = []

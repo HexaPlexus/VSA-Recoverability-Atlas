@@ -1,4 +1,4 @@
-# Claim Traceability
+﻿# Claim Traceability
 
 This document maps the manuscript's main empirical and interpretive claims to the claim ledger, repository evidence, and literature support. It is intentionally narrower than the full claim ledger: only claims that materially shape the manuscript argument are listed here.
 
@@ -28,6 +28,7 @@ This document maps the manuscript's main empirical and interpretive claims to th
 
 ## Notes
 
-- Every claim above is also present in [claim_ledger.yaml](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/claim_ledger.yaml).
+- Every claim above is also present in [claim_ledger.yaml](claim_ledger.yaml).
 - Numeric repository claims are backed by machine-readable result artifacts and are cited by evidence ID rather than by freehand prose.
 - Literature support here is explanatory or contrastive unless the claim ledger explicitly marks the claim as literature-derived only.
+

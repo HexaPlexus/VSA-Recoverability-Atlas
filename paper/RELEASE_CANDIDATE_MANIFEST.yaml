@@ -1,0 +1,36 @@
+﻿{
+    "schema_version":  "vsa-recoverability-atlas-rc-manifest-v0.1",
+    "generating_commit":  "cf26c303b6193987afb0274b8cadbf86316d833d",
+    "generation_date":  "2026-06-19",
+    "held_out_status":  {
+                            "official_held_out_execution_count":  0,
+                            "note":  "unchanged in this stage"
+                        },
+    "release_candidate_hashes":  {
+                                     "paper/release_candidate/table_captions.md":  "e8395371a707817cd0e8014470d39e83be7b4cec50dbf50bfe7080df77a31f46",
+                                     "paper/release_candidate/references.bib":  "31e7b7cdb790e405a4b661c05309b9c9be79ab729291e423a56ba99c37a15eeb",
+                                     "paper/release_candidate/manuscript_rc1.md":  "04f4d88d2aa05e059ad97c7f8c41224e268f1236094b52c2ec15a73f9a621c29",
+                                     "paper/release_candidate/title_and_metadata.md":  "770e3651b966d72866686faeca9257175cd0263591dd2dab07544b41b9e5f6c5",
+                                     "paper/release_candidate/abstract.txt":  "18fb880f304bf5cf8041c5578f7b10fc826499113ee7126611f04942f61722c5",
+                                     "paper/release_candidate/release_notes.md":  "2b3d29a250c155f6bed5e2ef3b7ab025c83b249654c3e99b3b78c7e590e84e03",
+                                     "paper/release_candidate/figure_captions.md":  "164186466ddb830bb2726f48fa03cc367a6b859118e4b476c0cee3d524d52282"
+                                 },
+    "reference_hash":  "31e7b7cdb790e405a4b661c05309b9c9be79ab729291e423a56ba99c37a15eeb",
+    "claim_ledger_hash":  "135a4ee0851fc4e128d8eea619346f89d0444b6d3184add96cdaf61c22425bc2",
+    "evidence_registry_hash":  "33a736df0ca2814a534dc56ea706db1ae5f240ea0200c3e2f7f0cb9d7c59370f",
+    "supplement_hash":  "76b264efffcbdfdf891163cce73efc63c115fa310de8debd0d795010ca11ca64",
+    "figure_hashes":  {
+                          "paper/release_candidate/figures/figure6_architecture_flow.png":  "950213181ae754223224d0ed6d39c8fff9ccf799117737f409a38d7838603b32",
+                          "paper/release_candidate/figures/figure2_evidence_atlas.svg":  "1e3e98233b4f13bda7fa55de4e73538b177d0c6f19b4a675ee87203831dba3b8",
+                          "paper/release_candidate/figures/figure4_repair_costs.svg":  "e5a970d49f6e3f73e59802c72b69ebdb030fd9e60612528aaad9a6122bbf89b6",
+                          "paper/release_candidate/figures/figure2_evidence_atlas.png":  "df440d705d45bcd2914f915e3b3fc525fe9788d2a214c8884122044dd00dc42c",
+                          "paper/release_candidate/figures/figure3_clean_f3_frontier.svg":  "4f965be3dbd8d70249dd8d1ebc8417a4c8a2802bc4f64ddae1e1e114ceb23f1b",
+                          "paper/release_candidate/figures/figure4_repair_costs.png":  "c35eb0180809bd5ff89971e2384543ba62f1ccc0b1b3a6dec8636b49611998bf",
+                          "paper/release_candidate/figures/figure5_escalation.svg":  "e67a22da09b1ff0667356b2e1984150687f8c4d066bc2b89cc3ef809e0b506d8",
+                          "paper/release_candidate/figures/figure3_clean_f3_frontier.png":  "c0220acb1309541c508a47af2e6deb17a1ef0f351ca691e089dc7043fe9f83d9",
+                          "paper/release_candidate/figures/figure1_budget_map.png":  "58d92d4e33fe09adbd93c65f1663327ce569d658f1426c6d989e548abc2ba9e7",
+                          "paper/release_candidate/figures/figure6_architecture_flow.svg":  "7b55b0f1e95ae10fb3183bd60d1b089e7d93ad817e0d5637e950804a263e1e51",
+                          "paper/release_candidate/figures/figure5_escalation.png":  "8d0053cf72db5f0759db9f32df4431df816cf1de96dd4df16d8dbc6a12dd6e91",
+                          "paper/release_candidate/figures/figure1_budget_map.svg":  "e0262c5e8952f62ebcb91bbc340838a116ea85673775393dc09368b67bad3e3c"
+                      }
+}

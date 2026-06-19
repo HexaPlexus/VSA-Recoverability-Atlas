@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<title>Evidence atlas overview</title>
+<rect x="0" y="0" width="1400" height="900" rx="0" fill="#f8f9fb" stroke="none" stroke-width="1"/>
+<text x="24" y="34" fill="#1c222b" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Figure 2. Repository evidence atlas overview</text>
+<text x="24" y="58" fill="#6c7a89" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Twenty-four normalized repository hypotheses grouped by category and colored by evidence status.</text>
+<rect x="40" y="110" width="300" height="110" rx="10" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="134" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">01. level0_dependency_bootstrap</text>
+<text x="52" y="158" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Dependency-locked TorchHD/MA</text>
+<text x="52" y="182" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: INFRASTRUCTURE_BASELINE</text>
+<text x="52" y="202" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="375" y="110" width="300" height="110" rx="10" fill="#2A6DC6" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="134" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">02. level1_context_conditioned_search</text>
+<text x="387" y="158" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">External semantic context ca</text>
+<text x="387" y="182" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: CONTEXT_CONDITIONED_SEARCH</text>
+<text x="387" y="202" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="710" y="110" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="134" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">03. level1f_holovec_task_mismatch</text>
+<text x="722" y="158" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">HoloVec attention resonator </text>
+<text x="722" y="182" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: COMPETITOR_AUDIT</text>
+<text x="722" y="202" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="1045" y="110" width="300" height="110" rx="10" fill="#289797" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="134" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">04. level1f_bcf_selector_transfer</text>
+<text x="1057" y="158" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Official IBM BCF can partici</text>
+<text x="1057" y="182" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: SUBSTRATE_COMPARISON</text>
+<text x="1057" y="202" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: IMPLEMENTATION_AUDITED</text>
+<rect x="40" y="235" width="300" height="110" rx="10" fill="#D67924" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="259" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">05. level2a_temporal_memory_narrow</text>
+<text x="52" y="283" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Approximate semantic retriev</text>
+<text x="52" y="307" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: TEMPORAL_RETRIEVAL</text>
+<text x="52" y="327" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: PARTIALLY_REPRODUCED</text>
+<rect x="375" y="235" width="300" height="110" rx="10" fill="#E1B434" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="259" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">06. level2b_portable_context_controller</text>
+<text x="387" y="283" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Portable external context co</text>
+<text x="387" y="307" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: META_CONTROL</text>
+<text x="387" y="327" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: DEFERRED_HYPOTHESIS</text>
+<rect x="710" y="235" width="300" height="110" rx="10" fill="#D67924" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="259" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">07. level2c_existing_matcher_context_policy</text>
+<text x="722" y="283" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Context policy can be tested</text>
+<text x="722" y="307" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: CONTEXT_CONDITIONED_SEARCH</text>
+<text x="722" y="327" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: PARTIALLY_REPRODUCED</text>
+<rect x="1045" y="235" width="300" height="110" rx="10" fill="#2A6DC6" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="259" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">08. level3_2_map_budget_robustness</text>
+<text x="1057" y="283" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">MAP resonator recoverability</text>
+<text x="1057" y="307" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: MAP_RESONATOR_BASELINE</text>
+<text x="1057" y="327" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="40" y="360" width="300" height="110" rx="10" fill="#3B914E" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="384" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">09. level3_3_linear_code_reproduction</text>
+<text x="52" y="408" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">The NeCo linear-code paper c</text>
+<text x="52" y="432" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: PAPER_REPRODUCTION</text>
+<text x="52" y="452" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: REPRODUCED_IN_REPO</text>
+<rect x="375" y="360" width="300" height="110" rx="10" fill="#2A6DC6" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="384" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">10. level3_4_algebraic_baseline_closure</text>
+<text x="387" y="408" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Clean U1 algebraic baselines</text>
+<text x="387" y="432" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: SUBSTRATE_COMPARISON</text>
+<text x="387" y="452" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="710" y="360" width="300" height="110" rx="10" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="384" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">11. level3_5a_noise_contract_audit</text>
+<text x="722" y="408" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Noise must be split into exp</text>
+<text x="722" y="432" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: NOISE_AND_PROTOCOL</text>
+<text x="722" y="452" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="1045" y="360" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="384" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">12. oracle_portfolio_complementarity_v0_1</text>
+<text x="1057" y="408" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">In the common clean F=3 enve</text>
+<text x="1057" y="432" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: CROSS_SUBSTRATE_PORTFOLIO</text>
+<text x="1057" y="452" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="40" y="485" width="300" height="110" rx="10" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="509" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">13. level3_5b_confirmatory_protocol_discipline</text>
+<text x="52" y="533" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Held-out confirmatory execut</text>
+<text x="52" y="557" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: NOISE_AND_PROTOCOL</text>
+<text x="52" y="577" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="375" y="485" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="509" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">14. level3_5b_zero_trial_integrity_blocks</text>
+<text x="387" y="533" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Runner-side integrity blocks</text>
+<text x="387" y="557" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: NOISE_AND_PROTOCOL</text>
+<text x="387" y="577" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="710" y="485" width="300" height="110" rx="10" fill="#D67924" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="509" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">15. lazy_trace_stage_a_semantic_locality</text>
+<text x="722" y="533" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Noisy MAP semantic cues cont</text>
+<text x="722" y="557" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: SEMANTIC_TO_TRACE_ROUTING</text>
+<text x="722" y="577" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: PARTIALLY_REPRODUCED</text>
+<rect x="1045" y="485" width="300" height="110" rx="10" fill="#2A6DC6" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="509" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">16. lazy_trace_stage_a2a_mature_index_shootout</text>
+<text x="1057" y="533" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">At N=10k, mature exact packe</text>
+<text x="1057" y="557" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: SEMANTIC_TO_TRACE_ROUTING</text>
+<text x="1057" y="577" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="40" y="610" width="300" height="110" rx="10" fill="#D67924" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="634" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">17. first_order_trace_coactivation</text>
+<text x="52" y="658" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">First-order trace co-activat</text>
+<text x="52" y="682" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: TRACE_COACTIVATION</text>
+<text x="52" y="702" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: PARTIALLY_REPRODUCED</text>
+<rect x="375" y="610" width="300" height="110" rx="10" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="634" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">18. exact_capsule_contract_closure</text>
+<text x="387" y="658" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Carried exact trace informat</text>
+<text x="387" y="682" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: EXACT_SIDE_INFORMATION</text>
+<text x="387" y="702" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="710" y="610" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="634" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">19. decoder_certified_codebook</text>
+<text x="722" y="658" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Decoder-certified atomic adm</text>
+<text x="722" y="682" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: ENCODER_ADAPTATION</text>
+<text x="722" y="702" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="1045" y="610" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="634" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">20. decoder_guided_tag_repair</text>
+<text x="1057" y="658" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Conflict-guided sparse tags </text>
+<text x="1057" y="682" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: REPRESENTATION_REPAIR</text>
+<text x="1057" y="702" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="40" y="735" width="300" height="110" rx="10" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
+<text x="52" y="759" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">21. self_describing_record_sidecar_closure</text>
+<text x="52" y="783" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Exact first-order manifests </text>
+<text x="52" y="807" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: EXACT_STRUCTURE</text>
+<text x="52" y="827" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: ADOPTED_ENGINEERING_BASELI</text>
+<rect x="375" y="735" width="300" height="110" rx="10" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
+<text x="387" y="759" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">22. codebook_residue_block_lut</text>
+<text x="387" y="783" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Block-LUT residue compressio</text>
+<text x="387" y="807" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: SOFT_INFORMATION</text>
+<text x="387" y="827" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: BLOCKED_WITH_EVIDENCE</text>
+<rect x="710" y="735" width="300" height="110" rx="10" fill="#E1B434" stroke="#1c222b" stroke-width="1"/>
+<text x="722" y="759" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">23. lazy_composite_reification</text>
+<text x="722" y="783" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Lazy Composite Reification r</text>
+<text x="722" y="807" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: DEFERRED_ARCHITECTURE</text>
+<text x="722" y="827" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: DEFERRED_HYPOTHESIS</text>
+<rect x="1045" y="735" width="300" height="110" rx="10" fill="#E1B434" stroke="#1c222b" stroke-width="1"/>
+<text x="1057" y="759" fill="#ffffff" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">24. decode_carrying_hypervectors</text>
+<text x="1057" y="783" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Decode-Carrying Hypervectors</text>
+<text x="1057" y="807" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Category: DEFERRED_ARCHITECTURE</text>
+<text x="1057" y="827" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Disposition: DEFERRED_HYPOTHESIS</text>
+<rect x="40" y="820" width="18" height="18" rx="0" fill="#2A6DC6" stroke="none" stroke-width="1"/>
+<text x="68" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">REPRODUCED_IN_REPO</text>
+<rect x="190" y="820" width="18" height="18" rx="0" fill="#D67924" stroke="none" stroke-width="1"/>
+<text x="218" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">PARTIALLY_REPRODUCED</text>
+<rect x="340" y="820" width="18" height="18" rx="0" fill="#3B914E" stroke="none" stroke-width="1"/>
+<text x="368" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">PAPER_REPRODUCTION</text>
+<rect x="490" y="820" width="18" height="18" rx="0" fill="#289797" stroke="none" stroke-width="1"/>
+<text x="518" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">IMPLEMENTATION_AUDITED</text>
+<rect x="640" y="820" width="18" height="18" rx="0" fill="#785AB4" stroke="none" stroke-width="1"/>
+<text x="668" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">LITERATURE_ONLY</text>
+<rect x="790" y="820" width="18" height="18" rx="0" fill="#6C7A89" stroke="none" stroke-width="1"/>
+<text x="818" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">DESIGN_ONLY</text>
+<rect x="940" y="820" width="18" height="18" rx="0" fill="#E1B434" stroke="none" stroke-width="1"/>
+<text x="968" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">DEFERRED_HYPOTHESIS</text>
+<rect x="1090" y="820" width="18" height="18" rx="0" fill="#C24343" stroke="none" stroke-width="1"/>
+<text x="1118" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">BLOCKED_WITH_EVIDENCE</text>
+<rect x="1240" y="820" width="18" height="18" rx="0" fill="#355E95" stroke="none" stroke-width="1"/>
+<text x="1268" y="834" fill="#1c222b" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">ADOPTED_ENGINEERING_BASELINE</text>
+</svg>

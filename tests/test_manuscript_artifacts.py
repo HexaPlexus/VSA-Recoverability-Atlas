@@ -37,3 +37,19 @@ def test_manuscript_figures_regenerate() -> None:
         "figure5_escalation.png",
     ]:
         assert (ROOT / "paper" / "figures" / name).exists(), name
+
+
+def test_release_candidate_bundle_exists() -> None:
+    required = [
+        ROOT / "paper" / "release_candidate" / "manuscript_rc1.md",
+        ROOT / "paper" / "release_candidate" / "abstract.txt",
+        ROOT / "paper" / "release_candidate" / "title_and_metadata.md",
+        ROOT / "paper" / "release_candidate" / "references.bib",
+        ROOT / "paper" / "review_packets" / "00_PLAIN_LANGUAGE_SYNOPSIS.md",
+        ROOT / "paper" / "review_packets" / "01_TECHNICAL_ONE_PAGER.md",
+        ROOT / "paper" / "review_packets" / "REVIEW_RESPONSE_FORM.md",
+        ROOT / "paper" / "EXTERNAL_REVIEW_BUNDLE.md",
+        ROOT / "paper" / "RELEASE_CANDIDATE_MANIFEST.yaml",
+    ]
+    for path in required:
+        assert path.exists(), path

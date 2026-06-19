@@ -1,4 +1,4 @@
-# Supplementary Evidence Atlas
+﻿# Supplementary Evidence Atlas
 
 This atlas is generated from the machine-readable registries and summarizes all normalized hypotheses.
 
@@ -12,9 +12,9 @@ The main manuscript intentionally keeps only compact tables, figures, and bounde
 
 Use this document together with:
 
-- [CLAIM_TRACEABILITY.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/CLAIM_TRACEABILITY.md)
-- [CITATION_AUDIT.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/CITATION_AUDIT.md)
-- [LITERATURE_SCREENING_AUDIT.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/LITERATURE_SCREENING_AUDIT.md)
+- [CLAIM_TRACEABILITY.md](CLAIM_TRACEABILITY.md)
+- [CITATION_AUDIT.md](CITATION_AUDIT.md)
+- [LITERATURE_SCREENING_AUDIT.md](LITERATURE_SCREENING_AUDIT.md)
 
 ## level0_dependency_bootstrap
 
@@ -399,3 +399,4 @@ Use this document together with:
 - Allowed claims: Decode-carrying hypervectors are a deferred hypothesis with explicit claim boundaries.
 - Forbidden claims: Novel architecture confirmed, models human thought, automatic speed from same-space storage
 - Reopen conditions: Reopen only after held-out closure and a dedicated prior-art audit.
+

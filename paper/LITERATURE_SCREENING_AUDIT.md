@@ -1,4 +1,4 @@
-# Literature Screening Audit
+﻿# Literature Screening Audit
 
 ## Scope
 
@@ -10,8 +10,8 @@ This audit records the blinded internal re-screening pass required by the frozen
 - Deterministic sample seed: `20260619`.
 - Sample size: `10` records (`25.6%` of the screened set).
 - Original include/exclude decision was hidden during the rescreening pass.
-- The same frozen inclusion and exclusion criteria from [SYSTEMATIC_REVIEW_PROTOCOL.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/SYSTEMATIC_REVIEW_PROTOCOL.md) were reapplied.
-- Disagreements were resolved explicitly and logged in [literature_rescreening.csv](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/literature_rescreening.csv).
+- The same frozen inclusion and exclusion criteria from [SYSTEMATIC_REVIEW_PROTOCOL.md](SYSTEMATIC_REVIEW_PROTOCOL.md) were reapplied.
+- Disagreements were resolved explicitly and logged in [literature_rescreening.csv](literature_rescreening.csv).
 
 ## Results
 
@@ -36,3 +36,4 @@ The re-screening pass did not reveal uncontrolled scope drift. It did reveal one
 The manuscript uses the following bounded statement:
 
 > A blinded internal re-screening pass was used as a consistency check; it does not replace independent multi-reviewer screening.
+
