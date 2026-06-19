@@ -1,0 +1,28 @@
+record_id,citation_key,title,source_type,decision,exclusion_reason,primary_source,evidence_strength,comparability_class,notes
+S01,plate1995hrr,Holographic Reduced Representations,primary_paper,INCLUDE,,yes,PRIMARY_THEORETICAL,THEORETICAL_ONLY,Foundational VSA algebra source.
+S02,kanerva2009hyperdimensional,Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors,primary_paper,INCLUDE,,yes,PRIMARY_THEORETICAL,TAXONOMIC_ONLY,Foundational HDC overview.
+S03,kleyko2022survey_part1,A Survey on Hyperdimensional Computing aka Vector Symbolic Architectures Part I,primary_survey,INCLUDE,,yes,SURVEY_ONLY,TAXONOMIC_ONLY,Used for taxonomy and implementation dimensions.
+S04,kleyko2023survey_part2,A Survey on Hyperdimensional Computing aka Vector Symbolic Architectures Part II,primary_survey,INCLUDE,,yes,SURVEY_ONLY,TAXONOMIC_ONLY,Used for applications, cognitive models, and challenges.
+S05,vsa_comparison_2022,A comparison of vector symbolic architectures,primary_paper,INCLUDE,,yes,PRIMARY_EMPIRICAL,SAME_MECHANISM_DIFFERENT_CONTRACT,Used for algebra/representation differences.
+S06,frady2020resonator,Resonator networks for factoring distributed representations of data structures,primary_paper,INCLUDE,,yes,PRIMARY_EMPIRICAL,CLOSE_TASK_DIFFERENT_IMPLEMENTATION,Closest resonator-factorization baseline.
+S07,ibm_bcf_repo,In-Memory Factorization for Hyperdimensional Computing / official repository,official_implementation,INCLUDE,,yes,OFFICIAL_IMPLEMENTATION,CLOSE_TASK_DIFFERENT_IMPLEMENTATION,Official BCF implementation used in repo.
+S08,ibm_bcf_paper,In-memory factorization of holographic perceptual representations,primary_paper,INCLUDE,,yes,HARDWARE_SYNTHESIS,CLOSE_TASK_DIFFERENT_IMPLEMENTATION,BCF paper-level hardware/result context.
+S09,neco_linear_codes,Linear Codes for Hyperdimensional Computing,primary_paper,INCLUDE,,yes,PRIMARY_EMPIRICAL,CLOSE_TASK_DIFFERENT_IMPLEMENTATION,Linear structured-code factorization line.
+S10,factorizers_sparse_block_codes,Factorizers for Distributed Sparse Block Codes,primary_paper,INCLUDE,,yes,PRIMARY_EMPIRICAL,SAME_MECHANISM_DIFFERENT_CONTRACT,Structured sparse block code factorizer line.
+S11,kanerva1988sdm,Sparse Distributed Memory,primary_monograph,INCLUDE,,yes,PRIMARY_THEORETICAL,THEORETICAL_ONLY,Needed as deferred associative-memory baseline.
+S12,faiss,Faiss: A library for efficient similarity search and clustering of dense vectors,primary_paper_plus_official_code,INCLUDE,,yes,OFFICIAL_IMPLEMENTATION,SAME_MECHANISM_DIFFERENT_CONTRACT,Repository mature-index baseline source.
+S13,satzilla2011,SATzilla: Portfolio-based Algorithm Selection for SAT,primary_paper,INCLUDE,,yes,PRIMARY_EMPIRICAL,TAXONOMIC_ONLY,Portfolio semantics and oracle prior art.
+S14,selective_classification_survey,Selective Classification for Deep Neural Networks,primary_paper,INCLUDE,,yes,SURVEY_ONLY,TAXONOMIC_ONLY,Abstention/risk-coverage mapping.
+S15,chow_reject_option,Optimal Strategies for Reject Option Classifiers / Chow-style reject-option lineage,primary_paper,INCLUDE,,yes,PRIMARY_THEORETICAL,TAXONOMIC_ONLY,Formal reject-option grounding.
+S16,gray1998quantization,Quantization,primary_survey,INCLUDE,,yes,SURVEY_ONLY,TAXONOMIC_ONLY,Resource-accounting background for precision lines.
+S17,mimhd_2021,MIMHD: Accurate and Efficient Hyperdimensional Inference Using Multi-Bit In-Memory Computing,primary_paper,INCLUDE,,yes,HARDWARE_SYNTHESIS,HARDWARE_ONLY,Hardware precision/energy trade-off.
+S18,fefet_multibit_2022,Achieving software-equivalent accuracy for hyperdimensional computing with ferroelectric multi-bit content-addressable memories,primary_paper,INCLUDE,,yes,PHYSICAL_HARDWARE_MEASUREMENT,HARDWARE_ONLY,Hardware multi-bit evidence.
+S19,fach_fpga_2019,FACH: FPGA-based Acceleration of Hyperdimensional Computing,primary_paper,INCLUDE,,yes,HARDWARE_SYNTHESIS,HARDWARE_ONLY,FPGA acceleration evidence.
+S20,in_memory_hdc_review_2020,In-memory hyperdimensional computing,primary_review,INCLUDE,,yes,SURVEY_ONLY,HARDWARE_ONLY,Hardware frontier framing.
+S21,merkle_dag_git,Git object model / content-addressed DAGs,official_documentation,INCLUDE,,yes,OFFICIAL_IMPLEMENTATION,TAXONOMIC_ONLY,Exact-structure preservation baseline pattern.
+S22,holovec,HoloVec official repository,official_repository,INCLUDE,,yes,OFFICIAL_IMPLEMENTATION,SAME_MECHANISM_DIFFERENT_CONTRACT,Included because repo performed direct API audit.
+S23,self_attention_resonator_2024,Self-Attention Based Semantic Decomposition in Vector Symbolic Architectures,primary_paper,EXCLUDE,NO_COMMON_REPO_EVIDENCE,yes,PRIMARY_EMPIRICAL,NC,Interesting but not transferred into repo evidence.
+S24,trainablehd_2024,Advancing Hyperdimensional Computing Based on Trainable Hypervectors,primary_paper,EXCLUDE,OUT_OF_SCOPE_TRAINED_ENCODER,yes,PRIMARY_EMPIRICAL,NC,Outside no-new-trainable-encoder framing.
+S25,factorhd_2025,FactorHD: A Hyperdimensional Computing Model for Multi-Object Factorization,primary_paper,EXCLUDE,NO_COMMON_REPO_EVIDENCE,yes,PRIMARY_EMPIRICAL,NC,Newer factorization line not reproduced in repo.
+S26,twistient_gsbc_issue,Generic Sparse Block Codes TorchHD issue thread,issue_thread,EXCLUDE,NON_PRIMARY_IMPLEMENTATION_DISCUSSION,no,CONCEPTUAL_ONLY,NC,Discovery only; replaced by the actual paper.
+S27,memoryguy_pcm_blog,IBM Put PCM at the Core of Hyperdimensional Computing blog post,blog,EXCLUDE,SECONDARY_SOURCE_WHEN_PRIMARY_EXISTS,no,CONCEPTUAL_ONLY,NC,Secondary hardware commentary replaced by primary IBM and device papers.

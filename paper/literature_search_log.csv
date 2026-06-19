@@ -1,0 +1,9 @@
+query_id,search_date,source,query_family,query_string,records_inspected,notes
+Q1,2026-06-19,web+arXiv,recovery_and_factorization,"vector symbolic architecture factorization resonator network paper",6,"Used to anchor resonator and factorization papers."
+Q2,2026-06-19,web+IBM Research,structured_recovery,"hyperdimensional computing block code factorizer IBM paper",5,"Resolved official IBM BCF paper and official repository."
+Q3,2026-06-19,web+arXiv,precision_and_soft_information,"quantized hyperdimensional computing multi-bit paper",5,"Used for multi-bit and in-memory precision papers."
+Q4,2026-06-19,web+ACM+PDF,hardware,"FPGA hyperdimensional computing paper",5,"Used for FPGA acceleration and hardware trade-off papers."
+Q5,2026-06-19,web+JAIR,safety_and_allocation,"algorithm portfolio per-instance solver selection SATzilla paper",5,"Used for portfolio semantics and routing prior art."
+Q6,2026-06-19,web+JMLR,safety_and_allocation,"reject option selective prediction survey primary paper",4,"Used for abstention and reject-option background."
+Q7,2026-06-19,web+arXiv+IBM,foundations,"A Survey on Hyperdimensional Computing vector symbolic architectures",6,"Used for field-wide taxonomy and implementation/hardware framing."
+Q8,2026-06-19,web+primary PDFs,structured_recovery,"Factorizers for Distributed Sparse Block Codes paper",4,"Used for SBC/GSBC factorization family coverage."
