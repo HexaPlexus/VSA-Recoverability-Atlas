@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.first_order_trace_coactivation import (
     BUDGET_FIXED_SEMANTIC,
     DECISION_ABSTAIN,
@@ -191,5 +192,4 @@ def test_dependency_audit_and_prior_stage_artifacts_unchanged() -> None:
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") == STAGE_A_PROTOCOL_SHA256
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") == STAGE_A1_PROTOCOL_SHA256
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") == STAGE_A2A_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json") == LEVEL35_V4_SHA256
-
+    assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256

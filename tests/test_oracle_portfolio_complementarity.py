@@ -3,6 +3,7 @@ from __future__ import annotations
 import ast
 import json
 import subprocess
+import sys
 from itertools import permutations
 from pathlib import Path
 
@@ -253,7 +254,7 @@ def test_static_route_fit_source_uses_calibration_only() -> None:
 
 def test_evidence_registry_validator_remains_green() -> None:
     result = subprocess.run(
-        [".venv\\Scripts\\python", "scripts\\validate_evidence_registry.py"],
+        [sys.executable, "scripts\\validate_evidence_registry.py"],
         cwd=ROOT,
         check=True,
         capture_output=True,

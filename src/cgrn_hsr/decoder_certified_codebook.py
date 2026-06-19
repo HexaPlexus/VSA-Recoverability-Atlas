@@ -35,6 +35,7 @@ from .level3_2_confirmation import prior_level3_1_seed_set
 from .level3_2b_map_budget_robustness import level3_2_seed_set, level3_2b_seed_set
 from .level3_4_algebraic_baselines import level3_4_seed_set
 from .level3_5b_native_noise_frontiers import prior_seed_set as level35_prior_seed_set
+from .release_artifacts import canonical_sha256
 
 SCHEMA_VERSION = "decoder-certified-codebook-v0.1-dev"
 TASK_NAME = "Decoder-Certified Codebook Construction v0.1"
@@ -215,7 +216,7 @@ def canonical_json_hash(payload: dict[str, Any]) -> str:
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return canonical_sha256(path).upper()
 
 
 def write_json(path: Path, payload: dict[str, Any]) -> None:

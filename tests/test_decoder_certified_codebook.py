@@ -5,6 +5,7 @@ from pathlib import Path
 
 import torch
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.decoder_certified_codebook import (
     ALLOWED_ARMS,
     ARM_DECODER_CERTIFIED,
@@ -176,10 +177,7 @@ def test_no_bcf_or_linear_code_dependency_introduced() -> None:
 
 def test_stage_respects_level35_frozen_hash() -> None:
     assert build_protocol(ROOT)["level35_frozen_artifacts_unchanged"] is True
-    assert (
-        __import__("hashlib").sha256((ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").read_bytes()).hexdigest().upper()
-        == LEVEL35_V4_SHA256
-    )
+    assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256
 
 
 def test_candidate_pool_sizes_follow_protocol_k_values() -> None:

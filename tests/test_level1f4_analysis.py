@@ -39,7 +39,7 @@ FORBIDDEN_ANALYSIS_TOKENS = (
 
 @lru_cache(maxsize=1)
 def built_level1f4() -> dict[str, object]:
-    return build_level1f4(ROOT)
+    return build_level1f4(ROOT, write_outputs=False)
 
 
 def test_exact_subset_recovery_requires_all_truth_included_on_real_trials() -> None:

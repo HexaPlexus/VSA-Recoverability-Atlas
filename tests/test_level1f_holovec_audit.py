@@ -17,6 +17,8 @@ from cgrn_hsr.competitors.holovec_attention import (
     roundtrip_numpy_torch,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
+
 
 def test_holovec_metadata_is_present() -> None:
     audit = load_holovec_dependency_audit()
@@ -101,6 +103,7 @@ def test_dependency_audit_reports_factor_domain_blocker() -> None:
 
 
 def test_holovec_source_is_referenced_not_copied() -> None:
-    source_path = Path(load_holovec_dependency_audit().source_path)
+    source_path = Path(load_holovec_dependency_audit().source_path).resolve()
     assert source_path.exists()
-    assert ".venv" in str(source_path)
+    assert "holovec" in str(source_path).lower()
+    assert (ROOT / "src" / "cgrn_hsr" / "competitors").resolve() not in source_path.parents

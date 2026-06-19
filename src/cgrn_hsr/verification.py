@@ -94,12 +94,18 @@ def rerank_candidates(
         )
     )
     similarities = F.cosine_similarity(query, payloads, dim=1)
-    if top_k is not None and top_k < similarities.numel():
-        _, order = torch.topk(similarities, k=top_k, largest=True, sorted=True)
-    else:
-        order = torch.argsort(similarities, descending=True)
+    order = sorted(
+        range(len(entries)),
+        key=lambda index: (
+            -float(similarities[index].item()),
+            entries[index].trace_record.trace_handle,
+            entries[index].trace_record.record_id,
+        ),
+    )
+    if top_k is not None and top_k < len(order):
+        order = order[:top_k]
     ranked: list[RerankedCandidate] = []
-    for index in order.tolist():
+    for index in order:
         entry = entries[index]
         handle = entry.trace_record.trace_handle
         validation = (

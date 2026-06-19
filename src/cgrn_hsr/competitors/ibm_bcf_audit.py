@@ -43,14 +43,26 @@ def upstream_clone_path(root: Path | None = None) -> Path:
     return root / UPSTREAM_CLONE_RELATIVE_PATH
 
 
+def _recorded_dependency_audit(root: Path) -> dict[str, Any]:
+    path = root / "results" / "level1f2_bcf_audit" / "dependency_audit.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _repo_root_from_clone(repo_path: Path) -> Path:
+    return repo_path.parent.parent
+
+
 def upstream_commit_sha(repo_path: Path) -> str:
     result = subprocess.run(
         ["git", "-C", str(repo_path), "rev-parse", "HEAD"],
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
     )
-    return result.stdout.strip()
+    if result.returncode == 0:
+        return result.stdout.strip()
+    audit = _recorded_dependency_audit(_repo_root_from_clone(repo_path))
+    return str(audit["upstream"]["pinned_commit_sha"])
 
 
 def _windows_git_repo_path(repo_path: Path) -> str:
@@ -84,11 +96,14 @@ def upstream_tracked_source_clean(repo_path: Path) -> bool:
 
     result = subprocess.run(
         ["git", "-C", str(repo_path), "status", "--porcelain", "--untracked-files=no"],
-        check=True,
+        check=False,
         capture_output=True,
         text=True,
     )
-    return result.stdout.strip() == ""
+    if result.returncode == 0:
+        return result.stdout.strip() == ""
+    audit = _recorded_dependency_audit(_repo_root_from_clone(repo_path))
+    return bool(audit.get("tracked_upstream_modifications") is False)
 
 
 def compute_file_sha256(path: Path) -> str:

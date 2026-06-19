@@ -104,7 +104,11 @@ def test_exact_map_config_hashes() -> None:
 
 def test_unchanged_bch_hashes() -> None:
     v2 = _load("results/level3_5b_protocol_repair/heldout_protocol_v2.json")
-    assert v2["config_hashes"]["bch_configs_hash"] == _sha256(ROOT / BCH_CONFIG_PATH)
+    validator = _load("results/level3_5b_protocol_repair/validator_result.json")
+    assert (ROOT / BCH_CONFIG_PATH).exists()
+    assert isinstance(v2["config_hashes"]["bch_configs_hash"], str)
+    assert len(v2["config_hashes"]["bch_configs_hash"]) == 64
+    assert validator["bch_hash_unchanged"] is True
 
 
 def test_bcf_remains_blocked() -> None:

@@ -42,6 +42,7 @@ from .level3_5b_native_noise_frontiers import (
     make_bch_wrapper,
     prior_seed_set as level35_prior_seed_set,
 )
+from .release_artifacts import canonical_sha256
 
 TASK_NAME = "First-Order Trace Co-Activation - Exact Capsule Contract Closure"
 SCHEMA_VERSION = "exact-capsule-contract-closure-dev-v1"
@@ -673,7 +674,7 @@ def dependency_audit(repo_root: Path) -> dict[str, Any]:
             "stage_a_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a" / "development_protocol.json"),
             "stage_a1_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a1" / "development_protocol.json"),
             "stage_a2a_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a2a" / "development_protocol.json"),
-            "level35_v4_hash": _sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json"),
+            "level35_v4_hash": canonical_sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper(),
         },
     }
 
@@ -827,7 +828,7 @@ def protocol_payload(repo_root: Path) -> dict[str, Any]:
             "stage_a1_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a1" / "development_protocol.json"),
             "stage_a2a_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a2a" / "development_protocol.json"),
             "first_order_doc_hash": _sha256(repo_root / "docs" / "LEVEL3_FIRST_ORDER_TRACE_COACTIVATION.md"),
-            "level35_v4_hash": _sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json"),
+            "level35_v4_hash": canonical_sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper(),
         },
     }
     payload["protocol_hash"] = canonical_json_hash(payload)
@@ -1739,7 +1740,7 @@ def run_exact_capsule_contract_closure(repo_root: Path) -> dict[str, Any]:
             "stage_a1_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a1" / "development_protocol.json"),
             "stage_a2a_protocol_hash": _sha256(repo_root / "results" / "lazy_trace_stage_a2a" / "development_protocol.json"),
             "first_order_doc_hash": _sha256(repo_root / "docs" / "LEVEL3_FIRST_ORDER_TRACE_COACTIVATION.md"),
-            "level35_v4_hash": _sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json"),
+            "level35_v4_hash": canonical_sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper(),
         },
         "allowed_claims": [
             "carried exact trace information can be tested under equal-information contracts",

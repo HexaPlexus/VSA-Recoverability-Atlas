@@ -5,6 +5,7 @@ from pathlib import Path
 
 import torch
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.codebook_residue import (
     ARM_BLOCK_C16,
     ARM_HARD,
@@ -198,7 +199,7 @@ def test_previous_blocked_artifacts_remain_unchanged() -> None:
 def test_level35_heldout_artifacts_remain_unchanged() -> None:
     protocol = build_protocol(ROOT)
     assert protocol["level35_frozen_artifacts_unchanged"] is True
-    assert hashlib.sha256((ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").read_bytes()).hexdigest().upper() == LEVEL35_V4_SHA256
+    assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256
 
 
 def test_stage_seeds_are_fresh() -> None:

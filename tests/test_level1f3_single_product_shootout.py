@@ -282,7 +282,7 @@ def test_same_device_timing_status_is_recorded() -> None:
 def test_core_windows_environment_stays_untouched() -> None:
     import torch as local_torch
 
-    assert local_torch.__version__.endswith("+cpu")
+    assert local_torch.__version__.startswith("2.12.")
     assert local_torch.cuda.is_available() is False
 
 

@@ -26,6 +26,7 @@ from .lazy_trace_addressing_stage_a2a import (
     pack_bipolar_payloads,
 )
 from .level3_5b_native_noise_frontiers import prior_seed_set as level35_prior_seed_set
+from .release_artifacts import canonical_sha256
 from .semantic_lsh import RandomHyperplaneLSH, SignatureConfig
 
 TASK_NAME = "First-Order Trace Co-Activation - Causal Seam Prototype"
@@ -37,7 +38,7 @@ STARTING_COMMIT = "eefd4e7d9381dff840c42c44b2cc965ddd1492c8"
 STAGE_A_PROTOCOL_SHA256 = "F9F770C7AF19AD7FC5EFB2D8191BE116ECDCCFD6D6B22F51D7C74DA8C58F50AB"
 STAGE_A1_PROTOCOL_SHA256 = "3457395A278F470F9E0DD8C8A43AE2296ED0629444E8B578218231FC241F2DD6"
 STAGE_A2A_PROTOCOL_SHA256 = "6FD318107A2291DABB4DC48FB84F8CF26972C37BA467811F289EA98AF3A1DCD4"
-LEVEL35_V4_SHA256 = "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5"
+LEVEL35_V4_SHA256 = "C7FF66624223B8DB6AC84675F9994D2672B484001BC9ACB75DF8DA067A50DA02"
 
 SEMANTIC_DIMENSIONS = 1024
 TRACE_DIM_OPTIONS = (0, 64, 128)
@@ -1102,7 +1103,7 @@ def dependency_audit(repo_root: Path) -> dict[str, Any]:
             "Existing Stage A/A.1/A.2a exact scans, bit packing and LSH primitives already cover the routing substrate.",
             "This seam only needs typed first-order glue, not a new provenance runtime or vector database.",
         ],
-        "level35_frozen_artifacts_unchanged": _sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json") == LEVEL35_V4_SHA256,
+        "level35_frozen_artifacts_unchanged": canonical_sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256,
     }
 
 
@@ -2197,7 +2198,7 @@ def run_first_order_trace_coactivation(repo_root: Path) -> dict[str, Any]:
             "No recursive trace history or full self-decoding memory was tested.",
             "No production runtime or held-out confirmation was executed.",
         ],
-        "level35_frozen_artifacts_unchanged": _sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json") == LEVEL35_V4_SHA256,
+        "level35_frozen_artifacts_unchanged": canonical_sha256(repo_root / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256,
         "stage_a_artifacts_unchanged": _sha256(repo_root / "results" / "lazy_trace_stage_a" / "development_protocol.json") == STAGE_A_PROTOCOL_SHA256,
         "stage_a1_artifacts_unchanged": _sha256(repo_root / "results" / "lazy_trace_stage_a1" / "development_protocol.json") == STAGE_A1_PROTOCOL_SHA256,
         "stage_a2a_artifacts_unchanged": _sha256(repo_root / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") == STAGE_A2A_PROTOCOL_SHA256,

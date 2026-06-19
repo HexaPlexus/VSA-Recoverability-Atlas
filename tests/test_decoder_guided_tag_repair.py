@@ -6,6 +6,7 @@ from pathlib import Path
 import torch
 import torchhd
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.decoder_guided_tag_repair import (
     ARM_CONFLICT_GUIDED_TAGS,
     ARM_EQUAL_BIT_EXTRA_DIMENSIONS,
@@ -210,10 +211,7 @@ def test_previous_decoder_certified_artifacts_remain() -> None:
 def test_level35_frozen_artifacts_unchanged() -> None:
     protocol = build_protocol(ROOT)
     assert protocol["level35_frozen_artifacts_unchanged"] is True
-    assert (
-        hashlib.sha256((ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").read_bytes()).hexdigest().upper()
-        == LEVEL35_V4_SHA256
-    )
+    assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256
 
 
 def test_stage_seed_freshness() -> None:

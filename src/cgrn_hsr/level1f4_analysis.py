@@ -717,7 +717,7 @@ def build_analysis_payload(
     }
 
 
-def build_level1f4(root: Path | None = None) -> dict[str, Any]:
+def build_level1f4(root: Path | None = None, *, write_outputs: bool = True) -> dict[str, Any]:
     root = root or default_root()
     source_dir = root / "results" / "level1f3"
     output_dir = root / "results" / "level1f4"
@@ -752,15 +752,16 @@ def build_level1f4(root: Path | None = None) -> dict[str, Any]:
     )
     closure_md = build_level1_closure_markdown(claims)
 
-    save_csv(output_dir / "oracle_decomposition.csv", oracle_rows)
-    save_csv(output_dir / "truth_inclusion_decomposition.csv", truth_rows)
-    save_csv(output_dir / "conditional_recovery.csv", conditional_rows)
-    save_csv(output_dir / "cap_saturation.csv", cap_rows)
-    save_csv(output_dir / "config_sweep_summary.csv", config_rows)
-    save_csv(output_dir / "pareto_summary.csv", pareto_rows)
-    save_json(output_dir / "claims.json", claims)
-    save_json(output_dir / "analysis.json", analysis_payload)
-    (docs_dir / "LEVEL1_RESEARCH_CLOSURE.md").write_text(closure_md, encoding="utf-8", newline="\n")
+    if write_outputs:
+        save_csv(output_dir / "oracle_decomposition.csv", oracle_rows)
+        save_csv(output_dir / "truth_inclusion_decomposition.csv", truth_rows)
+        save_csv(output_dir / "conditional_recovery.csv", conditional_rows)
+        save_csv(output_dir / "cap_saturation.csv", cap_rows)
+        save_csv(output_dir / "config_sweep_summary.csv", config_rows)
+        save_csv(output_dir / "pareto_summary.csv", pareto_rows)
+        save_json(output_dir / "claims.json", claims)
+        save_json(output_dir / "analysis.json", analysis_payload)
+        (docs_dir / "LEVEL1_RESEARCH_CLOSURE.md").write_text(closure_md, encoding="utf-8", newline="\n")
 
     return {
         "oracle_rows": oracle_rows,

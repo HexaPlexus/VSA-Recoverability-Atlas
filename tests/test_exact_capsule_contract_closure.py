@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.exact_capsule_contract_closure import (
     BUDGET_M0,
     CORRUPTION_C0,
@@ -149,7 +150,7 @@ def test_previous_stage_and_level35_artifacts_remain_immutable() -> None:
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") == STAGE_A_PROTOCOL_SHA256
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") == STAGE_A1_PROTOCOL_SHA256
     assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") == STAGE_A2A_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json") == LEVEL35_V4_SHA256
+    assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256
     assert _sha256(ROOT / "docs" / "LEVEL3_FIRST_ORDER_TRACE_COACTIVATION.md") == FIRST_ORDER_DOC_SHA256
 
 
