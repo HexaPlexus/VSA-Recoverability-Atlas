@@ -1,0 +1,20 @@
+{
+  "checkpoint_commit": "538911d54f6f821c7cbb850731fb993f05097ba6",
+  "cuda_available": false,
+  "device": "cpu",
+  "frozen_method_hashes": {
+    "ABSTAIN": "64c5882a3e6f169174d61b369793a67dc609827c1ea39360c1b97e795e64770f",
+    "BCF_NATIVE": "b9a1cdfd7470caac1d827938157941a8aa9221abfa48567be2296ba79e3e4021",
+    "MAP_D1024_FAST": "f6c329b197c62f392d89be1237881366f0dfe36f32bc0cd3225855dd4c6388eb",
+    "MAP_D1024_ROBUST": "7255d2148762755a366eb17cfcc5384d410af402d34cac158391da441a4664c6",
+    "MAP_D512_FAST": "751015711c6ad403ebff66ef851ef44ae2b94f4fba72f25df50977ad6bfca21f"
+  },
+  "ibm_upstream_clean": true,
+  "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.14.5",
+  "resource_module_available": false,
+  "schema_version": "oracle-portfolio-v0.1",
+  "torch_version": "2.12.0+cpu",
+  "torchhd_version": "5.8.4"
+}

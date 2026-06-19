@@ -1,0 +1,173 @@
+{
+  "bcf_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7",
+  "methods": {
+    "ABSTAIN": {
+      "config_hash": "64c5882a3e6f169174d61b369793a67dc609827c1ea39360c1b97e795e64770f",
+      "config_payload": {
+        "method_id": "ABSTAIN",
+        "typed_outcome": "INSUFFICIENT_EVIDENCE"
+      },
+      "dimensions": null,
+      "method_id": "ABSTAIN",
+      "representation_key": null,
+      "role": "typed no-answer control",
+      "source_artifact": "inline",
+      "substrate": "ABSTAIN"
+    },
+    "BCF_NATIVE": {
+      "config_hash": "b9a1cdfd7470caac1d827938157941a8aa9221abfa48567be2296ba79e3e4021",
+      "config_payload": {
+        "bcf_config_family": {
+          "blocks": 4,
+          "config_family": "bcf_d512_f3_b4",
+          "convergence_detection_threshold": 0.9,
+          "decoding": "sequential",
+          "dimensions": 512,
+          "factor_count": 3,
+          "permutation": false,
+          "similarity": "inf",
+          "topa_pu": true
+        },
+        "bcf_per_cell_official_lookup": [
+          {
+            "a_value": 46,
+            "blocks": 4,
+            "cell_id": "u1_easy_anchor",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 10,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "10",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0094,
+            "topa_pu": true
+          },
+          {
+            "a_value": 15,
+            "blocks": 4,
+            "cell_id": "u1_boundary_1",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 22,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "22",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0034,
+            "topa_pu": true
+          },
+          {
+            "a_value": 14,
+            "blocks": 4,
+            "cell_id": "u1_boundary_2",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 31,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "31",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0049,
+            "topa_pu": true
+          },
+          {
+            "a_value": 16,
+            "blocks": 4,
+            "cell_id": "u1_separation_anchor",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 68,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "68",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0067,
+            "topa_pu": true
+          }
+        ],
+        "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7"
+      },
+      "dimensions": 512,
+      "method_id": "BCF_NATIVE",
+      "representation_key": "bcf_d512",
+      "role": "official native IBM BCF path",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "BCF"
+    },
+    "MAP_D1024_FAST": {
+      "config_hash": "f6c329b197c62f392d89be1237881366f0dfe36f32bc0cd3225855dd4c6388eb",
+      "config_payload": {
+        "config_id": "map_d1024",
+        "dimensions": 1024,
+        "max_iterations": 12,
+        "restarts": 0,
+        "stable_patience": 3
+      },
+      "dimensions": 1024,
+      "method_id": "MAP_D1024_FAST",
+      "representation_key": "map_d1024",
+      "role": "stronger ordinary MAP baseline",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "MAP"
+    },
+    "MAP_D1024_ROBUST": {
+      "config_hash": "7255d2148762755a366eb17cfcc5384d410af402d34cac158391da441a4664c6",
+      "config_payload": {
+        "arm_id": "map_1024_step32_r4_best_native_reconstruction",
+        "budget_source_substrate": null,
+        "budget_statistic": null,
+        "compute_matching_mode": null,
+        "dimensions": 1024,
+        "frozen_map_reference_decode_sec": null,
+        "frozen_wallclock_budget_sec": null,
+        "init_mode": "random",
+        "max_iterations": 32,
+        "restart_count": 4,
+        "selection_rule": "best_native_reconstruction"
+      },
+      "dimensions": 1024,
+      "method_id": "MAP_D1024_ROBUST",
+      "representation_key": "map_d1024",
+      "role": "higher-compute restarted MAP path",
+      "source_artifact": "results/level3_2b/map_arm_configs.json",
+      "substrate": "MAP"
+    },
+    "MAP_D512_FAST": {
+      "config_hash": "751015711c6ad403ebff66ef851ef44ae2b94f4fba72f25df50977ad6bfca21f",
+      "config_payload": {
+        "config_id": "map_d512",
+        "dimensions": 512,
+        "max_iterations": 12,
+        "restarts": 0,
+        "stable_patience": 3
+      },
+      "dimensions": 512,
+      "method_id": "MAP_D512_FAST",
+      "representation_key": "map_d512",
+      "role": "lowest-cost MAP baseline",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "MAP"
+    }
+  },
+  "schema_version": "oracle-portfolio-v0.1",
+  "source_hashes": {
+    "results/level3_2/frozen_configs.json": "A574ED19A348272596699B17BE2B6990407C0A6A1BB39F5EC68F122C4B01A7C3",
+    "results/level3_2b/map_arm_configs.json": "E169C54BE2D919AC6832EFB4FB0413D2D13DB52975AA068681A832591BF0508E",
+    "src/cgrn_hsr/competitors/ibm_bcf_audit.py": "2A9E7BB6452006054567BE226D47BAD9ED0629366D410FBCB72ED4C99AA20381",
+    "src/cgrn_hsr/level3_2_confirmation.py": "785CA6F7DF446334F359EBD77ECEA909F63BE09F642F1C164CA58E18F70659C3",
+    "src/cgrn_hsr/level3_2b_map_budget_robustness.py": "776A3869835EB5140AA76BE4B17003FE349F4441983A8730FC0F58109A872291"
+  }
+}

@@ -1,0 +1,651 @@
+{
+  "allowed_change_scope": [
+    "new paired development evaluation only",
+    "no router",
+    "no hardware model",
+    "no new VSA method"
+  ],
+  "branch_target": "research/oracle-portfolio-v0.1",
+  "cells": [
+    {
+      "F": 3,
+      "M": 10,
+      "cell_id": "u1_easy_anchor",
+      "classification": "EASY"
+    },
+    {
+      "F": 3,
+      "M": 22,
+      "cell_id": "u1_boundary_1",
+      "classification": "TRANSITION"
+    },
+    {
+      "F": 3,
+      "M": 31,
+      "cell_id": "u1_boundary_2",
+      "classification": "TRANSITION"
+    },
+    {
+      "F": 3,
+      "M": 68,
+      "cell_id": "u1_separation_anchor",
+      "classification": "HARD"
+    }
+  ],
+  "checkpoint_commit": "538911d54f6f821c7cbb850731fb993f05097ba6",
+  "cost_modes": [
+    "PREMATERIALIZED_ALL_VIEWS",
+    "LAZY_FALLBACK_VIEW"
+  ],
+  "forbidden_claims": [
+    "learned router justified before oracle complementarity",
+    "cross-substrate hidden-state handoff",
+    "new general cascade principle",
+    "held-out confirmation"
+  ],
+  "frozen_methods": {
+    "ABSTAIN": {
+      "config_hash": "64c5882a3e6f169174d61b369793a67dc609827c1ea39360c1b97e795e64770f",
+      "config_payload": {
+        "method_id": "ABSTAIN",
+        "typed_outcome": "INSUFFICIENT_EVIDENCE"
+      },
+      "dimensions": null,
+      "method_id": "ABSTAIN",
+      "representation_key": null,
+      "role": "typed no-answer control",
+      "source_artifact": "inline",
+      "substrate": "ABSTAIN"
+    },
+    "BCF_NATIVE": {
+      "config_hash": "b9a1cdfd7470caac1d827938157941a8aa9221abfa48567be2296ba79e3e4021",
+      "config_payload": {
+        "bcf_config_family": {
+          "blocks": 4,
+          "config_family": "bcf_d512_f3_b4",
+          "convergence_detection_threshold": 0.9,
+          "decoding": "sequential",
+          "dimensions": 512,
+          "factor_count": 3,
+          "permutation": false,
+          "similarity": "inf",
+          "topa_pu": true
+        },
+        "bcf_per_cell_official_lookup": [
+          {
+            "a_value": 46,
+            "blocks": 4,
+            "cell_id": "u1_easy_anchor",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 10,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "10",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0094,
+            "topa_pu": true
+          },
+          {
+            "a_value": 15,
+            "blocks": 4,
+            "cell_id": "u1_boundary_1",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 22,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "22",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0034,
+            "topa_pu": true
+          },
+          {
+            "a_value": 14,
+            "blocks": 4,
+            "cell_id": "u1_boundary_2",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 31,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "31",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0049,
+            "topa_pu": true
+          },
+          {
+            "a_value": 16,
+            "blocks": 4,
+            "cell_id": "u1_separation_anchor",
+            "config_family": "bcf_d512_f3_b4",
+            "convergence_detection_threshold": 0.9,
+            "decoding": "sequential",
+            "dimensions": 512,
+            "domain_size": 68,
+            "factor_count": 3,
+            "permutation": false,
+            "similarity": "inf",
+            "source_key": "68",
+            "source_path": "experiments/200a_bcf/hyperparameters/hyperparams_D_512_F_3_B_4.json",
+            "threshold": 0.0067,
+            "topa_pu": true
+          }
+        ],
+        "ibm_upstream_commit": "a353f1e918dcb515cad4a89c8e47ce24668954a7"
+      },
+      "dimensions": 512,
+      "method_id": "BCF_NATIVE",
+      "representation_key": "bcf_d512",
+      "role": "official native IBM BCF path",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "BCF"
+    },
+    "MAP_D1024_FAST": {
+      "config_hash": "f6c329b197c62f392d89be1237881366f0dfe36f32bc0cd3225855dd4c6388eb",
+      "config_payload": {
+        "config_id": "map_d1024",
+        "dimensions": 1024,
+        "max_iterations": 12,
+        "restarts": 0,
+        "stable_patience": 3
+      },
+      "dimensions": 1024,
+      "method_id": "MAP_D1024_FAST",
+      "representation_key": "map_d1024",
+      "role": "stronger ordinary MAP baseline",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "MAP"
+    },
+    "MAP_D1024_ROBUST": {
+      "config_hash": "7255d2148762755a366eb17cfcc5384d410af402d34cac158391da441a4664c6",
+      "config_payload": {
+        "arm_id": "map_1024_step32_r4_best_native_reconstruction",
+        "budget_source_substrate": null,
+        "budget_statistic": null,
+        "compute_matching_mode": null,
+        "dimensions": 1024,
+        "frozen_map_reference_decode_sec": null,
+        "frozen_wallclock_budget_sec": null,
+        "init_mode": "random",
+        "max_iterations": 32,
+        "restart_count": 4,
+        "selection_rule": "best_native_reconstruction"
+      },
+      "dimensions": 1024,
+      "method_id": "MAP_D1024_ROBUST",
+      "representation_key": "map_d1024",
+      "role": "higher-compute restarted MAP path",
+      "source_artifact": "results/level3_2b/map_arm_configs.json",
+      "substrate": "MAP"
+    },
+    "MAP_D512_FAST": {
+      "config_hash": "751015711c6ad403ebff66ef851ef44ae2b94f4fba72f25df50977ad6bfca21f",
+      "config_payload": {
+        "config_id": "map_d512",
+        "dimensions": 512,
+        "max_iterations": 12,
+        "restarts": 0,
+        "stable_patience": 3
+      },
+      "dimensions": 512,
+      "method_id": "MAP_D512_FAST",
+      "representation_key": "map_d512",
+      "role": "lowest-cost MAP baseline",
+      "source_artifact": "results/level3_2/frozen_configs.json",
+      "substrate": "MAP"
+    }
+  },
+  "official_heldout_execution_count": 0,
+  "prospective_gates": {
+    "deployable_oracle_gain_threshold": 0.03,
+    "oracle_gain_abs_threshold": 0.05,
+    "rescue_count_threshold": 4,
+    "rescue_rate_threshold": 0.1,
+    "static_route_gain_fraction_threshold": 0.9,
+    "static_route_regret_abs_threshold": 0.02
+  },
+  "protocol_hash": "e7b56d4a5c780d2e45270b203b4d8df6efd73585f0b6f34f6fb2a0ec1a3ad1fd",
+  "random_control_seeds": {
+    "cost_matched_random_route": 970520100,
+    "random_fixed_order_base": 970530100,
+    "random_route": 970510100
+  },
+  "schema_version": "oracle-portfolio-v0.1",
+  "seed_integrity": {
+    "current_stage_seed_count": 448,
+    "explicit_historical_seed_count": 764,
+    "historical_marker_files": 42,
+    "overlapping_explicit_seeds": [],
+    "overlapping_marker_files": {}
+  },
+  "source_release_branch": "release/vsa-recoverability-atlas",
+  "splits": {
+    "FINAL_DEVELOPMENT_EVALUATION": {
+      "u1_boundary_1": {
+        "count": 64,
+        "start": 970320100
+      },
+      "u1_boundary_2": {
+        "count": 64,
+        "start": 970330100
+      },
+      "u1_easy_anchor": {
+        "count": 64,
+        "start": 970310100
+      },
+      "u1_separation_anchor": {
+        "count": 64,
+        "start": 970340100
+      }
+    },
+    "PILOT_RUNTIME": {
+      "u1_boundary_1": {
+        "count": 16,
+        "start": 970120100
+      },
+      "u1_boundary_2": {
+        "count": 16,
+        "start": 970130100
+      },
+      "u1_easy_anchor": {
+        "count": 16,
+        "start": 970110100
+      },
+      "u1_separation_anchor": {
+        "count": 16,
+        "start": 970140100
+      }
+    },
+    "PORTFOLIO_CALIBRATION": {
+      "u1_boundary_1": {
+        "count": 32,
+        "start": 970220100
+      },
+      "u1_boundary_2": {
+        "count": 32,
+        "start": 970230100
+      },
+      "u1_easy_anchor": {
+        "count": 32,
+        "start": 970210100
+      },
+      "u1_separation_anchor": {
+        "count": 32,
+        "start": 970240100
+      }
+    }
+  },
+  "static_route_candidates": [
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "ALWAYS:MAP_D512_FAST",
+      "threshold": null
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "ALWAYS:MAP_D1024_FAST",
+      "threshold": null
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "ALWAYS:MAP_D1024_ROBUST",
+      "threshold": null
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "ALWAYS:BCF_NATIVE",
+      "threshold": null
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D512_FAST:MAP_D512_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D512_FAST:MAP_D1024_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D512_FAST:MAP_D1024_ROBUST",
+      "threshold": 10
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D512_FAST:BCF_NATIVE",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_FAST:MAP_D512_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_FAST:MAP_D1024_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_FAST:MAP_D1024_ROBUST",
+      "threshold": 10
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_FAST:BCF_NATIVE",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_ROBUST:MAP_D512_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_ROBUST:MAP_D1024_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_ROBUST:MAP_D1024_ROBUST",
+      "threshold": 10
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:10:MAP_D1024_ROBUST:BCF_NATIVE",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:10:BCF_NATIVE:MAP_D512_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:10:BCF_NATIVE:MAP_D1024_FAST",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:10:BCF_NATIVE:MAP_D1024_ROBUST",
+      "threshold": 10
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:10:BCF_NATIVE:BCF_NATIVE",
+      "threshold": 10
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D512_FAST:MAP_D512_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D512_FAST:MAP_D1024_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D512_FAST:MAP_D1024_ROBUST",
+      "threshold": 22
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D512_FAST:BCF_NATIVE",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_FAST:MAP_D512_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_FAST:MAP_D1024_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_FAST:MAP_D1024_ROBUST",
+      "threshold": 22
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_FAST:BCF_NATIVE",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_ROBUST:MAP_D512_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_ROBUST:MAP_D1024_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_ROBUST:MAP_D1024_ROBUST",
+      "threshold": 22
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:22:MAP_D1024_ROBUST:BCF_NATIVE",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:22:BCF_NATIVE:MAP_D512_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:22:BCF_NATIVE:MAP_D1024_FAST",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:22:BCF_NATIVE:MAP_D1024_ROBUST",
+      "threshold": 22
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:22:BCF_NATIVE:BCF_NATIVE",
+      "threshold": 22
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D512_FAST:MAP_D512_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D512_FAST:MAP_D1024_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D512_FAST:MAP_D1024_ROBUST",
+      "threshold": 31
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D512_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D512_FAST:BCF_NATIVE",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_FAST:MAP_D512_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_FAST:MAP_D1024_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_FAST:MAP_D1024_ROBUST",
+      "threshold": 31
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_FAST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_FAST:BCF_NATIVE",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_ROBUST:MAP_D512_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_ROBUST:MAP_D1024_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_ROBUST:MAP_D1024_ROBUST",
+      "threshold": 31
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "MAP_D1024_ROBUST",
+      "policy_id": "THRESHOLD:31:MAP_D1024_ROBUST:BCF_NATIVE",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D512_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:31:BCF_NATIVE:MAP_D512_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_FAST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:31:BCF_NATIVE:MAP_D1024_FAST",
+      "threshold": 31
+    },
+    {
+      "high_method": "MAP_D1024_ROBUST",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:31:BCF_NATIVE:MAP_D1024_ROBUST",
+      "threshold": 31
+    },
+    {
+      "high_method": "BCF_NATIVE",
+      "low_method": "BCF_NATIVE",
+      "policy_id": "THRESHOLD:31:BCF_NATIVE:BCF_NATIVE",
+      "threshold": 31
+    }
+  ],
+  "task_contract": {
+    "factor_count": 3,
+    "factor_specific_domains": true,
+    "ground_truth_during_inference": false,
+    "nested_structures": false,
+    "noise": false,
+    "ordered_designated_target_tuple": true,
+    "semantic_task": "clean single-product factorization"
+  },
+  "utility_profiles": {
+    "BALANCED": {
+      "abstention_penalty": 8.0,
+      "latency_penalty": 3.0,
+      "memory_penalty": 4e-08,
+      "silent_error_penalty": 1000000.0
+    },
+    "LATENCY_CRITICAL": {
+      "abstention_penalty": 4.0,
+      "latency_penalty": 8.0,
+      "memory_penalty": 2e-08,
+      "silent_error_penalty": 1000000.0
+    },
+    "SAFETY_CRITICAL": {
+      "abstention_penalty": 12.0,
+      "latency_penalty": 1.0,
+      "memory_penalty": 5e-08,
+      "silent_error_penalty": 1000000.0
+    }
+  },
+  "utility_sensitivity_grid": {
+    "abstention_penalty": [
+      4.0,
+      8.0,
+      12.0
+    ],
+    "latency_penalty": [
+      1.0,
+      3.0,
+      8.0
+    ],
+    "memory_penalty": [
+      2e-08,
+      4e-08
+    ],
+    "silent_error_penalty": [
+      100000.0,
+      1000000.0
+    ]
+  }
+}
