@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import math
 import re
@@ -13,6 +12,16 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = ROOT / "paper"
 RELEASE_CANDIDATE_DIR = PAPER_DIR / "release_candidate"
 REVIEW_PACKETS_DIR = PAPER_DIR / "review_packets"
+SRC_DIR = ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from cgrn_hsr.release_artifacts import (  # noqa: E402
+    canonical_sha256,
+    extract_abstract,
+    extract_markdown_headings,
+    word_count,
+)
 
 EVIDENCE_STATUSES = {
     "REPRODUCED_IN_REPO",
@@ -60,17 +69,22 @@ def load_json_yaml(path: Path) -> object:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    digest.update(path.read_bytes())
-    return digest.hexdigest()
-
-
 def git_commit_exists(commit: str) -> bool:
     if not commit:
         return False
     result = subprocess.run(
         ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+        cwd=ROOT,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    return result.returncode == 0
+
+
+def git_commit_is_ancestor(commit: str, head: str = "HEAD") -> bool:
+    result = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, head],
         cwd=ROOT,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
@@ -334,18 +348,20 @@ def main() -> int:
     for banned in ["paradigm shift", "production-ready", "production ready"]:
         if banned in manuscript_text.lower():
             errors.append(f"Manuscript contains banned wording: {banned}")
-    if "not measured in this repository" not in manuscript_text.lower():
-        errors.append("Manuscript must explicitly mark hardware discussion as not measured in this repository.")
+    if "literature-only" not in manuscript_text.lower() or "not measured in this repository" not in manuscript_text.lower():
+        errors.append("Hardware section must contain both 'literature-only' and 'not measured in this repository' scope markers.")
 
-    abstract_match = re.search(r"## Abstract\s+(.*?)\s+## 1\.", manuscript_text, re.S)
-    if not abstract_match:
+    try:
+        abstract_text = extract_abstract(manuscript_text)
+    except ValueError:
         errors.append("Could not locate manuscript abstract.")
-    else:
-        abstract_words = len(re.findall(r"\b\w+\b", abstract_match.group(1)))
+        abstract_text = ""
+    if abstract_text:
+        abstract_words = word_count(abstract_text)
         if not (200 <= abstract_words <= 300):
             errors.append(f"Abstract word count out of range: {abstract_words}")
 
-    manuscript_words = len(re.findall(r"\b\w+\b", manuscript_text))
+    manuscript_words = word_count(manuscript_text)
     if manuscript_words < 7000:
         errors.append(f"Manuscript is still too short for a full draft: {manuscript_words} words")
 
@@ -397,17 +413,28 @@ def main() -> int:
     for path in required_review_packets:
         if not path.exists():
             errors.append(f"Missing review packet: {path.relative_to(ROOT)}")
-        elif path.name not in {"REVIEW_RESPONSE_FORM.md", "OUTREACH_TEMPLATES.md"}:
-            for section in parse_packet_sections(path):
-                if not re.search(rf"^#+\s+{re.escape(section)}\s*$", manuscript_text, re.M):
-                    errors.append(f"Review packet {path.name} references missing manuscript section: {section}")
+    manuscript_headings = set(extract_markdown_headings(manuscript_text))
 
     release_candidate_text = ""
     rc_path = RELEASE_CANDIDATE_DIR / "manuscript_rc1.md"
     if rc_path.exists():
         release_candidate_text = rc_path.read_text(encoding="utf-8")
-        if "[claim:" in release_candidate_text:
-            errors.append("Release-candidate manuscript still contains internal claim anchors.")
+        if release_candidate_text != manuscript_text:
+            errors.append("Release-candidate manuscript must equal canonical manuscript exactly after generation.")
+        rc_headings = set(extract_markdown_headings(release_candidate_text))
+        for path in required_review_packets:
+            if path.exists() and path.name not in {"REVIEW_RESPONSE_FORM.md", "OUTREACH_TEMPLATES.md"}:
+                for section in parse_packet_sections(path):
+                    if section not in rc_headings and section not in manuscript_headings:
+                        errors.append(f"Review packet {path.name} references missing manuscript section: {section}")
+        rc_words = word_count(release_candidate_text)
+        if rc_words != manuscript_words:
+            errors.append(f"Release-candidate manuscript word count {rc_words} does not match canonical manuscript {manuscript_words}.")
+    abstract_path = RELEASE_CANDIDATE_DIR / "abstract.txt"
+    if abstract_path.exists() and abstract_text:
+        release_abstract = abstract_path.read_text(encoding="utf-8").strip()
+        if release_abstract != abstract_text:
+            errors.append("Release-candidate abstract must equal the abstract extracted from canonical manuscript.")
     metadata_path = RELEASE_CANDIDATE_DIR / "title_and_metadata.md"
     if metadata_path.exists():
         metadata_text = metadata_path.read_text(encoding="utf-8")
@@ -447,7 +474,8 @@ def main() -> int:
     release_manifest = load_json_yaml(PAPER_DIR / "RELEASE_CANDIDATE_MANIFEST.yaml")
     expected_manifest_fields = {
         "schema_version",
-        "generating_commit",
+        "generated_from_commit",
+        "generated_from_commit_semantics",
         "generation_date",
         "held_out_status",
         "release_candidate_hashes",
@@ -460,9 +488,11 @@ def main() -> int:
     missing_manifest = sorted(expected_manifest_fields - set(release_manifest))
     if missing_manifest:
         errors.append(f"Release candidate manifest missing fields: {missing_manifest}")
-    generating_commit = release_manifest.get("generating_commit", "")
-    if generating_commit and not git_commit_exists(generating_commit):
-        errors.append(f"Unknown generating_commit in release manifest: {generating_commit}")
+    generated_from_commit = release_manifest.get("generated_from_commit", "")
+    if generated_from_commit and not git_commit_exists(generated_from_commit):
+        errors.append(f"Unknown generated_from_commit in release manifest: {generated_from_commit}")
+    if generated_from_commit and not git_commit_is_ancestor(generated_from_commit):
+        errors.append(f"generated_from_commit is not an ancestor of HEAD: {generated_from_commit}")
     held_out_status = release_manifest.get("held_out_status", {})
     if not isinstance(held_out_status, dict) or held_out_status.get("official_held_out_execution_count") != 0:
         errors.append("Release manifest must record official_held_out_execution_count == 0.")
@@ -472,15 +502,15 @@ def main() -> int:
             path = ROOT / relpath
             if not path.exists():
                 errors.append(f"Release manifest references missing file: {relpath}")
-            elif sha256_file(path) != expected_hash:
+            elif canonical_sha256(path) != expected_hash:
                 errors.append(f"Release manifest hash mismatch for {relpath}")
-    if release_manifest.get("reference_hash") and sha256_file(PAPER_DIR / "references.bib") != release_manifest.get("reference_hash"):
+    if release_manifest.get("reference_hash") and canonical_sha256(PAPER_DIR / "references.bib") != release_manifest.get("reference_hash"):
         errors.append("Release manifest reference_hash does not match paper/references.bib.")
-    if release_manifest.get("claim_ledger_hash") and sha256_file(PAPER_DIR / "claim_ledger.yaml") != release_manifest.get("claim_ledger_hash"):
+    if release_manifest.get("claim_ledger_hash") and canonical_sha256(PAPER_DIR / "claim_ledger.yaml") != release_manifest.get("claim_ledger_hash"):
         errors.append("Release manifest claim_ledger_hash does not match paper/claim_ledger.yaml.")
-    if release_manifest.get("evidence_registry_hash") and sha256_file(PAPER_DIR / "evidence_registry.yaml") != release_manifest.get("evidence_registry_hash"):
+    if release_manifest.get("evidence_registry_hash") and canonical_sha256(PAPER_DIR / "evidence_registry.yaml") != release_manifest.get("evidence_registry_hash"):
         errors.append("Release manifest evidence_registry_hash does not match paper/evidence_registry.yaml.")
-    if release_manifest.get("supplement_hash") and sha256_file(PAPER_DIR / "supplementary_evidence_atlas.md") != release_manifest.get("supplement_hash"):
+    if release_manifest.get("supplement_hash") and canonical_sha256(PAPER_DIR / "supplementary_evidence_atlas.md") != release_manifest.get("supplement_hash"):
         errors.append("Release manifest supplement_hash does not match paper/supplementary_evidence_atlas.md.")
     figure_hashes = release_manifest.get("figure_hashes", {})
     if isinstance(figure_hashes, dict):
@@ -488,7 +518,7 @@ def main() -> int:
             path = ROOT / relpath
             if not path.exists():
                 errors.append(f"Release manifest references missing figure: {relpath}")
-            elif sha256_file(path) != expected_hash:
+            elif canonical_sha256(path) != expected_hash:
                 errors.append(f"Release manifest figure hash mismatch for {relpath}")
 
     review_log_path = PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv"
