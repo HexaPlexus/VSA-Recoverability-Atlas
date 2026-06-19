@@ -177,12 +177,15 @@ def test_historical_commit_references_are_public_ancestors() -> None:
 
 
 def test_validator_passes_in_fresh_worktree() -> None:
+    if os.environ.get("CGRN_HSR_SKIP_NESTED_WORKTREE_TEST") == "1":
+        return
     with tempfile.TemporaryDirectory() as temp_dir:
         worktree = Path(temp_dir) / "clean-checkout"
         subprocess.run(["git", "worktree", "add", "--detach", str(worktree), "HEAD"], cwd=ROOT, check=True)
         try:
             env = os.environ.copy()
             env["PYTHONPATH"] = str(worktree / "src")
+            env["CGRN_HSR_SKIP_NESTED_WORKTREE_TEST"] = "1"
             result = subprocess.run(
                 [sys.executable, "scripts/validate_evidence_registry.py"],
                 cwd=worktree,
