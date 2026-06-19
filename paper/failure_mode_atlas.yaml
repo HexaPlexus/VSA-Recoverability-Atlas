@@ -2,6 +2,19 @@
   "schema_version": "vsa-recoverability-atlas-failures-v1",
   "failures": [
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "frady2020resonator",
+        "kleyko2022survey_part1"
+      ],
+      "mechanistic_explanation": "Finite dimension, finite precision, and overlapping codebooks flatten the reconstruction landscape once interference exceeds the decoder's effective margin budget.",
+      "resource_shortfall": [
+        "R1_DIMENSION",
+        "R7_DECODER_COMPUTE"
+      ],
+      "detection_signal": "Recovery flattening or collapse under modest added scale despite more compute.",
+      "mitigation": "Increase representational budget, narrow the task contract, or abstain before silent wrong acceptance.",
+      "remaining_risk": "Can trigger silent wrong outputs if acceptance is not gated.",
       "failure_mode": "capacity_collapse",
       "description": "Decoder accuracy drops sharply when candidate domains or bundle width exceed the substrate's practical envelope.",
       "observable_signature": "Recovery flattening or collapse under modest added scale despite more compute.",
@@ -20,6 +33,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "frady2020resonator"
+      ],
+      "mechanistic_explanation": "Iterative cleanup can settle into an energetically consistent but semantically wrong local optimum.",
+      "resource_shortfall": [
+        "R7_DECODER_COMPUTE",
+        "R13_REDUCED_COVERAGE_ABSTENTION"
+      ],
+      "detection_signal": "Wrong reconstruction with apparent convergence or high self-consistency.",
+      "mitigation": "selective acceptance, verifier-backed reconstruction checks",
+      "remaining_risk": "Raises silent wrong acceptance risk.",
       "failure_mode": "false_attractor",
       "description": "Iterative decoders settle into wrong stable states that still look internally coherent.",
       "observable_signature": "Wrong reconstruction with apparent convergence or high self-consistency.",
@@ -38,6 +63,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011",
+        "selective_classification_survey"
+      ],
+      "mechanistic_explanation": "Agreement among retries or weak hints is not equivalent to ground-truth recovery when all hypotheses are driven by the same distorted evidence.",
+      "resource_shortfall": [
+        "R7_DECODER_COMPUTE",
+        "R14_EXACT_FALLBACK"
+      ],
+      "detection_signal": "High apparent confidence without ground-truth recovery.",
+      "mitigation": "shuffled controls and exact verification",
+      "remaining_risk": "Can silently promote the wrong architecture.",
       "failure_mode": "false_consensus",
       "description": "Multiple restarts or weak evidential hints agree on the same wrong answer.",
       "observable_signature": "High apparent confidence without ground-truth recovery.",
@@ -56,6 +94,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011",
+        "chow_reject_option"
+      ],
+      "mechanistic_explanation": "A routing prior narrows the candidate set so aggressively that the true factor or tuple is removed before native decoding begins.",
+      "resource_shortfall": [
+        "R6_EXTERNAL_CONTEXT_OR_PRIOR",
+        "R14_EXACT_FALLBACK"
+      ],
+      "detection_signal": "Coverage falls unless broad fallback is available.",
+      "mitigation": "cold broad fallback and abstention",
+      "remaining_risk": "False negatives or forced wrong commits.",
       "failure_mode": "context_exclusion",
       "description": "A context policy excludes the true candidate from the narrowed domain.",
       "observable_signature": "Coverage falls unless broad fallback is available.",
@@ -74,6 +125,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011"
+      ],
+      "mechanistic_explanation": "A controller or route prior allocates compute to the wrong mechanism, wasting budget without changing the underlying substrate error pattern.",
+      "resource_shortfall": [
+        "R6_EXTERNAL_CONTEXT_OR_PRIOR",
+        "R7_DECODER_COMPUTE"
+      ],
+      "detection_signal": "Utility gain disappears when fallback is disabled.",
+      "mitigation": "exact indexed retrieval and conservative authority control",
+      "remaining_risk": "Wasted compute or false commit risk.",
       "failure_mode": "context_misrouting",
       "description": "Context steers compute to the wrong mechanism or candidate subset.",
       "observable_signature": "Utility gain disappears when fallback is disabled.",
@@ -92,6 +155,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011"
+      ],
+      "mechanistic_explanation": "Construction-time selection overfits to its own certification tuples and decoder seeds instead of creating a robust new codebook point.",
+      "resource_shortfall": [
+        "R11_PREPROCESSING_OR_MATERIALIZATION",
+        "R7_DECODER_COMPUTE"
+      ],
+      "detection_signal": "Arm C improves on certification but not on validation/final development evaluation.",
+      "mitigation": "shuffled-score control and old-atom regression set",
+      "remaining_risk": "Can spend large offline compute for illusory gains.",
       "failure_mode": "certification_overfit",
       "description": "A construction rule looks strong on its own certification workload but fails to generalize.",
       "observable_signature": "Arm C improves on certification but not on validation/final development evaluation.",
@@ -108,6 +183,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "selective_classification_survey",
+        "chow_reject_option"
+      ],
+      "mechanistic_explanation": "Approximate evidence is treated as authoritative even though the information contract cannot disambiguate the true source structure.",
+      "resource_shortfall": [
+        "R13_REDUCED_COVERAGE_ABSTENTION",
+        "R14_EXACT_FALLBACK"
+      ],
+      "detection_signal": "Conditional risk among accepted outputs rises above zero.",
+      "mitigation": "typed validators, abstention, exact digests, ambiguity outcomes",
+      "remaining_risk": "Most serious safety failure in the atlas.",
       "failure_mode": "silent_wrong_acceptance",
       "description": "A method returns a wrong result without surfacing uncertainty or typed failure.",
       "observable_signature": "Conditional risk among accepted outputs rises above zero.",
@@ -128,6 +216,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "kleyko2022survey_part1",
+        "vsa_comparison_2022"
+      ],
+      "mechanistic_explanation": "Two methods may target similar symbolic tasks while relying on incompatible algebra, codebook semantics, stopping rules, or noise contracts.",
+      "resource_shortfall": [
+        "R4_STRUCTURED_CODE",
+        "R6_EXTERNAL_CONTEXT_OR_PRIOR"
+      ],
+      "detection_signal": "API mismatch, shared codebook where factor-specific domains are required, or incomparable noise semantics.",
+      "mitigation": "anti-NIH audits and typed contract matrices",
+      "remaining_risk": "False comparisons and bad architectural inference.",
       "failure_mode": "native_substrate_mismatch",
       "description": "A competitor or alternative substrate cannot satisfy the repository's task contract without changing the task.",
       "observable_signature": "API mismatch, shared codebook where factor-specific domains are required, or incomparable noise semantics.",
@@ -146,6 +247,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011",
+        "gray1998quantization"
+      ],
+      "mechanistic_explanation": "Extra compute or tuning explores more hypotheses but fails to move the verified frontier once strong simpler baselines are matched.",
+      "resource_shortfall": [
+        "R7_DECODER_COMPUTE",
+        "R11_PREPROCESSING_OR_MATERIALIZATION"
+      ],
+      "detection_signal": "Shuffled controls or exact baselines match the more complex method.",
+      "mitigation": "equal-information, equal-bit, and equal-candidate controls",
+      "remaining_risk": "Wasted engineering effort and misleading optimization.",
       "failure_mode": "compute_non_dominance",
       "description": "A more complicated method adds compute but fails to create a better recovery-risk frontier.",
       "observable_signature": "Shuffled controls or exact baselines match the more complex method.",
@@ -166,6 +280,19 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "gray1998quantization",
+        "jegou2011pq"
+      ],
+      "mechanistic_explanation": "Compressed or packed structure increases byte complexity without preserving enough additional signal to beat equal-rate alternatives.",
+      "resource_shortfall": [
+        "R2_COORDINATE_PRECISION",
+        "R11_PREPROCESSING_OR_MATERIALIZATION"
+      ],
+      "detection_signal": "Equal-bit extra dimensions or ordinary sidecar storage dominates.",
+      "mitigation": "physical bit accounting and deployable-byte accounting",
+      "remaining_risk": "Bigger artifact and maintenance burden without scientific benefit.",
       "failure_mode": "storage_non_dominance",
       "description": "A compressed or packed representation adds storage complexity without creating a better recovery-storage point.",
       "observable_signature": "Equal-bit extra dimensions or ordinary sidecar storage dominates.",
@@ -184,6 +311,17 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "merkle_dag_git"
+      ],
+      "mechanistic_explanation": "Changing physical colocation without changing the information contract cannot create new recoverability by itself.",
+      "resource_shortfall": [
+        "R5_EXACT_SIDE_INFORMATION"
+      ],
+      "detection_signal": "Sidecar and inline packed variants have equal logical behavior and similar bytes/latency.",
+      "mitigation": "ordinary sidecar baselines",
+      "remaining_risk": "Can fuel architecture fiction without added capability.",
       "failure_mode": "packaging_non_benefit",
       "description": "A new physical packing layout does not create any information advantage over an ordinary sidecar.",
       "observable_signature": "Sidecar and inline packed variants have equal logical behavior and similar bytes/latency.",
@@ -202,6 +340,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "merkle_dag_git"
+      ],
+      "mechanistic_explanation": "An exact-looking pointer is still unsafe if record association and semantic commitment are not independently verified.",
+      "resource_shortfall": [
+        "R5_EXACT_SIDE_INFORMATION",
+        "R14_EXACT_FALLBACK"
+      ],
+      "detection_signal": "Manifest or capsule decodes structurally, but replay digest mismatches or provenance becomes inconsistent.",
+      "mitigation": "semantic commitment digests, record-association checks, typed failure codes",
+      "remaining_risk": "Potential silent false provenance if unguarded.",
       "failure_mode": "wrong_but_valid_exact_handle",
       "description": "An exact-looking operand or trace handle points to a real but wrong record.",
       "observable_signature": "Manifest or capsule decodes structurally, but replay digest mismatches or provenance becomes inconsistent.",
@@ -220,6 +370,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "merkle_dag_git"
+      ],
+      "mechanistic_explanation": "Exact structure preserves only what still exists and remains version-compatible in the authoritative store.",
+      "resource_shortfall": [
+        "R5_EXACT_SIDE_INFORMATION",
+        "R11_PREPROCESSING_OR_MATERIALIZATION"
+      ],
+      "detection_signal": "Typed failure such as DANGLING_OPERAND_REF or PARENT_VERSION_MISMATCH.",
+      "mitigation": "immutable/versioned record identities and transactional commit",
+      "remaining_risk": "Replay cannot continue and must not fabricate history.",
       "failure_mode": "dangling_or_stale_handle",
       "description": "A manifest references a missing parent or an outdated version.",
       "observable_signature": "Typed failure such as DANGLING_OPERAND_REF or PARENT_VERSION_MISMATCH.",
@@ -237,6 +399,17 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "selective_classification_survey"
+      ],
+      "mechanistic_explanation": "Post-hoc gate changes erase the boundary between exploratory tuning and confirmatory evaluation.",
+      "resource_shortfall": [
+        "R11_PREPROCESSING_OR_MATERIALIZATION"
+      ],
+      "detection_signal": "Blocked runner, missing gate semantics, or unauthorized protocol diffs.",
+      "mitigation": "prospective executable gate serialization and validator coverage",
+      "remaining_risk": "Invalid confirmatory claims.",
       "failure_mode": "protocol_leakage",
       "description": "Confirmatory logic is changed after seeing development or held-out outcomes.",
       "observable_signature": "Blocked runner, missing gate semantics, or unauthorized protocol diffs.",
@@ -255,6 +428,18 @@
       ]
     },
     {
+      "observed_in_repo": true,
+      "reported_in_literature": [
+        "satzilla2011"
+      ],
+      "mechanistic_explanation": "Pairwise rescue among weaker methods is irrelevant if one lawful method already covers the hard instances where routing was supposed to help.",
+      "resource_shortfall": [
+        "R12_DUAL_REPRESENTATION",
+        "R7_DECODER_COMPUTE"
+      ],
+      "detection_signal": "Direct oracle and verifier-constrained oracle match the best single method on hard/non-easy cells, while static routing captures any residual easy-cell latency trim.",
+      "mitigation": "paired trial matrices, verifier-constrained oracle, hard-cell pooling",
+      "remaining_risk": "Can rationalize unnecessary routing complexity while adding no verified coverage.",
       "failure_mode": "dominant_single_method",
       "description": "A prospective portfolio shows pairwise rescues among weaker methods, but one lawful method already covers the hard instances, erasing practical oracle gain.",
       "observable_signature": "Direct oracle and verifier-constrained oracle match the best single method on hard/non-easy cells, while static routing captures any residual easy-cell latency trim.",

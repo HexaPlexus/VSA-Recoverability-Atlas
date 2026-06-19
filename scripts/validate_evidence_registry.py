@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -29,6 +30,25 @@ CLAIM_STATUSES = {
     "BLOCKED",
     "DESIGN_PRINCIPLE",
     "OPEN",
+}
+
+COMPARABILITY_CLASSES = {
+    "DIRECT_COMMON_HARNESS",
+    "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+    "SAME_MECHANISM_DIFFERENT_CONTRACT",
+    "TAXONOMIC_ONLY",
+    "HARDWARE_ONLY",
+    "THEORETICAL_ONLY",
+}
+
+LITERATURE_EVIDENCE_STRENGTHS = {
+    "PRIMARY_EMPIRICAL",
+    "PRIMARY_THEORETICAL",
+    "OFFICIAL_IMPLEMENTATION",
+    "HARDWARE_SYNTHESIS",
+    "PHYSICAL_HARDWARE_MEASUREMENT",
+    "SURVEY_ONLY",
+    "CONCEPTUAL_ONLY",
 }
 
 
@@ -61,6 +81,7 @@ def main() -> int:
     claims = claim_payload.get("claims", [])  # type: ignore[assignment]
     failures = failure_payload.get("failures", [])  # type: ignore[assignment]
     prior_entries = prior_payload.get("entries", [])  # type: ignore[assignment]
+    manuscript_text = (PAPER_DIR / "manuscript.md").read_text(encoding="utf-8") if (PAPER_DIR / "manuscript.md").exists() else ""
 
     required_evidence_fields = {
         "hypothesis_id",
@@ -147,33 +168,129 @@ def main() -> int:
         for evidence_id in failure.get("evidence_refs", []):
             if evidence_id not in seen_hypotheses:
                 errors.append(f"Failure mode {failure_mode} references unknown evidence: {evidence_id}")
+        if "observed_in_repo" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing observed_in_repo.")
+        if "reported_in_literature" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing reported_in_literature.")
+        if "mechanistic_explanation" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing mechanistic_explanation.")
+        if "resource_shortfall" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing resource_shortfall.")
+        if "detection_signal" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing detection_signal.")
+        if "mitigation" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing mitigation.")
+        if "remaining_risk" not in failure:
+            errors.append(f"Failure mode {failure_mode} missing remaining_risk.")
 
     seen_prior: set[str] = set()
+    required_prior_fields = {
+        "citation_key",
+        "title",
+        "authors",
+        "year",
+        "venue",
+        "source_url_or_doi",
+        "official_code",
+        "vsa_family",
+        "algebra",
+        "representation",
+        "coordinate_precision",
+        "sparsity",
+        "binding_operation",
+        "bundling_operation",
+        "similarity_operation",
+        "task_category",
+        "task_contract",
+        "factor_count",
+        "candidate_domain",
+        "dimension",
+        "noise_contract",
+        "decoder",
+        "iterations",
+        "restarts",
+        "stopping_rule",
+        "side_information",
+        "external_prior",
+        "exact_metadata",
+        "reported_accuracy",
+        "reported_latency",
+        "reported_memory",
+        "reported_energy",
+        "reported_hardware",
+        "reported_scale",
+        "cost_location",
+        "failure_modes",
+        "limitations",
+        "comparability_class",
+        "closest_repo_hypotheses",
+        "closest_repo_evidence",
+        "transferable_claim",
+        "non_transferable_claim",
+        "anti_nih_verdict",
+        "evidence_strength",
+    }
     for entry in prior_entries:
         citation_key = entry.get("citation_key")
         if citation_key in seen_prior:
             errors.append(f"Duplicate citation_key: {citation_key}")
         seen_prior.add(citation_key)
+        missing = sorted(required_prior_fields - set(entry))
+        if missing:
+            errors.append(f"Prior-art entry {citation_key} missing fields: {missing}")
+        comparability_class = entry.get("comparability_class")
+        if comparability_class not in COMPARABILITY_CLASSES:
+            errors.append(f"Unsupported comparability class for {citation_key}: {comparability_class}")
+        evidence_strength = entry.get("evidence_strength")
+        if evidence_strength not in LITERATURE_EVIDENCE_STRENGTHS:
+            errors.append(f"Unsupported literature evidence strength for {citation_key}: {evidence_strength}")
         for evidence_id in entry.get("closest_repo_hypotheses", []):
             if evidence_id not in seen_hypotheses:
                 errors.append(f"Prior-art entry {citation_key} references unknown hypothesis: {evidence_id}")
+        cost_location = entry.get("cost_location", {})
+        if not isinstance(cost_location, dict):
+            errors.append(f"Prior-art entry {citation_key} cost_location is not a mapping.")
 
     required_generated = [
         PAPER_DIR / "hypothesis_matrix.csv",
         PAPER_DIR / "hypothesis_matrix.md",
         PAPER_DIR / "recoverability_cost_matrix.csv",
         PAPER_DIR / "recoverability_cost_matrix.md",
+        PAPER_DIR / "method_resource_atlas.csv",
+        PAPER_DIR / "method_resource_atlas.md",
         PAPER_DIR / "prior_art_matrix.csv",
         PAPER_DIR / "prior_art_matrix.md",
         PAPER_DIR / "claim_ledger.md",
         PAPER_DIR / "failure_mode_atlas.md",
         PAPER_DIR / "literature_transfer_matrix.md",
+        PAPER_DIR / "SYSTEMATIC_REVIEW_PROTOCOL.md",
+        PAPER_DIR / "literature_search_log.csv",
+        PAPER_DIR / "literature_screening.csv",
+        PAPER_DIR / "architectural_decision_guide.md",
+        PAPER_DIR / "REVIEWER_RISK_REGISTER.md",
         PAPER_DIR / "manuscript.md",
         PAPER_DIR / "supplementary_evidence_atlas.md",
     ]
     for path in required_generated:
         if not path.exists():
             errors.append(f"Missing generated artifact: {path.relative_to(ROOT)}")
+
+    claim_refs = set(re.findall(r"\[claim:(claim_[A-Za-z0-9_]+)\]", manuscript_text))
+    for claim_ref in claim_refs:
+        if claim_ref not in claim_ids:
+            errors.append(f"Manuscript references unknown claim id: {claim_ref}")
+    for required_claim in {
+        "claim_recoverability_resource_accounting",
+        "claim_current_map_bcf_escalation_not_cost_effective",
+        "claim_static_cell_route_sufficient_in_current_envelope",
+    }:
+        if required_claim not in claim_refs:
+            errors.append(f"Manuscript is missing required claim anchor: {required_claim}")
+
+    if "universal impossibility theorem" not in manuscript_text:
+        errors.append("Manuscript is missing the no-universal-impossibility scope guard.")
+    if "within the evaluated" not in manuscript_text:
+        errors.append("Manuscript is missing bounded-scope wording using 'within the evaluated ...'.")
 
     if errors:
         for error in errors:

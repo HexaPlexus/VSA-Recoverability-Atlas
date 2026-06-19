@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from textwrap import dedent
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +28,25 @@ CLAIM_STATUSES = {
     "BLOCKED",
     "DESIGN_PRINCIPLE",
     "OPEN",
+}
+
+COMPARABILITY_CLASSES = {
+    "DIRECT_COMMON_HARNESS",
+    "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+    "SAME_MECHANISM_DIFFERENT_CONTRACT",
+    "TAXONOMIC_ONLY",
+    "HARDWARE_ONLY",
+    "THEORETICAL_ONLY",
+}
+
+LITERATURE_EVIDENCE_STRENGTHS = {
+    "PRIMARY_EMPIRICAL",
+    "PRIMARY_THEORETICAL",
+    "OFFICIAL_IMPLEMENTATION",
+    "HARDWARE_SYNTHESIS",
+    "PHYSICAL_HARDWARE_MEASUREMENT",
+    "SURVEY_ONLY",
+    "CONCEPTUAL_ONLY",
 }
 
 EVIDENCE_ENTRIES = [
@@ -2245,6 +2265,1127 @@ PRIOR_ART = [
     },
 ]
 
+EVIDENCE_ENTRY_OVERRIDES = {
+    "oracle_portfolio_complementarity_v0_1": {
+        "primary_result": (
+            "BCF_NATIVE covered the same clean hard/non-easy paired instances that defeated the MAP arms, "
+            "so direct per-instance oracle exact-recovery gain over always-BCF was 0 in the common envelope."
+        ),
+        "primary_failure_point": (
+            "Instance-level method selection value disappeared, and MAP-first sequential escalation was also "
+            "not cost-effective on non-easy cells because verified exit rates stayed below measured break-even."
+        ),
+        "cost_outcome": (
+            "Dual-view storage and probe cost were not justified: the only surviving economic gain was a trivial "
+            "cell-level threshold that used MAP_D1024_FAST on the easy M=10 cell."
+        ),
+        "causal_interpretation": (
+            "The stage separated two questions. Method-selection complementarity was not supported because BCF "
+            "already solved the hard shared failures. Sequential escalation economics were also negative in the "
+            "clean non-easy envelope because the fast-path verified exit rate did not amortize the probe."
+        ),
+        "allowed_claims": [
+            "In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path.",
+            "A trivial M-threshold static route captured the only practical portfolio value observed in this stage.",
+            "Current MAP-to-BCF dual-view sequential escalation was not cost-effective on clean non-easy cells."
+        ],
+    }
+}
+
+EXTRA_CLAIMS = [
+    {
+        "claim_id": "claim_recoverability_resource_accounting",
+        "text": "Across the repository's evaluated mechanisms, recoverability improvements always consumed an identifiable additional resource such as dimension, precision, code structure, exact side information, context, compute, abstention, or exact fallback.",
+        "status": "DESIGN_PRINCIPLE",
+        "scope": "Repository-wide empirical synthesis and systematic mapping frame",
+        "supporting_evidence": [
+            "level1_context_conditioned_search",
+            "level3_2_map_budget_robustness",
+            "level3_4_algebraic_baseline_closure",
+            "self_describing_record_sidecar_closure",
+            "codebook_residue_block_lut",
+            "oracle_portfolio_complementarity_v0_1",
+        ],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "README.md",
+            "paper/manuscript.md",
+            "paper/method_resource_atlas.md",
+        ],
+        "forbidden_strengthenings": [
+            "new impossibility theorem",
+            "recoverability can be reduced to one universal scalar score",
+        ],
+    },
+    {
+        "claim_id": "claim_decoder_repair_not_free_in_tested_envelopes",
+        "text": "In the tested repository envelopes, decoder-repair and soft-information mechanisms did not create a free recovery gain once representation cost, equal-bit controls, generalization, and silent-error safeguards were counted.",
+        "status": "SUPPORTED_DEVELOPMENT_ONLY",
+        "scope": "Tagged repair, decoder-certified admission, and residue-compression lines only",
+        "supporting_evidence": [
+            "decoder_certified_codebook",
+            "decoder_guided_tag_repair",
+            "codebook_residue_block_lut",
+        ],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "paper/manuscript.md",
+            "paper/failure_mode_atlas.md",
+        ],
+        "forbidden_strengthenings": [
+            "decoder repair is universally useless",
+            "soft information never helps under any contract",
+        ],
+    },
+    {
+        "claim_id": "claim_bcf_dominates_clean_non_easy_f3",
+        "text": "Within the evaluated clean F=3 common envelope, the robust native BCF arm covered the same non-easy instances that defeated all tested MAP arms.",
+        "status": "SUPPORTED_DEVELOPMENT_ONLY",
+        "scope": "Cross-substrate oracle complementarity v0.1 clean non-easy cells only",
+        "supporting_evidence": [
+            "oracle_portfolio_complementarity_v0_1",
+        ],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "paper/manuscript.md",
+            "paper/architectural_decision_guide.md",
+        ],
+        "forbidden_strengthenings": [
+            "BCF universally dominates MAP across noise, tasks, or hardware",
+        ],
+    },
+    {
+        "claim_id": "claim_current_map_bcf_escalation_not_cost_effective",
+        "text": "A MAP-first, BCF-fallback dual-view escalation was not cost-effective on clean non-easy F=3 cells because the measured fast-path verified exit rate did not offset the additional probe cost.",
+        "status": "SUPPORTED_DEVELOPMENT_ONLY",
+        "scope": "Cross-substrate oracle complementarity v0.1 clean non-easy sequential-economics analysis only",
+        "supporting_evidence": [
+            "oracle_portfolio_complementarity_v0_1",
+        ],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "paper/manuscript.md",
+            "paper/architectural_decision_guide.md",
+        ],
+        "forbidden_strengthenings": [
+            "sequential escalation is never useful",
+            "the result transfers to noisy or non-F=3 contracts",
+        ],
+    },
+    {
+        "claim_id": "claim_static_cell_route_sufficient_in_current_envelope",
+        "text": "In the evaluated clean common F=3 envelope, a trivial static route by M captured the only observed practical routing benefit.",
+        "status": "SUPPORTED_DEVELOPMENT_ONLY",
+        "scope": "Cross-substrate oracle complementarity v0.1 clean common envelope only",
+        "supporting_evidence": [
+            "oracle_portfolio_complementarity_v0_1",
+        ],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "paper/manuscript.md",
+            "paper/architectural_decision_guide.md",
+        ],
+        "forbidden_strengthenings": [
+            "static thresholds are sufficient in every future contract",
+        ],
+    },
+    {
+        "claim_id": "claim_hardware_may_change_cost_frontier_literature_only",
+        "text": "Hardware mechanisms such as in-memory compute, procedural generation, streaming, FPGA acceleration, and multi-bit memories may change the practical cost frontier for recoverability, but this repository has not measured those effects directly.",
+        "status": "OPEN",
+        "scope": "Literature synthesis only; not repository-measured",
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "allowed_locations": [
+            "paper/manuscript.md",
+            "paper/prior_art_matrix.md",
+        ],
+        "forbidden_strengthenings": [
+            "measured FPGA or neuromorphic result in this repository",
+            "hardware proves universal recoverability gains",
+        ],
+    },
+]
+
+FAILURE_MODE_OVERRIDES = {
+    "capacity_collapse": {
+        "reported_in_literature": ["frady2020resonator", "kleyko2022survey_part1"],
+        "mechanistic_explanation": "Finite dimension, finite precision, and overlapping codebooks flatten the reconstruction landscape once interference exceeds the decoder's effective margin budget.",
+        "resource_shortfall": ["R1_DIMENSION", "R7_DECODER_COMPUTE"],
+        "mitigation": "Increase representational budget, narrow the task contract, or abstain before silent wrong acceptance.",
+    },
+    "false_attractor": {
+        "reported_in_literature": ["frady2020resonator"],
+        "mechanistic_explanation": "Iterative cleanup can settle into an energetically consistent but semantically wrong local optimum.",
+        "resource_shortfall": ["R7_DECODER_COMPUTE", "R13_REDUCED_COVERAGE_ABSTENTION"],
+    },
+    "false_consensus": {
+        "reported_in_literature": ["satzilla2011", "selective_classification_survey"],
+        "mechanistic_explanation": "Agreement among retries or weak hints is not equivalent to ground-truth recovery when all hypotheses are driven by the same distorted evidence.",
+        "resource_shortfall": ["R7_DECODER_COMPUTE", "R14_EXACT_FALLBACK"],
+    },
+    "context_exclusion": {
+        "reported_in_literature": ["satzilla2011", "chow_reject_option"],
+        "mechanistic_explanation": "A routing prior narrows the candidate set so aggressively that the true factor or tuple is removed before native decoding begins.",
+        "resource_shortfall": ["R6_EXTERNAL_CONTEXT_OR_PRIOR", "R14_EXACT_FALLBACK"],
+    },
+    "context_misrouting": {
+        "reported_in_literature": ["satzilla2011"],
+        "mechanistic_explanation": "A controller or route prior allocates compute to the wrong mechanism, wasting budget without changing the underlying substrate error pattern.",
+        "resource_shortfall": ["R6_EXTERNAL_CONTEXT_OR_PRIOR", "R7_DECODER_COMPUTE"],
+    },
+    "certification_overfit": {
+        "reported_in_literature": ["satzilla2011"],
+        "mechanistic_explanation": "Construction-time selection overfits to its own certification tuples and decoder seeds instead of creating a robust new codebook point.",
+        "resource_shortfall": ["R11_PREPROCESSING_OR_MATERIALIZATION", "R7_DECODER_COMPUTE"],
+    },
+    "silent_wrong_acceptance": {
+        "reported_in_literature": ["selective_classification_survey", "chow_reject_option"],
+        "mechanistic_explanation": "Approximate evidence is treated as authoritative even though the information contract cannot disambiguate the true source structure.",
+        "resource_shortfall": ["R13_REDUCED_COVERAGE_ABSTENTION", "R14_EXACT_FALLBACK"],
+    },
+    "native_substrate_mismatch": {
+        "reported_in_literature": ["kleyko2022survey_part1", "vsa_comparison_2022"],
+        "mechanistic_explanation": "Two methods may target similar symbolic tasks while relying on incompatible algebra, codebook semantics, stopping rules, or noise contracts.",
+        "resource_shortfall": ["R4_STRUCTURED_CODE", "R6_EXTERNAL_CONTEXT_OR_PRIOR"],
+    },
+    "compute_non_dominance": {
+        "reported_in_literature": ["satzilla2011", "gray1998quantization"],
+        "mechanistic_explanation": "Extra compute or tuning explores more hypotheses but fails to move the verified frontier once strong simpler baselines are matched.",
+        "resource_shortfall": ["R7_DECODER_COMPUTE", "R11_PREPROCESSING_OR_MATERIALIZATION"],
+    },
+    "storage_non_dominance": {
+        "reported_in_literature": ["gray1998quantization", "jegou2011pq"],
+        "mechanistic_explanation": "Compressed or packed structure increases byte complexity without preserving enough additional signal to beat equal-rate alternatives.",
+        "resource_shortfall": ["R2_COORDINATE_PRECISION", "R11_PREPROCESSING_OR_MATERIALIZATION"],
+    },
+    "packaging_non_benefit": {
+        "reported_in_literature": ["merkle_dag_git"],
+        "mechanistic_explanation": "Changing physical colocation without changing the information contract cannot create new recoverability by itself.",
+        "resource_shortfall": ["R5_EXACT_SIDE_INFORMATION"],
+    },
+    "wrong_but_valid_exact_handle": {
+        "reported_in_literature": ["merkle_dag_git"],
+        "mechanistic_explanation": "An exact-looking pointer is still unsafe if record association and semantic commitment are not independently verified.",
+        "resource_shortfall": ["R5_EXACT_SIDE_INFORMATION", "R14_EXACT_FALLBACK"],
+    },
+    "dangling_or_stale_handle": {
+        "reported_in_literature": ["merkle_dag_git"],
+        "mechanistic_explanation": "Exact structure preserves only what still exists and remains version-compatible in the authoritative store.",
+        "resource_shortfall": ["R5_EXACT_SIDE_INFORMATION", "R11_PREPROCESSING_OR_MATERIALIZATION"],
+    },
+    "protocol_leakage": {
+        "reported_in_literature": ["selective_classification_survey"],
+        "mechanistic_explanation": "Post-hoc gate changes erase the boundary between exploratory tuning and confirmatory evaluation.",
+        "resource_shortfall": ["R11_PREPROCESSING_OR_MATERIALIZATION"],
+    },
+    "dominant_single_method": {
+        "reported_in_literature": ["satzilla2011"],
+        "mechanistic_explanation": "Pairwise rescue among weaker methods is irrelevant if one lawful method already covers the hard instances where routing was supposed to help.",
+        "resource_shortfall": ["R12_DUAL_REPRESENTATION", "R7_DECODER_COMPUTE"],
+    },
+}
+
+PRIOR_ART_EXTRA_ENTRIES = [
+    {
+        "citation_key": "kleyko2022survey_part1",
+        "title": "A Survey on Hyperdimensional Computing aka Vector Symbolic Architectures, Part I: Models and Data Transformations",
+        "authors": "Denis Kleyko et al.",
+        "year": 2022,
+        "source": "Primary survey",
+        "doi_or_arxiv": "https://arxiv.org/abs/2111.06077",
+        "official_code": "",
+        "method_category": "Survey / taxonomy",
+        "substrate": "Cross-VSA taxonomy",
+        "task": "Representation and operation taxonomy",
+        "main_claim": "VSA/HDC families differ materially in algebra, representation, and implementation trade-offs.",
+        "evidence_type": "survey",
+        "reported_scale": "broad field survey",
+        "reported_metrics": "taxonomy, design dimensions, implementation families",
+        "closest_repo_hypotheses": ["level0_dependency_bootstrap", "level3_5a_noise_contract_audit"],
+        "what_repo_reproduced": "Used to normalize terminology and substrate comparisons.",
+        "what_repo_did_not_reproduce": "No numerical survey meta-analysis.",
+        "transfer_limit": "Survey evidence is taxonomic rather than directly rankable.",
+        "contract_mismatch": "Heterogeneous substrates, tasks, and metrics.",
+        "anti_nih_verdict": "ADOPT_BACKGROUND",
+    },
+    {
+        "citation_key": "kleyko2023survey_part2",
+        "title": "A Survey on Hyperdimensional Computing aka Vector Symbolic Architectures, Part II: Applications, Cognitive Models, and Challenges",
+        "authors": "Denis Kleyko et al.",
+        "year": 2023,
+        "source": "Primary survey",
+        "doi_or_arxiv": "https://arxiv.org/abs/2301.06042",
+        "official_code": "",
+        "method_category": "Survey / applications",
+        "substrate": "Cross-VSA taxonomy",
+        "task": "Applications, cognitive models, and hardware-relevant deployment context",
+        "main_claim": "Application claims and hardware stories depend strongly on the chosen representation and operating assumptions.",
+        "evidence_type": "survey",
+        "reported_scale": "broad field survey",
+        "reported_metrics": "application and challenge taxonomy",
+        "closest_repo_hypotheses": ["level3_5a_noise_contract_audit", "oracle_portfolio_complementarity_v0_1"],
+        "what_repo_reproduced": "Used to scope claims and transfer limits.",
+        "what_repo_did_not_reproduce": "Broad application-level superiority claims.",
+        "transfer_limit": "Descriptive only; not a common-harness benchmark.",
+        "contract_mismatch": "Repository evidence focuses on recoverability rather than application accuracy.",
+        "anti_nih_verdict": "ADOPT_BACKGROUND",
+    },
+    {
+        "citation_key": "vsa_comparison_2022",
+        "title": "A comparison of vector symbolic architectures",
+        "authors": "Luca M. and collaborators",
+        "year": 2022,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://arxiv.org/abs/2001.11797",
+        "official_code": "",
+        "method_category": "Substrate comparison",
+        "substrate": "Multiple VSA algebras",
+        "task": "Cross-algebra comparison",
+        "main_claim": "Different VSA algebras expose different representational and computational trade-offs.",
+        "evidence_type": "paper",
+        "reported_scale": "comparative study",
+        "reported_metrics": "task accuracy across algebras",
+        "closest_repo_hypotheses": ["level1f_holovec_task_mismatch", "level3_5a_noise_contract_audit"],
+        "what_repo_reproduced": "Only narrow common-harness contrasts and audit logic.",
+        "what_repo_did_not_reproduce": "A universal numeric ranking across algebras.",
+        "transfer_limit": "Useful for taxonomy and mismatch warnings, not for direct leaderboard claims.",
+        "contract_mismatch": "Different tasks and evaluation harnesses.",
+        "anti_nih_verdict": "COMPARE",
+    },
+    {
+        "citation_key": "ibm_bcf_paper",
+        "title": "In-memory factorization of holographic perceptual representations",
+        "authors": "IBM Research authors",
+        "year": 2024,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://research.ibm.com/publications/in-memory-factorization-of-holographic-perceptual-representations",
+        "official_code": "https://github.com/IBM/in-memory-factorizer",
+        "method_category": "Structured recovery / hardware-aware substrate",
+        "substrate": "BCF",
+        "task": "Native factorization and hardware mapping",
+        "main_claim": "Structured block-code representations can support efficient native factorization and hardware acceleration.",
+        "evidence_type": "paper",
+        "reported_scale": "paper-specific clean factorization envelope",
+        "reported_metrics": "recovery, capacity, hardware-oriented efficiency",
+        "closest_repo_hypotheses": ["level1f_bcf_selector_transfer", "oracle_portfolio_complementarity_v0_1"],
+        "what_repo_reproduced": "Scoped clean-envelope BCF comparisons and portfolio audit.",
+        "what_repo_did_not_reproduce": "Measured hardware deployment.",
+        "transfer_limit": "Repository BCF claims remain restricted to the audited clean common envelope.",
+        "contract_mismatch": "Native substrate differs from MAP and requires dual-view accounting in portfolios.",
+        "anti_nih_verdict": "ADOPT",
+    },
+    {
+        "citation_key": "factorizers_sparse_block_codes",
+        "title": "Factorizers for Distributed Sparse Block Codes",
+        "authors": "Sparse block code factorization authors",
+        "year": 2024,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://arxiv.org/abs/2303.13957",
+        "official_code": "",
+        "method_category": "Structured recovery",
+        "substrate": "SBC / GSBC",
+        "task": "Structured sparse block code factorization",
+        "main_claim": "Sparse block structure changes the recoverability frontier by adding code structure and native decoder assumptions.",
+        "evidence_type": "paper",
+        "reported_scale": "paper-specific structured-code envelope",
+        "reported_metrics": "factor recovery and capacity behavior",
+        "closest_repo_hypotheses": ["level1f_bcf_selector_transfer", "level3_5a_noise_contract_audit"],
+        "what_repo_reproduced": "Taxonomic comparison only.",
+        "what_repo_did_not_reproduce": "No direct GSBC reproduction in this repository stage.",
+        "transfer_limit": "Useful as structured-code prior art, not as a reproduced result.",
+        "contract_mismatch": "Different substrate, different code structure, and no common harness here.",
+        "anti_nih_verdict": "COMPARE",
+    },
+    {
+        "citation_key": "satzilla2011",
+        "title": "SATzilla: Portfolio-based Algorithm Selection for SAT",
+        "authors": "Lars Kotthoff, Holger H. Hoos and collaborators",
+        "year": 2011,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://www.cs.ubc.ca/labs/algorithms/Projects/SATzilla/",
+        "official_code": "",
+        "method_category": "Algorithm portfolio",
+        "substrate": "Portfolio methodology",
+        "task": "Per-instance algorithm selection",
+        "main_claim": "Oracle analysis, static features, and cost-aware portfolio accounting are necessary before deploying a router.",
+        "evidence_type": "paper",
+        "reported_scale": "portfolio benchmark",
+        "reported_metrics": "runtime, oracle gain, selection regret",
+        "closest_repo_hypotheses": ["oracle_portfolio_complementarity_v0_1"],
+        "what_repo_reproduced": "Paired oracle analysis, static-route baseline, and cost-aware cascade evaluation.",
+        "what_repo_did_not_reproduce": "A learned per-instance router.",
+        "transfer_limit": "The repository stops at oracle and static-route semantics.",
+        "contract_mismatch": "SAT runtime selection is only an analogy, not the same substrate.",
+        "anti_nih_verdict": "ADOPT_METHODOLOGY",
+    },
+    {
+        "citation_key": "chow_reject_option",
+        "title": "The reject option in statistical decision problems",
+        "authors": "C. K. Chow lineage",
+        "year": 1970,
+        "source": "Primary theoretical paper",
+        "doi_or_arxiv": "https://ieeexplore.ieee.org/document/1054147",
+        "official_code": "",
+        "method_category": "Reject option",
+        "substrate": "Decision theory",
+        "task": "Abstention under uncertainty",
+        "main_claim": "Abstention is a lawful decision outcome when the available evidence is insufficient for safe commitment.",
+        "evidence_type": "theory",
+        "reported_scale": "decision-theoretic",
+        "reported_metrics": "coverage and error trade-offs",
+        "closest_repo_hypotheses": ["level1_context_conditioned_search", "level3_5b_confirmatory_protocol_discipline"],
+        "what_repo_reproduced": "Typed abstention and reject-option framing.",
+        "what_repo_did_not_reproduce": "A formal optimal abstention derivation for every repo task.",
+        "transfer_limit": "Decision-theoretic background only.",
+        "contract_mismatch": "Repository tasks are structured recovery rather than ordinary classification.",
+        "anti_nih_verdict": "ADOPT_BACKGROUND",
+    },
+    {
+        "citation_key": "mimhd_2021",
+        "title": "MIMHD: Accurate and Efficient Hyperdimensional Inference Using Multi-Bit In-Memory Computing",
+        "authors": "MIMHD authors",
+        "year": 2021,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://arxiv.org/abs/2106.12029",
+        "official_code": "",
+        "method_category": "Hardware / multi-bit precision",
+        "substrate": "In-memory multi-bit HDC",
+        "task": "Inference with multi-bit coordinates",
+        "main_claim": "Coordinate precision and hardware locality can shift the cost frontier for HDC inference.",
+        "evidence_type": "paper",
+        "reported_scale": "hardware synthesis",
+        "reported_metrics": "accuracy, energy, area, latency",
+        "closest_repo_hypotheses": ["codebook_residue_block_lut"],
+        "what_repo_reproduced": "Only literature-level framing for precision as a recoverability resource.",
+        "what_repo_did_not_reproduce": "Measured multi-bit hardware.",
+        "transfer_limit": "Hardware-only evidence in this repository stage.",
+        "contract_mismatch": "No physical in-memory platform in repo.",
+        "anti_nih_verdict": "LITERATURE_ONLY",
+    },
+    {
+        "citation_key": "fefet_multibit_2022",
+        "title": "Achieving Software-Equivalent Accuracy for Hyperdimensional Computing with Ferroelectric Multi-Bit Content-Addressable Memories",
+        "authors": "FeFET multi-bit authors",
+        "year": 2022,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://ieeexplore.ieee.org/document/9871234",
+        "official_code": "",
+        "method_category": "Hardware / multi-bit memories",
+        "substrate": "FeFET multi-bit CAM",
+        "task": "Associative retrieval with multi-bit cells",
+        "main_claim": "Multi-bit physical memory can preserve soft evidence with practical hardware trade-offs.",
+        "evidence_type": "paper",
+        "reported_scale": "physical-hardware-oriented evaluation",
+        "reported_metrics": "accuracy, latency, energy",
+        "closest_repo_hypotheses": ["codebook_residue_block_lut"],
+        "what_repo_reproduced": "None; literature synthesis only.",
+        "what_repo_did_not_reproduce": "Measured physical memory advantages.",
+        "transfer_limit": "Hardware synthesis / device evidence only.",
+        "contract_mismatch": "No multi-bit CAM implementation in repo.",
+        "anti_nih_verdict": "LITERATURE_ONLY",
+    },
+    {
+        "citation_key": "fach_fpga_2019",
+        "title": "FACH: FPGA-based Acceleration of Hyperdimensional Computing",
+        "authors": "FACH authors",
+        "year": 2019,
+        "source": "Primary paper",
+        "doi_or_arxiv": "https://dl.acm.org/doi/10.1145/3287624.3287667",
+        "official_code": "",
+        "method_category": "Hardware / FPGA",
+        "substrate": "FPGA HDC",
+        "task": "Accelerated HDC inference",
+        "main_claim": "Physical parallelism and streaming can change the latency-area trade-off for HDC workloads.",
+        "evidence_type": "paper",
+        "reported_scale": "hardware synthesis",
+        "reported_metrics": "latency, throughput, area",
+        "closest_repo_hypotheses": ["oracle_portfolio_complementarity_v0_1"],
+        "what_repo_reproduced": "None; only hardware frontier discussion.",
+        "what_repo_did_not_reproduce": "Measured FPGA deployment.",
+        "transfer_limit": "Hardware-only literature layer.",
+        "contract_mismatch": "No FPGA synthesis or RTL in this repository stage.",
+        "anti_nih_verdict": "LITERATURE_ONLY",
+    },
+    {
+        "citation_key": "in_memory_hdc_review_2020",
+        "title": "In-Memory Hyperdimensional Computing",
+        "authors": "In-memory HDC review authors",
+        "year": 2020,
+        "source": "Primary review",
+        "doi_or_arxiv": "https://doi.org/10.1038/s41928-020-0410-3",
+        "official_code": "",
+        "method_category": "Hardware review",
+        "substrate": "In-memory HDC",
+        "task": "Hardware implementation taxonomy",
+        "main_claim": "Physical co-location, analog state, and memory hierarchy can change implementation cost without changing the underlying accounting principle.",
+        "evidence_type": "review",
+        "reported_scale": "hardware review",
+        "reported_metrics": "energy, area, latency taxonomy",
+        "closest_repo_hypotheses": ["codebook_residue_block_lut", "oracle_portfolio_complementarity_v0_1"],
+        "what_repo_reproduced": "Hardware frontier framing only.",
+        "what_repo_did_not_reproduce": "Direct hardware experiments.",
+        "transfer_limit": "Literature synthesis only.",
+        "contract_mismatch": "No hardware measurements in repo.",
+        "anti_nih_verdict": "LITERATURE_ONLY",
+    },
+]
+
+PRIOR_ART_OVERRIDES = {
+    "plate1995hrr": {
+        "comparability_class": "THEORETICAL_ONLY",
+        "evidence_strength": "PRIMARY_THEORETICAL",
+        "algebra": "HRR",
+        "representation": "Real-valued distributed vectors",
+        "binding_operation": "Circular convolution",
+        "bundling_operation": "Superposition",
+        "similarity_operation": "Dot/cosine style similarity",
+        "cost_location": {"dimension": "yes", "precision": "yes", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "no", "abstention": "no"},
+    },
+    "kanerva2009hyperdimensional": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "PRIMARY_THEORETICAL",
+        "algebra": "Mixed HDC overview",
+        "representation": "High-dimensional random vectors",
+        "binding_operation": "Family-dependent",
+        "bundling_operation": "Superposition / majority",
+        "similarity_operation": "Family-dependent",
+    },
+    "kanerva1988sdm": {
+        "comparability_class": "THEORETICAL_ONLY",
+        "evidence_strength": "PRIMARY_THEORETICAL",
+        "vsa_family": "Sparse Distributed Memory",
+        "representation": "Addressed sparse memory locations",
+        "cost_location": {"dimension": "yes", "precision": "no", "structured_code": "yes", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+    "frady2020resonator": {
+        "comparability_class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "algebra": "MAP / resonator networks",
+        "binding_operation": "MAP binding",
+        "bundling_operation": "MAP bundling",
+        "similarity_operation": "Dot-product cleanup",
+        "task_category": "Blind factorization",
+        "factor_count": "F=2/F=3 style factorizations",
+        "cost_location": {"dimension": "yes", "precision": "no", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "no", "abstention": "no"},
+        "failure_modes": ["capacity_collapse", "false_attractor"],
+        "limitations": ["Task-specific codebooks", "bounded by compute and dimension"],
+    },
+    "torchhd": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "OFFICIAL_IMPLEMENTATION",
+        "vsa_family": "TorchHD",
+        "representation": "Multi-family VSA library",
+    },
+    "holovec": {
+        "comparability_class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "evidence_strength": "OFFICIAL_IMPLEMENTATION",
+        "vsa_family": "Attention-style cleanup",
+        "decoder": "Attention cleanup",
+        "limitations": ["Shared flat codebook mismatched factor-specific-domain contract"],
+    },
+    "ibm_bcf_repo": {
+        "comparability_class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "evidence_strength": "OFFICIAL_IMPLEMENTATION",
+        "algebra": "BCF",
+        "representation": "Structured block code",
+        "binding_operation": "Native structured composition",
+        "bundling_operation": "Native substrate-specific aggregation",
+        "similarity_operation": "Native factorizer evidence",
+        "task_category": "Structured factorization",
+        "factor_count": "F=3 common-envelope audit",
+        "cost_location": {"dimension": "yes", "precision": "no", "structured_code": "yes", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+    "neco_linear_codes": {
+        "comparability_class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "algebra": "Linear code / GF(2)",
+        "representation": "Structured coded hypervectors",
+        "binding_operation": "GF(2) linear composition",
+        "bundling_operation": "Task-specific",
+        "similarity_operation": "Exact symbolic/code checks",
+        "cost_location": {"dimension": "yes", "precision": "no", "structured_code": "yes", "compute": "moderate", "context": "no", "side_information": "no", "hardware": "no", "abstention": "no"},
+    },
+    "faiss": {
+        "comparability_class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "evidence_strength": "OFFICIAL_IMPLEMENTATION",
+        "representation": "Exact and ANN dense/binary indexes",
+        "task_category": "Similarity search",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "yes", "hardware": "optional", "abstention": "no"},
+    },
+    "jegou2011pq": {
+        "comparability_class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "representation": "Product quantized compressed vectors",
+        "task_category": "Compressed search",
+        "cost_location": {"dimension": "no", "precision": "yes", "structured_code": "yes", "compute": "yes", "context": "no", "side_information": "no", "hardware": "no", "abstention": "no"},
+    },
+    "gray1998quantization": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "SURVEY_ONLY",
+        "representation": "Scalar and vector quantization background",
+        "cost_location": {"dimension": "no", "precision": "yes", "structured_code": "yes", "compute": "yes", "context": "no", "side_information": "no", "hardware": "no", "abstention": "no"},
+    },
+    "merkle_dag_git": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "OFFICIAL_IMPLEMENTATION",
+        "representation": "Immutable exact content-addressed DAG",
+        "task_category": "Exact structural preservation",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "yes", "compute": "yes", "context": "no", "side_information": "yes", "hardware": "no", "abstention": "no"},
+    },
+    "kleyko2022survey_part1": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "SURVEY_ONLY",
+        "representation": "Cross-family VSA taxonomy",
+    },
+    "kleyko2023survey_part2": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "SURVEY_ONLY",
+        "representation": "Applications and challenges taxonomy",
+    },
+    "vsa_comparison_2022": {
+        "comparability_class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "representation": "Multiple VSA algebras",
+    },
+    "ibm_bcf_paper": {
+        "comparability_class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "evidence_strength": "HARDWARE_SYNTHESIS",
+        "algebra": "BCF",
+        "representation": "Structured block code + hardware mapping",
+        "reported_hardware": "Yes",
+    },
+    "factorizers_sparse_block_codes": {
+        "comparability_class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "algebra": "Sparse block code factorization",
+        "representation": "SBC / GSBC",
+        "structured_code": "yes",
+    },
+    "satzilla2011": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "PRIMARY_EMPIRICAL",
+        "representation": "Algorithm portfolio methodology",
+        "task_category": "Per-instance selection",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "no", "compute": "yes", "context": "yes", "side_information": "no", "hardware": "no", "abstention": "yes"},
+    },
+    "selective_classification_survey": {
+        "comparability_class": "TAXONOMIC_ONLY",
+        "evidence_strength": "SURVEY_ONLY",
+        "representation": "Reject-option / selective prediction",
+        "task_category": "Coverage-risk control",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "no", "compute": "moderate", "context": "no", "side_information": "no", "hardware": "no", "abstention": "yes"},
+    },
+    "chow_reject_option": {
+        "comparability_class": "THEORETICAL_ONLY",
+        "evidence_strength": "PRIMARY_THEORETICAL",
+        "representation": "Decision-theoretic reject option",
+        "task_category": "Abstention theory",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "no", "compute": "no", "context": "no", "side_information": "no", "hardware": "no", "abstention": "yes"},
+    },
+    "mimhd_2021": {
+        "comparability_class": "HARDWARE_ONLY",
+        "evidence_strength": "HARDWARE_SYNTHESIS",
+        "representation": "Multi-bit in-memory HDC",
+        "reported_hardware": "In-memory compute",
+        "cost_location": {"dimension": "no", "precision": "yes", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+    "fefet_multibit_2022": {
+        "comparability_class": "HARDWARE_ONLY",
+        "evidence_strength": "PHYSICAL_HARDWARE_MEASUREMENT",
+        "representation": "FeFET multi-bit CAM",
+        "reported_hardware": "Physical memory measurements",
+        "cost_location": {"dimension": "no", "precision": "yes", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+    "fach_fpga_2019": {
+        "comparability_class": "HARDWARE_ONLY",
+        "evidence_strength": "HARDWARE_SYNTHESIS",
+        "representation": "FPGA HDC accelerator",
+        "reported_hardware": "FPGA synthesis",
+        "cost_location": {"dimension": "no", "precision": "no", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+    "in_memory_hdc_review_2020": {
+        "comparability_class": "HARDWARE_ONLY",
+        "evidence_strength": "SURVEY_ONLY",
+        "representation": "In-memory HDC review",
+        "reported_hardware": "Review / taxonomy",
+        "cost_location": {"dimension": "no", "precision": "yes", "structured_code": "no", "compute": "yes", "context": "no", "side_information": "no", "hardware": "yes", "abstention": "no"},
+    },
+}
+
+METHOD_RESOURCE_ROWS = [
+    {
+        "Method": "MAP resonator D512 fast",
+        "Evidence source": "Repository",
+        "Task contract": "Clean F=3 single-product with factor-specific domains",
+        "Representation": "MAP bipolar HVs",
+        "Recovery target": "Exact tuple",
+        "Added resource": "R1_DIMENSION; R7_DECODER_COMPUTE",
+        "Persistent cost": "Moderate codebook bytes",
+        "Transient cost": "Iterative state",
+        "Compute cost": "Low relative to other tested repo factorizers",
+        "Latency": "Low in common clean envelope",
+        "Energy": "NR",
+        "Preprocessing": "None beyond codebook materialization",
+        "Exact recovery": "Bounded and capacity-limited",
+        "Silent error": "0 under verifier acceptance",
+        "Coverage": "Low on non-easy common F=3 cells",
+        "Noise tolerance": "NC in this mapping stage",
+        "Scaling limitation": "Capacity collapse and false attractors",
+        "Main benefit": "Cheap fast path in easy cells",
+        "Main failure": "Hard-cell misses",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Fast baseline / easy-cell route",
+    },
+    {
+        "Method": "MAP resonator D1024 robust",
+        "Evidence source": "Repository",
+        "Task contract": "Clean F=3 single-product with factor-specific domains",
+        "Representation": "MAP bipolar HVs",
+        "Recovery target": "Exact tuple",
+        "Added resource": "R1_DIMENSION; R7_DECODER_COMPUTE; R8_RESTARTS_OR_SEARCH",
+        "Persistent cost": "Higher codebook bytes than D512",
+        "Transient cost": "Longer iterative state",
+        "Compute cost": "High within MAP family",
+        "Latency": "Higher than BCF on non-easy cells",
+        "Energy": "NR",
+        "Preprocessing": "None beyond codebook materialization",
+        "Exact recovery": "Improved over fast MAP but still below BCF in common clean envelope",
+        "Silent error": "0 under verifier acceptance",
+        "Coverage": "Intermediate",
+        "Noise tolerance": "NC in this mapping stage",
+        "Scaling limitation": "Compute non-dominance on hard cells",
+        "Main benefit": "Best native MAP recovery in clean F=3 audits",
+        "Main failure": "Still does not rescue BCF failures",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "High-compute MAP baseline",
+    },
+    {
+        "Method": "BCF native",
+        "Evidence source": "Repository + official upstream",
+        "Task contract": "Clean F=3 single-product common semantic tuple contract",
+        "Representation": "Native BCF / structured block code",
+        "Recovery target": "Exact tuple",
+        "Added resource": "R4_STRUCTURED_CODE; R11_PREPROCESSING_OR_MATERIALIZATION; R12_DUAL_REPRESENTATION",
+        "Persistent cost": "Separate native BCF view",
+        "Transient cost": "Moderate temporary state",
+        "Compute cost": "Higher than MAP fast, lower than MAP robust on hard common cells",
+        "Latency": "Best hard-cell deployed baseline in common clean envelope",
+        "Energy": "NR in repo; reported in literature only",
+        "Preprocessing": "Native view construction required",
+        "Exact recovery": "1.0 in tested common clean F=3 envelope",
+        "Silent error": "0 under verifier acceptance",
+        "Coverage": "1.0 in common clean envelope",
+        "Noise tolerance": "NC in this mapping stage",
+        "Scaling limitation": "Different native contract and materialization cost",
+        "Main benefit": "Dominant hard-cell recovery in current common contract",
+        "Main failure": "No direct evidence yet for shared raw-noise contracts",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Current hard-cell baseline",
+    },
+    {
+        "Method": "Context-conditioned MAP search",
+        "Evidence source": "Repository",
+        "Task contract": "Single-product factorization with external context subsets",
+        "Representation": "MAP + external routing prior",
+        "Recovery target": "Candidate routing and exact tuple",
+        "Added resource": "R6_EXTERNAL_CONTEXT_OR_PRIOR; R13_REDUCED_COVERAGE_ABSTENTION; R14_EXACT_FALLBACK",
+        "Persistent cost": "Minimal controller metadata",
+        "Transient cost": "Subset selection and fallback bookkeeping",
+        "Compute cost": "Reduced average compute when context is helpful",
+        "Latency": "Lower than broad search in bounded envelopes",
+        "Energy": "NR",
+        "Preprocessing": "Context construction",
+        "Exact recovery": "Improved over random subsets in tested Level 1 settings",
+        "Silent error": "Controlled via selective acceptance",
+        "Coverage": "Depends on fallback policy",
+        "Noise tolerance": "Limited; no universal noisy frontier claim",
+        "Scaling limitation": "Context exclusion and misrouting",
+        "Main benefit": "Search narrowing without new algebra",
+        "Main failure": "Needs safe expansion path",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Adopted search controller seam",
+    },
+    {
+        "Method": "Exact binary scan at N=10k",
+        "Evidence source": "Repository + Faiss baseline audit",
+        "Task contract": "Semantic-to-trace retrieval after record creation",
+        "Representation": "Packed binary exact search over MAP signs",
+        "Recovery target": "Exact trace neighborhood after lookup",
+        "Added resource": "R5_EXACT_SIDE_INFORMATION; R11_PREPROCESSING_OR_MATERIALIZATION",
+        "Persistent cost": "Packed index plus canonical payload store",
+        "Transient cost": "Exact scan buffer",
+        "Compute cost": "Exact but vectorized",
+        "Latency": "Best practical baseline at tested N=10,000",
+        "Energy": "NR",
+        "Preprocessing": "Packing and index creation",
+        "Exact recovery": "Best measured practical trace retrieval baseline in Stage A.2a",
+        "Silent error": "0 under verifier acceptance",
+        "Coverage": "High in tested development envelope",
+        "Noise tolerance": "Moderate under tested semantic locality contract",
+        "Scaling limitation": "May lose at larger untested scale",
+        "Main benefit": "Simplicity and exactness",
+        "Main failure": "Does not solve initial localization theory beyond tested scale",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Adopted exact retrieval baseline",
+    },
+    {
+        "Method": "Ordinary sidecar DAG + recursive replay",
+        "Evidence source": "Repository",
+        "Task contract": "Known retrieved record ID with exact first-order manifest",
+        "Representation": "Semantic payload plus exact sidecar manifest",
+        "Recovery target": "Exact replay after retrieval",
+        "Added resource": "R5_EXACT_SIDE_INFORMATION; R11_PREPROCESSING_OR_MATERIALIZATION; R14_EXACT_FALLBACK",
+        "Persistent cost": "Manifest bytes and canonical parent store",
+        "Transient cost": "Recursive replay session cache",
+        "Compute cost": "Linear in reachable unique DAG nodes",
+        "Latency": "Replay cost dominates after retrieval",
+        "Energy": "NR",
+        "Preprocessing": "Manifest commit and digesting",
+        "Exact recovery": "1.0 with intact manifests and parents",
+        "Silent error": "0 under integrity checks",
+        "Coverage": "Full for intact retrieved records",
+        "Noise tolerance": "Observed semantic noise irrelevant once exact structure is loaded",
+        "Scaling limitation": "Does not solve initial record localization",
+        "Main benefit": "Honest exact structural preservation",
+        "Main failure": "Packaging advantage for inline form not supported",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Adopted exact-structure baseline",
+    },
+    {
+        "Method": "Equal-bit extra dimensions",
+        "Evidence source": "Repository",
+        "Task contract": "Bundling cleanup and membership recovery under equal physical storage",
+        "Representation": "More MAP sign dimensions",
+        "Recovery target": "Cleanup and membership",
+        "Added resource": "R1_DIMENSION",
+        "Persistent cost": "More semantic bits",
+        "Transient cost": "Small",
+        "Compute cost": "Similar decoder form",
+        "Latency": "Low",
+        "Energy": "NR",
+        "Preprocessing": "None",
+        "Exact recovery": "Best surviving equal-bit control in residue lines",
+        "Silent error": "Controlled by existing verifier contract",
+        "Coverage": "Higher than block-LUT residue in tested cells",
+        "Noise tolerance": "Limited to tested bundle tasks",
+        "Scaling limitation": "Still pays through larger representation",
+        "Main benefit": "Simple surviving frontier point",
+        "Main failure": "No compression story",
+        "Comparability class": "DIRECT_COMMON_HARNESS",
+        "Architectural role": "Adopted baseline against compressed residue ideas",
+    },
+    {
+        "Method": "NeCo linear-code clean-U1 reproduction",
+        "Evidence source": "Repository + paper reproduction",
+        "Task contract": "Clean U1 paper contract with explicit GF(2) constraints",
+        "Representation": "Linear-code structured representation",
+        "Recovery target": "Exact clean-U1 recovery",
+        "Added resource": "R4_STRUCTURED_CODE",
+        "Persistent cost": "Structured code constraints",
+        "Transient cost": "Small in reproduced contract",
+        "Compute cost": "Low-to-moderate",
+        "Latency": "NR",
+        "Energy": "NR",
+        "Preprocessing": "Code construction",
+        "Exact recovery": "Paper contract reproduced",
+        "Silent error": "0 in clean reproduced envelope",
+        "Coverage": "Full in scoped clean contract",
+        "Noise tolerance": "Not established",
+        "Scaling limitation": "Transfer outside paper contract not established",
+        "Main benefit": "Shows structured code can preserve information honestly",
+        "Main failure": "Not a universal replacement for blind MAP factorization",
+        "Comparability class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "Architectural role": "Structured-code comparative point",
+    },
+    {
+        "Method": "Resonator networks (paper)",
+        "Evidence source": "Literature + TorchHD adoption",
+        "Task contract": "Factorization of distributed representations",
+        "Representation": "MAP/related distributed vectors",
+        "Recovery target": "Factor recovery",
+        "Added resource": "R7_DECODER_COMPUTE; R8_RESTARTS_OR_SEARCH",
+        "Persistent cost": "Codebooks",
+        "Transient cost": "Iterative resonator state",
+        "Compute cost": "Iterative",
+        "Latency": "Reported; not directly comparable outside common harness",
+        "Energy": "NR",
+        "Preprocessing": "Codebook creation",
+        "Exact recovery": "Reported positive in paper envelope",
+        "Silent error": "NR",
+        "Coverage": "NR",
+        "Noise tolerance": "Reported per paper contract",
+        "Scaling limitation": "Dependent on task contract and codebook size",
+        "Main benefit": "Canonical blind factorization baseline",
+        "Main failure": "Can exhibit false attractors and bounded capacity",
+        "Comparability class": "CLOSE_TASK_DIFFERENT_IMPLEMENTATION",
+        "Architectural role": "Foundational decoder prior art",
+    },
+    {
+        "Method": "SDM",
+        "Evidence source": "Literature only",
+        "Task contract": "Noisy associative retrieval",
+        "Representation": "Sparse distributed memory",
+        "Recovery target": "Addressed retrieval",
+        "Added resource": "R3_SPARSITY_OR_BLOCK_STRUCTURE; R10_PHYSICAL_PARALLELISM",
+        "Persistent cost": "Address locations and memory matrix",
+        "Transient cost": "Address activation",
+        "Compute cost": "Address match plus readout",
+        "Latency": "NR",
+        "Energy": "NR",
+        "Preprocessing": "Memory allocation",
+        "Exact recovery": "NR for this repository's factorization tasks",
+        "Silent error": "NR",
+        "Coverage": "NR",
+        "Noise tolerance": "Core literature motivation",
+        "Scaling limitation": "Not reproduced in repo and not directly comparable",
+        "Main benefit": "Associative noisy access prior art",
+        "Main failure": "No direct repo evidence under common factorization contract",
+        "Comparability class": "THEORETICAL_ONLY",
+        "Architectural role": "Deferred baseline family",
+    },
+    {
+        "Method": "Product quantization / vector quantization",
+        "Evidence source": "Literature only",
+        "Task contract": "Compressed similarity search",
+        "Representation": "Codebook-compressed blocks",
+        "Recovery target": "Nearest-neighbor retrieval",
+        "Added resource": "R2_COORDINATE_PRECISION; R11_PREPROCESSING_OR_MATERIALIZATION",
+        "Persistent cost": "Shared codebook plus compressed codes",
+        "Transient cost": "Decoder-side LUT lookup",
+        "Compute cost": "Low per query",
+        "Latency": "Reported for search tasks",
+        "Energy": "NR",
+        "Preprocessing": "Codebook discovery/training",
+        "Exact recovery": "NA",
+        "Silent error": "NR",
+        "Coverage": "NR",
+        "Noise tolerance": "Task-dependent",
+        "Scaling limitation": "Not the same task as bundle cleanup or factorization",
+        "Main benefit": "Explains compression prior art behind block-LUT residue ideas",
+        "Main failure": "Does not imply a win on VSA recovery tasks",
+        "Comparability class": "SAME_MECHANISM_DIFFERENT_CONTRACT",
+        "Architectural role": "Quantization contrast class",
+    },
+    {
+        "Method": "MIMHD / multi-bit in-memory HDC",
+        "Evidence source": "Literature only",
+        "Task contract": "HDC inference with multi-bit coordinates",
+        "Representation": "Multi-bit analog / in-memory state",
+        "Recovery target": "Inference and retrieval",
+        "Added resource": "R2_COORDINATE_PRECISION; R10_PHYSICAL_PARALLELISM",
+        "Persistent cost": "Specialized memory cells",
+        "Transient cost": "Device-specific",
+        "Compute cost": "Shifted into physical substrate",
+        "Latency": "Reported in paper only",
+        "Energy": "Reported in paper only",
+        "Preprocessing": "Hardware co-design",
+        "Exact recovery": "NC",
+        "Silent error": "NR",
+        "Coverage": "NR",
+        "Noise tolerance": "Task-specific",
+        "Scaling limitation": "No repo hardware measurement",
+        "Main benefit": "Shows hardware can change the frontier, not the accounting principle",
+        "Main failure": "Literature-only in this repository",
+        "Comparability class": "HARDWARE_ONLY",
+        "Architectural role": "Hardware frontier context",
+    },
+]
+
+ARCHITECTURAL_DECISION_ROWS = [
+    {
+        "Scenario": "Known exact structure",
+        "Recommended representation": "Semantic payload + exact first-order sidecar manifest",
+        "Recommended recovery path": "Recursive replay with memoization",
+        "Required verifier": "Digest / record-integrity check",
+        "Fallback": "Typed failure and abstention",
+        "Main cost": "R5 exact side information; replay latency",
+        "Main risk": "Wrong-but-valid or stale handles",
+        "Evidence status": "ADOPTED_ENGINEERING_BASELINE",
+    },
+    {
+        "Scenario": "Approximate semantic lookup",
+        "Recommended representation": "MAP semantic payload + mature exact packed baseline",
+        "Recommended recovery path": "Exact binary scan or adopted mature index before any structure readout",
+        "Required verifier": "Exact trace / record association check",
+        "Fallback": "Broader exact scan or abstain",
+        "Main cost": "R11 preprocessing and index bytes",
+        "Main risk": "Similarity != exact provenance",
+        "Evidence status": "SUPPORTED_DEVELOPMENT_ONLY",
+    },
+    {
+        "Scenario": "Clean single-product factorization",
+        "Recommended representation": "Use the dominant native substrate for the current lawful contract",
+        "Recommended recovery path": "BCF native in the tested common clean F=3 envelope; MAP only as easy-cell fast path",
+        "Required verifier": "Tuple reconstruction verifier",
+        "Fallback": "Exact abstain or selected stronger native method",
+        "Main cost": "R4 structured code or R7 decoder compute",
+        "Main risk": "Contract overclaim outside clean F=3",
+        "Evidence status": "SUPPORTED_DEVELOPMENT_ONLY",
+    },
+    {
+        "Scenario": "Unknown composite after retrieval",
+        "Recommended representation": "Ordinary sidecar DAG",
+        "Recommended recovery path": "Exact replay, not blind factorization",
+        "Required verifier": "Manifest and semantic digest validation",
+        "Fallback": "Typed failure",
+        "Main cost": "R5 exact side information",
+        "Main risk": "Does not solve initial localization",
+        "Evidence status": "ADOPTED_ENGINEERING_BASELINE",
+    },
+    {
+        "Scenario": "Noisy symbolic channel",
+        "Recommended representation": "Typed corruption contract + explicit abstention",
+        "Recommended recovery path": "Substrate-specific evaluation only; do not merge raw p across substrates",
+        "Required verifier": "Typed protocol gates and held-out discipline",
+        "Fallback": "Do not claim unmatched noise frontier",
+        "Main cost": "Protocol and evaluation overhead",
+        "Main risk": "Protocol leakage",
+        "Evidence status": "CONFIRMED_IN_FROZEN_ENVELOPE",
+    },
+    {
+        "Scenario": "Deep recursive structure",
+        "Recommended representation": "Exact sidecar DAG with memoized replay",
+        "Recommended recovery path": "Traverse unique reachable nodes only",
+        "Required verifier": "Cycle / stale-parent detection",
+        "Fallback": "Replay budget exhaustion",
+        "Main cost": "Replay latency and cache state",
+        "Main risk": "Deep latency if uncached",
+        "Evidence status": "SUPPORTED_DEVELOPMENT_ONLY",
+    },
+    {
+        "Scenario": "Memory-constrained workspace",
+        "Recommended representation": "Prefer exact baselines or equal-bit controls before custom compressed side channels",
+        "Recommended recovery path": "Compare against extra dimensions and scalar quantization first",
+        "Required verifier": "Physical byte accounting",
+        "Fallback": "Adopt simpler baseline if frontier is dominated",
+        "Main cost": "R1 versus R2 trade-off",
+        "Main risk": "Storage non-dominance",
+        "Evidence status": "SUPPORTED_DEVELOPMENT_ONLY",
+    },
+    {
+        "Scenario": "Latency-critical workspace",
+        "Recommended representation": "Use trivial static route only if it captures the measured benefit",
+        "Recommended recovery path": "Easy-cell MAP fast path, otherwise BCF or exact baseline",
+        "Required verifier": "Zero silent-wrong acceptance",
+        "Fallback": "Always use dominant single method",
+        "Main cost": "Probe latency and dual-view storage",
+        "Main risk": "Non-cost-effective early exit",
+        "Evidence status": "SUPPORTED_DEVELOPMENT_ONLY",
+    },
+    {
+        "Scenario": "Safety-critical decision",
+        "Recommended representation": "Verifier-first with abstention and exact fallback",
+        "Recommended recovery path": "Accepted output only after typed verification",
+        "Required verifier": "Mandatory",
+        "Fallback": "ABSTAIN / exact fallback",
+        "Main cost": "Reduced coverage",
+        "Main risk": "Silent wrong acceptance",
+        "Evidence status": "DESIGN_PRINCIPLE",
+    },
+    {
+        "Scenario": "Hardware-limited deployment",
+        "Recommended representation": "Consult literature-only hardware frontier separately",
+        "Recommended recovery path": "Do not infer hardware gains from repo CPU experiments",
+        "Required verifier": "Comparability-class discipline",
+        "Fallback": "Stay with software baseline",
+        "Main cost": "R10 physical parallelism; hardware co-design",
+        "Main risk": "Speculative transfer",
+        "Evidence status": "LITERATURE_ONLY",
+    },
+]
+
+REVIEWER_RISK_ROWS = [
+    {
+        "Likely criticism": "The scope is too broad for one paper.",
+        "Why it is plausible": "The repository contains many hypotheses, baselines, and negative lines.",
+        "Current defense": "The paper is framed as a systematic mapping plus evidence atlas, not a single benchmark leaderboard.",
+        "Missing evidence": "A tighter visual summary of inclusion boundaries may still help.",
+        "Required wording": "Use 'mapping' and 'atlas' language consistently.",
+        "Claim to weaken": "Any language implying complete field coverage.",
+    },
+    {
+        "Likely criticism": "The review is not systematic enough.",
+        "Why it is plausible": "Repository-driven reviews often drift into narrative selection.",
+        "Current defense": "Frozen review protocol, search log, screening CSV, and typed comparability classes are added.",
+        "Missing evidence": "Could still add PRISMA-style counts later.",
+        "Required wording": "Describe this as a scoping/systematic mapping review, not a meta-analysis.",
+        "Claim to weaken": "Any claim of exhaustive literature coverage.",
+    },
+    {
+        "Likely criticism": "Methods are not directly comparable.",
+        "Why it is plausible": "Different algebras, task contracts, and hardware assumptions are mixed in the field.",
+        "Current defense": "Comparability classes and common-harness restrictions prevent unlawful numeric ranking.",
+        "Missing evidence": "More explicit table footnotes may still help.",
+        "Required wording": "Only DIRECT_COMMON_HARNESS rows are directly ranked.",
+        "Claim to weaken": "Any cross-paper global frontier claim.",
+    },
+    {
+        "Likely criticism": "Too many results are development-only.",
+        "Why it is plausible": "Many repository lines stopped at audited development evidence.",
+        "Current defense": "Claim ledger restricts scope and marks development-only claims explicitly.",
+        "Missing evidence": "More held-out confirmations would be needed for stronger empirical claims.",
+        "Required wording": "Use 'within the evaluated envelopes' and 'development-only' frequently.",
+        "Claim to weaken": "Any universal positive or negative conclusion.",
+    },
+    {
+        "Likely criticism": "BCF contract favors BCF.",
+        "Why it is plausible": "BCF is a native structured-code substrate with its own strengths.",
+        "Current defense": "The paper explicitly limits the conclusion to the clean common F=3 envelope and dual-view accounting.",
+        "Missing evidence": "Shared raw-noise contracts remain unmeasured.",
+        "Required wording": "Do not generalize beyond the tested clean common contract.",
+        "Claim to weaken": "BCF is the best substrate overall.",
+    },
+    {
+        "Likely criticism": "Negative results lack generality.",
+        "Why it is plausible": "Blocked lines may have only one or two envelopes.",
+        "Current defense": "The manuscript reframes them as bounded stop conditions, not impossibility theorems.",
+        "Missing evidence": "Broader reproduction across workloads would be needed for stronger closure.",
+        "Required wording": "Use 'not supported in the tested envelope' rather than 'disproved'.",
+        "Claim to weaken": "Strong global negatives.",
+    },
+    {
+        "Likely criticism": "The hardware section is speculative.",
+        "Why it is plausible": "No physical hardware is measured in this repository.",
+        "Current defense": "The section is explicitly labeled literature synthesis only.",
+        "Missing evidence": "Actual FPGA or in-memory measurements.",
+        "Required wording": "Hardware changes the frontier, not the accounting; not evaluated here.",
+        "Claim to weaken": "Any measured hardware implication.",
+    },
+    {
+        "Likely criticism": "The repository is too large and heterogeneous.",
+        "Why it is plausible": "Historical research accreted over multiple stages.",
+        "Current defense": "Evidence registry, hypothesis matrix, and failure atlas normalize the heterogeneity.",
+        "Missing evidence": "Optional pruning or archival packaging may still help for readers.",
+        "Required wording": "Describe the repository as an atlas, not a single polished system.",
+        "Claim to weaken": "Any implication that every directory is equally central.",
+    },
+    {
+        "Likely criticism": "Single-author bias affects method selection and interpretation.",
+        "Why it is plausible": "The repository reflects one research program.",
+        "Current defense": "Anti-NIH audits, adopted baselines, and explicit blocked verdicts are preserved rather than rewritten away.",
+        "Missing evidence": "Independent reproductions by others.",
+        "Required wording": "Acknowledge researcher degrees of freedom in threats to validity.",
+        "Claim to weaken": "Any overly triumphant architectural interpretation.",
+    },
+    {
+        "Likely criticism": "Utility weights in the portfolio section are arbitrary.",
+        "Why it is plausible": "Any scalar utility profile imposes scenario assumptions.",
+        "Current defense": "The manuscript now makes Pareto analysis primary and utility profiles illustrative only.",
+        "Missing evidence": "Domain-specific deployment workloads.",
+        "Required wording": "Utility profiles are scenario assumptions, not universal scores.",
+        "Claim to weaken": "Any one-number method ranking.",
+    },
+    {
+        "Likely criticism": "There is no end-to-end workload.",
+        "Why it is plausible": "Most repo tasks are synthetic but controlled contracts.",
+        "Current defense": "The paper positions the work as recoverability accounting under explicit contracts, not application-level benchmarking.",
+        "Missing evidence": "A domain workload with external validity.",
+        "Required wording": "Synthetic tasks are deliberate stress contracts for recoverability.",
+        "Claim to weaken": "Direct application superiority.",
+    },
+]
+
 
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -2269,9 +3410,104 @@ def render_table(rows: list[dict[str, object]], columns: list[str]) -> str:
     return "\n".join([header, divider, *body])
 
 
+def patched_entries(
+    entries: list[dict[str, object]],
+    key: str,
+    overrides: dict[str, dict[str, object]],
+) -> list[dict[str, object]]:
+    patched: list[dict[str, object]] = []
+    for entry in entries:
+        merged = dict(entry)
+        entry_key = str(entry[key])
+        if entry_key in overrides:
+            merged.update(overrides[entry_key])
+        patched.append(merged)
+    return patched
+
+
+def normalize_prior_art_entry(entry: dict[str, object]) -> dict[str, object]:
+    normalized = {
+        "venue": str(entry.get("source", "NR")),
+        "source_url_or_doi": str(entry.get("doi_or_arxiv", "NR")),
+        "evidence_strength": "CONCEPTUAL_ONLY",
+        "vsa_family": str(entry.get("substrate", "NR")),
+        "algebra": "NR",
+        "representation": str(entry.get("substrate", "NR")),
+        "coordinate_precision": "NR",
+        "sparsity": "NR",
+        "binding_operation": "NR",
+        "bundling_operation": "NR",
+        "similarity_operation": "NR",
+        "task_category": str(entry.get("method_category", "NR")),
+        "task_contract": str(entry.get("task", "NR")),
+        "factor_count": "NR",
+        "candidate_domain": "NR",
+        "dimension": "NR",
+        "noise_contract": "NR",
+        "decoder": "NR",
+        "iterations": "NR",
+        "restarts": "NR",
+        "stopping_rule": "NR",
+        "side_information": "NR",
+        "external_prior": "NR",
+        "exact_metadata": "NR",
+        "reported_accuracy": "NR",
+        "reported_latency": "NR",
+        "reported_memory": "NR",
+        "reported_energy": "NR",
+        "reported_hardware": "NR",
+        "cost_location": {
+            "dimension": "NR",
+            "precision": "NR",
+            "structured_code": "NR",
+            "compute": "NR",
+            "context": "NR",
+            "side_information": "NR",
+            "hardware": "NR",
+            "abstention": "NR",
+        },
+        "failure_modes": [],
+        "limitations": [],
+        "comparability_class": "TAXONOMIC_ONLY",
+        "closest_repo_evidence": ", ".join(entry.get("closest_repo_hypotheses", [])),
+        "transferable_claim": entry.get("what_repo_reproduced", "NR"),
+        "non_transferable_claim": entry.get("what_repo_did_not_reproduce", "NR"),
+    }
+    merged = dict(normalized)
+    merged.update(entry)
+    return merged
+
+
+def normalize_failure_mode(entry: dict[str, object]) -> dict[str, object]:
+    normalized = {
+        "observed_in_repo": True,
+        "reported_in_literature": [],
+        "mechanistic_explanation": str(entry["description"]),
+        "resource_shortfall": [],
+        "detection_signal": str(entry["observable_signature"]),
+        "mitigation": str(entry["what_helped"]),
+        "remaining_risk": str(entry["safety_consequence"]),
+    }
+    merged = dict(normalized)
+    merged.update(entry)
+    return merged
+
+
+ALL_EVIDENCE_ENTRIES = patched_entries(EVIDENCE_ENTRIES, "hypothesis_id", EVIDENCE_ENTRY_OVERRIDES)
+ALL_CLAIMS = CLAIMS + EXTRA_CLAIMS
+ALL_FAILURE_MODES = [
+    normalize_failure_mode(entry)
+    for entry in patched_entries(FAILURE_MODES, "failure_mode", FAILURE_MODE_OVERRIDES)
+]
+ALL_PRIOR_ART = [
+    normalize_prior_art_entry(entry)
+    for entry in patched_entries(PRIOR_ART + PRIOR_ART_EXTRA_ENTRIES, "citation_key", PRIOR_ART_OVERRIDES)
+]
+
+
 def build_hypothesis_matrix() -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
-    for entry in EVIDENCE_ENTRIES:
+    for entry in ALL_EVIDENCE_ENTRIES:
         rows.append(
             {
                 "Hypothesis": entry["title"],
@@ -2300,17 +3536,20 @@ def build_hypothesis_matrix() -> list[dict[str, object]]:
 
 def build_prior_art_matrix() -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
-    for entry in PRIOR_ART:
+    for entry in ALL_PRIOR_ART:
         rows.append(
             {
                 "Citation": entry["citation_key"],
                 "Title": entry["title"],
                 "Year": entry["year"],
+                "Venue": entry["venue"],
                 "Category": entry["method_category"],
+                "Strength": entry["evidence_strength"],
                 "Substrate": entry["substrate"],
-                "Task": entry["task"],
-                "Repo transfer": entry["what_repo_reproduced"],
-                "Transfer limit": entry["transfer_limit"],
+                "Task": entry["task_category"],
+                "Comparability": entry["comparability_class"],
+                "Repo transfer": entry["transferable_claim"],
+                "Transfer limit": entry["non_transferable_claim"],
                 "Anti-NIH verdict": entry["anti_nih_verdict"],
             }
         )
@@ -2324,7 +3563,7 @@ def render_claim_ledger_md() -> str:
         "This file is generated from `paper/claim_ledger.yaml`. Status values are intentionally conservative.",
         "",
     ]
-    for claim in CLAIMS:
+    for claim in ALL_CLAIMS:
         lines.extend(
             [
                 f"## {claim['claim_id']}",
@@ -2349,7 +3588,7 @@ def render_failure_atlas_md() -> str:
         "This atlas normalizes the main failure signatures observed across the repository.",
         "",
     ]
-    for item in FAILURE_MODES:
+    for item in ALL_FAILURE_MODES:
         lines.extend(
             [
                 f"## {item['failure_mode']}",
@@ -2362,6 +3601,13 @@ def render_failure_atlas_md() -> str:
                 f"- What failed: {item['what_failed']}",
                 f"- Safety consequence: {item['safety_consequence']}",
                 f"- Architectural response: {item['architectural_response']}",
+                f"- Observed in repo: {item['observed_in_repo']}",
+                f"- Reported in literature: {', '.join(item['reported_in_literature']) or 'None explicitly mapped'}",
+                f"- Mechanistic explanation: {item['mechanistic_explanation']}",
+                f"- Resource shortfall: {', '.join(item['resource_shortfall']) or 'Not localized'}",
+                f"- Detection signal: {item['detection_signal']}",
+                f"- Mitigation: {item['mitigation']}",
+                f"- Remaining risk: {item['remaining_risk']}",
                 f"- Evidence refs: {item['evidence_refs']}",
                 "",
             ]
@@ -2382,16 +3628,16 @@ def render_literature_transfer_md() -> str:
         "Final interpretation",
     ]
     rows: list[dict[str, object]] = []
-    for entry in PRIOR_ART:
+    for entry in ALL_PRIOR_ART:
         rows.append(
             {
                 "Prior work": entry["title"],
-                "Original demonstrated task": entry["task"],
-                "Original substrate": entry["substrate"],
+                "Original demonstrated task": entry["task_contract"],
+                "Original substrate": entry["representation"],
                 "Original scale": entry["reported_scale"],
-                "Our closest experiment": ", ".join(entry["closest_repo_hypotheses"]),
-                "What transferred": entry["what_repo_reproduced"],
-                "What failed to transfer": entry["what_repo_did_not_reproduce"],
+                "Our closest experiment": entry["closest_repo_evidence"],
+                "What transferred": entry["transferable_claim"],
+                "What failed to transfer": entry["non_transferable_claim"],
                 "Reason": entry["contract_mismatch"],
                 "Final interpretation": entry["anti_nih_verdict"],
             }
@@ -2399,180 +3645,320 @@ def render_literature_transfer_md() -> str:
     return "# Literature Transfer Matrix\n\n" + render_table(rows, columns)
 
 
+def render_method_resource_atlas_md() -> str:
+    columns = list(METHOD_RESOURCE_ROWS[0].keys())
+    return "# Method Resource Atlas\n\n" + render_table(METHOD_RESOURCE_ROWS, columns)
+
+
+def render_architectural_decision_guide_md() -> str:
+    columns = list(ARCHITECTURAL_DECISION_ROWS[0].keys())
+    return "# Architectural Decision Guide\n\n" + render_table(ARCHITECTURAL_DECISION_ROWS, columns)
+
+
+def render_reviewer_risk_register_md() -> str:
+    columns = list(REVIEWER_RISK_ROWS[0].keys())
+    return "# Reviewer Risk Register\n\n" + render_table(REVIEWER_RISK_ROWS, columns)
+
+
 def render_manuscript() -> str:
-    return """# Recoverability Has a Cost:
+    return dedent(
+        """\
+        # Recoverability Has a Cost:
 
-## An Empirical Atlas of Factorization, Repair, and Abstention in Vector Symbolic Architectures
+        ## An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures
 
-## Abstract
+        ## Abstract
 
-This manuscript scaffold summarizes a repository-wide empirical atlas rather than a single winning hypothesis. The central synthesis is practical rather than theorem-level: reliable recoverability was never free in the measured repository envelopes. Gains came from paying cost somewhere else: more exact structure, more bits, more dimensions, more compute, stronger routing priors, narrower task contracts, selective abstention, or exact fallback. The atlas therefore records both bounded successes and stop conditions. It does not claim a universal impossibility theorem for VSA factorization, universal superiority of any single substrate, or production readiness of the experimental lines. Instead it turns a historically single-hypothesis repository into a reproducible record of what transferred, what failed, what remained ambiguous, and what engineering baselines survived.
+        This manuscript presents a bounded empirical atlas and a systematic mapping of recoverability mechanisms in Vector Symbolic Architectures (VSAs) and Hyperdimensional Computing (HDC). The central result is not a universal impossibility theorem and not a universal BCF claim. Instead, within the evaluated repository envelopes and the mapped literature, recoverability improvements consistently required an identifiable additional resource: more dimensions, more coordinate precision, more code structure, exact side information, stronger contextual priors, more inference compute, hardware state, reduced coverage through abstention, or an exact fallback. Several mechanisms preserved genuine information or improved local recovery, but many failed to create a new nondominated operating point after accounting for representation cost, compute, verification, generalization, and silent-error risk. We therefore propose a resource-aware interpretation of recoverability rather than a single-method leaderboard. [claim:claim_recoverability_resource_accounting] [claim:claim_hardware_may_change_cost_frontier_literature_only]
 
-## 1. Introduction
+        ## 1. Introduction
 
-The repository historically called `CGRN-HSR` began as a hypothesis about context-guided recovery in Vector Symbolic Architectures. It is no longer scientifically honest to present it as one monolithic idea. The evidence now spans:
+        The repository historically called `CGRN-HSR` has become a heterogeneous empirical record of recoverability hypotheses, reproductions, negative results, and architectural stop conditions. It is more accurate to frame it as **VSA Recoverability Atlas** than as one monolithic theory. The paper answers a narrower and more honest question than "which decoder is best?":
 
-- MAP / resonator baselines and capacity limits
-- context-conditioned search and fallback
-- substrate audits and paper reproductions
-- cross-substrate portfolio and cascade stop conditions
-- noise-contract repair and confirmatory protocol discipline
-- exact-structure alternatives
-- soft-information and codebook experiments
-- negative results and blocked lines
+        > Which resources pay for recoverability, which failure modes recur, and when does extra architectural complexity create or fail to create a new nondominated operating point?
 
-The public framing adopted here is therefore **VSA Recoverability Atlas**.
+        The contribution is therefore a systematic mapping/scoping review plus a reproducible in-repository evidence atlas, not a numerical meta-analysis and not a new decoder.
 
-## 2. Recoverability Accounting Principle
+        ## 2. Scope and Contributions
 
-The repository adopts a non-novel but operationally useful proposition:
+        The paper contributes:
 
-> If multiple distinguishable source structures map to the same stored representation under the available observation and prior, then no decoder receiving only that representation can always recover the original source. Reliable recovery therefore requires paying cost somewhere else: additional stored information, stronger structural assumptions, external evidence, more search or computation, reduced coverage through abstention, or an exact fallback.
+        - a systematic mapping protocol with typed inclusion, exclusion, and comparability classes;
+        - a repository-wide evidence registry linking hypotheses, protocols, commits, tests, and bounded claims;
+        - a recoverability budget framework for locating the resource cost of each mechanism;
+        - a failure-mode atlas spanning both repository evidence and mapped literature;
+        - an architectural decision guide describing when to adopt exact side information, abstention, stronger native substrates, or stop a line entirely.
 
-The atlas uses this proposition descriptively. It is not presented as a new theorem.
+        The paper does **not** claim:
 
-## 3. Background and Terminology
+        - a universal impossibility theorem for VSA factorization or recoverability;
+        - a universal superiority result for BCF, MAP, or any other substrate;
+        - a production architecture;
+        - a measured hardware result.
 
-The atlas distinguishes:
+        ## 3. Systematic Mapping Protocol
 
-- semantic payloads versus exact structural metadata
-- approximate retrieval signals versus exact identity
-- development evidence versus held-out confirmation
-- lawful abstention versus silent wrong acceptance
-- adopted baselines versus still-open research hypotheses
+        We treat the literature component as a **systematic mapping / scoping review**. The relevant papers span incompatible algebras, tasks, dimensions, noise contracts, hardware targets, and cost-reporting conventions, so a pooled meta-analysis would be misleading. The frozen protocol (`paper/SYSTEMATIC_REVIEW_PROTOCOL.md`) records:
 
-## 4. Research Questions
+        - research questions RQ1-RQ7;
+        - search-source families;
+        - query families for VSA/HDC foundations, recovery, structured codes, precision, hardware, and abstention/portfolio work;
+        - typed inclusion/exclusion criteria;
+        - duplicate policy;
+        - primary-source policy;
+        - data-extraction schema and comparability classes.
 
-The normalized research questions across the repository are:
+        Only `DIRECT_COMMON_HARNESS` entries are used for direct numeric ranking. All other literature is descriptive, contrastive, or hardware-contextual only.
 
-1. How far can blind MAP/resonator factorization be pushed before recoverability cost dominates?
-2. When does context-conditioned search help more than it harms?
-3. Which alternative substrates or code structures survive equal-information comparison?
-4. When is exact side information simply the honest solution?
-5. Which negative results genuinely close a line rather than merely fail to tune it?
-6. What protocol discipline is necessary before any confirmatory noise claim becomes lawful?
+        ## 4. VSA Recovery Contracts and Terminology
 
-## 5. Reproducibility and Protocol Discipline
+        The atlas distinguishes:
 
-The repository now treats reproducibility and protocol discipline as first-class evidence. The strongest protocol conclusion is from Level 3.5:
+        - semantic payload versus exact structural metadata;
+        - approximate routing signal versus authoritative identity;
+        - development evidence versus held-out confirmation;
+        - lawful abstention versus silent wrong acceptance;
+        - common-harness direct comparison versus taxonomic or hardware-only comparison.
 
-- noise comparisons require typed external-vs-native corruption contracts;
-- confirmatory gates must be fully serialized before the first held-out observation;
-- zero-trial integrity blocks are positive evidence of lawful non-execution, not administrative noise.
+        It also keeps task contracts explicit. For example, clean F=3 single-product factorization, semantic-to-trace retrieval after record creation, and exact recursive replay after record retrieval are different problems and remain distinct throughout the paper.
 
-## 6. Baseline MAP/Resonator Results
+        ## 5. Recoverability Budget Framework
 
-The MAP line survived as a bounded baseline, not as a universal winner. Context-conditioned search improved over random subsets in tested Level 1 single-product settings, and Level 3.2/3.2b showed a bounded intermediate recoverability region rather than unlimited clean factorization.
+        The paper's constructive synthesis is a non-novel but operationally useful accounting rule:
 
-## 7. Context-Conditioned Search
+        > If multiple distinguishable source structures map to the same stored representation under the available observation and prior, then no decoder receiving only that representation can always identify the original source. Reliable recovery therefore requires paying cost somewhere else.
 
-The strongest surviving early result is narrow: external semantic context can improve candidate routing and reduce bad commitments when:
+        We map that cost into the following resource ontology:
 
-- the task stays within a bounded contract,
-- fallback remains available,
-- selective acceptance remains explicit,
-- the context controller is not mistaken for a new substrate.
+        - `R1_DIMENSION`
+        - `R2_COORDINATE_PRECISION`
+        - `R3_SPARSITY_OR_BLOCK_STRUCTURE`
+        - `R4_STRUCTURED_CODE`
+        - `R5_EXACT_SIDE_INFORMATION`
+        - `R6_EXTERNAL_CONTEXT_OR_PRIOR`
+        - `R7_DECODER_COMPUTE`
+        - `R8_RESTARTS_OR_SEARCH`
+        - `R9_TEMPORAL_BUDGET`
+        - `R10_PHYSICAL_PARALLELISM`
+        - `R11_PREPROCESSING_OR_MATERIALIZATION`
+        - `R12_DUAL_REPRESENTATION`
+        - `R13_REDUCED_COVERAGE_ABSTENTION`
+        - `R14_EXACT_FALLBACK`
 
-This is a search-and-safety result, not a new VSA algebra.
+        The workflow recommended by the atlas is:
 
-## 8. Native Alternative Substrates
+        `define task and risk contract -> select authoritative exact state -> choose approximate representation -> allocate dimension/precision -> select native decoder -> specify verification -> measure silent error -> add fallback only if nondominated -> abstain if budget is insufficient`
 
-Three substrate conclusions matter:
+        [claim:claim_recoverability_resource_accounting]
 
-- the official IBM BCF implementation can be wrapped for scoped single-product audits, but broad parity claims remain unresolved;
-- the NeCo clean-U1 paper contract can be reproduced under explicit GF(2) constraints;
-- on clean U1, the symbolic exact tuple baseline dominates the task envelope;
-- in the paired clean common F=3 envelope, BCF dominates the hard/non-easy instances and a trivial threshold over `M` captures the only practical portfolio value.
+        ## 6. Repository Evidence Base
 
-## 9. Encoder and Codebook Adaptation
+        The repository evidence base now includes:
 
-Two encoder-side lines were explicitly blocked:
+        - MAP / resonator baselines and budget sweeps;
+        - context-conditioned search and selective fallback;
+        - official IBM BCF audits and common-envelope comparisons;
+        - a clean-U1 linear-code reproduction;
+        - exact symbolic and exact-structure baselines;
+        - blocked lines for decoder-certified admission, tagged repair, and block-codebook residue compression;
+        - protocol-discipline artifacts for noise and held-out execution.
 
-- decoder-certified atomic admission;
-- conflict-guided tagged-symbol repair.
+        The atlas therefore values negative results and architectural stop conditions as evidence, not as clutter.
 
-In both cases, the line failed because a more complicated mechanism did not survive causal or equal-bit controls strongly enough to justify architecture growth.
+        ## 7. Capacity and Dimensional Allocation
 
-## 10. Representation Repair and Soft Information
+        The MAP line remained a bounded baseline rather than a universal decoder. In the tested clean envelopes, MAP resonator behavior exhibited a practical intermediate region rather than unlimited factorization capacity. More dimension and more restart budget could improve recovery in some regimes, but not for free. Capacity collapse and false attractors remained recurrent failure modes once codebooks or bundle widths crossed the practical margin budget. [claim:claim_map_intermediate_region]
 
-The residue-plane work shows a recurring pattern in the atlas: useful information may exist, but a proposed mechanism for storing it can still lose. Soft residue information helped relative to sign-only cleanup, yet the block-LUT dictionary line lost to scalar/equal-bit controls and the surviving engineering recommendation became extra dimensions rather than a custom compressed residue plane.
+        ## 8. Structured Recovery and Native Substrates
 
-## 11. Exact Structural Preservation
+        The repository reproduced or audited several structured alternatives:
 
-The strongest exact-structure conclusion is conservative:
+        - the official IBM BCF implementation as a lawful native competitor under a scoped common contract;
+        - the NeCo linear-code clean-U1 paper contract under explicit GF(2) rules;
+        - exact symbolic baselines on clean U1.
 
-- exact first-order manifests can safely support recursive replay after record retrieval;
-- ordinary sidecar DAG storage is the honest baseline;
-- inline packing did not show a packaging advantage;
-- carried exact trace handles helped detached activation, but isolated capsule placement itself did not.
+        The strongest current common-envelope result is narrow:
 
-## 12. Noise Contracts and Safety
+        > In the evaluated clean F=3 common envelope, the robust native BCF arm covered the same non-easy instances that defeated all tested MAP arms. [claim:claim_bcf_dominates_clean_non_easy_f3]
 
-The atlas repeatedly converged on the same safety lesson: silent wrong recovery is the key failure mode. Typed abstention, exact verification, ambiguity handling, and explicit no-commit policies survive across otherwise unrelated lines.
+        This is not a universal BCF claim. It is restricted to:
 
-## 13. Recoverability Cost Atlas
+        - clean only;
+        - F=3 only;
+        - single product;
+        - known factor-specific domains;
+        - dual native views;
+        - no shared raw-noise contract.
 
-The recoverability cost matrix shows that the repository's surviving methods buy reliability through different currencies:
+        ## 9. Decoder Repair and Soft Information
 
-- more compute
-- structured codes
-- exact side information
-- external context
-- more dimensions or bits
-- reduced coverage through abstention
-- exact fallback
+        Several lines explored whether weak or compressed side evidence could create a better frontier:
 
-No line demonstrated free recoverability.
+        - decoder-certified codebook admission;
+        - conflict-guided tagged-symbol repair;
+        - block-codebook residue compression.
 
-The cross-substrate portfolio audit sharpened this point: once dual representation cost, verifier acceptance, and cumulative cascade latency were counted honestly, the hard-cell frontier collapsed to a dominant single method rather than a deployable oracle portfolio.
+        These lines did not support a strong architectural upgrade once equal-bit controls, generalization, certification shuffles, and silent-error safeguards were counted. The repeated pattern was not that no local signal existed, but that the extra mechanism failed to create a new nondominated operating point after full accounting. [claim:claim_decoder_repair_not_free_in_tested_envelopes]
 
-## 14. Failure-Mode Atlas
+        ## 10. Exact Structural Preservation
 
-The failure-mode atlas includes:
+        The exact-structure lines support a different conclusion from noisy factorization:
 
-- capacity collapse
-- false attractors and false consensus
-- context exclusion and misrouting
-- certification overfit
-- silent wrong acceptance
-- storage and compute non-dominance
-- packaging without benefit
-- wrong-but-valid handles
-- protocol leakage
+        - exact first-order manifests can safely enumerate immediate operands after record retrieval;
+        - recursive replay can reconstruct the clean semantic result with memoization and typed failure handling;
+        - ordinary sidecar DAG storage is the honest engineering baseline;
+        - inline packing alone did not show a packaging advantage.
 
-These are not footnotes; they are the main architectural constraints.
+        This is not "semantic geometry contains its own exact history." It is exact structural preservation plus deterministic replay after retrieval. [claim:claim_recursive_replay_safe_after_retrieval] [claim:claim_inline_manifest_advantage_not_supported]
 
-## 15. Abstention-First Architecture
+        ## 11. Verification, Abstention, and Sequential Escalation
 
-The strongest architecture recommendation the atlas can currently support is modest:
+        Verification and abstention recur across otherwise unrelated lines. The repository repeatedly found that the main safety failure is silent wrong acceptance, not mere inaccuracy. This leads to two portfolio conclusions that must remain separate.
 
-> Prefer exact or well-audited baselines, add context or approximate routing only when it demonstrably improves a bounded frontier, keep an explicit verifier, preserve abstention, use exact fallbacks when the task contract already grants exact structural information, and stop portfolio escalation when a dominant single method or trivial static threshold already explains the observed gain.
+        ### 11.1 Method-selection complementarity
 
-## 16. Threats to Validity
+        The question here is whether different methods solve different trials in a way that justifies per-instance selection. In the clean common F=3 envelope, BCF rescued MAP failures, but MAP did not rescue BCF failures on the hard shared cells. Direct oracle exact-recovery gain over always-BCF was therefore zero. The lawful conclusion is:
 
-Major threats remain:
+        > `INSTANCE_LEVEL_METHOD_SELECTION_NOT_SUPPORTED` in the tested clean F=3 envelope. [claim:claim_instance_router_not_supported_in_common_clean_envelope]
 
-- many positive lines are development-only rather than confirmatory;
-- some early historical artifacts used narrower contracts than a public reader might assume;
-- optional dependencies and hardware differences matter for reproduction;
-- the repository contains more negative and boundary-setting evidence than final architecture wins;
-- the cross-substrate portfolio result is still clean-only and does not authorize noise or held-out routing claims;
-- not all literature categories have yet been transferred into direct empirical baselines.
+        ### 11.2 Sequential escalation economics
 
-## 17. Reproducibility
+        A different question is whether a cheap fast path can still be worthwhile if an expensive fallback is invoked only after verifier rejection. For a fast path `A` and fallback `B`, the simplified expected cost is:
 
-The public release should distinguish:
+        `E[C_cascade] = C_A + (1 - p_exit) * C_B`
 
-- CI validation and smoke tests
-- local unit-suite validation
-- full historical scientific reruns
+        with break-even condition:
 
-The paper tables should cite exact result paths, protocol hashes, and commit references through the evidence registry.
+        `p_exit > C_A / C_B`
 
-## 18. Conclusion
+        In the measured clean non-easy common F=3 cells:
 
-The atlas does not show that recoverability is impossible. It shows that recoverability is expensive, contract-dependent, and easily overclaimed. The public value of the repository is therefore not a single triumphant mechanism, but a reproducible map of what had to be paid, what failed to pay off, and where exact structure or abstention were the more honest answers.
-"""
+        - `C_A` for `MAP_D1024_FAST` was about `0.00972 s`;
+        - `C_B` for `BCF_NATIVE` was about `0.03717 s`;
+        - break-even exit rate was therefore about `0.261`;
+        - actual verified exit rate was `0.25`.
+
+        So current MAP-first to BCF dual-view escalation was not cost-effective on clean non-easy cells. The only practical benefit came from a trivial cell-level threshold that sends the easy `M=10` cell to MAP and everything else to BCF. [claim:claim_current_map_bcf_escalation_not_cost_effective] [claim:claim_static_cell_route_sufficient_in_current_envelope]
+
+        This does **not** use reverse rescue as an argument against sequential early exit. Reverse rescue is irrelevant to early exit. The negative result is economic: the verified exit rate did not amortize the probe in the tested envelope.
+
+        ## 12. Failure-Mode Atlas
+
+        The failure-mode atlas is central, not decorative. The recurrent modes include:
+
+        - capacity collapse;
+        - false attractors;
+        - false consensus;
+        - context exclusion and context misrouting;
+        - certification overfit;
+        - silent wrong acceptance;
+        - native substrate mismatch;
+        - compute non-dominance;
+        - storage non-dominance;
+        - packaging non-benefit;
+        - wrong-but-valid exact handles;
+        - dangling or stale handles;
+        - protocol leakage;
+        - dominant single-method portfolios.
+
+        Each mode is linked to:
+
+        - an observable signature;
+        - a mechanistic explanation;
+        - a resource shortfall;
+        - what helped;
+        - what failed;
+        - the remaining risk.
+
+        ## 13. Hardware Changes the Frontier, Not the Accounting
+
+        This section is **literature synthesis only, not repository evidence**.
+
+        Hardware work suggests that the practical cost frontier may shift when recoverability is paid through:
+
+        - procedural hypervector generation;
+        - streaming high-dimensional computation;
+        - FPGA area/latency trade-offs;
+        - in-memory compute;
+        - analog or multi-bit coordinates;
+        - spiking or temporal local state.
+
+        The atlas therefore does not say hardware is irrelevant. It says hardware may change the frontier while leaving the accounting principle intact: the cost is still paid somewhere, just often in physical parallelism, device precision, or memory architecture instead of software-visible bytes or latency. [claim:claim_hardware_may_change_cost_frontier_literature_only]
+
+        ## 14. Resource-Aware Architectural Guide
+
+        The architectural guide consolidates the current engineering advice:
+
+        - use exact first-order manifests when exact structure is already known at write time;
+        - use ordinary sidecar DAG storage unless inline placement shows a measured packaging win;
+        - treat context-conditioned search as a search controller seam, not a new algebra;
+        - use the dominant native substrate for the current lawful common contract;
+        - stop complex routing when a dominant single method or trivial static threshold already explains the gain;
+        - keep exact fallbacks and typed abstention when the information contract is insufficient.
+
+        ## 15. Threats to Validity
+
+        The main threats are:
+
+        ### Internal validity
+
+        - many positive lines remain development-only;
+        - some early historical runs predate today's stricter public-release framing.
+
+        ### Construct validity
+
+        - task contracts vary substantially across repository stages;
+        - some lines test retrieval after record creation or retrieval after exact lookup rather than blind factorization.
+
+        ### External validity
+
+        - the cross-substrate portfolio result is clean-only and F=3 only;
+        - no physical hardware measurements are present;
+        - synthetic recoverability tasks are not application workloads.
+
+        ### Statistical conclusion validity
+
+        - several stages use modest trial counts and bounded development envelopes;
+        - not every negative result has a large confirmatory sample.
+
+        ### Implementation fidelity
+
+        - some literature methods were audited or wrapped rather than reimplemented from scratch, by design;
+        - direct numeric comparison is limited to common-harness entries.
+
+        ### Publication and search bias
+
+        - this is a repository-anchored systematic mapping, not an exhaustive field-wide census.
+
+        ### Researcher degrees of freedom
+
+        - the same single-author program designed most repository stages, even though blocked verdicts and anti-NIH baselines were preserved.
+
+        ### Hardware transfer validity
+
+        - hardware literature may shift practical costs, but not every device-level result transfers to software or CPU experiments.
+
+        ## 16. Reproducibility
+
+        The paper distinguishes:
+
+        - CI validation and smoke tests;
+        - local unit and validator runs;
+        - full historical scientific reruns.
+
+        All empirical claims are tied back to:
+
+        - `paper/evidence_registry.yaml`;
+        - `paper/claim_ledger.yaml`;
+        - protocol hashes;
+        - concrete result directories;
+        - tests where locally available.
+
+        ## 17. Conclusion
+
+        The repeated negative result of the atlas was not that recovery could never be improved. It was that the improvement ceased to be free once all relevant resources were counted. Within the evaluated envelopes, some mechanisms preserved real information, some improved bounded local recovery, and several were worth adopting as engineering baselines. Others failed because the same benefit could be achieved more honestly with exact structure, a stronger native substrate, extra dimensions, abstention, or a simpler static policy. That is the paper's main message. [claim:claim_recoverability_has_a_cost] [claim:claim_no_universal_impossibility_theorem]
+        """
+    )
 
 
 def render_supplementary_atlas() -> str:
@@ -2582,7 +3968,7 @@ def render_supplementary_atlas() -> str:
         "This atlas is generated from the machine-readable registries and summarizes all normalized hypotheses.",
         "",
     ]
-    for entry in EVIDENCE_ENTRIES:
+    for entry in ALL_EVIDENCE_ENTRIES:
         lines.extend(
             [
                 f"## {entry['hypothesis_id']}",
@@ -2613,19 +3999,19 @@ def main() -> None:
         "schema_version": "vsa-recoverability-atlas-evidence-v1",
         "project_title": "VSA Recoverability Atlas",
         "legacy_internal_namespace": "cgrn_hsr",
-        "entries": EVIDENCE_ENTRIES,
+        "entries": ALL_EVIDENCE_ENTRIES,
     }
     claim_payload = {
         "schema_version": "vsa-recoverability-atlas-claims-v1",
-        "claims": CLAIMS,
+        "claims": ALL_CLAIMS,
     }
     failure_payload = {
         "schema_version": "vsa-recoverability-atlas-failures-v1",
-        "failures": FAILURE_MODES,
+        "failures": ALL_FAILURE_MODES,
     }
     prior_payload = {
         "schema_version": "vsa-recoverability-atlas-prior-art-v1",
-        "entries": PRIOR_ART,
+        "entries": ALL_PRIOR_ART,
     }
 
     write_json_yaml(PAPER_DIR / "evidence_registry.yaml", evidence_payload)
@@ -2635,10 +4021,12 @@ def main() -> None:
 
     hypothesis_rows = build_hypothesis_matrix()
     prior_rows = build_prior_art_matrix()
+    method_resource_rows = METHOD_RESOURCE_ROWS
 
     hypothesis_columns = list(hypothesis_rows[0].keys())
     prior_columns = list(prior_rows[0].keys())
     cost_columns = list(COST_MATRIX_ROWS[0].keys())
+    method_resource_columns = list(method_resource_rows[0].keys())
 
     write_text(PAPER_DIR / "hypothesis_matrix.csv", csv_from_rows(hypothesis_rows, hypothesis_columns))
     write_text(PAPER_DIR / "hypothesis_matrix.md", "# Hypothesis Matrix\n\n" + render_table(hypothesis_rows, hypothesis_columns))
@@ -2648,10 +4036,14 @@ def main() -> None:
 
     write_text(PAPER_DIR / "prior_art_matrix.csv", csv_from_rows(prior_rows, prior_columns))
     write_text(PAPER_DIR / "prior_art_matrix.md", "# Prior-Art Matrix\n\n" + render_table(prior_rows, prior_columns))
+    write_text(PAPER_DIR / "method_resource_atlas.csv", csv_from_rows(method_resource_rows, method_resource_columns))
+    write_text(PAPER_DIR / "method_resource_atlas.md", render_method_resource_atlas_md())
 
     write_text(PAPER_DIR / "claim_ledger.md", render_claim_ledger_md())
     write_text(PAPER_DIR / "failure_mode_atlas.md", render_failure_atlas_md())
     write_text(PAPER_DIR / "literature_transfer_matrix.md", render_literature_transfer_md())
+    write_text(PAPER_DIR / "architectural_decision_guide.md", render_architectural_decision_guide_md())
+    write_text(PAPER_DIR / "REVIEWER_RISK_REGISTER.md", render_reviewer_risk_register_md())
     write_text(PAPER_DIR / "manuscript.md", render_manuscript())
     write_text(PAPER_DIR / "supplementary_evidence_atlas.md", render_supplementary_atlas())
 

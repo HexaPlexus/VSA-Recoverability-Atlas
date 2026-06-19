@@ -201,3 +201,63 @@ This file is generated from `paper/claim_ledger.yaml`. Status values are intenti
 - Contradicting evidence: None
 - Allowed locations: README.md, paper/manuscript.md, RESEARCH_STATUS.md
 - Forbidden strengthenings: universal negative theorem
+
+## claim_recoverability_resource_accounting
+
+- Status: `DESIGN_PRINCIPLE`
+- Scope: Repository-wide empirical synthesis and systematic mapping frame
+- Text: Across the repository's evaluated mechanisms, recoverability improvements always consumed an identifiable additional resource such as dimension, precision, code structure, exact side information, context, compute, abstention, or exact fallback.
+- Supporting evidence: level1_context_conditioned_search, level3_2_map_budget_robustness, level3_4_algebraic_baseline_closure, self_describing_record_sidecar_closure, codebook_residue_block_lut, oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: README.md, paper/manuscript.md, paper/method_resource_atlas.md
+- Forbidden strengthenings: new impossibility theorem, recoverability can be reduced to one universal scalar score
+
+## claim_decoder_repair_not_free_in_tested_envelopes
+
+- Status: `SUPPORTED_DEVELOPMENT_ONLY`
+- Scope: Tagged repair, decoder-certified admission, and residue-compression lines only
+- Text: In the tested repository envelopes, decoder-repair and soft-information mechanisms did not create a free recovery gain once representation cost, equal-bit controls, generalization, and silent-error safeguards were counted.
+- Supporting evidence: decoder_certified_codebook, decoder_guided_tag_repair, codebook_residue_block_lut
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, paper/failure_mode_atlas.md
+- Forbidden strengthenings: decoder repair is universally useless, soft information never helps under any contract
+
+## claim_bcf_dominates_clean_non_easy_f3
+
+- Status: `SUPPORTED_DEVELOPMENT_ONLY`
+- Scope: Cross-substrate oracle complementarity v0.1 clean non-easy cells only
+- Text: Within the evaluated clean F=3 common envelope, the robust native BCF arm covered the same non-easy instances that defeated all tested MAP arms.
+- Supporting evidence: oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, paper/architectural_decision_guide.md
+- Forbidden strengthenings: BCF universally dominates MAP across noise, tasks, or hardware
+
+## claim_current_map_bcf_escalation_not_cost_effective
+
+- Status: `SUPPORTED_DEVELOPMENT_ONLY`
+- Scope: Cross-substrate oracle complementarity v0.1 clean non-easy sequential-economics analysis only
+- Text: A MAP-first, BCF-fallback dual-view escalation was not cost-effective on clean non-easy F=3 cells because the measured fast-path verified exit rate did not offset the additional probe cost.
+- Supporting evidence: oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, paper/architectural_decision_guide.md
+- Forbidden strengthenings: sequential escalation is never useful, the result transfers to noisy or non-F=3 contracts
+
+## claim_static_cell_route_sufficient_in_current_envelope
+
+- Status: `SUPPORTED_DEVELOPMENT_ONLY`
+- Scope: Cross-substrate oracle complementarity v0.1 clean common envelope only
+- Text: In the evaluated clean common F=3 envelope, a trivial static route by M captured the only observed practical routing benefit.
+- Supporting evidence: oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, paper/architectural_decision_guide.md
+- Forbidden strengthenings: static thresholds are sufficient in every future contract
+
+## claim_hardware_may_change_cost_frontier_literature_only
+
+- Status: `OPEN`
+- Scope: Literature synthesis only; not repository-measured
+- Text: Hardware mechanisms such as in-memory compute, procedural generation, streaming, FPGA acceleration, and multi-bit memories may change the practical cost frontier for recoverability, but this repository has not measured those effects directly.
+- Supporting evidence: None
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, paper/prior_art_matrix.md
+- Forbidden strengthenings: measured FPGA or neuromorphic result in this repository, hardware proves universal recoverability gains

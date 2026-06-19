@@ -188,9 +188,9 @@ This atlas is generated from the machine-readable registries and summarizes all 
 - Method: Paired clean F=3 evaluation of frozen MAP D512 fast, MAP D1024 fast, MAP D1024 robust, BCF native, static threshold routes, fixed-order cascades, random controls, and oracle upper bounds
 - Result paths: docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_AUDIT.md, docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_PROTOCOL.md, results/oracle_portfolio_v0_1
 - Protocol hashes: e7b56d4a5c780d2e45270b203b4d8df6efd73585f0b6f34f6fb2a0ec1a3ad1fd
-- Key result: BCF_NATIVE dominated the hard/non-easy paired instances and the direct oracle achieved no meaningful verified gain over the best fixed single method.
-- Main failure point: Residual complementarity collapsed to a trivial easy-cell static threshold rather than a deployable instance-level routing signal.
-- Allowed claims: In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path., A trivial M-threshold static route captured the only practical portfolio value observed in this stage.
+- Key result: BCF_NATIVE covered the same clean hard/non-easy paired instances that defeated the MAP arms, so direct per-instance oracle exact-recovery gain over always-BCF was 0 in the common envelope.
+- Main failure point: Instance-level method selection value disappeared, and MAP-first sequential escalation was also not cost-effective on non-easy cells because verified exit rates stayed below measured break-even.
+- Allowed claims: In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path., A trivial M-threshold static route captured the only practical portfolio value observed in this stage., Current MAP-to-BCF dual-view sequential escalation was not cost-effective on clean non-easy cells.
 - Forbidden claims: learned cross-substrate router justified, FPGA or Lava cascade justified, general cross-substrate complementarity across noise or other contracts
 - Reopen conditions: Reopen only if a new lawful contract introduces residual verifier-preserved routing regret after the best static route.
 

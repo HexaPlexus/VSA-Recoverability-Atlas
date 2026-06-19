@@ -941,10 +941,10 @@
       "compute_added": "paired multi-method execution, cascades, and oracle analysis",
       "prior_added": "static route by M only",
       "exact_side_information": "none",
-      "primary_result": "BCF_NATIVE dominated the hard/non-easy paired instances and the direct oracle achieved no meaningful verified gain over the best fixed single method.",
-      "primary_failure_point": "Residual complementarity collapsed to a trivial easy-cell static threshold rather than a deployable instance-level routing signal.",
+      "primary_result": "BCF_NATIVE covered the same clean hard/non-easy paired instances that defeated the MAP arms, so direct per-instance oracle exact-recovery gain over always-BCF was 0 in the common envelope.",
+      "primary_failure_point": "Instance-level method selection value disappeared, and MAP-first sequential escalation was also not cost-effective on non-easy cells because verified exit rates stayed below measured break-even.",
       "safety_outcome": "Verifier-constrained oracles and cascades preserved zero silent wrong acceptance.",
-      "cost_outcome": "Dual-encoding cost and cascade complexity were not justified because the best hard-cell coverage came from a single native method.",
+      "cost_outcome": "Dual-view storage and probe cost were not justified: the only surviving economic gain was a trivial cell-level threshold that used MAP_D1024_FAST on the easy M=10 cell.",
       "baselines": [
         "always MAP_D512_FAST",
         "always MAP_D1024_FAST",
@@ -997,10 +997,11 @@
         "static-route sufficiency",
         "dual-encoding overhead"
       ],
-      "causal_interpretation": "Cross-substrate rescue existed among weaker MAP variants, but the common hard envelope was already solved by one native method, so oracle routing added no new deployable information.",
+      "causal_interpretation": "The stage separated two questions. Method-selection complementarity was not supported because BCF already solved the hard shared failures. Sequential escalation economics were also negative in the clean non-easy envelope because the fast-path verified exit rate did not amortize the probe.",
       "allowed_claims": [
         "In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path.",
-        "A trivial M-threshold static route captured the only practical portfolio value observed in this stage."
+        "A trivial M-threshold static route captured the only practical portfolio value observed in this stage.",
+        "Current MAP-to-BCF dual-view sequential escalation was not cost-effective on clean non-easy cells."
       ],
       "forbidden_claims": [
         "learned cross-substrate router justified",
