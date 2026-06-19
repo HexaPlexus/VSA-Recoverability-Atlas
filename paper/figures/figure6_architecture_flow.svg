@@ -41,6 +41,11 @@
 <polyline points="826,313.071797 830,320 834,313.071797" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="960" y1="365" x2="1020" y2="365" stroke="#2a6dc6" stroke-width="2"/>
 <polyline points="1013.071797,369 1020,365 1013.071797,361" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<text x="645" y="132" fill="#3b914e" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">yes</text>
+<text x="645" y="208" fill="#d67924" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">no</text>
+<text x="970" y="103" fill="#3b914e" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="end">verify</text>
+<text x="970" y="223" fill="#d67924" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="end">decode or abstain</text>
+<text x="840" y="310" fill="#55606e" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">still worthwhile?</text>
 <text x="68" y="460" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Exact structure and approximate similarity are complementary channels.</text>
 <text x="68" y="486" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Promote extra mechanisms only when they create a verified nondominated point.</text>
 </svg>

@@ -296,32 +296,32 @@ def add_title(bundle: FigureBundle, title: str, subtitle: str) -> None:
 
 def figure1_budget_map() -> None:
     bundle = make_bundle(1200, 700, "Recoverability budget map")
-    add_title(bundle, "Figure 1. Recoverability budget map", "Conceptual workflow. Not a measured result.")
-    fill1 = "#dce9fa"
-    fill2 = "#dbf1f1"
-    fill3 = "#e7f4e6"
-    fill4 = "#fff1dc"
-    fill5 = "#f5e8fb"
-    draw_box(bundle, 60, 120, 210, 100, ["Task and", "risk contract"], "CONTRACT", fill1, (220, 233, 250))
-    draw_box(bundle, 330, 120, 220, 100, ["Budget", "allocation"], "BUDGET", fill2, (219, 241, 241))
-    draw_box(bundle, 620, 70, 220, 100, ["Representation", "and decoder"], "REP DEC", fill3, (231, 244, 230))
-    draw_box(bundle, 620, 190, 220, 100, ["Verification", "and abstention"], "VERIFY", fill4, (255, 241, 220))
-    draw_box(bundle, 910, 70, 220, 100, ["Accepted", "result"], "ACCEPT", fill5, (245, 232, 251))
-    draw_box(bundle, 910, 190, 220, 100, ["Fallback or", "abstention"], "FALLBACK", "#f9e0e0", (249, 224, 224))
-    bundle.svg.arrow(270, 170, 330, 170, stroke=rgb_hex(PALETTE["blue"]))
-    bundle.svg.arrow(550, 145, 620, 120, stroke=rgb_hex(PALETTE["blue"]))
-    bundle.svg.arrow(550, 195, 620, 240, stroke=rgb_hex(PALETTE["blue"]))
-    bundle.svg.arrow(840, 120, 910, 120, stroke=rgb_hex(PALETTE["green"]))
-    bundle.svg.arrow(840, 240, 910, 240, stroke=rgb_hex(PALETTE["orange"]))
-    bundle.png.line(270, 170, 330, 170, PALETTE["blue"], 3)
-    bundle.png.line(550, 145, 620, 120, PALETTE["blue"], 3)
-    bundle.png.line(550, 195, 620, 240, PALETTE["blue"], 3)
-    bundle.png.line(840, 120, 910, 120, PALETTE["green"], 3)
-    bundle.png.line(840, 240, 910, 240, PALETTE["orange"], 3)
-    bundle.svg.text(340, 340, "R1-R14 identify where additional authority or cost is paid.", size=17, fill=rgb_hex(PALETTE["muted"]))
-    bundle.svg.text(340, 366, "Promote extra mechanisms only if they create a verified nondominated point.", size=17, fill=rgb_hex(PALETTE["muted"]))
-    bundle.png.text(200, 320, "R1 TO R14 TRACK COST", PALETTE["muted"], scale=2)
-    bundle.png.text(120, 350, "PROMOTE ONLY NONDOMINATED MECHANISMS", PALETTE["muted"], scale=2)
+    add_title(bundle, "Figure 1. Recoverability budget map", "Conceptual workflow. Verification gates acceptance.")
+    draw_box(bundle, 50, 250, 180, 100, ["Task and", "risk contract"], "CONTRACT", "#dce9fa", (220, 233, 250))
+    draw_box(bundle, 270, 250, 180, 100, ["Recoverability", "budget"], "BUDGET", "#dbf1f1", (219, 241, 241))
+    draw_box(bundle, 490, 250, 230, 100, ["Representation", "and native decoder"], "REP DEC", "#e7f4e6", (231, 244, 230))
+    draw_box(bundle, 770, 250, 190, 100, ["Independent", "verifier"], "VERIFY", "#fff1dc", (255, 241, 220))
+    draw_box(bundle, 1010, 110, 150, 90, ["Accept"], "ACCEPT", "#f5e8fb", (245, 232, 251))
+    draw_box(bundle, 1010, 250, 150, 90, ["Fallback"], "FALLBACK", "#f9e0e0", (249, 224, 224))
+    draw_box(bundle, 1010, 390, 150, 90, ["Abstain"], "ABSTAIN", "#eef0f4", (238, 240, 244))
+    for x1, y1, x2, y2, color in [
+        (230, 300, 270, 300, PALETTE["blue"]),
+        (450, 300, 490, 300, PALETTE["blue"]),
+        (720, 300, 770, 300, PALETTE["blue"]),
+        (960, 275, 1010, 155, PALETTE["green"]),
+        (960, 300, 1010, 295, PALETTE["orange"]),
+        (960, 325, 1010, 435, PALETTE["slate"]),
+    ]:
+        bundle.svg.arrow(x1, y1, x2, y2, stroke=rgb_hex(color))
+        bundle.png.line(x1, y1, x2, y2, color, 3)
+    bundle.svg.text(1015, 225, "yes", size=14, fill=rgb_hex(PALETTE["green"]), weight="bold")
+    bundle.svg.text(975, 298, "retry", size=14, fill=rgb_hex(PALETTE["orange"]), anchor="end", weight="bold")
+    bundle.svg.text(1015, 370, "no safe answer", size=14, fill=rgb_hex(PALETTE["slate"]), weight="bold")
+    bundle.svg.text(110, 150, "Accepted results cannot bypass independent verification.", size=18, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+    bundle.svg.text(110, 520, "R1-R14 name where authority or cost is paid: dimension, precision, structure,", size=17, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(110, 546, "exact side information, context, compute, temporal state, fallback, or abstention.", size=17, fill=rgb_hex(PALETTE["muted"]))
+    bundle.png.text(90, 140, "ACCEPTANCE NEVER BYPASSES VERIFICATION", PALETTE["ink"], scale=2)
+    bundle.png.text(90, 520, "R1 TO R14 TRACK WHERE COST MOVES", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure1_budget_map.svg")
     bundle.png.save_png(FIG_DIR / "figure1_budget_map.png")
 
@@ -329,37 +329,66 @@ def figure1_budget_map() -> None:
 def figure2_evidence_atlas() -> None:
     payload = load_json(PAPER_DIR / "evidence_registry.yaml")
     entries = payload["entries"]
-    bundle = make_bundle(1400, 900, "Evidence atlas overview")
-    add_title(bundle, "Figure 2. Repository evidence atlas overview", "Twenty-four normalized repository hypotheses grouped by category and colored by evidence status.")
-    cols = 4
-    cell_w, cell_h = 300, 110
-    start_x, start_y = 40, 110
-    for idx, entry in enumerate(entries):
-        col = idx % cols
-        row = idx // cols
-        x = start_x + col * 335
-        y = start_y + row * 125
-        fill = STATUS_COLORS.get(entry["evidence_status"], "#cccccc")
-        fill_rgb = tuple(int(fill[i:i + 2], 16) for i in (1, 3, 5))
-        title = entry["title"].split(":")[0][:28]
-        dispo = entry["architectural_disposition"][:26]
-        bundle.svg.rect(x, y, cell_w, cell_h, fill=fill, stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=10)
-        bundle.svg.text(x + 12, y + 24, f"{idx + 1:02d}. {entry['hypothesis_id']}", size=13, fill=rgb_hex(PALETTE["white"]), weight="bold")
-        bundle.svg.text(x + 12, y + 48, title, size=16, fill=rgb_hex(PALETTE["white"]), weight="bold")
-        bundle.svg.text(x + 12, y + 72, f"Category: {entry['category']}", size=12, fill=rgb_hex(PALETTE["white"]))
-        bundle.svg.text(x + 12, y + 92, f"Disposition: {dispo}", size=12, fill=rgb_hex(PALETTE["white"]))
-        bundle.png.rect(x, y, cell_w, cell_h, fill_rgb, PALETTE["ink"])
-        bundle.png.text(x + 8, y + 8, f"{idx+1:02d}", PALETTE["white"], scale=2)
-        bundle.png.text(x + 8, y + 26, entry["evidence_status"][:12].replace("_", ""), PALETTE["white"], scale=1)
-    legend_y = 820
-    lx = 40
-    for status, fill in list(STATUS_COLORS.items())[:5] + list(STATUS_COLORS.items())[5:]:
-        fill_rgb = tuple(int(fill[i:i + 2], 16) for i in (1, 3, 5))
-        bundle.svg.rect(lx, legend_y, 18, 18, fill=fill, stroke="none")
-        bundle.svg.text(lx + 28, legend_y + 14, status, size=12, fill=rgb_hex(PALETTE["ink"]))
-        bundle.png.rect(lx, legend_y, 18, 18, fill_rgb, fill_rgb)
-        bundle.png.text(lx + 24, legend_y + 2, status[:12].replace("_", ""), PALETTE["ink"], scale=1)
-        lx += 150
+    status_counts: dict[str, int] = {}
+    disposition_counts: dict[str, int] = {}
+    for entry in entries:
+        status_counts[entry["evidence_status"]] = status_counts.get(entry["evidence_status"], 0) + 1
+        disposition_counts[entry["architectural_disposition"]] = disposition_counts.get(entry["architectural_disposition"], 0) + 1
+    status_order = [
+        "ADOPTED_ENGINEERING_BASELINE",
+        "REPRODUCED_IN_REPO",
+        "PARTIALLY_REPRODUCED",
+        "PAPER_REPRODUCTION",
+        "IMPLEMENTATION_AUDITED",
+        "DEFERRED_HYPOTHESIS",
+        "BLOCKED_WITH_EVIDENCE",
+    ]
+    disposition_palette = {
+        "ADOPTED_ENGINEERING_BASELINE": PALETTE["blue"],
+        "REPRODUCED_IN_REPO": PALETTE["green"],
+        "PARTIALLY_REPRODUCED": PALETTE["teal"],
+        "IMPLEMENTATION_AUDITED": PALETTE["violet"],
+        "DEFERRED_HYPOTHESIS": PALETTE["yellow"],
+        "BLOCKED_WITH_EVIDENCE": PALETTE["red"],
+        "PAPER_REPRODUCTION": PALETTE["orange"],
+    }
+    bundle = make_bundle(1360, 860, "Evidence status summary")
+    add_title(bundle, "Figure 2. Repository evidence status summary", "Descriptive derived summary from 24 normalized repository evidence entries.")
+    panels = [
+        ("Evidence status counts", 60, status_counts, status_order, STATUS_COLORS, 24),
+        ("Architectural disposition counts", 700, disposition_counts, status_order, {k: rgb_hex(v) for k, v in disposition_palette.items()}, 24),
+    ]
+    for title, left, counts, order, color_map, label_limit in panels:
+        panel_w = 560
+        top = 150
+        height = 560
+        max_count = max(counts.values())
+        bundle.svg.text(left, 120, title, size=20, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+        bundle.svg.line(left, top + height, left + panel_w, top + height, stroke=rgb_hex(PALETTE["ink"]), stroke_width=2)
+        bundle.svg.line(left, top, left, top + height, stroke=rgb_hex(PALETTE["ink"]), stroke_width=2)
+        bundle.png.line(left, top + height, left + panel_w, top + height, PALETTE["ink"], 2)
+        bundle.png.line(left, top, left, top + height, PALETTE["ink"], 2)
+        for tick in range(0, max_count + 1):
+            y = top + height - tick / max_count * height
+            bundle.svg.line(left, y, left + panel_w, y, stroke=rgb_hex(PALETTE["grid"]), stroke_width=1)
+            bundle.svg.text(left - 10, y + 4, str(tick), size=12, fill=rgb_hex(PALETTE["muted"]), anchor="end")
+            bundle.png.line(left, int(y), left + panel_w, int(y), PALETTE["grid"], 1)
+        bar_w = 56
+        gap = 18
+        for idx, key in enumerate(order):
+            count = counts.get(key, 0)
+            x = left + 22 + idx * (bar_w + gap)
+            h = 0 if max_count == 0 else count / max_count * (height - 30)
+            y = top + height - h
+            fill = color_map.get(key, "#cccccc")
+            fill_rgb = tuple(int(fill[i:i + 2], 16) for i in (1, 3, 5))
+            bundle.svg.rect(x, y, bar_w, h, fill=fill, stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
+            bundle.svg.text(x + bar_w / 2, y - 10, str(count), size=15, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
+            bundle.svg.text(x + bar_w / 2, top + height + 24, key[:label_limit].replace("_", " "), size=11, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
+            bundle.png.rect(int(x), int(y), bar_w, max(1, int(h)), fill_rgb, PALETTE["ink"])
+            bundle.png.text(int(x + 8), top + height + 8, key[:8].replace("_", ""), PALETTE["muted"], scale=1)
+    bundle.svg.text(60, 790, "This figure summarizes registry counts only; the full 24-entry per-hypothesis atlas remains supplementary.", size=14, fill=rgb_hex(PALETTE["muted"]))
+    bundle.png.text(60, 790, "FULL 24 ENTRY ATLAS REMAINS IN THE SUPPLEMENT", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure2_evidence_atlas.svg")
     bundle.png.save_png(FIG_DIR / "figure2_evidence_atlas.png")
 
@@ -375,7 +404,15 @@ def figure3_capacity_frontier() -> None:
         key = (int(row["domain_size"]), row["substrate"], row["config_id"])
         if key in wanted:
             label = "BCF" if row["substrate"] == "BCF" else ("MAP D512" if row["config_id"] == "map_d512" else "MAP D1024")
-            series[label].append((int(row["domain_size"]), float(row["exact_recovery_rate"])))
+            series[label].append(
+                (
+                    int(row["domain_size"]),
+                    float(row["exact_recovery_rate"]),
+                    float(row["exact_recovery_ci_low"]),
+                    float(row["exact_recovery_ci_high"]),
+                    int(row["trials"]),
+                )
+            )
     for label in series:
         series[label].sort()
 
@@ -404,11 +441,17 @@ def figure3_capacity_frontier() -> None:
     for label, pts in series.items():
         svg_pts = []
         color = colors[label]
-        for xval, yval in pts:
+        for xval, yval, ci_low, ci_high, trials in pts:
             x = left + (math.log10(xval) - math.log10(10)) / (math.log10(68) - math.log10(10)) * width
             y = top + height - yval * height
+            y_low = top + height - ci_low * height
+            y_high = top + height - ci_high * height
             svg_pts.append((x, y))
+            bundle.svg.line(x, y_low, x, y_high, stroke=rgb_hex(color), stroke_width=2)
+            bundle.svg.line(x - 6, y_low, x + 6, y_low, stroke=rgb_hex(color), stroke_width=2)
+            bundle.svg.line(x - 6, y_high, x + 6, y_high, stroke=rgb_hex(color), stroke_width=2)
             bundle.svg.circle(x, y, 5, fill=rgb_hex(color), stroke=rgb_hex(color))
+            bundle.svg.text(x + 8, y - 8, f"n={trials}", size=11, fill=rgb_hex(PALETTE["muted"]))
             bundle.png.circle(int(x), int(y), 4, color)
         bundle.svg.polyline(svg_pts, stroke=rgb_hex(color), stroke_width=3)
         for (x1, y1), (x2, y2) in zip(svg_pts, svg_pts[1:]):
@@ -420,8 +463,11 @@ def figure3_capacity_frontier() -> None:
         bundle.svg.text(legend_x + 14, cy + 4, label, size=13, fill=rgb_hex(PALETTE["ink"]))
         bundle.png.circle(legend_x, cy, 5, colors[label])
         bundle.png.text(legend_x + 14, cy - 6, label.replace(" ", ""), PALETTE["ink"], scale=1)
-    bundle.svg.text(90, 690, "X-axis uses common-envelope domain size M (log-scaled spacing only for readability).", size=13, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(left + width / 2, 700, "Domain size M", size=16, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
+    bundle.svg.text(26, top + height / 2, "Exact recovery rate", size=16, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+    bundle.svg.text(90, 690, "Scope: clean, F=3, single product. X spacing uses log10(M) only for readability.", size=13, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(60, 690, "DOMAIN SIZE M", PALETTE["muted"], scale=2)
+    bundle.png.text(8, 100, "EXACT RECOVERY", PALETTE["ink"], scale=1)
     bundle.svg.save(FIG_DIR / "figure3_clean_f3_frontier.svg")
     bundle.png.save_png(FIG_DIR / "figure3_clean_f3_frontier.png")
 
@@ -470,10 +516,13 @@ def figure4_repair_costs() -> None:
         y = top + height - recall * height
         color = colors[idx]
         bundle.svg.circle(x, y, 8, fill=rgb_hex(color), stroke=rgb_hex(PALETTE["ink"]), stroke_width=1)
-        bundle.svg.text(x + 12, y + 4, label, size=13, fill=rgb_hex(PALETTE["ink"]))
+        bundle.svg.text(x + 12, y - 2, label, size=13, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+        bundle.svg.text(x + 12, y + 16, f"{bits:.0f} bits | {recall:.3f}", size=12, fill=rgb_hex(PALETTE["muted"]))
         bundle.png.circle(int(x), int(y), 6, color)
         bundle.png.text(int(x) + 12, int(y) - 6, label.replace(" ", ""), PALETTE["ink"], scale=1)
-    bundle.svg.text(110, 690, "Y-axis: full member enumeration recall. X-axis: physical bits per bundle.", size=13, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(left + width / 2, 700, "Physical bits per bundle", size=16, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
+    bundle.svg.text(24, top + height / 2, "Full-member enumeration recall", size=16, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+    bundle.svg.text(110, 690, "Equal-bit extra dimensions and scalar residue remain the key engineering controls for this plot.", size=13, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(140, 690, "BITS PER BUNDLE", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure4_repair_costs.svg")
     bundle.png.save_png(FIG_DIR / "figure4_repair_costs.png")
@@ -487,39 +536,46 @@ def figure5_escalation() -> None:
     exit_rate = float(final_non_easy["MAP_D1024_FAST"]["accepted_exact_coverage"])
     break_even = map_fast / bcf
     cascade = map_fast + (1.0 - exit_rate) * bcf
-    bundle = make_bundle(1100, 760, "Sequential escalation economics")
-    add_title(bundle, "Figure 5. Sequential escalation economics", "Clean non-easy common F=3 cell. Measured p50 latencies from oracle portfolio summary.")
-    labels = ["ACTUAL EXIT", "BREAK EVEN", "CASCADE", "ALWAYS BCF"]
-    values = [exit_rate, break_even, cascade, bcf]
-    is_rate = [True, True, False, False]
-    colors = [PALETTE["blue"], PALETTE["orange"], PALETTE["violet"], PALETTE["green"]]
-    left, top = 120, 150
-    bar_w, gap = 170, 60
-    rate_height = 230
-    cost_height = 230
-    for idx, label in enumerate(labels):
-        x = left + idx * (bar_w + gap)
-        if is_rate[idx]:
-            h = values[idx] * rate_height
-            y = top + rate_height - h
-            bundle.svg.rect(x, y, bar_w, h, fill=rgb_hex(colors[idx]), stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
-            bundle.svg.text(x + bar_w / 2, top + rate_height + 24, label, size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
-            bundle.svg.text(x + bar_w / 2, y - 8, f"{values[idx]:.3f}", size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
-            bundle.png.rect(x, int(y), bar_w, int(h), colors[idx], PALETTE["ink"])
-        else:
-            h = values[idx] / 0.05 * cost_height
-            y = 420 + cost_height - h
-            bundle.svg.rect(x, y, bar_w, h, fill=rgb_hex(colors[idx]), stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
-            bundle.svg.text(x + bar_w / 2, 420 + cost_height + 24, label, size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
-            bundle.svg.text(x + bar_w / 2, y - 8, f"{values[idx]:.4f}s", size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
-            bundle.png.rect(x, int(y), bar_w, int(h), colors[idx], PALETTE["ink"])
-        bundle.png.text(x + 10, (top + rate_height + 10) if is_rate[idx] else (420 + cost_height + 10), label.replace(" ", ""), PALETTE["ink"], scale=1)
-    bundle.svg.text(120, 130, "Verified exit rates", size=18, fill=rgb_hex(PALETTE["ink"]), weight="bold")
-    bundle.svg.text(120, 400, "Latency economics", size=18, fill=rgb_hex(PALETTE["ink"]), weight="bold")
-    bundle.png.text(120, 120, "EXIT RATES", PALETTE["ink"], scale=2)
-    bundle.png.text(120, 390, "LATENCY COSTS", PALETTE["ink"], scale=2)
-    bundle.svg.text(120, 690, "Break-even uses p_exit > C_fast / C_fallback. Here 0.250 < 0.261, so the probe does not amortize.", size=13, fill=rgb_hex(PALETTE["muted"]))
-    bundle.png.text(70, 690, "0.250 IS BELOW 0.261 BREAK EVEN", PALETTE["muted"], scale=2)
+    bundle = make_bundle(1140, 780, "Sequential escalation economics")
+    add_title(bundle, "Figure 5. Sequential escalation economics", "Clean non-easy common F=3 cell. Panel A uses rates; Panel B uses seconds.")
+    bundle.svg.text(100, 120, "Panel A. Verified exit versus break-even exit", size=20, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+    bundle.svg.text(100, 420, "Panel B. Expected cascade latency versus always-BCF latency", size=20, fill=rgb_hex(PALETTE["ink"]), weight="bold")
+    bundle.png.text(100, 110, "PANEL A EXIT RATES", PALETTE["ink"], scale=2)
+    bundle.png.text(100, 410, "PANEL B LATENCY", PALETTE["ink"], scale=2)
+    # Panel A
+    left = 130
+    top = 150
+    rate_height = 190
+    rate_labels = [("Actual verified exit", exit_rate, PALETTE["blue"]), ("Break-even exit", break_even, PALETTE["orange"])]
+    for idx, (label, value, color) in enumerate(rate_labels):
+        x = left + idx * 260
+        h = value * rate_height
+        y = top + rate_height - h
+        bundle.svg.rect(x, y, 180, h, fill=rgb_hex(color), stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
+        bundle.svg.text(x + 90, top + rate_height + 24, label, size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
+        bundle.svg.text(x + 90, y - 8, f"{value:.3f}", size=14, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
+        bundle.png.rect(x, int(y), 180, max(1, int(h)), color, PALETTE["ink"])
+        bundle.png.text(x + 12, top + rate_height + 8, label.split()[0].upper(), PALETTE["ink"], scale=1)
+    bundle.svg.text(640, 255, "Observed exit stays below the break-even threshold.", size=15, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(640, 278, f"0.250 < {break_even:.3f}", size=18, fill=rgb_hex(PALETTE["red"]), weight="bold")
+    # Panel B
+    cost_top = 450
+    cost_height = 190
+    scale_max = max(cascade, bcf) * 1.2
+    cost_labels = [("Expected cascade", cascade, PALETTE["violet"]), ("Always BCF", bcf, PALETTE["green"])]
+    for idx, (label, value, color) in enumerate(cost_labels):
+        x = left + idx * 260
+        h = value / scale_max * cost_height
+        y = cost_top + cost_height - h
+        bundle.svg.rect(x, y, 180, h, fill=rgb_hex(color), stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
+        bundle.svg.text(x + 90, cost_top + cost_height + 24, label, size=13, fill=rgb_hex(PALETTE["ink"]), anchor="middle")
+        bundle.svg.text(x + 90, y - 8, f"{value:.4f}s", size=14, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
+        bundle.png.rect(x, int(y), 180, max(1, int(h)), color, PALETTE["ink"])
+        bundle.png.text(x + 12, cost_top + cost_height + 8, label.split()[0].upper(), PALETTE["ink"], scale=1)
+    bundle.svg.text(640, 555, "Measured p50 costs imply that probing with MAP does not amortize on non-easy cells.", size=15, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(640, 578, f"Cascade {cascade:.4f}s > BCF {bcf:.4f}s", size=18, fill=rgb_hex(PALETTE["red"]), weight="bold")
+    bundle.svg.text(100, 715, "Break-even uses p_exit > C_fast / C_fallback. This plot supports sequential economics only.", size=13, fill=rgb_hex(PALETTE["muted"]))
+    bundle.png.text(90, 715, "SEQUENTIAL ECONOMICS ONLY", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure5_escalation.svg")
     bundle.png.save_png(FIG_DIR / "figure5_escalation.png")
 
@@ -551,6 +607,11 @@ def figure6_architecture_flow() -> None:
     for x1, y1, x2, y2 in arrows:
         bundle.svg.arrow(x1, y1, x2, y2, stroke=rgb_hex(PALETTE["blue"]))
         bundle.png.line(x1, y1, x2, y2, PALETTE["blue"], 3)
+    bundle.svg.text(645, 132, "yes", size=14, fill=rgb_hex(PALETTE["green"]), weight="bold")
+    bundle.svg.text(645, 208, "no", size=14, fill=rgb_hex(PALETTE["orange"]), weight="bold")
+    bundle.svg.text(970, 103, "verify", size=14, fill=rgb_hex(PALETTE["green"]), anchor="end", weight="bold")
+    bundle.svg.text(970, 223, "decode or abstain", size=14, fill=rgb_hex(PALETTE["orange"]), anchor="end", weight="bold")
+    bundle.svg.text(840, 310, "still worthwhile?", size=14, fill=rgb_hex(PALETTE["slate"]), anchor="middle", weight="bold")
     bundle.svg.text(68, 460, "Exact structure and approximate similarity are complementary channels.", size=17, fill=rgb_hex(PALETTE["muted"]))
     bundle.svg.text(68, 486, "Promote extra mechanisms only when they create a verified nondominated point.", size=17, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(70, 460, "EXACT AND APPROXIMATE CHANNELS ARE COMPLEMENTARY", PALETTE["muted"], scale=2)

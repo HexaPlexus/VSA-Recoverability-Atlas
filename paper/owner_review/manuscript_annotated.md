@@ -4,6 +4,10 @@
 
 ## Abstract
 
+[OWNER-CHECK: CLAIM] Confirm that the abstract's central recoverability-accounting proposition stays bounded and does not imply a universal impossibility theorem.
+[OWNER-CHECK: SCOPE] Confirm that BCF, hardware, and production non-claims are proportionate to the actual evidence base.
+[OWNER-CHECK: NATURAL PROSE] Tighten repeated disclaimer cadence only if it improves readability without strengthening claims.
+
 Vector Symbolic Architectures (VSAs) and Hyperdimensional Computing (HDC) offer compact distributed representations that support composition, cleanup, and associative computation, but the practical cost of recovering structured sources from lossy distributed states remains unevenly characterized across algebras, decoders, precision levels, and hardware assumptions. This paper combines a systematic mapping completed under a frozen search scope with a reproducible in-repository evidence atlas to study where that cost is paid. The repository component normalizes 24 hypotheses and architectural lines, including MAP resonator baselines, context-conditioned search, native structured recovery, decoder-aware repair mechanisms, exact structural side-information mechanisms, abstention policies, and multiple negative-result lines. The literature component maps recoverability mechanisms, hardware approaches, structured codes, exact side information, and temporal or spiking representations without forcing heterogeneous results into a single leaderboard. Within the evaluated envelopes, our evidence does not support a universal impossibility theorem for factorization, a universal superiority claim for BCF, or any production recommendation. It does support a resource-aware interpretation: recoverability improvements consistently required an identifiable additional resource such as more dimensions, more coordinate precision, stronger code structure, exact side information, more decoder compute, temporal state, materialization, or reduced coverage through abstention. Several mechanisms preserved genuine information or improved local recovery, yet many failed to create a new nondominated operating point after accounting for representation cost, compute, generalization, verification, and silent-error risk. We therefore propose a systems-level recoverability budget framework and an abstention-first architectural guide rather than a new decoder or a universal ranking. <!-- CLAIMS: claim_recoverability_resource_accounting, claim_hardware_may_change_cost_frontier_literature_only, claim_no_universal_impossibility_theorem -->
 
 ## 1. Introduction
@@ -57,6 +61,9 @@ The systematic mapping found that many literature claims are strong only within 
 
 ## 3. Systematic Mapping Protocol
 
+[OWNER-CHECK: NUMBER] Verify screened, included, excluded, and re-screened counts against the frozen CSV artifacts.
+[OWNER-CHECK: CITATION] Confirm that the mapping protocol language remains aligned with scoping-review rather than meta-analysis semantics.
+
 The literature component is a **systematic mapping / scoping review**, not a numerical meta-analysis. The choice is methodological rather than cosmetic. The literature spans incompatible algebras, tasks, dimensions, code structures, noise contracts, and hardware assumptions. In many cases the reported metrics are not directly commensurable, and even the definition of “recovery” varies across papers. A pooled leaderboard would therefore create more confidence than the evidence warrants.
 
 The frozen protocol is recorded in [SYSTEMATIC_REVIEW_PROTOCOL.md](SYSTEMATIC_REVIEW_PROTOCOL.md). It specifies research questions, search families, search sources, inclusion and exclusion criteria, a primary-source preference, a data extraction schema, and a comparability classification. The search families covered VSA/HDC foundations, recovery and factorization, structured recovery, precision and soft information, hardware, and abstention or algorithm-selection literature. The target of the present stage was not an exhaustive field census but a defensible frozen search scope that closes obvious conceptual gaps for the manuscript.
@@ -90,6 +97,8 @@ Only `DIRECT_COMMON_HARNESS` evidence is lawful for direct numeric ranking again
 The mapping also revealed a more subtle but important asymmetry between literature and repository evidence. The repository's negative lines are often exceptionally well controlled for their local question because they were designed to kill seductive mechanisms under equal-bit, equal-information, or shuffled-score controls. Much of the literature, by contrast, is stronger on native task demonstrations, hardware execution, or architectural breadth than on cross-contract adversarial controls. That difference does not make one body of evidence “better” in the abstract. It means the manuscript should use them for different purposes: the literature to map the design space and the repository to audit costed stop conditions inside explicit contracts.
 
 ### Table 1. Resource ontology used in this manuscript
+
+[OWNER-CHECK: TABLE] Verify that each resource category still matches the repository framing and literature mapping.
 
 | Tag | Resource location | Typical meaning |
 | --- | --- | --- |
@@ -139,9 +148,13 @@ Figure 1 summarizes this workflow as a systems pipeline rather than a decoder di
 
 ![Figure 1. Recoverability budget map](figures/figure1_budget_map.png)
 
+[OWNER-CHECK: FIGURE] Confirm that the verifier sits on the only path to acceptance and that fallback/abstain remain semantically distinct.
+
 **Figure 1. Recoverability budget map.** Conceptual workflow from task and risk contract through recoverability-budget allocation, representation and native decoder choice, independent verification, and the resulting accept, fallback, or abstain outcome. Acceptance does not bypass verification. This is a conceptual systems figure, not a measured result.
 
 ### Table 2. Repository evidence overview by normalized line
+
+[OWNER-CHECK: TABLE] Confirm that the table still reads as a bounded atlas overview rather than a results leaderboard.
 
 | Group | Representative evidence | Current disposition |
 | --- | --- | --- |
@@ -163,6 +176,8 @@ The normalized evidence registry now contains `24` repository hypotheses or arch
 Figure 2 compresses that registry into a reader-facing maturity summary. It is intentionally descriptive rather than comparative: the point is to show how much of the repository consists of bounded baselines, blocked lines, deferred hypotheses, and partial results, not to create another pseudo-benchmark.
 
 ![Figure 2. Repository evidence status summary](figures/figure2_evidence_atlas.png)
+
+[OWNER-CHECK: FIGURE] Verify status/disposition counts and confirm that the figure is descriptive derived summary only.
 
 **Figure 2. Repository evidence status summary.** Descriptive summary of the normalized repository evidence atlas, aggregated by evidence status and architectural disposition from machine-readable registry entries. This figure is a derived descriptive overview rather than a direct common-harness benchmark comparison.
 
@@ -192,6 +207,9 @@ Figure 3 plots the clean common F=3 frontier using frozen machine-readable resul
 
 ![Figure 3. Clean F=3 capacity frontier](figures/figure3_clean_f3_frontier.png)
 
+[OWNER-CHECK: FIGURE] Confirm axis labels, trial-count annotations, scope wording, and plotted MAP/BCF values against the frozen CSV.
+[OWNER-CHECK: NUMBER] Recheck the exact recovery values at M=10, 22, 31, and 68.
+
 **Figure 3. Clean F=3 capacity frontier.** Exact recovery rate versus domain size M for the frozen clean, F=3, single-product common envelope. Error bars reflect the exact recovery confidence intervals already serialized in the source summary, and the plotted cells preserve the underlying trial counts (n=64 at M=10 and M=68; n=128 at M=22 and M=31). The figure compares MAP D512, MAP D1024, and the native BCF arm without mixing incompatible noise or task contracts.
 
 ## 7. Context-Conditioned Search and Selective Computation
@@ -214,6 +232,10 @@ This is also the place where the manuscript most clearly separates **coverage ma
 
 ## 8. Structured Recovery and Native Substrates
 
+[OWNER-CHECK: CLAIM] Confirm that BCF is described as a native structured substrate, not merely a stronger MAP decoder.
+[OWNER-CHECK: SCOPE] Confirm that the clean F=3 common-envelope boundary remains explicit wherever BCF is discussed.
+[OWNER-CHECK: CITATION] Verify that the structured-code and hierarchical-resonator citations are the right primary anchors for the transfer limits being drawn.
+
 The most important positive result in the common clean F=3 envelope came from a native structured substrate rather than from a stronger MAP controller. The IBM BCF line matters because it is not just MAP with more steps. It uses a different representation and factorization contract, with native structure built into the substrate and the official implementation treated as authoritative for that line [@ibm_bcf_repo; @ibm_bcf_paper].
 
 Within the tested clean common envelope, BCF dominated the hard or non-easy instances that defeated the MAP baselines. On the final non-easy pooled subset, the robust native BCF arm recovered every instance while the MAP arms failed on much of the same set. The lawful claim is narrow but strong:
@@ -233,6 +255,8 @@ The hierarchical resonator literature provides another useful contrast. Papers s
 This distinction also clarifies the orthogonal-subspace and partitioning gap. The targeted search found that true partitioning mechanisms in the relevant literature usually appear either as explicit typed partitions or as task-structured representational separation inside a larger architecture, not as a free generic add-on. The conceptual proximity is real, but the transfer is limited. The atlas therefore uses that literature to motivate caution around interference isolation, not to claim that a proposed trace zone or partitioned capsule mechanism had already been validated in the repository.
 
 ### Table 3. Representative recovery mechanisms and where they pay
+
+[OWNER-CHECK: TABLE] Confirm that each mechanism's main added resource and transfer limit are still fair and non-overstated.
 
 | Mechanism family | Representative evidence | Main added resource | Main benefit | Main transfer limit |
 | --- | --- | --- | --- | --- |
@@ -261,9 +285,14 @@ Figure 4 compares comparable repair and precision arms using machine-readable re
 
 ![Figure 4. Where repair methods paid their cost](figures/figure4_repair_costs.png)
 
+[OWNER-CHECK: FIGURE] Verify exact bit and recall labels, point readability, and non-overlap at manuscript scale.
+[OWNER-CHECK: NUMBER] Confirm that the plotted repair-arm values match the final K=31 machine-readable summary.
+
 **Figure 4. Where repair methods paid their cost.** Physical bits per bundle versus full-member enumeration recall for comparable repair and equal-bit controls at the final K=31 development evaluation cell. Labels show the exact plotted bit and recall values from the machine-readable arm summary. The comparison stays within one lawful repository contract and does not rank against unrelated literature points.
 
 ### Table 4. Negative-result summary
+
+[OWNER-CHECK: TABLE] Confirm that each blocked line is summarized accurately and that no row implies a broader negative theorem.
 
 | Line | What signal existed | Why it still failed promotion |
 | --- | --- | --- |
@@ -288,6 +317,9 @@ This exact-structure line matters architecturally beyond its own narrow task. It
 This line also resolves a conceptual confusion that recurred in several earlier hypotheses. A compact exact manifest or typed handle is not a magical self-unbinding hypervector. It is a form of exact side information. Its value comes from preserving authority that would otherwise be unrecoverable from the lossy geometry alone. This is fully compatible with the recoverability budget framework and should not be presented as a new VSA algebra. [@merkle_dag_git; @concepts_semantic_pointers_2015]
 
 ## 11. Verification, Abstention, and Sequential Escalation
+
+[OWNER-CHECK: CLAIM] Confirm that method-selection complementarity and sequential escalation economics are now separated cleanly.
+[OWNER-CHECK: NUMBER] Verify exit-rate, break-even, and latency values against the oracle portfolio artifacts.
 
 Verification and abstention are cross-cutting rather than stage-specific. The repository repeatedly found that naive accuracy comparisons hide the most important safety question: was the wrong answer silently accepted?
 
@@ -334,6 +366,8 @@ Figure 5 visualizes the economics directly in two panels. Panel A separates actu
 
 ![Figure 5. Sequential escalation economics](figures/figure5_escalation.png)
 
+[OWNER-CHECK: FIGURE] Confirm that Panel A uses rates only, Panel B uses seconds only, and the figure supports sequential economics rather than routing complementarity.
+
 **Figure 5. Sequential escalation economics.** Panel A compares the measured verified MAP exit rate against the break-even exit threshold for a MAP-to-BCF sequential cascade on the clean non-easy common F=3 cells. Panel B compares expected cascade latency against always-BCF latency using the machine-readable method summary. The figure addresses sequential escalation economics only and does not support method-selection complementarity claims by itself.
 
 ## 12. Failure-Mode Atlas
@@ -370,6 +404,8 @@ The failure-mode atlas is one of the most reusable outputs of the repository bec
 
 ### Table 5. Failure modes, signals, and responses
 
+[OWNER-CHECK: TABLE] Check that the failure-mode names and responses remain aligned with the supplementary atlas.
+
 | Failure mode | Observable signature | Resource shortfall | What helped | Remaining risk |
 | --- | --- | --- | --- | --- |
 | Capacity collapse | Recovery cliff at larger `M` or bundle width | `R1`, `R7`, sometimes `R4` | More dimension, stronger native substrate, or exact fallback | Bigger state may still be too costly |
@@ -382,6 +418,9 @@ The failure-mode atlas is one of the most reusable outputs of the repository bec
 The full atlas, with evidence references, mitigation notes, and reopen conditions, is kept in the supplementary material rather than copied verbatim into the main text.
 
 ## 13. Hardware Changes the Frontier, Not the Accounting
+
+[OWNER-CHECK: CITATION] Verify that all hardware claims remain literature-only and that no cited simulation or platform note is described as a repository measurement.
+[OWNER-CHECK: SCOPE] Confirm that this section stays explicitly outside repository-measured evidence.
 
 This section is literature synthesis only. None of the hardware or neuromorphic sources discussed here were measured in this repository. They are **not measured in this repository** and are used only to explain how the practical frontier may shift under different physical assumptions. They matter because they change the practical price of some resources in the recoverability budget, not because they invalidate accounting.
 
@@ -404,6 +443,9 @@ The hardware synthesis is constructive rather than dismissive. The manuscript do
 
 ## 14. Resource-Aware Architectural Guide
 
+[OWNER-CHECK: CLAIM] Confirm that the architectural guide remains a bounded design framework, not a production recommendation.
+[OWNER-CHECK: NATURAL PROSE] Review whether the guide reads as one coherent workflow rather than a stacked disclaimer list.
+
 The architectural guide derived from the atlas can be summarized as a procedure rather than as a list of favorite mechanisms.
 
 1. **Define the task and risk contract.** Is the problem exact structure replay, blind factorization, approximate lookup, or channel correction? What is the silent-error tolerance?
@@ -418,6 +460,8 @@ The architectural guide derived from the atlas can be summarized as a procedure 
 The decision guide is intentionally conservative about escalation. A fallback or dual-view system becomes worthwhile only when there is measured value left after counting persistent storage, materialization, verification, and coverage changes. This is why the guide recommends exact fallbacks and sidecar structure in some settings but rejects gratuitous dual-view cascades in others. The rule is not “prefer exact state over distributed state” in every case. The rule is “preserve whichever authority would otherwise have to be guessed later at higher cost or higher risk.”
 
 ### Table 6. Architectural decision guide
+
+[OWNER-CHECK: TABLE] Confirm that every row is still matched to an evidence status and does not overstate deployment readiness.
 
 | Situation | Recommended representation | Recovery path | Required verifier | Main cost | Evidence status |
 | --- | --- | --- | --- | --- | --- |
@@ -470,6 +514,8 @@ One additional threat cuts across several sections: **scope breadth**. The manus
 
 ### Table 7. Threats and evidence limits
 
+[OWNER-CHECK: TABLE] Verify that the listed threats match the current manuscript and supplementary evidence state.
+
 | Threat | Why it matters | Current mitigation |
 | --- | --- | --- |
 | Development-only evidence | Some promising lines were never confirmatory | Explicit claim scopes and held-out status tracking |
@@ -498,6 +544,9 @@ The same discipline also explains several negative results. A blocked line is of
 This perspective is also what makes the manuscript different from a traditional benchmark paper. The purpose is not to produce a one-line SOTA table. The purpose is to show, with traceable evidence, which kinds of added resource repeatedly mattered, which did not pay for themselves, and which lines require no further engineering until the information contract changes. That is why reproducibility infrastructure, claim ledgers, and frozen stop decisions appear in the scientific contribution rather than only in repository metadata.
 
 ## 17. Conclusion
+
+[OWNER-CHECK: CLAIM] Confirm that the conclusion remains bounded to evaluated envelopes and does not strengthen blocked or literature-only lines.
+[OWNER-CHECK: NATURAL PROSE] Review for repeated contrast constructions and remove any remaining reader-visible internal cadence if it feels artificial.
 
 VSA remains useful as an associative and computational representation when its contract is explicit. The evidence collected here does not support the stronger story that recoverability is a free decoder property of a fixed lossy representation. Instead, the repeated pattern is that recoverability improvements required an identifiable additional resource: more dimension, more precision, stronger structure, exact side information, stronger priors, more compute, temporal state, hardware support, or reduced coverage through abstention.
 

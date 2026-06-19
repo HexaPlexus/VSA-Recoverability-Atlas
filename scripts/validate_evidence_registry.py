@@ -12,13 +12,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = ROOT / "paper"
 RELEASE_CANDIDATE_DIR = PAPER_DIR / "release_candidate"
 REVIEW_PACKETS_DIR = PAPER_DIR / "review_packets"
-SRC_DIR = ROOT / "src"
-if str(SRC_DIR) not in sys.path:
-    sys.path.insert(0, str(SRC_DIR))
+SRC_MODULE_DIR = ROOT / "src" / "cgrn_hsr"
+if str(SRC_MODULE_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_MODULE_DIR))
 
-from cgrn_hsr.release_artifacts import (  # noqa: E402
+from release_artifacts import (  # noqa: E402
     canonical_sha256,
     extract_abstract,
+    extract_claim_ids,
     extract_markdown_headings,
     word_count,
 )
@@ -52,6 +53,17 @@ COMPARABILITY_CLASSES = {
     "TAXONOMIC_ONLY",
     "HARDWARE_ONLY",
     "THEORETICAL_ONLY",
+}
+
+FIGURE_COMPARABILITY_CLASSES = {
+    "DIRECT_COMMON_HARNESS",
+    "CONCEPTUAL_ONLY",
+    "DESCRIPTIVE_DERIVED_SUMMARY",
+}
+
+FIGURE_PLACEMENTS = {
+    "MAIN_TEXT",
+    "SUPPLEMENT_ONLY",
 }
 
 LITERATURE_EVIDENCE_STRENGTHS = {
@@ -99,6 +111,13 @@ def parse_packet_sections(path: Path) -> list[str]:
     if not match:
         return []
     return re.findall(r'- "([^"]+)"', match.group(1))
+
+
+def extract_figure_paths(markdown: str) -> set[str]:
+    return {
+        match.strip()
+        for match in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", markdown)
+    }
 
 
 def main() -> int:
@@ -329,7 +348,7 @@ def main() -> int:
         if not path.exists():
             errors.append(f"Missing generated artifact: {path.relative_to(ROOT)}")
 
-    claim_refs = set(re.findall(r"\[claim:(claim_[A-Za-z0-9_]+)\]", manuscript_text))
+    claim_refs = set(extract_claim_ids(manuscript_text))
     for claim_ref in claim_refs:
         if claim_ref not in claim_ids:
             errors.append(f"Manuscript references unknown claim id: {claim_ref}")
@@ -350,6 +369,8 @@ def main() -> int:
             errors.append(f"Manuscript contains banned wording: {banned}")
     if "literature-only" not in manuscript_text.lower() or "not measured in this repository" not in manuscript_text.lower():
         errors.append("Hardware section must contain both 'literature-only' and 'not measured in this repository' scope markers.")
+    if "[claim:" in manuscript_text:
+        errors.append("Canonical manuscript still exposes visible [claim:...] anchors instead of hidden metadata.")
 
     try:
         abstract_text = extract_abstract(manuscript_text)
@@ -555,8 +576,21 @@ def main() -> int:
         errors.append("Figure manifest must contain a non-empty 'figures' list.")
     if isinstance(figures, list) and not (1 <= len(figures) <= 8):
         errors.append(f"Unexpected number of manuscript figures: {len(figures)}")
+    embedded_figure_paths = extract_figure_paths(manuscript_text)
     for figure in figures:
-        for field in {"figure_id", "title", "files", "source_data", "generator_script", "caption", "claim_ids", "comparability_class", "measured_result"}:
+        for field in {
+            "figure_id",
+            "title",
+            "files",
+            "source_data",
+            "generator_script",
+            "caption",
+            "claim_ids",
+            "comparability_class",
+            "measured_result",
+            "placement",
+            "manuscript_section",
+        }:
             if field not in figure:
                 errors.append(f"Figure manifest entry missing field {field}: {figure}")
         for file_text in figure.get("files", []):
@@ -571,6 +605,23 @@ def main() -> int:
         for claim_id in figure.get("claim_ids", []):
             if claim_id not in claim_ids:
                 errors.append(f"Figure manifest references unknown claim id: {claim_id}")
+        if figure.get("comparability_class") not in FIGURE_COMPARABILITY_CLASSES:
+            errors.append(
+                f"Unsupported figure comparability class for {figure.get('figure_id')}: {figure.get('comparability_class')}"
+            )
+        if figure.get("placement") not in FIGURE_PLACEMENTS:
+            errors.append(f"Unsupported figure placement for {figure.get('figure_id')}: {figure.get('placement')}")
+        manuscript_section = figure.get("manuscript_section", "")
+        if figure.get("placement") == "MAIN_TEXT":
+            if manuscript_section not in manuscript_headings:
+                errors.append(
+                    f"Main-text figure {figure.get('figure_id')} references missing manuscript section: {manuscript_section}"
+                )
+            expected_path = f"figures/{figure.get('figure_id')}.png"
+            if expected_path not in embedded_figure_paths:
+                errors.append(f"Main-text figure {figure.get('figure_id')} is not embedded in manuscript.")
+            if figure.get("title") not in manuscript_text:
+                errors.append(f"Main-text figure title missing from manuscript prose: {figure.get('title')}")
 
     if errors:
         for error in errors:
