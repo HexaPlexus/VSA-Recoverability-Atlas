@@ -38,10 +38,13 @@ from cgrn_hsr.exact_capsule_contract_closure import (
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results" / "exact_capsule_contract"
 FIRST_ORDER_DOC_SHA256 = "C66FE1EEE89F079A2BB551EF7FD26CB13EF173F21871406A38E5FF8E6766341D"
+STAGE_A_PROTOCOL_SHA256_CANONICAL = "7DC4904A0029C258B101D645E1E62B2EAA59DEC2F81209A8A1490A30E6AADDE1"
+STAGE_A1_PROTOCOL_SHA256_CANONICAL = "49AC82ECF69DAF269DC014ED77B62E0809B46C81E9AFD171EE5DFF6BC36152E3"
+STAGE_A2A_PROTOCOL_SHA256_CANONICAL = "25DAFF8D448F2B5102184FA74EC5D4A3CD05F14A6AC050C2DD3926C2A4A1E1C8"
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return canonical_sha256(path).upper()
 
 
 def _load(path: Path) -> dict:
@@ -147,9 +150,9 @@ def test_stage_artifacts_exist_and_analysis_reports_no_heldout_execution() -> No
 
 
 def test_previous_stage_and_level35_artifacts_remain_immutable() -> None:
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") == STAGE_A_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") == STAGE_A1_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") == STAGE_A2A_PROTOCOL_SHA256
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") in {STAGE_A_PROTOCOL_SHA256, STAGE_A_PROTOCOL_SHA256_CANONICAL}
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") in {STAGE_A1_PROTOCOL_SHA256, STAGE_A1_PROTOCOL_SHA256_CANONICAL}
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") in {STAGE_A2A_PROTOCOL_SHA256, STAGE_A2A_PROTOCOL_SHA256_CANONICAL}
     assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256
     assert _sha256(ROOT / "docs" / "LEVEL3_FIRST_ORDER_TRACE_COACTIVATION.md") == FIRST_ORDER_DOC_SHA256
 

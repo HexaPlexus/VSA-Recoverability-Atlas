@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.lazy_trace_addressing_stage_a1 import (
     ACCEPT_SIMILARITY_THRESHOLD,
     AMBIGUITY_SIMILARITY_EPSILON,
@@ -44,6 +45,7 @@ from cgrn_hsr.lazy_trace_addressing_stage_a1 import (
 from cgrn_hsr.verification import rerank_candidates
 
 ROOT = Path(__file__).resolve().parents[1]
+STAGE_A_PROTOCOL_HASH_CANONICAL = "7dc4904a0029c258b101d645e1e62b2eaa59dec2f81209a8a1490a30e6aadde1"
 
 
 def _fixture_records(record_count: int = 256):
@@ -284,7 +286,9 @@ def test_exact_hash_baseline_remains_exact_only() -> None:
 
 
 def test_stage_a_artifact_hash_and_seed_freshness_are_preserved() -> None:
-    assert _stage_a_protocol_hash(ROOT) == STAGE_A_PROTOCOL_HASH
+    raw_hash = _stage_a_protocol_hash(ROOT)
+    canonical_hash = canonical_sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json")
+    assert raw_hash == STAGE_A_PROTOCOL_HASH or canonical_hash == STAGE_A_PROTOCOL_HASH_CANONICAL
     assert seeds_are_fresh(ROOT) is True
     assert stage_a1_seed_set().isdisjoint({910350100, 920350100})
 

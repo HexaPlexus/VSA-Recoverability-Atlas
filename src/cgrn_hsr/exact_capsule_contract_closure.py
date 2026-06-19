@@ -261,7 +261,7 @@ def quantile(values: list[float], q: float) -> float:
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return canonical_sha256(path).upper()
 
 
 def _bits_to_text(value: int, *, width: int) -> str:

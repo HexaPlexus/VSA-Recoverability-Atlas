@@ -248,7 +248,7 @@ def quantile(values: list[float], q: float) -> float:
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return canonical_sha256(path).upper()
 
 
 def _seed_from_text(text: str, seed: int) -> int:

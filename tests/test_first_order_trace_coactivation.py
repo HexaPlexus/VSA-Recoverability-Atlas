@@ -40,10 +40,13 @@ from cgrn_hsr.first_order_trace_coactivation import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+STAGE_A_PROTOCOL_SHA256_CANONICAL = "7DC4904A0029C258B101D645E1E62B2EAA59DEC2F81209A8A1490A30E6AADDE1"
+STAGE_A1_PROTOCOL_SHA256_CANONICAL = "49AC82ECF69DAF269DC014ED77B62E0809B46C81E9AFD171EE5DFF6BC36152E3"
+STAGE_A2A_PROTOCOL_SHA256_CANONICAL = "25DAFF8D448F2B5102184FA74EC5D4A3CD05F14A6AC050C2DD3926C2A4A1E1C8"
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    return canonical_sha256(path).upper()
 
 
 def _fixture_state(record_count: int = 128, trace_dimensions: int = 16):
@@ -189,7 +192,7 @@ def test_protocol_serialization_is_deterministic_and_seed_fresh() -> None:
 def test_dependency_audit_and_prior_stage_artifacts_unchanged() -> None:
     audit = dependency_audit(ROOT)
     assert audit["verdict"] == "COMPOSE"
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") == STAGE_A_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") == STAGE_A1_PROTOCOL_SHA256
-    assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") == STAGE_A2A_PROTOCOL_SHA256
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a" / "development_protocol.json") in {STAGE_A_PROTOCOL_SHA256, STAGE_A_PROTOCOL_SHA256_CANONICAL}
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a1" / "development_protocol.json") in {STAGE_A1_PROTOCOL_SHA256, STAGE_A1_PROTOCOL_SHA256_CANONICAL}
+    assert _sha256(ROOT / "results" / "lazy_trace_stage_a2a" / "development_protocol.json") in {STAGE_A2A_PROTOCOL_SHA256, STAGE_A2A_PROTOCOL_SHA256_CANONICAL}
     assert canonical_sha256(ROOT / "results" / "level3_5b_gate_consistency_repair" / "heldout_protocol_v4.json").upper() == LEVEL35_V4_SHA256

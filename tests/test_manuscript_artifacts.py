@@ -14,6 +14,20 @@ from cgrn_hsr.release_artifacts import canonical_sha256, extract_abstract, extra
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _with_temp_worktree(callback) -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        worktree = Path(temp_dir) / "artifact-worktree"
+        subprocess.run(["git", "worktree", "add", "--detach", str(worktree), "HEAD"], cwd=ROOT, check=True)
+        try:
+            env = os.environ.copy()
+            existing = env.get("PYTHONPATH", "")
+            worktree_src = str(worktree / "src")
+            env["PYTHONPATH"] = worktree_src if not existing else worktree_src + os.pathsep + existing
+            callback(worktree, env)
+        finally:
+            subprocess.run(["git", "worktree", "remove", "--force", str(worktree)], cwd=ROOT, check=True)
+
+
 def test_manuscript_validator_passes() -> None:
     result = subprocess.run(
         [sys.executable, "scripts/validate_evidence_registry.py"],
@@ -26,23 +40,27 @@ def test_manuscript_validator_passes() -> None:
 
 
 def test_manuscript_figures_regenerate() -> None:
-    result = subprocess.run(
-        [sys.executable, "scripts/build_manuscript_figures.py"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    assert result.returncode == 0, result.stdout + result.stderr
-    for name in [
-        "figure1_budget_map.svg",
-        "figure1_budget_map.png",
-        "figure3_clean_f3_frontier.svg",
-        "figure3_clean_f3_frontier.png",
-        "figure5_escalation.svg",
-        "figure5_escalation.png",
-    ]:
-        assert (ROOT / "paper" / "figures" / name).exists(), name
+    def _check(worktree: Path, env: dict[str, str]) -> None:
+        result = subprocess.run(
+            [sys.executable, "scripts/build_manuscript_figures.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert result.returncode == 0, result.stdout + result.stderr
+        for name in [
+            "figure1_budget_map.svg",
+            "figure1_budget_map.png",
+            "figure3_clean_f3_frontier.svg",
+            "figure3_clean_f3_frontier.png",
+            "figure5_escalation.svg",
+            "figure5_escalation.png",
+        ]:
+            assert (worktree / "paper" / "figures" / name).exists(), name
+
+    _with_temp_worktree(_check)
 
 
 def test_release_candidate_bundle_exists() -> None:
@@ -77,48 +95,57 @@ def test_canonical_hash_is_line_ending_independent(tmp_path: Path) -> None:
 
 
 def test_release_candidate_rebuild_and_manifest() -> None:
-    subprocess.run(
-        [sys.executable, "scripts/build_release_candidate.py"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    manuscript = (ROOT / "paper" / "manuscript.md").read_text(encoding="utf-8")
-    rc_manuscript = (ROOT / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
-    rc_abstract = (ROOT / "paper" / "release_candidate" / "abstract.txt").read_text(encoding="utf-8").strip()
-    assert rc_manuscript == manuscript
-    assert rc_abstract == extract_abstract(manuscript)
+    def _check(worktree: Path, env: dict[str, str]) -> None:
+        subprocess.run(
+            [sys.executable, "scripts/build_release_candidate.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        manuscript = (worktree / "paper" / "manuscript.md").read_text(encoding="utf-8")
+        rc_manuscript = (worktree / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
+        rc_abstract = (worktree / "paper" / "release_candidate" / "abstract.txt").read_text(encoding="utf-8").strip()
+        assert rc_manuscript == manuscript
+        assert rc_abstract == extract_abstract(manuscript)
 
-    manifest = json.loads((ROOT / "paper" / "RELEASE_CANDIDATE_MANIFEST.yaml").read_text(encoding="utf-8-sig"))
-    generated_from_commit = manifest["generated_from_commit"]
-    subprocess.run(
-        ["git", "cat-file", "-e", f"{generated_from_commit}^{{commit}}"],
-        cwd=ROOT,
-        check=True,
-    )
-    subprocess.run(
-        ["git", "merge-base", "--is-ancestor", generated_from_commit, "HEAD"],
-        cwd=ROOT,
-        check=True,
-    )
+        manifest = json.loads((worktree / "paper" / "RELEASE_CANDIDATE_MANIFEST.yaml").read_text(encoding="utf-8-sig"))
+        generated_from_commit = manifest["generated_from_commit"]
+        subprocess.run(
+            ["git", "cat-file", "-e", f"{generated_from_commit}^{{commit}}"],
+            cwd=worktree,
+            check=True,
+        )
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", generated_from_commit, "HEAD"],
+            cwd=worktree,
+            check=True,
+        )
+
+    _with_temp_worktree(_check)
 
 
 def test_release_candidate_rebuild_allows_generated_figure_drift() -> None:
-    subprocess.run(
-        [sys.executable, "scripts/build_manuscript_figures.py"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    subprocess.run(
-        [sys.executable, "scripts/build_release_candidate.py"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+    def _check(worktree: Path, env: dict[str, str]) -> None:
+        subprocess.run(
+            [sys.executable, "scripts/build_manuscript_figures.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        subprocess.run(
+            [sys.executable, "scripts/build_release_candidate.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+    _with_temp_worktree(_check)
 
 
 def test_review_packet_sections_resolve() -> None:

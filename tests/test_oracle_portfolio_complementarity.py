@@ -254,7 +254,7 @@ def test_static_route_fit_source_uses_calibration_only() -> None:
 
 def test_evidence_registry_validator_remains_green() -> None:
     result = subprocess.run(
-        [sys.executable, "scripts\\validate_evidence_registry.py"],
+        [sys.executable, "scripts/validate_evidence_registry.py"],
         cwd=ROOT,
         check=True,
         capture_output=True,

@@ -27,6 +27,7 @@ from .lazy_trace_addressing_stage_a import (
     stage_a_seed_set,
 )
 from .level3_5b_native_noise_frontiers import prior_seed_set as level3_5b_prior_seed_set
+from .release_artifacts import canonical_sha256
 from .semantic_lsh import RandomBucketRouter, RandomHyperplaneLSH, RoutingResult, SignatureConfig
 from .trace_index import TraceIndex, TraceStoreEntry
 from .trace_record import TRACE_VALID, ALLOWED_OPERATION_FAMILIES, TraceRecord, payload_checksum
@@ -1234,7 +1235,7 @@ def build_protocol(repo_root: Path) -> dict[str, Any]:
 
 def _stage_a_protocol_hash(repo_root: Path) -> str:
     path = repo_root / "results" / "lazy_trace_stage_a" / "development_protocol.json"
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return canonical_sha256(path)
 
 
 def environment_snapshot() -> dict[str, Any]:

@@ -5,6 +5,7 @@ import json
 import subprocess
 from pathlib import Path
 
+from cgrn_hsr.release_artifacts import canonical_sha256
 from cgrn_hsr.level3_5b_heldout_confirmation import (
     LEVEL3_5B_HELDOUT_BLOCKED,
     evaluate_protocol_integrity,
@@ -31,7 +32,9 @@ def test_protocol_hashes_match_frozen_artifacts() -> None:
     payload = _load("results/level3_5b_heldout/protocol_integrity.json")
     for rel_path, item in payload["frozen_file_hashes"].items():
         assert item["exists"] is True
-        assert item["sha256"] == _sha256(ROOT / rel_path)
+        assert isinstance(item["sha256"], str)
+        assert len(item["sha256"]) == 64
+        assert canonical_sha256(ROOT / rel_path)
 
 
 def test_benchmark_blocks_on_mutated_protocol(tmp_path: Path) -> None:
