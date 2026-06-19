@@ -1,0 +1,9 @@
+{
+  "cuda_available": false,
+  "device": "cpu",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python_version": "3.14.5",
+  "schema_version": "codebook-residue-v0.1-dev",
+  "torch_version": "2.12.0+cpu",
+  "torchhd_version": "5.8.4"
+}

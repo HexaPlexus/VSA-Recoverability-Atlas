@@ -1,0 +1,218 @@
+schema_version: "codebook-residue-v0.1-dev"
+task_name: "Codebook-Compressed Residue Plane v0.1"
+starting_commit: "1f2808626ac94f158fe2cecda04d536e316b15a4"
+status:
+  - "ADOPT_EXISTING_QUANTIZATION_PRIMITIVES"
+  - "WRAP"
+  - "PROTOTYPE"
+  - "DEVELOPMENT_ONLY"
+  - "NO_NOVELTY_CLAIM"
+  - "NO_PRODUCTION_CLAIM"
+heldout_execution_allowed: false
+preserved_previous_verdicts:
+  decoder_certified_codebook: "BLOCK_DECODER_CERTIFICATION_LINE"
+  decoder_guided_tag_repair: "BLOCK_TAGGED_SYMBOL_LINE"
+  self_describing_record: "ADOPT_ORDINARY_SIDECAR_DAG / PACKAGING_ADVANTAGE_NOT_SUPPORTED"
+accumulator_contract: "exact integer MAP bundle accumulator for diagnostics and authorized upper-bound arms only"
+normalization:
+  id: "abs_accumulator_over_sqrtK"
+  description: "normalized_residue = abs(a[i]) / sqrt(K)"
+tie_policy: "sign(0)=+1; tie_weight=0"
+block_format:
+  block_size: 8
+  contiguous_partition: true
+  padding_mask: true
+scalar_quantization:
+  thresholds:
+    - 0.0
+    - 0.75
+    - 1.5
+  levels:
+    - 0.0
+    - 0.5
+    - 1.0
+    - 2.0
+  bits_per_symbol: 2
+  scalar_control_encoding: "packed_2bit_symbols_then_zlib"
+codebook_construction:
+  split: "CODEBOOK_DISCOVERY"
+  selection: "top_frequency_block_patterns"
+  distance: "L1"
+  top_c_codebooks:
+    - 4
+    - 16
+  shared_across_K: true
+  shared_across_cells: true
+  tie_break: "lowest_prototype_index"
+token_format:
+  C4_bits: 2
+  C16_bits: 4
+cells:
+  -
+    cell_id: "d1024_k7_n128_s0"
+    dimension: 1024
+    bundle_width: 7
+    atom_count: 128
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964201100
+    validation_seed_start: 964301100
+    final_seed_start: 964401100
+  -
+    cell_id: "d1024_k7_n256_s0"
+    dimension: 1024
+    bundle_width: 7
+    atom_count: 256
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964202100
+    validation_seed_start: 964302100
+    final_seed_start: 964402100
+  -
+    cell_id: "d1024_k15_n128_s0"
+    dimension: 1024
+    bundle_width: 15
+    atom_count: 128
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964203100
+    validation_seed_start: 964303100
+    final_seed_start: 964403100
+  -
+    cell_id: "d1024_k15_n256_s0"
+    dimension: 1024
+    bundle_width: 15
+    atom_count: 256
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964204100
+    validation_seed_start: 964304100
+    final_seed_start: 964404100
+  -
+    cell_id: "d1024_k31_n128_s0"
+    dimension: 1024
+    bundle_width: 31
+    atom_count: 128
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964205100
+    validation_seed_start: 964305100
+    final_seed_start: 964405100
+  -
+    cell_id: "d1024_k31_n256_s0"
+    dimension: 1024
+    bundle_width: 31
+    atom_count: 256
+    atom_codebook_seed: 964100100
+    discovery_seed_start: 964206100
+    validation_seed_start: 964306100
+    final_seed_start: 964406100
+  -
+    cell_id: "d1024_k7_n128_s1"
+    dimension: 1024
+    bundle_width: 7
+    atom_count: 128
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964207100
+    validation_seed_start: 964307100
+    final_seed_start: 964407100
+  -
+    cell_id: "d1024_k7_n256_s1"
+    dimension: 1024
+    bundle_width: 7
+    atom_count: 256
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964208100
+    validation_seed_start: 964308100
+    final_seed_start: 964408100
+  -
+    cell_id: "d1024_k15_n128_s1"
+    dimension: 1024
+    bundle_width: 15
+    atom_count: 128
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964209100
+    validation_seed_start: 964309100
+    final_seed_start: 964409100
+  -
+    cell_id: "d1024_k15_n256_s1"
+    dimension: 1024
+    bundle_width: 15
+    atom_count: 256
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964210100
+    validation_seed_start: 964310100
+    final_seed_start: 964410100
+  -
+    cell_id: "d1024_k31_n128_s1"
+    dimension: 1024
+    bundle_width: 31
+    atom_count: 128
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964211100
+    validation_seed_start: 964311100
+    final_seed_start: 964411100
+  -
+    cell_id: "d1024_k31_n256_s1"
+    dimension: 1024
+    bundle_width: 31
+    atom_count: 256
+    atom_codebook_seed: 964100200
+    discovery_seed_start: 964212100
+    validation_seed_start: 964312100
+    final_seed_start: 964412100
+split_counts:
+  CODEBOOK_DISCOVERY: 48
+  DEVELOPMENT_VALIDATION: 32
+  FINAL_DEVELOPMENT_EVALUATION: 64
+arms:
+  - "A_MAP_B_HARD"
+  - "B_TERNARY_TIE_AWARE"
+  - "C_SCALAR_RESIDUE_EQUAL_RATE"
+  - "D_BLOCK_CODEBOOK_C4"
+  - "E_BLOCK_CODEBOOK_C16"
+  - "F_SHUFFLED_BLOCK_TOKENS"
+  - "G_MAP_I_EXACT_ACCUMULATOR"
+  - "H_EQUAL_TOTAL_BIT_MAP_B"
+  - "I_RAW_BLOCK_STORAGE"
+equal_bit_policy:
+  primary_amortization_bundles: 1000
+  comparison_targets:
+    - "C4"
+    - "C16"
+metrics:
+  - "member_top1_recall"
+  - "member_topk_recall"
+  - "full_member_enumeration_recall"
+  - "precision"
+  - "false_positive_rate"
+  - "auc_equivalent"
+  - "cleanup_margin"
+  - "coverage"
+  - "conditional_risk"
+  - "silent_wrong_acceptance"
+  - "storage_bytes"
+  - "codebook_amortization"
+  - "encoding_latency"
+  - "cold_decode_latency"
+  - "warm_decode_latency"
+  - "saturation_rate"
+  - "prototype_usage_distribution"
+  - "nearest_prototype_distortion"
+  - "token_entropy"
+  - "effective_codebook_utilization"
+gates:
+  gate_1_soft_information: "block_codebook must beat sign-only hard cleanup on final unseen evaluation"
+  gate_2_dictionary_value: "block_codebook must beat scalar or raw block at comparable recovery/storage"
+  gate_3_correct_mapping: "block_codebook must beat shuffled tokens"
+  gate_4_equal_bit_frontier: "block_codebook must create a nondominated point vs equal-total-bit extra dimensions"
+  gate_5_cross_k_generalization: "shared codebook benefit must remain across K=7,15,31"
+  gate_6_codebook_utilization: "effective utilization must not collapse without equal or better smaller-codebook performance"
+  gate_7_no_hidden_identity: "codebook prototypes contain residue patterns only"
+allowed_claims:
+  - "block-LUT residue tokens can preserve some soft accumulator evidence"
+  - "dictionary compression is an engineering comparison against scalar and extra-dimension controls"
+  - "shared codebook cross-K behavior is measurable inside this frozen development envelope"
+forbidden_claims:
+  - "new quantization algorithm"
+  - "new VSA algebra"
+  - "new decoder"
+  - "production-ready compressed reliability plane"
+seed_fresh: true
+level35_frozen_artifacts_unchanged: true
+protocol_hash: "dad34b84db6baa5a120cc69bf1e27d5a55d207321efa2b60670e403effc9f447"

@@ -1,0 +1,85 @@
+{
+  "build_verdict": "ADOPT_EXTRA_DIMENSIONS",
+  "codebook_amortization": [
+    {
+      "amortization_bundles": 1,
+      "amortized_bits_per_bundle": 64.0,
+      "codebook_size": 4,
+      "total_codebook_bits": 64
+    },
+    {
+      "amortization_bundles": 1000,
+      "amortized_bits_per_bundle": 0.064,
+      "codebook_size": 4,
+      "total_codebook_bits": 64
+    },
+    {
+      "amortization_bundles": 1000000,
+      "amortized_bits_per_bundle": 6.4e-05,
+      "codebook_size": 4,
+      "total_codebook_bits": 64
+    },
+    {
+      "amortization_bundles": 1,
+      "amortized_bits_per_bundle": 256.0,
+      "codebook_size": 16,
+      "total_codebook_bits": 256
+    },
+    {
+      "amortization_bundles": 1000,
+      "amortized_bits_per_bundle": 0.256,
+      "codebook_size": 16,
+      "total_codebook_bits": 256
+    },
+    {
+      "amortization_bundles": 1000000,
+      "amortized_bits_per_bundle": 0.000256,
+      "codebook_size": 16,
+      "total_codebook_bits": 256
+    }
+  ],
+  "codebook_hashes": {
+    "16": "ab1cab5c1ff87e6a96ac5b7829d6d8a971474718b67b341866f709245d495edd",
+    "4": "ac20b831ff865a5df5cd84fba44362528480fb7f83c8178caabe47ebb09c5854"
+  },
+  "gate_outcomes": [
+    {
+      "gate": "Gate 1 - Soft-information value",
+      "status": "PASS"
+    },
+    {
+      "gate": "Gate 2 - Dictionary value",
+      "status": "FAIL"
+    },
+    {
+      "gate": "Gate 3 - Correct mapping",
+      "status": "PASS"
+    },
+    {
+      "gate": "Gate 4 - Equal-bit frontier",
+      "status": "FAIL"
+    },
+    {
+      "gate": "Gate 5 - Cross-K generalization",
+      "status": "PASS"
+    },
+    {
+      "gate": "Gate 6 - Codebook utilization",
+      "status": "PASS"
+    },
+    {
+      "gate": "Gate 7 - No hidden identity",
+      "status": "PASS"
+    }
+  ],
+  "heldout_execution_count": 0,
+  "previous_preserved_verdicts": {
+    "decoder_certified_codebook": "BLOCK_DECODER_CERTIFICATION_LINE",
+    "decoder_guided_tag_repair": "BLOCK_TAGGED_SYMBOL_LINE",
+    "self_describing_record": "ADOPT_ORDINARY_SIDECAR_DAG / PACKAGING_ADVANTAGE_NOT_SUPPORTED"
+  },
+  "protocol_hash": "dad34b84db6baa5a120cc69bf1e27d5a55d207321efa2b60670e403effc9f447",
+  "schema_version": "codebook-residue-v0.1-dev",
+  "scientific_verdict": "BLOCK_CODEBOOK_RECOVERY_ADVANTAGE_NOT_SUPPORTED",
+  "seed_fresh": true
+}
