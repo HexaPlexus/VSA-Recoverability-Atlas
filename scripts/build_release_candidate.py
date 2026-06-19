@@ -24,39 +24,57 @@ PAPER_DIR = ROOT / "paper"
 FIGURE_DIR = PAPER_DIR / "figures"
 RELEASE_DIR = PAPER_DIR / "release_candidate"
 RELEASE_FIGURE_DIR = RELEASE_DIR / "figures"
+ALLOWED_DIRTY_OUTPUTS = {
+    "paper/RELEASE_CANDIDATE_MANIFEST.yaml",
+    "paper/release_candidate/abstract.txt",
+    "paper/release_candidate/figure_captions.md",
+    "paper/release_candidate/manuscript_rc1.md",
+    "paper/release_candidate/table_captions.md",
+    "paper/release_candidate/references.bib",
+    "paper/release_candidate/release_notes.md",
+    "paper/release_candidate/title_and_metadata.md",
+}
 
 
 def require_clean_tree() -> None:
-    checks = [
-        ["git", "diff", "--quiet", "--ignore-cr-at-eol"],
-        ["git", "diff", "--cached", "--quiet", "--ignore-cr-at-eol"],
-    ]
-    for command in checks:
-        result = subprocess.run(
-            command,
-            cwd=ROOT,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-        )
-        if result.returncode == 0:
-            continue
-        if result.returncode == 1:
-            raise RuntimeError(
-                "build_release_candidate.py requires a clean working tree. "
-                "Commit source changes first or use --allow-dirty only during local repair."
-            )
-        raise RuntimeError("Could not determine git working tree status.")
-    untracked = subprocess.run(
+    status = subprocess.run(
         ["git", "status", "--porcelain", "--untracked-files=normal"],
         cwd=ROOT,
         capture_output=True,
         text=True,
         check=False,
     )
-    if untracked.returncode != 0:
+    if status.returncode != 0:
         raise RuntimeError("Could not determine git working tree status.")
-    if any(line.startswith("?? ") for line in untracked.stdout.splitlines()):
+
+    for line in status.stdout.splitlines():
+        if not line:
+            continue
+        path = line[3:]
+        normalized = path.replace("\\", "/")
+        if normalized.startswith("paper/release_candidate/figures/") or normalized in ALLOWED_DIRTY_OUTPUTS:
+            continue
+        if line.startswith("?? "):
+            raise RuntimeError(
+                "build_release_candidate.py requires a clean working tree. "
+                "Commit source changes first or use --allow-dirty only during local repair."
+            )
+        worktree_diff = subprocess.run(
+            ["git", "diff", "--quiet", "--ignore-cr-at-eol", "--", path],
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        index_diff = subprocess.run(
+            ["git", "diff", "--cached", "--quiet", "--ignore-cr-at-eol", "--", path],
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        if worktree_diff.returncode == 0 and index_diff.returncode == 0:
+            continue
         raise RuntimeError(
             "build_release_candidate.py requires a clean working tree. "
             "Commit source changes first or use --allow-dirty only during local repair."
