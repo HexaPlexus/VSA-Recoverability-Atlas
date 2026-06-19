@@ -36,6 +36,43 @@ ALLOWED_DIRTY_OUTPUTS = {
 }
 
 
+def is_release_output_path(path: str) -> bool:
+    normalized = path.replace("\\", "/")
+    return normalized.startswith("paper/release_candidate/figures/") or normalized in ALLOWED_DIRTY_OUTPUTS
+
+
+def resolve_generated_from_commit() -> str:
+    commit = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    while True:
+        changed = subprocess.run(
+            ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", commit],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.splitlines()
+        if not changed:
+            return commit
+        if any(not is_release_output_path(path) for path in changed):
+            return commit
+        parent = subprocess.run(
+            ["git", "rev-parse", f"{commit}^"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if parent.returncode != 0:
+            return commit
+        commit = parent.stdout.strip()
+
+
 def require_clean_tree() -> None:
     status = subprocess.run(
         ["git", "status", "--porcelain", "--untracked-files=normal"],
@@ -51,8 +88,7 @@ def require_clean_tree() -> None:
         if not line:
             continue
         path = line[3:]
-        normalized = path.replace("\\", "/")
-        if normalized.startswith("paper/release_candidate/figures/") or normalized in ALLOWED_DIRTY_OUTPUTS:
+        if is_release_output_path(path):
             continue
         if line.startswith("?? "):
             raise RuntimeError(
@@ -229,13 +265,7 @@ def main() -> int:
     if not args.allow_dirty:
         require_clean_tree()
 
-    generated_from_commit = subprocess.run(
-        ["git", "rev-parse", "HEAD"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.strip()
+    generated_from_commit = resolve_generated_from_commit()
 
     manuscript_text = (PAPER_DIR / "manuscript.md").read_text(encoding="utf-8")
     abstract_text = extract_abstract(manuscript_text)
