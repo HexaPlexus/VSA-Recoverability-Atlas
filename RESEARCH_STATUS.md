@@ -1,6 +1,6 @@
 # Research Status
 
-## Public Project Identity
+## Project Identity
 
 - Public title: `VSA Recoverability Atlas`
 - Historical repository identity: `CGRN-HSR`
@@ -19,14 +19,14 @@ The surviving ways to buy it were:
 - narrower coverage through abstention,
 - or an exact fallback.
 
-## Current Engineering Baselines
+## Current Baselines
 
 - TorchHD / MAP as the historical blind-factorization baseline.
 - Exact packed binary scan as the adopted semantic-to-trace retrieval baseline at the tested `N = 10,000` scale.
 - Ordinary sidecar DAG as the honest exact-structure baseline.
 - Plain typed exact handles over isolated capsule placement.
 
-## Main Blocked Lines
+## Unsupported Lines
 
 - Decoder-certified atomic codebook admission.
 - Conflict-guided tagged-symbol repair.
@@ -34,7 +34,7 @@ The surviving ways to buy it were:
 - Block-codebook residue compression.
 - Thin custom semantic router as the default Stage A.2a retrieval baseline at `N = 10,000`.
 
-## Protocol Discipline Status
+## Protocol Discipline
 
 - Level 3.5a noise contract audit: preserved.
 - Level 3.5b confirmatory gate discipline: preserved.

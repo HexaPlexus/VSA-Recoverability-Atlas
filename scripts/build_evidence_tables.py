@@ -4554,7 +4554,6 @@ def main() -> None:
     write_text(PAPER_DIR / "failure_mode_atlas.md", render_failure_atlas_md())
     write_text(PAPER_DIR / "literature_transfer_matrix.md", render_literature_transfer_md())
     write_text(PAPER_DIR / "architectural_decision_guide.md", render_architectural_decision_guide_md())
-    write_text(PAPER_DIR / "REVIEWER_RISK_REGISTER.md", render_reviewer_risk_register_md())
     write_text(PAPER_DIR / "supplementary_evidence_atlas.md", render_supplementary_atlas())
 
 

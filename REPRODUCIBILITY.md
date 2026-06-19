@@ -2,7 +2,7 @@
 
 ## Scope
 
-This repository now distinguishes three layers of reproducibility:
+This repository distinguishes three layers of reproducibility:
 
 1. `CI validation`
    Checks that the project installs, the atlas files generate, and the unit suite remains green.
@@ -11,7 +11,7 @@ This repository now distinguishes three layers of reproducibility:
 3. `Historical scientific reruns`
    Re-executes older development or held-out stages using the preserved protocols, seeds, and result contracts.
 
-CI validation is intentionally smaller than full scientific reproduction.
+CI validation is intentionally smaller than a full scientific rerun.
 
 ## Supported Core Environment
 
@@ -37,7 +37,7 @@ Optional extras:
 - `.[retrieval]` for Faiss-based retrieval comparisons.
 - `.[level3]` for MiniGrid optional smoke coverage.
 
-## Minimal Public Smoke Path
+## Minimal Validation Path
 
 ```powershell
 .\.venv\Scripts\python scripts\build_evidence_tables.py
@@ -56,7 +56,7 @@ Optional extras:
 ## Historical Scientific Artifacts
 
 - Historical result directories in [results](results) are preserved.
-- Frozen protocol IDs, hashes, and held-out artifacts are not renamed during public-release cleanup.
+- Frozen protocol IDs, hashes, and held-out artifacts are not renamed during documentation cleanup.
 - The internal package namespace `cgrn_hsr` is preserved for compatibility with those artifacts.
 
 ## Hardware Notes
@@ -68,12 +68,12 @@ Optional extras:
 
 ## Seed Discipline
 
-- Release-preparation work in this stage does not introduce new VSA experiments.
+- Documentation and manuscript-preparation work in this repository does not introduce new VSA experiments.
 - Historical seeds remain documented in their original protocol artifacts.
 - Level 3.5 held-out artifacts remain unchanged.
 
-## What This Guide Does Not Promise
+## Boundaries
 
-- It does not promise full historical GPU parity on every host.
+- This guide does not promise full historical GPU parity on every host.
 - It does not rewrite historical artifacts into a new schema.
 - It does not turn development-only results into confirmatory claims.

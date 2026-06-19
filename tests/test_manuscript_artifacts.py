@@ -3,13 +3,12 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import re
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
-from cgrn_hsr.release_artifacts import canonical_sha256, extract_abstract, extract_markdown_headings, word_count
+from cgrn_hsr.release_artifacts import canonical_sha256, extract_abstract, extract_claim_ids, word_count
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -104,10 +103,6 @@ def test_release_candidate_bundle_exists() -> None:
         ROOT / "paper" / "release_candidate" / "abstract.txt",
         ROOT / "paper" / "release_candidate" / "title_and_metadata.md",
         ROOT / "paper" / "release_candidate" / "references.bib",
-        ROOT / "paper" / "review_packets" / "00_PLAIN_LANGUAGE_SYNOPSIS.md",
-        ROOT / "paper" / "review_packets" / "01_TECHNICAL_ONE_PAGER.md",
-        ROOT / "paper" / "review_packets" / "REVIEW_RESPONSE_FORM.md",
-        ROOT / "paper" / "EXTERNAL_REVIEW_BUNDLE.md",
         ROOT / "paper" / "RELEASE_CANDIDATE_MANIFEST.yaml",
     ]
     for path in required:
@@ -188,31 +183,51 @@ def test_release_candidate_rebuild_allows_generated_figure_drift() -> None:
     _with_temp_worktree(_check)
 
 
-def test_review_packet_sections_resolve() -> None:
-    manuscript = (ROOT / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
-    headings = set(extract_markdown_headings(manuscript))
-    for packet in [
-        ROOT / "paper" / "review_packets" / "00_PLAIN_LANGUAGE_SYNOPSIS.md",
-        ROOT / "paper" / "review_packets" / "01_TECHNICAL_ONE_PAGER.md",
-        ROOT / "paper" / "review_packets" / "A_MAP_RESONATOR_REVIEW.md",
-        ROOT / "paper" / "review_packets" / "B_BCF_GSBC_REVIEW.md",
-        ROOT / "paper" / "review_packets" / "C_EXPERIMENTAL_METHODS_REVIEW.md",
-        ROOT / "paper" / "review_packets" / "D_SYSTEMATIC_MAPPING_REVIEW.md",
-        ROOT / "paper" / "review_packets" / "E_HARDWARE_REVIEW.md",
-        ROOT / "paper" / "review_packets" / "F_GENERAL_READER_REVIEW.md",
-    ]:
-        text = packet.read_text(encoding="utf-8")
-        match = re.match(r"^---\n(.*?)\n---\n", text, re.S)
-        assert match is not None, packet
-        sections = re.findall(r'- "([^"]+)"', match.group(1))
-        for section in sections:
-            assert section in headings, (packet.name, section)
-
-
 def test_hardware_scope_markers_present() -> None:
     manuscript = (ROOT / "paper" / "manuscript.md").read_text(encoding="utf-8").lower()
     assert "literature-only" in manuscript
     assert "not measured in this repository" in manuscript
+
+
+def test_canonical_manuscript_hides_claim_metadata() -> None:
+    manuscript = (ROOT / "paper" / "manuscript.md").read_text(encoding="utf-8")
+    rc_manuscript = (ROOT / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
+    assert "[claim:" not in manuscript
+    assert "[claim:" not in rc_manuscript
+    assert "claim_recoverability_resource_accounting" in extract_claim_ids(manuscript)
+    assert manuscript == rc_manuscript
+
+
+def test_main_text_figures_embedded_and_supplement_only_figure_excluded() -> None:
+    manifest = json.loads((ROOT / "paper" / "FIGURE_MANIFEST.yaml").read_text(encoding="utf-8-sig"))
+    manuscript = (ROOT / "paper" / "manuscript.md").read_text(encoding="utf-8")
+    for figure in manifest["figures"]:
+        path = f"figures/{figure['figure_id']}.png"
+        if figure["placement"] == "MAIN_TEXT":
+            assert path in manuscript
+        else:
+            assert path not in manuscript
+
+
+def test_private_review_planning_artifacts_are_absent() -> None:
+    forbidden = [
+        ROOT / "docs" / "LICENSE_DECISION.md",
+        ROOT / "docs" / "PUBLIC_RELEASE_AUDIT.md",
+        ROOT / "docs" / "PUBLIC_RELEASE_BASELINE.md",
+        ROOT / "paper" / "EXTERNAL_REVIEW_BUNDLE.md",
+        ROOT / "paper" / "EXTERNAL_REVIEW_LOG.csv",
+        ROOT / "paper" / "EXTERNAL_REVIEW_TARGETS.md",
+        ROOT / "paper" / "OWNER_METADATA_FORM.md",
+        ROOT / "paper" / "OWNER_REVIEW_CHECKLIST.md",
+        ROOT / "paper" / "PREPRINT_PLATFORM_DECISION.md",
+        ROOT / "paper" / "REVIEWER_RISK_REGISTER.md",
+        ROOT / "paper" / "SECRET_SCAN_PREPARATION.md",
+        ROOT / "paper" / "VENUE_CANDIDATES.md",
+        ROOT / "paper" / "owner_review",
+        ROOT / "paper" / "review_packets",
+    ]
+    for path in forbidden:
+        assert not path.exists(), path
 
 
 def test_word_counts_use_full_manuscript() -> None:

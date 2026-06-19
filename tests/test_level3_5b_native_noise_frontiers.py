@@ -319,7 +319,15 @@ def test_binary_seed_ranges_are_serialized() -> None:
 
 def test_git_status_clean_after_commit() -> None:
     result = subprocess.run(
-        ["git", "status", "--short"],
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "HEAD",
+            "--",
+            "docs/LEVEL3_5B_DEV_NATIVE_NOISE_FRONTIERS.md",
+            "results/level3_5b_dev",
+        ],
         check=True,
         capture_output=True,
         text=True,

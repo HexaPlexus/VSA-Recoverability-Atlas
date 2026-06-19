@@ -11,7 +11,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = ROOT / "paper"
 RELEASE_CANDIDATE_DIR = PAPER_DIR / "release_candidate"
-REVIEW_PACKETS_DIR = PAPER_DIR / "review_packets"
 SRC_MODULE_DIR = ROOT / "src" / "cgrn_hsr"
 if str(SRC_MODULE_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_MODULE_DIR))
@@ -103,14 +102,6 @@ def git_commit_is_ancestor(commit: str, head: str = "HEAD") -> bool:
         check=False,
     )
     return result.returncode == 0
-
-
-def parse_packet_sections(path: Path) -> list[str]:
-    text = path.read_text(encoding="utf-8")
-    match = re.match(r"^---\n(.*?)\n---\n", text, re.S)
-    if not match:
-        return []
-    return re.findall(r'- "([^"]+)"', match.group(1))
 
 
 def extract_figure_paths(markdown: str) -> set[str]:
@@ -322,7 +313,6 @@ def main() -> int:
         PAPER_DIR / "literature_search_log.csv",
         PAPER_DIR / "literature_screening.csv",
         PAPER_DIR / "architectural_decision_guide.md",
-        PAPER_DIR / "REVIEWER_RISK_REGISTER.md",
         PAPER_DIR / "manuscript.md",
         PAPER_DIR / "supplementary_evidence_atlas.md",
         PAPER_DIR / "references.bib",
@@ -331,17 +321,9 @@ def main() -> int:
         PAPER_DIR / "FIGURE_MANIFEST.yaml",
         PAPER_DIR / "RED_TEAM_REVIEW.md",
         PAPER_DIR / "RED_TEAM_RESPONSE.md",
-        PAPER_DIR / "OWNER_REVIEW_CHECKLIST.md",
         PAPER_DIR / "LITERATURE_SCREENING_AUDIT.md",
         PAPER_DIR / "literature_rescreening.csv",
         PAPER_DIR / "BIBLIOGRAPHY_HARDENING_REPORT.md",
-        PAPER_DIR / "OWNER_METADATA_FORM.md",
-        PAPER_DIR / "SECRET_SCAN_PREPARATION.md",
-        PAPER_DIR / "EXTERNAL_REVIEW_TARGETS.md",
-        PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv",
-        PAPER_DIR / "EXTERNAL_REVIEW_BUNDLE.md",
-        PAPER_DIR / "PREPRINT_PLATFORM_DECISION.md",
-        PAPER_DIR / "VENUE_CANDIDATES.md",
         PAPER_DIR / "RELEASE_CANDIDATE_MANIFEST.yaml",
     ]
     for path in required_generated:
@@ -419,21 +401,6 @@ def main() -> int:
         if not path.exists():
             errors.append(f"Missing release-candidate artifact: {path.relative_to(ROOT)}")
 
-    required_review_packets = [
-        REVIEW_PACKETS_DIR / "00_PLAIN_LANGUAGE_SYNOPSIS.md",
-        REVIEW_PACKETS_DIR / "01_TECHNICAL_ONE_PAGER.md",
-        REVIEW_PACKETS_DIR / "A_MAP_RESONATOR_REVIEW.md",
-        REVIEW_PACKETS_DIR / "B_BCF_GSBC_REVIEW.md",
-        REVIEW_PACKETS_DIR / "C_EXPERIMENTAL_METHODS_REVIEW.md",
-        REVIEW_PACKETS_DIR / "D_SYSTEMATIC_MAPPING_REVIEW.md",
-        REVIEW_PACKETS_DIR / "E_HARDWARE_REVIEW.md",
-        REVIEW_PACKETS_DIR / "F_GENERAL_READER_REVIEW.md",
-        REVIEW_PACKETS_DIR / "REVIEW_RESPONSE_FORM.md",
-        REVIEW_PACKETS_DIR / "OUTREACH_TEMPLATES.md",
-    ]
-    for path in required_review_packets:
-        if not path.exists():
-            errors.append(f"Missing review packet: {path.relative_to(ROOT)}")
     manuscript_headings = set(extract_markdown_headings(manuscript_text))
 
     release_candidate_text = ""
@@ -442,12 +409,6 @@ def main() -> int:
         release_candidate_text = rc_path.read_text(encoding="utf-8")
         if release_candidate_text != manuscript_text:
             errors.append("Release-candidate manuscript must equal canonical manuscript exactly after generation.")
-        rc_headings = set(extract_markdown_headings(release_candidate_text))
-        for path in required_review_packets:
-            if path.exists() and path.name not in {"REVIEW_RESPONSE_FORM.md", "OUTREACH_TEMPLATES.md"}:
-                for section in parse_packet_sections(path):
-                    if section not in rc_headings and section not in manuscript_headings:
-                        errors.append(f"Review packet {path.name} references missing manuscript section: {section}")
         rc_words = word_count(release_candidate_text)
         if rc_words != manuscript_words:
             errors.append(f"Release-candidate manuscript word count {rc_words} does not match canonical manuscript {manuscript_words}.")
@@ -469,16 +430,8 @@ def main() -> int:
         PAPER_DIR / "LITERATURE_SCREENING_AUDIT.md",
         PAPER_DIR / "supplementary_evidence_atlas.md",
         PAPER_DIR / "BIBLIOGRAPHY_HARDENING_REPORT.md",
-        PAPER_DIR / "OWNER_METADATA_FORM.md",
-        PAPER_DIR / "EXTERNAL_REVIEW_TARGETS.md",
-        PAPER_DIR / "EXTERNAL_REVIEW_BUNDLE.md",
-        PAPER_DIR / "PREPRINT_PLATFORM_DECISION.md",
-        PAPER_DIR / "VENUE_CANDIDATES.md",
         RELEASE_CANDIDATE_DIR / "manuscript_rc1.md",
         RELEASE_CANDIDATE_DIR / "title_and_metadata.md",
-        *required_review_packets,
-        ROOT / "docs" / "LICENSE_DECISION.md",
-        ROOT / "docs" / "PUBLIC_RELEASE_AUDIT.md",
     ]
     local_path_pattern = re.compile(r"C:/Users/Thanatos|C:\\Users\\Thanatos|/home/|file://", re.I)
     email_pattern = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
@@ -488,9 +441,28 @@ def main() -> int:
         text = path.read_text(encoding="utf-8")
         if local_path_pattern.search(text):
             errors.append(f"Public-facing file still contains machine-specific path: {path.relative_to(ROOT)}")
-        if path != PAPER_DIR / "OWNER_METADATA_FORM.md":
-            if email_pattern.search(text):
-                errors.append(f"Unexpected email address found in public-facing file: {path.relative_to(ROOT)}")
+        if email_pattern.search(text):
+            errors.append(f"Unexpected email address found in public-facing file: {path.relative_to(ROOT)}")
+
+    forbidden_public_workflow_artifacts = [
+        ROOT / "docs" / "LICENSE_DECISION.md",
+        ROOT / "docs" / "PUBLIC_RELEASE_AUDIT.md",
+        ROOT / "docs" / "PUBLIC_RELEASE_BASELINE.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_BUNDLE.md",
+        PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv",
+        PAPER_DIR / "EXTERNAL_REVIEW_TARGETS.md",
+        PAPER_DIR / "OWNER_METADATA_FORM.md",
+        PAPER_DIR / "OWNER_REVIEW_CHECKLIST.md",
+        PAPER_DIR / "PREPRINT_PLATFORM_DECISION.md",
+        PAPER_DIR / "REVIEWER_RISK_REGISTER.md",
+        PAPER_DIR / "SECRET_SCAN_PREPARATION.md",
+        PAPER_DIR / "VENUE_CANDIDATES.md",
+        PAPER_DIR / "owner_review",
+        PAPER_DIR / "review_packets",
+    ]
+    for path in forbidden_public_workflow_artifacts:
+        if path.exists():
+            errors.append(f"Transient public workflow artifact should not be tracked: {path.relative_to(ROOT)}")
 
     release_manifest = load_json_yaml(PAPER_DIR / "RELEASE_CANDIDATE_MANIFEST.yaml")
     expected_manifest_fields = {
@@ -541,12 +513,6 @@ def main() -> int:
                 errors.append(f"Release manifest references missing figure: {relpath}")
             elif canonical_sha256(path) != expected_hash:
                 errors.append(f"Release manifest figure hash mismatch for {relpath}")
-
-    review_log_path = PAPER_DIR / "EXTERNAL_REVIEW_LOG.csv"
-    if review_log_path.exists():
-        review_log_lines = review_log_path.read_text(encoding="utf-8").strip().splitlines()
-        if len(review_log_lines) != 1:
-            errors.append("External review log must be empty except for the CSV header at RC1.")
 
     frozen_results_status = subprocess.run(
         ["git", "status", "--porcelain", "--", "results"],

@@ -80,8 +80,6 @@ def test_release_and_frozen_artifacts_unchanged() -> None:
             "results/level3_5b_heldout_v3",
             "results/level3_5b_gate_specification",
             "results/level3_5b_gate_consistency_repair",
-            "docs/PUBLIC_RELEASE_AUDIT.md",
-            "docs/PUBLIC_RELEASE_BASELINE.md",
         ],
         check=True,
         capture_output=True,

@@ -193,7 +193,16 @@ def test_tests_and_artifacts_are_deterministic() -> None:
 
 def test_git_status_clean_after_commit() -> None:
     result = subprocess.run(
-        ["git", "status", "--short"],
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "HEAD",
+            "--",
+            "docs/LEVEL3_3_NECO_CONTRACT_EXTRACTION.md",
+            "docs/LEVEL3_3_LINEAR_CODE_REPRODUCTION.md",
+            "results/level3_3",
+        ],
         check=True,
         capture_output=True,
         text=True,

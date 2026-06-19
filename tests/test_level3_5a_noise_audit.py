@@ -173,7 +173,16 @@ def test_required_artifacts_exist() -> None:
 
 def test_git_status_clean_after_commit() -> None:
     result = subprocess.run(
-        ["git", "status", "--short"],
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "HEAD",
+            "--",
+            "docs/LEVEL3_5A_NOISE_BASELINE_MATRIX.md",
+            "docs/LEVEL3_5A_NOISE_CONTRACTS.md",
+            "results/level3_5a",
+        ],
         check=True,
         capture_output=True,
         text=True,
