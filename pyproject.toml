@@ -3,9 +3,9 @@ requires = ["setuptools>=80"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cgrn-hsr"
+name = "vsa-recoverability-atlas"
 version = "0.0.0"
-description = "Level 0 dependency and provenance bootstrap for the CGRN-HSR research hypothesis."
+description = "A reproducible empirical atlas of capacity, factorization, repair, structured recovery, negative results, and abstention in Vector Symbolic Architectures."
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
@@ -20,9 +20,17 @@ dependencies = [
 competitors = [
     "holovec[torch]>=1.0.2,<1.1",
 ]
+retrieval = [
+    "faiss-cpu>=1.14,<1.15",
+]
 level3 = [
     "minigrid>=3.1,<3.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/<owner>/vsa-recoverability-atlas"
+Documentation = "https://github.com/<owner>/vsa-recoverability-atlas/blob/main/README.md"
+Repository = "https://github.com/<owner>/vsa-recoverability-atlas"
 
 [tool.pytest.ini_options]
 addopts = "-ra"

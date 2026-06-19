@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the software record and the manuscript scaffold."
+title: "VSA Recoverability Atlas"
+version: "0.0.0"
+type: software
+abstract: "A reproducible empirical atlas of capacity, factorization, repair, structured recovery, negative results, and abstention in Vector Symbolic Architectures."
+repository-code: "https://github.com/<owner>/vsa-recoverability-atlas"
+license: "SEE-LICENSE-DECISION"
+keywords:
+  - vector symbolic architectures
+  - hyperdimensional computing
+  - recoverability
+  - abstention
+  - reproducibility
