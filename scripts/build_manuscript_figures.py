@@ -352,6 +352,15 @@ def figure2_evidence_atlas() -> None:
         "BLOCKED_WITH_EVIDENCE": PALETTE["red"],
         "PAPER_REPRODUCTION": PALETTE["orange"],
     }
+    display_labels = {
+        "ADOPTED_ENGINEERING_BASELINE": ("Adopted", "base"),
+        "REPRODUCED_IN_REPO": ("Reprod", "in repo"),
+        "PARTIALLY_REPRODUCED": ("Partial", "repro"),
+        "PAPER_REPRODUCTION": ("Paper", "repro"),
+        "IMPLEMENTATION_AUDITED": ("Impl", "audit"),
+        "DEFERRED_HYPOTHESIS": ("Defer", "hypoth"),
+        "BLOCKED_WITH_EVIDENCE": ("Block", "evid"),
+    }
     bundle = make_bundle(1360, 860, "Evidence status summary")
     add_title(bundle, "Figure 2. Repository evidence status summary", "Descriptive derived summary from 24 normalized repository evidence entries.")
     panels = [
@@ -382,11 +391,14 @@ def figure2_evidence_atlas() -> None:
             y = top + height - h
             fill = color_map.get(key, "#cccccc")
             fill_rgb = tuple(int(fill[i:i + 2], 16) for i in (1, 3, 5))
+            line1, line2 = display_labels[key]
             bundle.svg.rect(x, y, bar_w, h, fill=fill, stroke=rgb_hex(PALETTE["ink"]), stroke_width=1, rx=8)
             bundle.svg.text(x + bar_w / 2, y - 10, str(count), size=15, fill=rgb_hex(PALETTE["ink"]), anchor="middle", weight="bold")
-            bundle.svg.text(x + bar_w / 2, top + height + 24, key[:label_limit].replace("_", " "), size=11, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
+            bundle.svg.text(x + bar_w / 2, top + height + 22, line1, size=10, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
+            bundle.svg.text(x + bar_w / 2, top + height + 36, line2, size=10, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
             bundle.png.rect(int(x), int(y), bar_w, max(1, int(h)), fill_rgb, PALETTE["ink"])
-            bundle.png.text(int(x + 8), top + height + 8, key[:8].replace("_", ""), PALETTE["muted"], scale=1)
+            bundle.png.text(int(x + 2), top + height + 8, line1[:10].upper(), PALETTE["muted"], scale=1)
+            bundle.png.text(int(x + 2), top + height + 18, line2[:10].upper(), PALETTE["muted"], scale=1)
     bundle.svg.text(60, 790, "This figure summarizes registry counts only; the full 24-entry per-hypothesis atlas remains supplementary.", size=14, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(60, 790, "FULL 24 ENTRY ATLAS REMAINS IN THE SUPPLEMENT", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure2_evidence_atlas.svg")

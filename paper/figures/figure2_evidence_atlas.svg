@@ -22,25 +22,32 @@
 <text x="50" y="154" fill="#6c7a89" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="end">6</text>
 <rect x="82" y="268.333333" width="56" height="441.666667" rx="8" fill="#355E95" stroke="#1c222b" stroke-width="1"/>
 <text x="110" y="258.333333" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">5</text>
-<text x="110" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ADOPTED ENGINEERING BASE</text>
+<text x="110" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Adopted</text>
+<text x="110" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">base</text>
 <rect x="156" y="356.666667" width="56" height="353.333333" rx="8" fill="#2A6DC6" stroke="#1c222b" stroke-width="1"/>
 <text x="184" y="346.666667" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">4</text>
-<text x="184" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">REPRODUCED IN REPO</text>
+<text x="184" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Reprod</text>
+<text x="184" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">in repo</text>
 <rect x="230" y="356.666667" width="56" height="353.333333" rx="8" fill="#D67924" stroke="#1c222b" stroke-width="1"/>
 <text x="258" y="346.666667" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">4</text>
-<text x="258" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">PARTIALLY REPRODUCED</text>
+<text x="258" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Partial</text>
+<text x="258" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">repro</text>
 <rect x="304" y="621.666667" width="56" height="88.333333" rx="8" fill="#3B914E" stroke="#1c222b" stroke-width="1"/>
 <text x="332" y="611.666667" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">1</text>
-<text x="332" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">PAPER REPRODUCTION</text>
+<text x="332" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Paper</text>
+<text x="332" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">repro</text>
 <rect x="378" y="621.666667" width="56" height="88.333333" rx="8" fill="#289797" stroke="#1c222b" stroke-width="1"/>
 <text x="406" y="611.666667" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">1</text>
-<text x="406" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">IMPLEMENTATION AUDITED</text>
+<text x="406" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Impl</text>
+<text x="406" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">audit</text>
 <rect x="452" y="445" width="56" height="265" rx="8" fill="#E1B434" stroke="#1c222b" stroke-width="1"/>
 <text x="480" y="435" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">3</text>
-<text x="480" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">DEFERRED HYPOTHESIS</text>
+<text x="480" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Defer</text>
+<text x="480" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">hypoth</text>
 <rect x="526" y="180" width="56" height="530" rx="8" fill="#C24343" stroke="#1c222b" stroke-width="1"/>
 <text x="554" y="170" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">6</text>
-<text x="554" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">BLOCKED WITH EVIDENCE</text>
+<text x="554" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Block</text>
+<text x="554" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">evid</text>
 <text x="700" y="120" fill="#1c222b" font-size="20" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Architectural disposition counts</text>
 <line x1="700" y1="710" x2="1260" y2="710" stroke="#1c222b" stroke-width="2"/>
 <line x1="700" y1="150" x2="700" y2="710" stroke="#1c222b" stroke-width="2"/>
@@ -66,24 +73,31 @@
 <text x="690" y="154" fill="#6c7a89" font-size="12" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="end">9</text>
 <rect x="722" y="180" width="56" height="530" rx="8" fill="#2a6dc6" stroke="#1c222b" stroke-width="1"/>
 <text x="750" y="170" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">9</text>
-<text x="750" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ADOPTED ENGINEERING BASE</text>
+<text x="750" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Adopted</text>
+<text x="750" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">base</text>
 <rect x="796" y="651.111111" width="56" height="58.888889" rx="8" fill="#3b914e" stroke="#1c222b" stroke-width="1"/>
 <text x="824" y="641.111111" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">1</text>
-<text x="824" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">REPRODUCED IN REPO</text>
+<text x="824" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Reprod</text>
+<text x="824" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">in repo</text>
 <rect x="870" y="474.444444" width="56" height="235.555556" rx="8" fill="#289797" stroke="#1c222b" stroke-width="1"/>
 <text x="898" y="464.444444" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">4</text>
-<text x="898" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">PARTIALLY REPRODUCED</text>
+<text x="898" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Partial</text>
+<text x="898" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">repro</text>
 <rect x="944" y="710" width="56" height="0" rx="8" fill="#d67924" stroke="#1c222b" stroke-width="1"/>
 <text x="972" y="700" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">0</text>
-<text x="972" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">PAPER REPRODUCTION</text>
+<text x="972" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Paper</text>
+<text x="972" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">repro</text>
 <rect x="1018" y="651.111111" width="56" height="58.888889" rx="8" fill="#785ab4" stroke="#1c222b" stroke-width="1"/>
 <text x="1046" y="641.111111" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">1</text>
-<text x="1046" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">IMPLEMENTATION AUDITED</text>
+<text x="1046" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Impl</text>
+<text x="1046" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">audit</text>
 <rect x="1092" y="533.333333" width="56" height="176.666667" rx="8" fill="#e1b434" stroke="#1c222b" stroke-width="1"/>
 <text x="1120" y="523.333333" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">3</text>
-<text x="1120" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">DEFERRED HYPOTHESIS</text>
+<text x="1120" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Defer</text>
+<text x="1120" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">hypoth</text>
 <rect x="1166" y="356.666667" width="56" height="353.333333" rx="8" fill="#c24343" stroke="#1c222b" stroke-width="1"/>
 <text x="1194" y="346.666667" fill="#1c222b" font-size="15" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">6</text>
-<text x="1194" y="734" fill="#6c7a89" font-size="11" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">BLOCKED WITH EVIDENCE</text>
+<text x="1194" y="732" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">Block</text>
+<text x="1194" y="746" fill="#6c7a89" font-size="10" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">evid</text>
 <text x="60" y="790" fill="#6c7a89" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">This figure summarizes registry counts only; the full 24-entry per-hypothesis atlas remains supplementary.</text>
 </svg>
