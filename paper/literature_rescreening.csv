@@ -1,0 +1,11 @@
+sample_seed,record_id,citation_key,source_type,rescreener_decision,agreement,resolution,notes
+20260619,S02,kanerva2009hyperdimensional,primary_paper,INCLUDE,agree,KEEP_INCLUDE,Foundational HDC overview still meets taxonomy inclusion rule.
+20260619,S04,kleyko2023survey_part2,primary_survey,INCLUDE,agree,KEEP_INCLUDE,Used only for taxonomy and challenge framing, not primary claim support.
+20260619,S06,frady2020resonator,primary_paper,INCLUDE,agree,KEEP_INCLUDE,Closest primary factorization baseline remains in scope.
+20260619,S11,kanerva1988sdm,primary_monograph,INCLUDE,agree,KEEP_INCLUDE,Still needed as deferred associative-memory comparator.
+20260619,S18,fefet_multibit_2022,primary_paper,INCLUDE,agree,KEEP_INCLUDE,Hardware-only but directly relevant to precision-resource literature.
+20260619,S23,self_attention_resonator_2024,primary_paper,EXCLUDE,agree,KEEP_EXCLUDE,No common repo evidence and out of frozen search transfer scope.
+20260619,S28,concepts_semantic_pointers_2015,primary_paper,INCLUDE,agree,KEEP_INCLUDE,Still the cleanest semantic-pointer architectural anchor.
+20260619,S31,renner2022_hrn_scene,primary_paper,INCLUDE,agree,KEEP_INCLUDE,Directly fills the hierarchical resonator and partitioned representation gap.
+20260619,S35,lava_docs_2026,official_documentation,EXCLUDE,disagree,KEEP_INCLUDE_AFTER_RESOLUTION,Blinded pass first marked documentation as out of scope; resolved back to INCLUDE because official implementation status is a required extracted field for hardware-only entries.
+20260619,S37,roodsari2025_nuecc_hdc,primary_paper,EXCLUDE,disagree,KEEP_INCLUDE_AFTER_RESOLUTION,Blinded pass first marked it too channel-specific; resolved to INCLUDE because the stage explicitly required distinguishing ECC transfer limits rather than excluding them.
