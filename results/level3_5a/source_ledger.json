@@ -55,7 +55,7 @@
       "official_implementation_title": "Local clean-U1 anti-NIH control",
       "official_implementation_url": "",
       "primary_source_title": "Level 3.4 algebraic baseline closure",
-      "primary_source_url": "https://github.com/Thanatos/CGRN-HSR"
+      "primary_source_url": "https://github.com/<owner>/vsa-recoverability-atlas"
     }
   ],
   "schema_version": "level3-5a-noise-audit-v1"

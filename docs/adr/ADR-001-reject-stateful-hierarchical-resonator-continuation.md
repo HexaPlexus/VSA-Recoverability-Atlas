@@ -44,7 +44,7 @@ Hierarchical context remains valid for candidate organization and prior construc
 
 Level 1E commit: `46709fef4603dbb1f41c74188934c5d7de4218f6`  
 Checkpoint before Level 1E.1: `6d885edb016bf6dcf2e4023f36e6232f21248d3b`  
-Artifacts: [results/level1e/analysis.json](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e/analysis.json), [results/level1e/summary.csv](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e/summary.csv)
+Artifacts: [results/level1e/analysis.json](../../results/level1e/analysis.json), [results/level1e/summary.csv](../../results/level1e/summary.csv)
 
 Held-out Level 1E results:
 
@@ -58,7 +58,7 @@ The full cold `L2 -> L1 -> global` cascade stayed safe on the primary and stress
 
 Level 1E.1 commit: `80cdfcfdabb54710e9bf1b34aff4888f68fddc1e`  
 Accepted checkpoint: `33f9e44a7364c1640d47588d2cdb02eadafd3c75`  
-Artifacts: [results/level1e1/analysis.json](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e1/analysis.json), [results/level1e1/summary.csv](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e1/summary.csv), [results/level1e1/paired_comparisons.csv](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e1/paired_comparisons.csv), [results/level1e1/probe_evidence.json](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e1/probe_evidence.json)
+Artifacts: [results/level1e1/analysis.json](../../results/level1e1/analysis.json), [results/level1e1/summary.csv](../../results/level1e1/summary.csv), [results/level1e1/paired_comparisons.csv](../../results/level1e1/paired_comparisons.csv), [results/level1e1/probe_evidence.json](../../results/level1e1/probe_evidence.json)
 
 Held-out primary-cell comparison:
 
@@ -84,7 +84,7 @@ Warm continuation reduced primary recovery, produced zero or near-zero warm-help
 
 ### Cheap probes
 
-One-step and two-step `L1` probes did not preserve the useful separation previously observed after a full `L1` run among the actually rejected `L2` cases. The held-out probe evidence in [results/level1e1/probe_evidence.json](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1e1/probe_evidence.json) shows no useful positive separation on the rejected primary and stress cases.
+One-step and two-step `L1` probes did not preserve the useful separation previously observed after a full `L1` run among the actually rejected `L2` cases. The held-out probe evidence in [results/level1e1/probe_evidence.json](../../results/level1e1/probe_evidence.json) shows no useful positive separation on the rejected primary and stress cases.
 
 ## Mechanistic Interpretation
 

@@ -44,8 +44,8 @@ Stage A.1 still excludes:
 ## Reuse / Anti-NIH
 
 - `ADOPT`: existing MAP/TorchHD semantic substrate
-- `WRAP`: existing tiny deterministic random-hyperplane router in [src/cgrn_hsr/semantic_lsh.py](/C:/Users/Thanatos/Desktop/CGRN-HSR/src/cgrn_hsr/semantic_lsh.py)
-- `WRAP`: existing typed [TraceRecord](/C:/Users/Thanatos/Desktop/CGRN-HSR/src/cgrn_hsr/trace_record.py), [TraceIndex](/C:/Users/Thanatos/Desktop/CGRN-HSR/src/cgrn_hsr/trace_index.py), and [verification](/C:/Users/Thanatos/Desktop/CGRN-HSR/src/cgrn_hsr/verification.py) primitives
+- `WRAP`: existing tiny deterministic random-hyperplane router in [src/cgrn_hsr/semantic_lsh.py](../src/cgrn_hsr/semantic_lsh.py)
+- `WRAP`: existing typed [TraceRecord](../src/cgrn_hsr/trace_record.py), [TraceIndex](../src/cgrn_hsr/trace_index.py), and [verification](../src/cgrn_hsr/verification.py) primitives
 - `BLOCK`: new ANN framework, new VSA, new self-decoding memory, Stage B orchestration, held-out execution
 
 No mature ANN/LSH routing library exists in the frozen repo dependency graph. Stage A.1 therefore keeps the tiny deterministic wrapper and extends it only with:

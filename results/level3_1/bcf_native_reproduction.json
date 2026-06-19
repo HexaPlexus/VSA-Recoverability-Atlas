@@ -78,14 +78,14 @@
   "removal_of_cap_16_artifact": "Level 3.1 uses the official main_capacity max-iteration formula M^(F-1)/F * iter.fac or explicit upstream iter.max, not the old Level 1F.3 cap=16 harness limit.",
   "schema_version": "level3-1-native-envelope-dev-v1",
   "smoke": {
-    "config_path": "/mnt/c/Users/Thanatos/Desktop/CGRN-HSR/competitors/ibm_in_memory_factorizer/.audit_runtime/level3_1_bcf_smoke_config.json",
+    "config_path": "<repo>/competitors/ibm_in_memory_factorizer/.audit_runtime/level3_1_bcf_smoke_config.json",
     "cuda_used": true,
     "elapsed_sec": 4.874839963000001,
     "entrypoint": "main_capacity.py",
     "observed_accuracy": 1.0,
     "observed_mean_iterations": 2.875,
     "stdout_tail": [
-      "Save to directory: /mnt/c/Users/Thanatos/Desktop/CGRN-HSR/competitors/ibm_in_memory_factorizer/.audit_runtime",
+      "Save to directory: <repo>/competitors/ibm_in_memory_factorizer/.audit_runtime",
       "Search space: 1000, max iterations: 33",
       "D=256",
       "Use device cuda:0",

@@ -114,7 +114,7 @@ def build_source_ledger() -> dict[str, Any]:
             {
                 "family": "generic_linear_mix_control",
                 "primary_source_title": "Level 3.4 algebraic baseline closure",
-                "primary_source_url": "https://github.com/Thanatos/CGRN-HSR",
+                "primary_source_url": "https://github.com/<owner>/vsa-recoverability-atlas",
                 "official_implementation_title": "Local clean-U1 anti-NIH control",
                 "official_implementation_url": "",
                 "contract_role": "binary full-rank linear anti-NIH control under matched ambient length",

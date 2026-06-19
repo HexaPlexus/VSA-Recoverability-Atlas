@@ -1,7 +1,13 @@
 .venv/
+.venv_*/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.idea/
+.vscode/
 *.egg-info/
 build/
 competitors/ibm_in_memory_factorizer/

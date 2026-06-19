@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import os
 import platform
 import statistics
 import sys
@@ -19,7 +20,12 @@ LEVEL3_3_CHECKPOINT_COMMIT = "a3ca3b3536837447a6d8177e1b0b36a5258772fa"
 LEVEL3_3_TASK_CONTRACT = "U1_blind_clean_single_product_factorization"
 LEVEL3_3_PAPER_TITLE = "Linear Codes for Hyperdimensional Computing"
 LEVEL3_3_PAPER_URL = "https://arxiv.org/abs/2403.03278"
-LEVEL3_3_SOURCE_PATH = Path.home() / "AppData" / "Local" / "Temp" / "neco_linear_codes_source" / "arXiv_version.tex"
+LEVEL3_3_SOURCE_PATH = Path(
+    os.environ.get(
+        "CGRN_HSR_LEVEL3_3_SOURCE_PATH",
+        "external/neco_linear_codes_source/arXiv_version.tex",
+    )
+)
 LEVEL3_3_DOC_STATUS = "UNAMBIGUOUS_PAPER_CONTRACT"
 
 OUTCOME_EXACT = "EXACT_RECOVERY"

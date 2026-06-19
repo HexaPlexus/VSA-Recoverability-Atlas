@@ -13,7 +13,7 @@
   "factorize_signature": "(self, query: 'Array', codebook: 'dict[str, Array]', model: 'VSAModel', n_factors: 'int' = 2, max_iterations: 'int | None' = None, threshold: 'float | None' = None, temperature: 'float' = 20.0, top_k: 'int' = 1, patience: 'int' = 3, min_delta: 'float' = 0.0001, mode: 'str' = 'hard', **kwargs: 'object') -> 'tuple[list[str], list[float]]'",
   "factorize_verbose_signature": "(self, query: 'Array', codebook: 'dict[str, Array]', model: 'VSAModel', n_factors: 'int' = 2, max_iterations: 'int | None' = None, threshold: 'float | None' = None) -> 'tuple[list[str], list[float], list[float]]'",
   "class_path": "holovec.utils.cleanup.attention.AttentionResonatorCleanup",
-  "source_path": "C:\\Users\\Thanatos\\Desktop\\CGRN-HSR\\.venv\\Lib\\site-packages\\holovec\\utils\\cleanup\\attention.py",
+  "source_path": "<venv>/Lib/site-packages/holovec/utils/cleanup/attention.py",
   "source_sha256": "9f6e468224c585d97f9ad726413b8c94c9bc17f954a8363f16e0686835dbe6cb",
   "python_314_compatible_on_host": true,
   "cpu_execution_validated": true,

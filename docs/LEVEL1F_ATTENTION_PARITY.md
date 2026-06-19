@@ -44,7 +44,7 @@
 
 ## Reproducible blocker
 
-Minimal reproduction is stored in [results/level1f/parity_report.json](/C:/Users/Thanatos/Desktop/CGRN-HSR/results/level1f/parity_report.json).
+Minimal reproduction is stored in [results/level1f/parity_report.json](../results/level1f/parity_report.json).
 
 Observed behavior:
 
