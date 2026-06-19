@@ -1,0 +1,70 @@
+schema_version: "self-describing-record-v0.1-dev"
+task_name: "Self-Describing Recursive Hypervector Record v0.1"
+starting_commit: "19bcb16454a400a9fa67f00eafb6f889a92f2181"
+status:
+  - "ADOPT_EXISTING_PRIMITIVES"
+  - "WRAP"
+  - "PROTOTYPE_SYSTEM_INTEGRATION"
+  - "DEVELOPMENT_ONLY"
+  - "NO_NOVELTY_CLAIM"
+  - "NO_PRODUCTION_CLAIM"
+heldout_execution_allowed: false
+identity_format: "namespace_id + uint32 local concept_code + version"
+base50x4_codec:
+  implemented: true
+  capacity: 6250000
+  min_physical_bits: 24
+  primary_storage_path: "uint32 local concept_code"
+manifest_schema:
+  schema_version: "self-describing-record-v0.1-dev"
+  record_kind:
+    - "ATOM"
+    - "COMPOSITE"
+  operation_registry:
+    - "MAP_BIND_2"
+    - "MAP_PERMUTE"
+  immediate_operands_only: true
+replay_contract:
+  memoization: true
+  cycle_detection: true
+  max_depth: 128
+  max_unique_nodes: 4096
+  deterministic_traversal_order: true
+workloads:
+  flat_bind_records: 12
+  recursive_chain_depths:
+    - 1
+    - 2
+    - 4
+    - 8
+    - 16
+  balanced_tree_depths:
+    - 2
+    - 4
+    - 6
+  shared_subgraph_pairs: 1
+  repeated_reads:
+    - 1
+    - 10
+    - 100
+    - 1000
+  semantic_observation_corruption:
+    - 0.0
+    - 0.01
+    - 0.05
+arms:
+  - "A_MAP_FACTORIZATION_BASELINE"
+  - "B_ORDINARY_SIDECAR_DAG"
+  - "C_INLINE_PACKED_MANIFEST"
+allowed_claims:
+  - "exact first-order structural manifests can be replayed safely"
+  - "self-describing after record retrieval"
+  - "inline versus sidecar is an engineering packaging comparison"
+forbidden_claims:
+  - "new VSA algorithm"
+  - "self-unbinding hypervector"
+  - "semantic self-addressing from noisy cue alone"
+  - "production readiness"
+seed_fresh: true
+level35_frozen_artifacts_unchanged: true
+protocol_hash: "a0d3674810dd041370c14da3474b3bdf976bb4a9b39a971259d6c251b2a6b69a"

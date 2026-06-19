@@ -1,0 +1,49 @@
+{
+  "arm_summary": [
+    {
+      "arm_id": "B_ORDINARY_SIDECAR_DAG",
+      "deployable_total_bytes": 4309.824858757062,
+      "exact_reconstruction_rate": 1.0,
+      "mean_cache_hits": 0.4782608695652174,
+      "mean_latency_sec": 0.0006123847763418504,
+      "mean_lookup_count": 12.173913043478262,
+      "mean_unique_nodes": 6.086956521739131
+    },
+    {
+      "arm_id": "C_INLINE_PACKED_MANIFEST",
+      "deployable_total_bytes": 4309.824858757062,
+      "exact_reconstruction_rate": 1.0,
+      "mean_cache_hits": 0.4782608695652174,
+      "mean_latency_sec": 0.0006142695733022107,
+      "mean_lookup_count": 6.086956521739131,
+      "mean_unique_nodes": 6.086956521739131
+    },
+    {
+      "arm_id": "A_MAP_FACTORIZATION_BASELINE",
+      "deployable_total_bytes": 4096,
+      "exact_reconstruction_rate": 1.0,
+      "mean_cache_hits": 0.0,
+      "mean_latency_sec": 0.0022898833461416266,
+      "mean_lookup_count": 0.0,
+      "mean_unique_nodes": 0.0
+    }
+  ],
+  "base50_result": {
+    "capacity": 6250000,
+    "equivalent_for_primary_storage": true,
+    "min_physical_bits": 24,
+    "packed_uint24_bits": 24
+  },
+  "build_verdict": "ADOPT_ORDINARY_SIDECAR_DAG",
+  "corruption_outcomes": {
+    "cycle_detected": "CYCLE_DETECTED",
+    "dangling_parent": "DANGLING_OPERAND_REF",
+    "manifest_bitflip": "MANIFEST_INTEGRITY_FAILURE",
+    "stale_parent_version": "PARENT_VERSION_MISMATCH",
+    "wrong_valid_handle": "SEMANTIC_COMMITMENT_MISMATCH"
+  },
+  "engineering_verdict": "ADOPT_ORDINARY_SIDECAR_DAG",
+  "heldout_execution_count": 0,
+  "protocol_hash": "a0d3674810dd041370c14da3474b3bdf976bb4a9b39a971259d6c251b2a6b69a",
+  "scientific_status": "PACKAGING_ADVANTAGE_NOT_SUPPORTED"
+}

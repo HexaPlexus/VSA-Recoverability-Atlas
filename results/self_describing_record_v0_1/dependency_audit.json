@@ -1,0 +1,67 @@
+{
+  "anti_nih": {
+    "hash_consing_event_sourcing": {
+      "coverage": 0.7,
+      "notes": "Optional dedup fits ordinary immutable record patterns.",
+      "verdict": "ADOPT"
+    },
+    "ordinary_object_records": {
+      "coverage": 1.0,
+      "notes": "ConceptRecord is just a typed immutable object record.",
+      "verdict": "ADOPT"
+    },
+    "provenance_merkle_content_addressed": {
+      "coverage": 0.8,
+      "notes": "Reuse digest/integrity and immutable references instead of inventing a new identity system.",
+      "verdict": "ADOPT"
+    },
+    "self_describing_records_and_tagged_unions": {
+      "coverage": 1.0,
+      "notes": "Inline manifest is a packaging choice, not a new learning mechanism.",
+      "verdict": "ADOPT"
+    },
+    "systematic_codes_and_exact_graph_plus_vector": {
+      "coverage": 0.6,
+      "notes": "This stage compares exact structural bits beside a semantic payload against ordinary sidecar storage.",
+      "verdict": "COMPARE"
+    },
+    "typed_structs_ast_dag": {
+      "coverage": 0.9,
+      "notes": "CompositeManifest is an exact first-order AST/DAG node.",
+      "verdict": "ADOPT"
+    },
+    "vsa_item_memories_and_map_ops": {
+      "coverage": 1.0,
+      "notes": "Reuse existing MAP operations and verification, not a new VSA algebra.",
+      "verdict": "WRAP"
+    }
+  },
+  "blocked_claims": [
+    "new fundamental VSA algebra",
+    "compact identity codes are not pointers/handles",
+    "exact history recovered from semantic similarity alone"
+  ],
+  "level35_frozen_artifact_hash": "317E7A43AFADB2002A25DBB82588F72610098CD7DAD19F03DCAC2DD4077CD6E5",
+  "previous_blocked_lines": [
+    {
+      "checkpoint": "c6a24d7e16eef366bf03d78db306266a00c05e0c",
+      "scientific_verdict": "DECODER_CERTIFIED_RECOVERY_ADVANTAGE_NOT_SUPPORTED",
+      "verdict": "BLOCK_DECODER_CERTIFICATION_LINE"
+    },
+    {
+      "checkpoint": "19bcb16454a400a9fa67f00eafb6f889a92f2181",
+      "scientific_verdict": "CONFLICT_GUIDED_REPAIR_ADVANTAGE_NOT_SUPPORTED",
+      "verdict": "BLOCK_TAGGED_SYMBOL_LINE"
+    }
+  ],
+  "schema_version": "self-describing-record-v0.1-dev",
+  "status": [
+    "ADOPT_EXISTING_PRIMITIVES",
+    "WRAP",
+    "PROTOTYPE_SYSTEM_INTEGRATION",
+    "DEVELOPMENT_ONLY",
+    "NO_NOVELTY_CLAIM",
+    "NO_PRODUCTION_CLAIM"
+  ],
+  "verdict": "ADOPT_EXISTING_PRIMITIVES"
+}
