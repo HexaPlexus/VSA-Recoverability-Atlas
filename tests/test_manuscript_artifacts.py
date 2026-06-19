@@ -84,6 +84,11 @@ def test_workflow_uses_full_history_checkout() -> None:
     assert "fetch-depth: 0" in workflow
     assert "python scripts/build_release_candidate.py" in workflow
     assert "git diff --exit-code" in workflow
+    assert workflow.index("python -m pytest -q") < workflow.index("python scripts/build_manuscript_figures.py")
+    assert workflow.index("python scripts/build_manuscript_figures.py") < workflow.index(
+        "python scripts/build_release_candidate.py"
+    )
+    assert workflow.index("python scripts/build_release_candidate.py") < workflow.index("git diff --exit-code")
 
 
 def test_canonical_hash_is_line_ending_independent(tmp_path: Path) -> None:

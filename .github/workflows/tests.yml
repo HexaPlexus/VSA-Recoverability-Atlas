@@ -27,17 +27,17 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e ".[competitors]"
 
-      - name: Build manuscript figures
-        run: python scripts/build_manuscript_figures.py
-
-      - name: Build release candidate
-        run: python scripts/build_release_candidate.py
-
       - name: Validate registry and claims
         run: python scripts/validate_evidence_registry.py
 
       - name: Run test suite
         run: python -m pytest -q
+
+      - name: Build manuscript figures
+        run: python scripts/build_manuscript_figures.py
+
+      - name: Build release candidate
+        run: python scripts/build_release_candidate.py
 
       - name: Verify generated artifacts are up to date
         run: git diff --exit-code
