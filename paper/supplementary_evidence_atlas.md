@@ -2,6 +2,20 @@
 
 This atlas is generated from the machine-readable registries and summarizes all normalized hypotheses.
 
+The main manuscript intentionally keeps only compact tables, figures, and bounded claims in the main text. This supplement retains the full evidence-oriented material:
+
+- all normalized repository hypotheses;
+- all current evidence statuses and architectural dispositions;
+- full protocol-hash and result-path references where available;
+- the full prior-art matrix and transfer limits;
+- the full claim ledger and reopen conditions.
+
+Use this document together with:
+
+- [CLAIM_TRACEABILITY.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/CLAIM_TRACEABILITY.md)
+- [CITATION_AUDIT.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/CITATION_AUDIT.md)
+- [LITERATURE_SCREENING_AUDIT.md](/C:/Users/Thanatos/Desktop/CGRN-HSR/paper/LITERATURE_SCREENING_AUDIT.md)
+
 ## level0_dependency_bootstrap
 
 - Title: Dependency-locked TorchHD/MAP bootstrap for reproducible local experiments
