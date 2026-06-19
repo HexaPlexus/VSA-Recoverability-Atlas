@@ -1,4 +1,4 @@
-﻿# Supplementary Evidence Atlas
+# Supplementary Evidence Atlas
 
 This atlas is generated from the machine-readable registries and summarizes all normalized hypotheses.
 
@@ -399,4 +399,3 @@ Use this document together with:
 - Allowed claims: Decode-carrying hypervectors are a deferred hypothesis with explicit claim boundaries.
 - Forbidden claims: Novel architecture confirmed, models human thought, automatic speed from same-space storage
 - Reopen conditions: Reopen only after held-out closure and a dedicated prior-art audit.
-
