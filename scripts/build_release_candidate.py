@@ -27,16 +27,36 @@ RELEASE_FIGURE_DIR = RELEASE_DIR / "figures"
 
 
 def require_clean_tree() -> None:
-    result = subprocess.run(
-        ["git", "status", "--porcelain"],
+    checks = [
+        ["git", "diff", "--quiet", "--ignore-cr-at-eol"],
+        ["git", "diff", "--cached", "--quiet", "--ignore-cr-at-eol"],
+    ]
+    for command in checks:
+        result = subprocess.run(
+            command,
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        if result.returncode == 0:
+            continue
+        if result.returncode == 1:
+            raise RuntimeError(
+                "build_release_candidate.py requires a clean working tree. "
+                "Commit source changes first or use --allow-dirty only during local repair."
+            )
+        raise RuntimeError("Could not determine git working tree status.")
+    untracked = subprocess.run(
+        ["git", "status", "--porcelain", "--untracked-files=normal"],
         cwd=ROOT,
         capture_output=True,
         text=True,
         check=False,
     )
-    if result.returncode != 0:
+    if untracked.returncode != 0:
         raise RuntimeError("Could not determine git working tree status.")
-    if result.stdout.strip():
+    if any(line.startswith("?? ") for line in untracked.stdout.splitlines()):
         raise RuntimeError(
             "build_release_candidate.py requires a clean working tree. "
             "Commit source changes first or use --allow-dirty only during local repair."
