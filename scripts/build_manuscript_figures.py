@@ -353,22 +353,22 @@ def figure2_evidence_atlas() -> None:
         "PAPER_REPRODUCTION": PALETTE["orange"],
     }
     display_labels = {
-        "ADOPTED_ENGINEERING_BASELINE": ("Adopted", "base"),
-        "REPRODUCED_IN_REPO": ("Reprod", "in repo"),
-        "PARTIALLY_REPRODUCED": ("Partial", "repro"),
-        "PAPER_REPRODUCTION": ("Paper", "repro"),
-        "IMPLEMENTATION_AUDITED": ("Impl", "audit"),
-        "DEFERRED_HYPOTHESIS": ("Defer", "hypoth"),
-        "BLOCKED_WITH_EVIDENCE": ("Block", "evid"),
+        "ADOPTED_ENGINEERING_BASELINE": ("Adopted", "baseline"),
+        "REPRODUCED_IN_REPO": ("Reproduced", "in repo"),
+        "PARTIALLY_REPRODUCED": ("Partially", "reproduced"),
+        "PAPER_REPRODUCTION": ("Paper", "reproduction"),
+        "IMPLEMENTATION_AUDITED": ("Implementation", "audited"),
+        "DEFERRED_HYPOTHESIS": ("Deferred", "hypothesis"),
+        "BLOCKED_WITH_EVIDENCE": ("Blocked", "evidence"),
     }
-    bundle = make_bundle(1360, 860, "Evidence status summary")
+    bundle = make_bundle(1520, 860, "Evidence status summary")
     add_title(bundle, "Figure 2. Repository evidence status summary", "Descriptive derived summary from 24 normalized repository evidence entries.")
     panels = [
         ("Evidence status counts", 60, status_counts, status_order, STATUS_COLORS, 24),
-        ("Architectural disposition counts", 700, disposition_counts, status_order, {k: rgb_hex(v) for k, v in disposition_palette.items()}, 24),
+        ("Architectural disposition counts", 780, disposition_counts, status_order, {k: rgb_hex(v) for k, v in disposition_palette.items()}, 24),
     ]
     for title, left, counts, order, color_map, label_limit in panels:
-        panel_w = 560
+        panel_w = 660
         top = 150
         height = 560
         max_count = max(counts.values())
@@ -382,8 +382,8 @@ def figure2_evidence_atlas() -> None:
             bundle.svg.line(left, y, left + panel_w, y, stroke=rgb_hex(PALETTE["grid"]), stroke_width=1)
             bundle.svg.text(left - 10, y + 4, str(tick), size=12, fill=rgb_hex(PALETTE["muted"]), anchor="end")
             bundle.png.line(left, int(y), left + panel_w, int(y), PALETTE["grid"], 1)
-        bar_w = 56
-        gap = 18
+        bar_w = 84
+        gap = 8
         for idx, key in enumerate(order):
             count = counts.get(key, 0)
             x = left + 22 + idx * (bar_w + gap)
@@ -397,8 +397,12 @@ def figure2_evidence_atlas() -> None:
             bundle.svg.text(x + bar_w / 2, top + height + 22, line1, size=10, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
             bundle.svg.text(x + bar_w / 2, top + height + 36, line2, size=10, fill=rgb_hex(PALETTE["muted"]), anchor="middle")
             bundle.png.rect(int(x), int(y), bar_w, max(1, int(h)), fill_rgb, PALETTE["ink"])
-            bundle.png.text(int(x + 2), top + height + 8, line1[:10].upper(), PALETTE["muted"], scale=1)
-            bundle.png.text(int(x + 2), top + height + 18, line2[:10].upper(), PALETTE["muted"], scale=1)
+            line1_upper = line1.upper()
+            line2_upper = line2.upper()
+            line1_x = int(x + max(0, (bar_w - len(line1_upper) * 6) // 2))
+            line2_x = int(x + max(0, (bar_w - len(line2_upper) * 6) // 2))
+            bundle.png.text(line1_x, top + height + 8, line1_upper, PALETTE["muted"], scale=1)
+            bundle.png.text(line2_x, top + height + 18, line2_upper, PALETTE["muted"], scale=1)
     bundle.svg.text(60, 790, "This figure summarizes registry counts only; the full 24-entry per-hypothesis atlas remains supplementary.", size=14, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(60, 790, "FULL 24 ENTRY ATLAS REMAINS IN THE SUPPLEMENT", PALETTE["muted"], scale=2)
     bundle.svg.save(FIG_DIR / "figure2_evidence_atlas.svg")

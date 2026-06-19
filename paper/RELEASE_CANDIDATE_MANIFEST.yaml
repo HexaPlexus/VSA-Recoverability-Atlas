@@ -1,6 +1,6 @@
 {
   "schema_version": "vsa-recoverability-atlas-rc-manifest-v0.1",
-  "generated_from_commit": "973494128a6a955199aa67e5db36d8a1739b9c1d",
+  "generated_from_commit": "b343c0712b6e141de53e5329fd57fd0c641a5547",
   "generated_from_commit_semantics": "Ancestor commit whose clean tracked inputs were used to build the release candidate artifacts.",
   "generation_date": "2026-06-19",
   "held_out_status": {
@@ -23,8 +23,8 @@
   "figure_hashes": {
     "paper/release_candidate/figures/figure1_budget_map.png": "a6ddd308abc231e4a90c1a2b3227bf2993f41ff9f1e437b7a9787238b1bcab49",
     "paper/release_candidate/figures/figure1_budget_map.svg": "195d88b69a2c7ec03a0f73e36673be7254c3da8df101841755cbba57022a51c4",
-    "paper/release_candidate/figures/figure2_evidence_atlas.png": "08a196d02e67f505ed8e78d6dc3bf14298e1de5985ba4eef8cba8a2822dd14ae",
-    "paper/release_candidate/figures/figure2_evidence_atlas.svg": "d6b49f7787466eaa449c444d864da3877f63cb4b300b15760139371d2aefe71b",
+    "paper/release_candidate/figures/figure2_evidence_atlas.png": "63b229507c5788d84d4911d90a7aabc2fac83bf1f11b7bb3c4f7b84c31ce8a4c",
+    "paper/release_candidate/figures/figure2_evidence_atlas.svg": "bac84cd655f989aeba81d31ee89fe483268ee4aa67bf283d574d87fe980620b2",
     "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "63ad6a0c8c52f2a9d2aca4e726171ba2a85dada6c358d6a96b923cadd32923e2",
     "paper/release_candidate/figures/figure3_clean_f3_frontier.svg": "d5e6b5f8571a37d36183cbd24a4bbc7b5c8512a5896ab4eee1583963423fd7fd",
     "paper/release_candidate/figures/figure4_repair_costs.png": "c1b792d2cf7fbe592fa5acdc95a2e05fec96c67a7d3e41d317f98f630359fccc",
