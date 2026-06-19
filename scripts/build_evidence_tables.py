@@ -638,6 +638,103 @@ EVIDENCE_ENTRIES = [
         "reopen_conditions": ["Reopen only for new substrate-specific contracts or calibrated severity mappings."],
     },
     {
+        "hypothesis_id": "oracle_portfolio_complementarity_v0_1",
+        "title": "In the common clean F=3 envelope, BCF dominated hard paired failures and no deployable instance-level cross-substrate router was justified",
+        "category": "CROSS_SUBSTRATE_PORTFOLIO",
+        "origin": "Cross-Substrate Oracle Complementarity Audit v0.1",
+        "evidence_status": "BLOCKED_WITH_EVIDENCE",
+        "maturity": "CLOSED",
+        "implementation_status": "ARCHIVED",
+        "research_question": "Do already-implemented MAP and BCF methods exhibit verified, cost-aware per-instance complementarity strong enough to justify a practical escalation router?",
+        "method": "Paired clean F=3 evaluation of frozen MAP D512 fast, MAP D1024 fast, MAP D1024 robust, BCF native, static threshold routes, fixed-order cascades, random controls, and oracle upper bounds",
+        "substrate": "MAP and official IBM BCF under separate lawful native encodings",
+        "operation_contract": "Clean single-product factorization with F=3 factor-specific domains and a common semantic tuple contract",
+        "dimensions": "MAP D512/D1024 and BCF native D512 common envelope",
+        "factor_count": "F=3",
+        "search_space": "M in {10,22,31,68} with identical tuple IDs across methods",
+        "noise_contract": "Clean only; no noise trials in this stage",
+        "information_added": "none",
+        "compute_added": "paired multi-method execution, cascades, and oracle analysis",
+        "prior_added": "static route by M only",
+        "exact_side_information": "none",
+        "primary_result": "BCF_NATIVE dominated the hard/non-easy paired instances and the direct oracle achieved no meaningful verified gain over the best fixed single method.",
+        "primary_failure_point": "Residual complementarity collapsed to a trivial easy-cell static threshold rather than a deployable instance-level routing signal.",
+        "safety_outcome": "Verifier-constrained oracles and cascades preserved zero silent wrong acceptance.",
+        "cost_outcome": "Dual-encoding cost and cascade complexity were not justified because the best hard-cell coverage came from a single native method.",
+        "baselines": [
+            "always MAP_D512_FAST",
+            "always MAP_D1024_FAST",
+            "always MAP_D1024_ROBUST",
+            "always BCF_NATIVE",
+            "always abstain"
+        ],
+        "controls": [
+            "oracle direct min-cost correct",
+            "verifier-constrained oracle",
+            "24 fixed-order cascades",
+            "M-threshold static route",
+            "cost-matched random route"
+        ],
+        "evidence": {
+            "commits": [],
+            "protocol_hashes": [
+                "e7b56d4a5c780d2e45270b203b4d8df6efd73585f0b6f34f6fb2a0ec1a3ad1fd"
+            ],
+            "result_paths": [
+                "docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_AUDIT.md",
+                "docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_PROTOCOL.md",
+                "results/oracle_portfolio_v0_1"
+            ],
+            "tests": [
+                "tests/test_oracle_portfolio_complementarity.py"
+            ],
+            "execution_scale": "16 pilot + 32 calibration + 64 final paired trials per cell across 4 cells",
+            "heldout_status": "No held-out execution; official held-out count remained 0",
+        },
+        "results": {
+            "primary_metrics": [
+                "accepted exact coverage",
+                "silent wrong rate",
+                "median and p95 latency",
+                "rescue counts"
+            ],
+            "secondary_metrics": [
+                "correct-set overlap",
+                "static-route regret",
+                "dual-representation bytes"
+            ],
+            "qualitative_observations": [
+                "MAP variants rescued each other on subsets, but none rescued BCF failures because BCF had no hard-cell misses in the common envelope.",
+                "A trivial threshold route used MAP only on the easy M=10 cell and captured all practical portfolio value observed here."
+            ],
+        },
+        "failure_modes": [
+            "dominant single method",
+            "static-route sufficiency",
+            "dual-encoding overhead"
+        ],
+        "causal_interpretation": "Cross-substrate rescue existed among weaker MAP variants, but the common hard envelope was already solved by one native method, so oracle routing added no new deployable information.",
+        "allowed_claims": [
+            "In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path.",
+            "A trivial M-threshold static route captured the only practical portfolio value observed in this stage."
+        ],
+        "forbidden_claims": [
+            "learned cross-substrate router justified",
+            "FPGA or Lava cascade justified",
+            "general cross-substrate complementarity across noise or other contracts"
+        ],
+        "prior_art": [
+            "algorithm portfolios",
+            "SATzilla-style oracle analysis",
+            "fixed-order cascades",
+            "selective prediction"
+        ],
+        "architectural_disposition": "BLOCKED_WITH_EVIDENCE",
+        "reopen_conditions": [
+            "Reopen only if a new lawful contract introduces residual verifier-preserved routing regret after the best static route."
+        ],
+    },
+    {
         "hypothesis_id": "level3_5b_confirmatory_protocol_discipline",
         "title": "Held-out confirmatory execution requires prospectively frozen executable gate semantics before the first held-out observation",
         "category": "NOISE_AND_PROTOCOL",
@@ -1367,6 +1464,20 @@ COST_MATRIX_ROWS = [
         "Observed limitation": "may lose at larger scale; not evaluated there yet",
     },
     {
+        "Method": "Cross-substrate MAP/BCF portfolio",
+        "More dimensions": "no",
+        "More bits per coordinate": "no",
+        "Exact side information": "no",
+        "Structured code": "dual native encodings",
+        "More decoder compute": "sometimes cumulative",
+        "Restricted search domain": "static threshold or cascade",
+        "External context": "no",
+        "Reduced coverage / abstention": "yes",
+        "Exact fallback": "no",
+        "Observed benefit": "easy-cell latency trimming through a trivial static route",
+        "Observed limitation": "BCF dominated the hard/non-easy frontier, so no residual instance-level oracle value survived",
+    },
+    {
         "Method": "Exact first-order sidecar DAG",
         "More dimensions": "no",
         "More bits per coordinate": "manifest bytes",
@@ -1614,6 +1725,26 @@ CLAIMS = [
         "forbidden_strengthenings": ["soft information implies block dictionary superiority"],
     },
     {
+        "claim_id": "claim_bcf_dominates_common_clean_portfolio_envelope",
+        "text": "In the tested clean common F=3 envelope, BCF_NATIVE dominated the hard/non-easy paired instances that defeated the MAP baselines.",
+        "status": "SUPPORTED_DEVELOPMENT_ONLY",
+        "scope": "Cross-substrate oracle complementarity v0.1 clean common envelope only",
+        "supporting_evidence": ["oracle_portfolio_complementarity_v0_1"],
+        "contradicting_evidence": [],
+        "allowed_locations": ["paper/manuscript.md", "RESEARCH_STATUS.md"],
+        "forbidden_strengthenings": ["BCF universally dominates MAP in every task or noise contract", "BCF is always the best substrate"],
+    },
+    {
+        "claim_id": "claim_instance_router_not_supported_in_common_clean_envelope",
+        "text": "The tested clean F=3 common envelope did not justify an instance-level cross-substrate router beyond a trivial M-threshold static route.",
+        "status": "NOT_SUPPORTED",
+        "scope": "Cross-substrate oracle complementarity v0.1 clean common envelope only",
+        "supporting_evidence": ["oracle_portfolio_complementarity_v0_1"],
+        "contradicting_evidence": [],
+        "allowed_locations": ["paper/manuscript.md", "RESEARCH_STATUS.md"],
+        "forbidden_strengthenings": ["portfolio routing is useless in every possible contract", "static thresholds remain sufficient under noise or other substrates"],
+    },
+    {
         "claim_id": "claim_recoverability_has_a_cost",
         "text": "Reliable recovery in this repository's tasks always required paying cost somewhere: more structure, more bits, more compute, stronger priors, abstention, or exact fallback.",
         "status": "DESIGN_PRINCIPLE",
@@ -1810,6 +1941,18 @@ FAILURE_MODES = [
         "safety_consequence": "Invalid confirmatory claims.",
         "architectural_response": "Fail closed and preserve immutable block evidence.",
         "evidence_refs": ["level3_5a_noise_contract_audit", "level3_5b_confirmatory_protocol_discipline", "level3_5b_zero_trial_integrity_blocks"],
+    },
+    {
+        "failure_mode": "dominant_single_method",
+        "description": "A prospective portfolio shows pairwise rescues among weaker methods, but one lawful method already covers the hard instances, erasing practical oracle gain.",
+        "observable_signature": "Direct oracle and verifier-constrained oracle match the best single method on hard/non-easy cells, while static routing captures any residual easy-cell latency trim.",
+        "affected_methods": ["cross-substrate portfolio audits", "prospective cascades"],
+        "how_detected": "Paired clean F=3 complementarity audit with best-single, oracle, cascade, and static-route analyses",
+        "what_helped": "paired trial matrices, verifier-constrained oracle, hard-cell pooling",
+        "what_failed": "learned-router or hardware escalation before residual routing regret exists",
+        "safety_consequence": "Can rationalize unnecessary routing complexity while adding no verified coverage.",
+        "architectural_response": "Adopt the dominant single method or trivial static threshold and stop the router line.",
+        "evidence_refs": ["oracle_portfolio_complementarity_v0_1"],
     },
 ]
 
@@ -2272,6 +2415,7 @@ The repository historically called `CGRN-HSR` began as a hypothesis about contex
 - MAP / resonator baselines and capacity limits
 - context-conditioned search and fallback
 - substrate audits and paper reproductions
+- cross-substrate portfolio and cascade stop conditions
 - noise-contract repair and confirmatory protocol discipline
 - exact-structure alternatives
 - soft-information and codebook experiments
@@ -2337,7 +2481,8 @@ Three substrate conclusions matter:
 
 - the official IBM BCF implementation can be wrapped for scoped single-product audits, but broad parity claims remain unresolved;
 - the NeCo clean-U1 paper contract can be reproduced under explicit GF(2) constraints;
-- on clean U1, the symbolic exact tuple baseline dominates the task envelope.
+- on clean U1, the symbolic exact tuple baseline dominates the task envelope;
+- in the paired clean common F=3 envelope, BCF dominates the hard/non-easy instances and a trivial threshold over `M` captures the only practical portfolio value.
 
 ## 9. Encoder and Codebook Adaptation
 
@@ -2379,6 +2524,8 @@ The recoverability cost matrix shows that the repository's surviving methods buy
 
 No line demonstrated free recoverability.
 
+The cross-substrate portfolio audit sharpened this point: once dual representation cost, verifier acceptance, and cumulative cascade latency were counted honestly, the hard-cell frontier collapsed to a dominant single method rather than a deployable oracle portfolio.
+
 ## 14. Failure-Mode Atlas
 
 The failure-mode atlas includes:
@@ -2399,7 +2546,7 @@ These are not footnotes; they are the main architectural constraints.
 
 The strongest architecture recommendation the atlas can currently support is modest:
 
-> Prefer exact or well-audited baselines, add context or approximate routing only when it demonstrably improves a bounded frontier, keep an explicit verifier, preserve abstention, and use exact fallbacks when the task contract already grants exact structural information.
+> Prefer exact or well-audited baselines, add context or approximate routing only when it demonstrably improves a bounded frontier, keep an explicit verifier, preserve abstention, use exact fallbacks when the task contract already grants exact structural information, and stop portfolio escalation when a dominant single method or trivial static threshold already explains the observed gain.
 
 ## 16. Threats to Validity
 
@@ -2409,6 +2556,7 @@ Major threats remain:
 - some early historical artifacts used narrower contracts than a public reader might assume;
 - optional dependencies and hardware differences matter for reproduction;
 - the repository contains more negative and boundary-setting evidence than final architecture wins;
+- the cross-substrate portfolio result is still clean-only and does not authorize noise or held-out routing claims;
 - not all literature categories have yet been transferred into direct empirical baselines.
 
 ## 17. Reproducibility

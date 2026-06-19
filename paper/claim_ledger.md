@@ -162,6 +162,26 @@ This file is generated from `paper/claim_ledger.yaml`. Status values are intenti
 - Allowed locations: paper/manuscript.md, RESEARCH_STATUS.md
 - Forbidden strengthenings: soft information implies block dictionary superiority
 
+## claim_bcf_dominates_common_clean_portfolio_envelope
+
+- Status: `SUPPORTED_DEVELOPMENT_ONLY`
+- Scope: Cross-substrate oracle complementarity v0.1 clean common envelope only
+- Text: In the tested clean common F=3 envelope, BCF_NATIVE dominated the hard/non-easy paired instances that defeated the MAP baselines.
+- Supporting evidence: oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, RESEARCH_STATUS.md
+- Forbidden strengthenings: BCF universally dominates MAP in every task or noise contract, BCF is always the best substrate
+
+## claim_instance_router_not_supported_in_common_clean_envelope
+
+- Status: `NOT_SUPPORTED`
+- Scope: Cross-substrate oracle complementarity v0.1 clean common envelope only
+- Text: The tested clean F=3 common envelope did not justify an instance-level cross-substrate router beyond a trivial M-threshold static route.
+- Supporting evidence: oracle_portfolio_complementarity_v0_1
+- Contradicting evidence: None
+- Allowed locations: paper/manuscript.md, RESEARCH_STATUS.md
+- Forbidden strengthenings: portfolio routing is useless in every possible contract, static thresholds remain sufficient under noise or other substrates
+
 ## claim_recoverability_has_a_cost
 
 - Status: `DESIGN_PRINCIPLE`

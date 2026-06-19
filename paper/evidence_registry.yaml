@@ -922,6 +922,103 @@
       ]
     },
     {
+      "hypothesis_id": "oracle_portfolio_complementarity_v0_1",
+      "title": "In the common clean F=3 envelope, BCF dominated hard paired failures and no deployable instance-level cross-substrate router was justified",
+      "category": "CROSS_SUBSTRATE_PORTFOLIO",
+      "origin": "Cross-Substrate Oracle Complementarity Audit v0.1",
+      "evidence_status": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "CLOSED",
+      "implementation_status": "ARCHIVED",
+      "research_question": "Do already-implemented MAP and BCF methods exhibit verified, cost-aware per-instance complementarity strong enough to justify a practical escalation router?",
+      "method": "Paired clean F=3 evaluation of frozen MAP D512 fast, MAP D1024 fast, MAP D1024 robust, BCF native, static threshold routes, fixed-order cascades, random controls, and oracle upper bounds",
+      "substrate": "MAP and official IBM BCF under separate lawful native encodings",
+      "operation_contract": "Clean single-product factorization with F=3 factor-specific domains and a common semantic tuple contract",
+      "dimensions": "MAP D512/D1024 and BCF native D512 common envelope",
+      "factor_count": "F=3",
+      "search_space": "M in {10,22,31,68} with identical tuple IDs across methods",
+      "noise_contract": "Clean only; no noise trials in this stage",
+      "information_added": "none",
+      "compute_added": "paired multi-method execution, cascades, and oracle analysis",
+      "prior_added": "static route by M only",
+      "exact_side_information": "none",
+      "primary_result": "BCF_NATIVE dominated the hard/non-easy paired instances and the direct oracle achieved no meaningful verified gain over the best fixed single method.",
+      "primary_failure_point": "Residual complementarity collapsed to a trivial easy-cell static threshold rather than a deployable instance-level routing signal.",
+      "safety_outcome": "Verifier-constrained oracles and cascades preserved zero silent wrong acceptance.",
+      "cost_outcome": "Dual-encoding cost and cascade complexity were not justified because the best hard-cell coverage came from a single native method.",
+      "baselines": [
+        "always MAP_D512_FAST",
+        "always MAP_D1024_FAST",
+        "always MAP_D1024_ROBUST",
+        "always BCF_NATIVE",
+        "always abstain"
+      ],
+      "controls": [
+        "oracle direct min-cost correct",
+        "verifier-constrained oracle",
+        "24 fixed-order cascades",
+        "M-threshold static route",
+        "cost-matched random route"
+      ],
+      "evidence": {
+        "commits": [],
+        "protocol_hashes": [
+          "e7b56d4a5c780d2e45270b203b4d8df6efd73585f0b6f34f6fb2a0ec1a3ad1fd"
+        ],
+        "result_paths": [
+          "docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_AUDIT.md",
+          "docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_PROTOCOL.md",
+          "results/oracle_portfolio_v0_1"
+        ],
+        "tests": [
+          "tests/test_oracle_portfolio_complementarity.py"
+        ],
+        "execution_scale": "16 pilot + 32 calibration + 64 final paired trials per cell across 4 cells",
+        "heldout_status": "No held-out execution; official held-out count remained 0"
+      },
+      "results": {
+        "primary_metrics": [
+          "accepted exact coverage",
+          "silent wrong rate",
+          "median and p95 latency",
+          "rescue counts"
+        ],
+        "secondary_metrics": [
+          "correct-set overlap",
+          "static-route regret",
+          "dual-representation bytes"
+        ],
+        "qualitative_observations": [
+          "MAP variants rescued each other on subsets, but none rescued BCF failures because BCF had no hard-cell misses in the common envelope.",
+          "A trivial threshold route used MAP only on the easy M=10 cell and captured all practical portfolio value observed here."
+        ]
+      },
+      "failure_modes": [
+        "dominant single method",
+        "static-route sufficiency",
+        "dual-encoding overhead"
+      ],
+      "causal_interpretation": "Cross-substrate rescue existed among weaker MAP variants, but the common hard envelope was already solved by one native method, so oracle routing added no new deployable information.",
+      "allowed_claims": [
+        "In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path.",
+        "A trivial M-threshold static route captured the only practical portfolio value observed in this stage."
+      ],
+      "forbidden_claims": [
+        "learned cross-substrate router justified",
+        "FPGA or Lava cascade justified",
+        "general cross-substrate complementarity across noise or other contracts"
+      ],
+      "prior_art": [
+        "algorithm portfolios",
+        "SATzilla-style oracle analysis",
+        "fixed-order cascades",
+        "selective prediction"
+      ],
+      "architectural_disposition": "BLOCKED_WITH_EVIDENCE",
+      "reopen_conditions": [
+        "Reopen only if a new lawful contract introduces residual verifier-preserved routing regret after the best static route."
+      ]
+    },
+    {
       "hypothesis_id": "level3_5b_confirmatory_protocol_discipline",
       "title": "Held-out confirmatory execution requires prospectively frozen executable gate semantics before the first held-out observation",
       "category": "NOISE_AND_PROTOCOL",

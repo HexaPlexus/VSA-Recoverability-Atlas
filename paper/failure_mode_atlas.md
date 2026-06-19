@@ -169,3 +169,15 @@ This atlas normalizes the main failure signatures observed across the repository
 - Safety consequence: Invalid confirmatory claims.
 - Architectural response: Fail closed and preserve immutable block evidence.
 - Evidence refs: ['level3_5a_noise_contract_audit', 'level3_5b_confirmatory_protocol_discipline', 'level3_5b_zero_trial_integrity_blocks']
+
+## dominant_single_method
+
+- Description: A prospective portfolio shows pairwise rescues among weaker methods, but one lawful method already covers the hard instances, erasing practical oracle gain.
+- Observable signature: Direct oracle and verifier-constrained oracle match the best single method on hard/non-easy cells, while static routing captures any residual easy-cell latency trim.
+- Affected methods: ['cross-substrate portfolio audits', 'prospective cascades']
+- How detected: Paired clean F=3 complementarity audit with best-single, oracle, cascade, and static-route analyses
+- What helped: paired trial matrices, verifier-constrained oracle, hard-cell pooling
+- What failed: learned-router or hardware escalation before residual routing regret exists
+- Safety consequence: Can rationalize unnecessary routing complexity while adding no verified coverage.
+- Architectural response: Adopt the dominant single method or trivial static threshold and stop the router line.
+- Evidence refs: ['oracle_portfolio_complementarity_v0_1']

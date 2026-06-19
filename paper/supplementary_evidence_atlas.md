@@ -178,6 +178,22 @@ This atlas is generated from the machine-readable registries and summarizes all 
 - Forbidden claims: Universal raw-p frontier across incompatible substrates.
 - Reopen conditions: Reopen only for new substrate-specific contracts or calibrated severity mappings.
 
+## oracle_portfolio_complementarity_v0_1
+
+- Title: In the common clean F=3 envelope, BCF dominated hard paired failures and no deployable instance-level cross-substrate router was justified
+- Category: `CROSS_SUBSTRATE_PORTFOLIO`
+- Evidence status: `BLOCKED_WITH_EVIDENCE`
+- Architectural disposition: `BLOCKED_WITH_EVIDENCE`
+- Research question: Do already-implemented MAP and BCF methods exhibit verified, cost-aware per-instance complementarity strong enough to justify a practical escalation router?
+- Method: Paired clean F=3 evaluation of frozen MAP D512 fast, MAP D1024 fast, MAP D1024 robust, BCF native, static threshold routes, fixed-order cascades, random controls, and oracle upper bounds
+- Result paths: docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_AUDIT.md, docs/PORTFOLIO_ORACLE_COMPLEMENTARITY_PROTOCOL.md, results/oracle_portfolio_v0_1
+- Protocol hashes: e7b56d4a5c780d2e45270b203b4d8df6efd73585f0b6f34f6fb2a0ec1a3ad1fd
+- Key result: BCF_NATIVE dominated the hard/non-easy paired instances and the direct oracle achieved no meaningful verified gain over the best fixed single method.
+- Main failure point: Residual complementarity collapsed to a trivial easy-cell static threshold rather than a deployable instance-level routing signal.
+- Allowed claims: In the tested clean F=3 common envelope, BCF_NATIVE dominated the hard/non-easy frontier while MAP remained only an easy-cell latency path., A trivial M-threshold static route captured the only practical portfolio value observed in this stage.
+- Forbidden claims: learned cross-substrate router justified, FPGA or Lava cascade justified, general cross-substrate complementarity across noise or other contracts
+- Reopen conditions: Reopen only if a new lawful contract introduces residual verifier-preserved routing regret after the best static route.
+
 ## level3_5b_confirmatory_protocol_discipline
 
 - Title: Held-out confirmatory execution requires prospectively frozen executable gate semantics before the first held-out observation

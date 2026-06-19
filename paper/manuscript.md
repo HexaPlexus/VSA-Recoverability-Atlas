@@ -13,6 +13,7 @@ The repository historically called `CGRN-HSR` began as a hypothesis about contex
 - MAP / resonator baselines and capacity limits
 - context-conditioned search and fallback
 - substrate audits and paper reproductions
+- cross-substrate portfolio and cascade stop conditions
 - noise-contract repair and confirmatory protocol discipline
 - exact-structure alternatives
 - soft-information and codebook experiments
@@ -78,7 +79,8 @@ Three substrate conclusions matter:
 
 - the official IBM BCF implementation can be wrapped for scoped single-product audits, but broad parity claims remain unresolved;
 - the NeCo clean-U1 paper contract can be reproduced under explicit GF(2) constraints;
-- on clean U1, the symbolic exact tuple baseline dominates the task envelope.
+- on clean U1, the symbolic exact tuple baseline dominates the task envelope;
+- in the paired clean common F=3 envelope, BCF dominates the hard/non-easy instances and a trivial threshold over `M` captures the only practical portfolio value.
 
 ## 9. Encoder and Codebook Adaptation
 
@@ -120,6 +122,8 @@ The recoverability cost matrix shows that the repository's surviving methods buy
 
 No line demonstrated free recoverability.
 
+The cross-substrate portfolio audit sharpened this point: once dual representation cost, verifier acceptance, and cumulative cascade latency were counted honestly, the hard-cell frontier collapsed to a dominant single method rather than a deployable oracle portfolio.
+
 ## 14. Failure-Mode Atlas
 
 The failure-mode atlas includes:
@@ -140,7 +144,7 @@ These are not footnotes; they are the main architectural constraints.
 
 The strongest architecture recommendation the atlas can currently support is modest:
 
-> Prefer exact or well-audited baselines, add context or approximate routing only when it demonstrably improves a bounded frontier, keep an explicit verifier, preserve abstention, and use exact fallbacks when the task contract already grants exact structural information.
+> Prefer exact or well-audited baselines, add context or approximate routing only when it demonstrably improves a bounded frontier, keep an explicit verifier, preserve abstention, use exact fallbacks when the task contract already grants exact structural information, and stop portfolio escalation when a dominant single method or trivial static threshold already explains the observed gain.
 
 ## 16. Threats to Validity
 
@@ -150,6 +154,7 @@ Major threats remain:
 - some early historical artifacts used narrower contracts than a public reader might assume;
 - optional dependencies and hardware differences matter for reproduction;
 - the repository contains more negative and boundary-setting evidence than final architecture wins;
+- the cross-substrate portfolio result is still clean-only and does not authorize noise or held-out routing claims;
 - not all literature categories have yet been transferred into direct empirical baselines.
 
 ## 17. Reproducibility

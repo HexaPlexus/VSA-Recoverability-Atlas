@@ -253,6 +253,23 @@
         "level3_5b_confirmatory_protocol_discipline",
         "level3_5b_zero_trial_integrity_blocks"
       ]
+    },
+    {
+      "failure_mode": "dominant_single_method",
+      "description": "A prospective portfolio shows pairwise rescues among weaker methods, but one lawful method already covers the hard instances, erasing practical oracle gain.",
+      "observable_signature": "Direct oracle and verifier-constrained oracle match the best single method on hard/non-easy cells, while static routing captures any residual easy-cell latency trim.",
+      "affected_methods": [
+        "cross-substrate portfolio audits",
+        "prospective cascades"
+      ],
+      "how_detected": "Paired clean F=3 complementarity audit with best-single, oracle, cascade, and static-route analyses",
+      "what_helped": "paired trial matrices, verifier-constrained oracle, hard-cell pooling",
+      "what_failed": "learned-router or hardware escalation before residual routing regret exists",
+      "safety_consequence": "Can rationalize unnecessary routing complexity while adding no verified coverage.",
+      "architectural_response": "Adopt the dominant single method or trivial static threshold and stop the router line.",
+      "evidence_refs": [
+        "oracle_portfolio_complementarity_v0_1"
+      ]
     }
   ]
 }

@@ -291,6 +291,42 @@
       ]
     },
     {
+      "claim_id": "claim_bcf_dominates_common_clean_portfolio_envelope",
+      "text": "In the tested clean common F=3 envelope, BCF_NATIVE dominated the hard/non-easy paired instances that defeated the MAP baselines.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Cross-substrate oracle complementarity v0.1 clean common envelope only",
+      "supporting_evidence": [
+        "oracle_portfolio_complementarity_v0_1"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "BCF universally dominates MAP in every task or noise contract",
+        "BCF is always the best substrate"
+      ]
+    },
+    {
+      "claim_id": "claim_instance_router_not_supported_in_common_clean_envelope",
+      "text": "The tested clean F=3 common envelope did not justify an instance-level cross-substrate router beyond a trivial M-threshold static route.",
+      "status": "NOT_SUPPORTED",
+      "scope": "Cross-substrate oracle complementarity v0.1 clean common envelope only",
+      "supporting_evidence": [
+        "oracle_portfolio_complementarity_v0_1"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "portfolio routing is useless in every possible contract",
+        "static thresholds remain sufficient under noise or other substrates"
+      ]
+    },
+    {
       "claim_id": "claim_recoverability_has_a_cost",
       "text": "Reliable recovery in this repository's tasks always required paying cost somewhere: more structure, more bits, more compute, stronger priors, abstention, or exact fallback.",
       "status": "DESIGN_PRINCIPLE",
