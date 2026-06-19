@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  "vsa-recoverability-atlas-rc-manifest-v0.1",
-    "generating_commit":  "cf26c303b6193987afb0274b8cadbf86316d833d",
+    "generating_commit":  "3914e7264fd6a5ee41fe2d99001b0b4c766ce7d2",
     "generation_date":  "2026-06-19",
     "held_out_status":  {
                             "official_held_out_execution_count":  0,
@@ -34,3 +34,4 @@
                           "paper/release_candidate/figures/figure1_budget_map.svg":  "e0262c5e8952f62ebcb91bbc340838a116ea85673775393dc09368b67bad3e3c"
                       }
 }
+
