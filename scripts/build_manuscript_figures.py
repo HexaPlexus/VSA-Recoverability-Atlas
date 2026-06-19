@@ -107,6 +107,30 @@ def rgb_hex(rgb: tuple[int, int, int]) -> str:
     return "#{:02x}{:02x}{:02x}".format(*rgb)
 
 
+def fmt_svg_number(value: int | float) -> str:
+    if isinstance(value, int):
+        return str(value)
+    rounded = round(float(value), 6)
+    if rounded.is_integer():
+        return str(int(rounded))
+    return f"{rounded:.6f}".rstrip("0").rstrip(".")
+
+
+def deterministic_zlib_store(data: bytes) -> bytes:
+    stream = bytearray(b"\x78\x01")
+    offset = 0
+    while offset < len(data):
+        chunk = data[offset : offset + 65535]
+        offset += len(chunk)
+        final_flag = 1 if offset >= len(data) else 0
+        stream.append(final_flag)
+        stream.extend(struct.pack("<H", len(chunk)))
+        stream.extend(struct.pack("<H", 0xFFFF - len(chunk)))
+        stream.extend(chunk)
+    stream.extend(struct.pack(">I", zlib.adler32(data) & 0xFFFFFFFF))
+    return bytes(stream)
+
+
 class SvgFigure:
     def __init__(self, width: int, height: int, title: str):
         self.width = width
@@ -117,24 +141,24 @@ class SvgFigure:
 
     def rect(self, x, y, w, h, fill, stroke="#000000", stroke_width=1, rx=0):
         self.parts.append(
-            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}"/>'
+            f'<rect x="{fmt_svg_number(x)}" y="{fmt_svg_number(y)}" width="{fmt_svg_number(w)}" height="{fmt_svg_number(h)}" rx="{fmt_svg_number(rx)}" fill="{fill}" stroke="{stroke}" stroke-width="{fmt_svg_number(stroke_width)}"/>'
         )
 
     def line(self, x1, y1, x2, y2, stroke="#000000", stroke_width=2, dash: str | None = None):
         dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
         self.parts.append(
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{stroke}" stroke-width="{stroke_width}"{dash_attr}/>'
+            f'<line x1="{fmt_svg_number(x1)}" y1="{fmt_svg_number(y1)}" x2="{fmt_svg_number(x2)}" y2="{fmt_svg_number(y2)}" stroke="{stroke}" stroke-width="{fmt_svg_number(stroke_width)}"{dash_attr}/>'
         )
 
     def polyline(self, pts: list[tuple[float, float]], stroke="#000000", stroke_width=2, fill="none"):
-        data = " ".join(f"{x},{y}" for x, y in pts)
+        data = " ".join(f"{fmt_svg_number(x)},{fmt_svg_number(y)}" for x, y in pts)
         self.parts.append(
-            f'<polyline points="{data}" fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}"/>'
+            f'<polyline points="{data}" fill="{fill}" stroke="{stroke}" stroke-width="{fmt_svg_number(stroke_width)}"/>'
         )
 
     def circle(self, x, y, r, fill, stroke="#000000", stroke_width=1):
         self.parts.append(
-            f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}"/>'
+            f'<circle cx="{fmt_svg_number(x)}" cy="{fmt_svg_number(y)}" r="{fmt_svg_number(r)}" fill="{fill}" stroke="{stroke}" stroke-width="{fmt_svg_number(stroke_width)}"/>'
         )
 
     def text(self, x, y, text: str, size=16, fill="#000000", anchor="start", weight="normal"):
@@ -144,7 +168,7 @@ class SvgFigure:
             .replace(">", "&gt;")
         )
         self.parts.append(
-            f'<text x="{x}" y="{y}" fill="{fill}" font-size="{size}" font-family="Segoe UI, Arial, sans-serif" font-weight="{weight}" text-anchor="{anchor}">{safe}</text>'
+            f'<text x="{fmt_svg_number(x)}" y="{fmt_svg_number(y)}" fill="{fill}" font-size="{fmt_svg_number(size)}" font-family="Segoe UI, Arial, sans-serif" font-weight="{weight}" text-anchor="{anchor}">{safe}</text>'
         )
 
     def arrow(self, x1, y1, x2, y2, stroke="#000000", stroke_width=2):
@@ -158,7 +182,7 @@ class SvgFigure:
     def save(self, path: Path) -> None:
         body = "\n".join(self.parts)
         path.write_text(
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}" viewBox="0 0 {self.width} {self.height}">\n'
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{fmt_svg_number(self.width)}" height="{fmt_svg_number(self.height)}" viewBox="0 0 {fmt_svg_number(self.width)} {fmt_svg_number(self.height)}">\n'
             f"<title>{self.title}</title>\n{body}\n</svg>\n",
             encoding="utf-8",
         )
@@ -231,7 +255,7 @@ class RasterFigure:
             raw.append(0)
             for pixel in row:
                 raw.extend(pixel)
-        payload = zlib.compress(bytes(raw), 9)
+        payload = deterministic_zlib_store(bytes(raw))
 
         def chunk(name: bytes, data: bytes) -> bytes:
             return struct.pack(">I", len(data)) + name + data + struct.pack(">I", zlib.crc32(name + data) & 0xFFFFFFFF)
@@ -294,7 +318,7 @@ def figure1_budget_map() -> None:
     bundle.png.line(550, 195, 620, 240, PALETTE["blue"], 3)
     bundle.png.line(840, 120, 910, 120, PALETTE["green"], 3)
     bundle.png.line(840, 240, 910, 240, PALETTE["orange"], 3)
-    bundle.svg.text(340, 340, "R1–R14 identify where additional authority or cost is paid.", size=17, fill=rgb_hex(PALETTE["muted"]))
+    bundle.svg.text(340, 340, "R1-R14 identify where additional authority or cost is paid.", size=17, fill=rgb_hex(PALETTE["muted"]))
     bundle.svg.text(340, 366, "Promote extra mechanisms only if they create a verified nondominated point.", size=17, fill=rgb_hex(PALETTE["muted"]))
     bundle.png.text(200, 320, "R1 TO R14 TRACK COST", PALETTE["muted"], scale=2)
     bundle.png.text(120, 350, "PROMOTE ONLY NONDOMINATED MECHANISMS", PALETTE["muted"], scale=2)

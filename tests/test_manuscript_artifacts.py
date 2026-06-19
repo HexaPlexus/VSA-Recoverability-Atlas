@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -59,6 +60,40 @@ def test_manuscript_figures_regenerate() -> None:
             "figure5_escalation.png",
         ]:
             assert (worktree / "paper" / "figures" / name).exists(), name
+
+    _with_temp_worktree(_check)
+
+
+def test_manuscript_figures_are_byte_deterministic() -> None:
+    def _digest(path: Path) -> str:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    def _check(worktree: Path, env: dict[str, str]) -> None:
+        subprocess.run(
+            [sys.executable, "scripts/build_manuscript_figures.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        targets = [
+            worktree / "paper" / "figures" / "figure1_budget_map.png",
+            worktree / "paper" / "figures" / "figure1_budget_map.svg",
+            worktree / "paper" / "figures" / "figure6_architecture_flow.png",
+            worktree / "paper" / "figures" / "figure6_architecture_flow.svg",
+        ]
+        first_hashes = {path.name: _digest(path) for path in targets}
+        subprocess.run(
+            [sys.executable, "scripts/build_manuscript_figures.py"],
+            cwd=worktree,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        second_hashes = {path.name: _digest(path) for path in targets}
+        assert second_hashes == first_hashes
 
     _with_temp_worktree(_check)
 

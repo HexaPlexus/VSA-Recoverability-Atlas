@@ -4,17 +4,17 @@
 <text x="24" y="34" fill="#1c222b" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Figure 5. Sequential escalation economics</text>
 <text x="24" y="58" fill="#6c7a89" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Clean non-easy common F=3 cell. Measured p50 latencies from oracle portfolio summary.</text>
 <rect x="120" y="322.5" width="170" height="57.5" rx="8" fill="#2a6dc6" stroke="#1c222b" stroke-width="1"/>
-<text x="205.0" y="404" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ACTUAL EXIT</text>
-<text x="205.0" y="314.5" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.250</text>
-<rect x="350" y="319.8542033335826" width="170" height="60.14579666641743" rx="8" fill="#d67924" stroke="#1c222b" stroke-width="1"/>
-<text x="435.0" y="404" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">BREAK EVEN</text>
-<text x="435.0" y="311.8542033335826" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.262</text>
-<rect x="580" y="477.0597226015525" width="170" height="172.9402773984475" rx="8" fill="#785ab4" stroke="#1c222b" stroke-width="1"/>
-<text x="665.0" y="674" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">CASCADE</text>
-<text x="665.0" y="469.0597226015525" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.0376s</text>
-<rect x="810" y="479.0265099494718" width="170" height="170.9734900505282" rx="8" fill="#3b914e" stroke="#1c222b" stroke-width="1"/>
-<text x="895.0" y="674" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ALWAYS BCF</text>
-<text x="895.0" y="471.0265099494718" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.0372s</text>
+<text x="205" y="404" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ACTUAL EXIT</text>
+<text x="205" y="314.5" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.250</text>
+<rect x="350" y="319.854203" width="170" height="60.145797" rx="8" fill="#d67924" stroke="#1c222b" stroke-width="1"/>
+<text x="435" y="404" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">BREAK EVEN</text>
+<text x="435" y="311.854203" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.262</text>
+<rect x="580" y="477.059723" width="170" height="172.940277" rx="8" fill="#785ab4" stroke="#1c222b" stroke-width="1"/>
+<text x="665" y="674" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">CASCADE</text>
+<text x="665" y="469.059723" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.0376s</text>
+<rect x="810" y="479.02651" width="170" height="170.97349" rx="8" fill="#3b914e" stroke="#1c222b" stroke-width="1"/>
+<text x="895" y="674" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">ALWAYS BCF</text>
+<text x="895" y="471.02651" fill="#1c222b" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="middle">0.0372s</text>
 <text x="120" y="130" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Verified exit rates</text>
 <text x="120" y="400" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Latency economics</text>
 <text x="120" y="690" fill="#6c7a89" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Break-even uses p_exit &gt; C_fast / C_fallback. Here 0.250 &lt; 0.261, so the probe does not amortize.</text>

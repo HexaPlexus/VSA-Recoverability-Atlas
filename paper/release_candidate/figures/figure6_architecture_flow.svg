@@ -4,43 +4,43 @@
 <text x="24" y="34" fill="#1c222b" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="start">Figure 6. Resource-aware architectural decision flow</text>
 <text x="24" y="58" fill="#6c7a89" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Conceptual design guide synthesized from the evidence atlas.</text>
 <rect x="60" y="120" width="240" height="90" rx="12" fill="#dce9fa" stroke="#1c222b" stroke-width="1"/>
-<text x="180.0" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Define task</text>
-<text x="180.0" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and risk</text>
+<text x="180" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Define task</text>
+<text x="180" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and risk</text>
 <rect x="360" y="120" width="260" height="90" rx="12" fill="#fff1dc" stroke="#1c222b" stroke-width="1"/>
-<text x="490.0" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Authoritative</text>
-<text x="490.0" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">exact state?</text>
+<text x="490" y="148" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Authoritative</text>
+<text x="490" y="170" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">exact state?</text>
 <rect x="700" y="60" width="260" height="90" rx="12" fill="#e7f4e6" stroke="#1c222b" stroke-width="1"/>
-<text x="830.0" y="88" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Exact sidecar</text>
-<text x="830.0" y="110" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">or DAG replay</text>
+<text x="830" y="88" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Exact sidecar</text>
+<text x="830" y="110" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">or DAG replay</text>
 <rect x="700" y="180" width="260" height="90" rx="12" fill="#dbf1f1" stroke="#1c222b" stroke-width="1"/>
-<text x="830.0" y="208" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Approximate VSA</text>
-<text x="830.0" y="230" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">semantic view</text>
+<text x="830" y="208" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Approximate VSA</text>
+<text x="830" y="230" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">semantic view</text>
 <rect x="1020" y="60" width="170" height="90" rx="12" fill="#f5e8fb" stroke="#1c222b" stroke-width="1"/>
-<text x="1105.0" y="88" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Verify</text>
-<text x="1105.0" y="110" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and accept</text>
+<text x="1105" y="88" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Verify</text>
+<text x="1105" y="110" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">and accept</text>
 <rect x="1020" y="180" width="170" height="90" rx="12" fill="#f9e0e0" stroke="#1c222b" stroke-width="1"/>
-<text x="1105.0" y="208" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Native decoder</text>
-<text x="1105.0" y="230" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">or abstain</text>
+<text x="1105" y="208" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Native decoder</text>
+<text x="1105" y="230" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">or abstain</text>
 <rect x="700" y="320" width="260" height="90" rx="12" fill="#eef0f4" stroke="#1c222b" stroke-width="1"/>
-<text x="830.0" y="348" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Fallback only</text>
-<text x="830.0" y="370" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">if nondominated</text>
+<text x="830" y="348" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Fallback only</text>
+<text x="830" y="370" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">if nondominated</text>
 <rect x="1020" y="320" width="170" height="90" rx="12" fill="#f3e6cf" stroke="#1c222b" stroke-width="1"/>
-<text x="1105.0" y="348" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Stop or</text>
-<text x="1105.0" y="370" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">document limit</text>
+<text x="1105" y="348" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">Stop or</text>
+<text x="1105" y="370" fill="#1c222b" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" text-anchor="middle">document limit</text>
 <line x1="300" y1="165" x2="360" y2="165" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="353.0717967697245,169.0 360,165 353.0717967697245,161.0" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="353.071797,169 360,165 353.071797,161" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="620" y1="150" x2="700" y2="105" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="695.9225925067948,111.88293165259937 700,105 692.0005025897343,104.91032735560297" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="695.922593,111.882932 700,105 692.000503,104.910327" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="620" y1="180" x2="700" y2="225" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="692.0005025897343,225.089672644397 700,225 695.9225925067948,218.11706834740062" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="692.000503,225.089673 700,225 695.922593,218.117068" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="960" y1="105" x2="1020" y2="105" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="1013.0717967697245,109.0 1020,105 1013.0717967697245,101.0" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="1013.071797,109 1020,105 1013.071797,101" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="960" y1="225" x2="1020" y2="225" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="1013.0717967697245,229.0 1020,225 1013.0717967697245,221.0" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="1013.071797,229 1020,225 1013.071797,221" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="830" y1="270" x2="830" y2="320" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="826.0,313.0717967697245 830,320 834.0,313.0717967697245" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="826,313.071797 830,320 834,313.071797" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <line x1="960" y1="365" x2="1020" y2="365" stroke="#2a6dc6" stroke-width="2"/>
-<polyline points="1013.0717967697245,369.0 1020,365 1013.0717967697245,361.0" fill="none" stroke="#2a6dc6" stroke-width="2"/>
+<polyline points="1013.071797,369 1020,365 1013.071797,361" fill="none" stroke="#2a6dc6" stroke-width="2"/>
 <text x="68" y="460" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Exact structure and approximate similarity are complementary channels.</text>
 <text x="68" y="486" fill="#6c7a89" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="normal" text-anchor="start">Promote extra mechanisms only when they create a verified nondominated point.</text>
 </svg>
