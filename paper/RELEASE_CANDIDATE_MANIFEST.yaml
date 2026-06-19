@@ -1,6 +1,6 @@
 {
   "schema_version": "vsa-recoverability-atlas-rc-manifest-v0.1",
-  "generated_from_commit": "b343c0712b6e141de53e5329fd57fd0c641a5547",
+  "generated_from_commit": "08dc39535f043c5b9c7b0ee02c7f8396fcaea510",
   "generated_from_commit_semantics": "Ancestor commit whose clean tracked inputs were used to build the release candidate artifacts.",
   "generation_date": "2026-06-19",
   "held_out_status": {
