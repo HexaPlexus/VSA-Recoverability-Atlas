@@ -10,15 +10,15 @@ Overview of the 24 normalized repository hypotheses, grouped by category and col
 
 ## Figure 3. Clean F=3 capacity frontier
 
-Exact recovery versus domain size `M` for the frozen common clean F=3 envelope. The figure compares MAP D512, MAP D1024, and the native BCF arm without mixing incompatible noise or task contracts.
+Exact recovery versus domain size M for the frozen common clean F=3 envelope. The figure compares MAP D512, MAP D1024, and the native BCF arm without mixing incompatible noise or task contracts.
 
 ## Figure 4. Where repair methods paid their cost
 
-Physical bits per bundle versus full-member enumeration recall for comparable residue and equal-bit controls at the final `K=31` evaluation cell. The figure stays within one lawful repository contract and does not rank against unrelated literature points.
+Physical bits per bundle versus full-member enumeration recall for comparable residue and equal-bit controls at the final K=31 evaluation cell. The figure stays within one lawful repository contract and does not rank against unrelated literature points.
 
 ## Figure 5. Sequential escalation economics
 
-Measured fast-path exit rate, break-even exit threshold, expected MAP-to-BCF cascade cost, and always-BCF cost for the clean non-easy common F=3 cell. This figure addresses sequential economics, not reverse rescue symmetry.
+Measured fast-path exit rate, break-even exit threshold, expected MAP→BCF cascade cost, and always-BCF cost for the clean non-easy common F=3 cell. This figure addresses sequential economics, not reverse rescue symmetry.
 
 ## Figure 6. Resource-aware architectural decision flow
 
