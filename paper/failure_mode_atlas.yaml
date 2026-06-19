@@ -1,0 +1,258 @@
+{
+  "schema_version": "vsa-recoverability-atlas-failures-v1",
+  "failures": [
+    {
+      "failure_mode": "capacity_collapse",
+      "description": "Decoder accuracy drops sharply when candidate domains or bundle width exceed the substrate's practical envelope.",
+      "observable_signature": "Recovery flattening or collapse under modest added scale despite more compute.",
+      "affected_methods": [
+        "MAP resonator baseline",
+        "bundling soft-information lines"
+      ],
+      "how_detected": "Level 3.2 / 3.2b budget robustness and bundling comparisons",
+      "what_helped": "more structure, exact baselines, abstention",
+      "what_failed": "compute alone, warm continuation myths",
+      "safety_consequence": "Can trigger silent wrong outputs if acceptance is not gated.",
+      "architectural_response": "Prefer bounded claims, abstention, or exact fallback.",
+      "evidence_refs": [
+        "level3_2_map_budget_robustness",
+        "codebook_residue_block_lut"
+      ]
+    },
+    {
+      "failure_mode": "false_attractor",
+      "description": "Iterative decoders settle into wrong stable states that still look internally coherent.",
+      "observable_signature": "Wrong reconstruction with apparent convergence or high self-consistency.",
+      "affected_methods": [
+        "MAP resonator",
+        "trace-free replay portfolio"
+      ],
+      "how_detected": "Level 1 and Level 3 MAP analyses",
+      "what_helped": "selective acceptance, verifier-backed reconstruction checks",
+      "what_failed": "cheap probes and warm continuation",
+      "safety_consequence": "Raises silent wrong acceptance risk.",
+      "architectural_response": "Keep an explicit verifier and abstention.",
+      "evidence_refs": [
+        "level1_context_conditioned_search",
+        "level3_2_map_budget_robustness"
+      ]
+    },
+    {
+      "failure_mode": "false_consensus",
+      "description": "Multiple restarts or weak evidential hints agree on the same wrong answer.",
+      "observable_signature": "High apparent confidence without ground-truth recovery.",
+      "affected_methods": [
+        "decoder-certified admission",
+        "tagged-symbol repair"
+      ],
+      "how_detected": "Construction and repair v0.1 lines",
+      "what_helped": "shuffled controls and exact verification",
+      "what_failed": "using decoder confidence as a proxy for truth",
+      "safety_consequence": "Can silently promote the wrong architecture.",
+      "architectural_response": "Demand causal controls and held-out discipline.",
+      "evidence_refs": [
+        "decoder_certified_codebook",
+        "decoder_guided_tag_repair"
+      ]
+    },
+    {
+      "failure_mode": "context_exclusion",
+      "description": "A context policy excludes the true candidate from the narrowed domain.",
+      "observable_signature": "Coverage falls unless broad fallback is available.",
+      "affected_methods": [
+        "Level 1 context routing",
+        "Level 2C existing matcher overlay"
+      ],
+      "how_detected": "Fallback and coverage analysis",
+      "what_helped": "cold broad fallback and abstention",
+      "what_failed": "overconfident narrow context",
+      "safety_consequence": "False negatives or forced wrong commits.",
+      "architectural_response": "Always preserve a safe expansion path.",
+      "evidence_refs": [
+        "level1_context_conditioned_search",
+        "level2c_existing_matcher_context_policy"
+      ]
+    },
+    {
+      "failure_mode": "context_misrouting",
+      "description": "Context steers compute to the wrong mechanism or candidate subset.",
+      "observable_signature": "Utility gain disappears when fallback is disabled.",
+      "affected_methods": [
+        "Level 2A temporal retrieval",
+        "Level 2B controller seam"
+      ],
+      "how_detected": "Temporal-memory and prior-art closures",
+      "what_helped": "exact indexed retrieval and conservative authority control",
+      "what_failed": "unqualified controller ambition",
+      "safety_consequence": "Wasted compute or false commit risk.",
+      "architectural_response": "Keep controller seams thin and measurable.",
+      "evidence_refs": [
+        "level2a_temporal_memory_narrow",
+        "level2b_portable_context_controller"
+      ]
+    },
+    {
+      "failure_mode": "certification_overfit",
+      "description": "A construction rule looks strong on its own certification workload but fails to generalize.",
+      "observable_signature": "Arm C improves on certification but not on validation/final development evaluation.",
+      "affected_methods": [
+        "decoder-certified codebook"
+      ],
+      "how_detected": "Certification/evaluation split in v0.1",
+      "what_helped": "shuffled-score control and old-atom regression set",
+      "what_failed": "decoder-linked admission as a general recipe",
+      "safety_consequence": "Can spend large offline compute for illusory gains.",
+      "architectural_response": "Block the line unless it survives unseen evaluation and equal-risk comparison.",
+      "evidence_refs": [
+        "decoder_certified_codebook"
+      ]
+    },
+    {
+      "failure_mode": "silent_wrong_acceptance",
+      "description": "A method returns a wrong result without surfacing uncertainty or typed failure.",
+      "observable_signature": "Conditional risk among accepted outputs rises above zero.",
+      "affected_methods": [
+        "semantic fallbacks",
+        "ungated decoders",
+        "corrupted exact-handle paths"
+      ],
+      "how_detected": "Repository-wide verifier-backed metrics",
+      "what_helped": "typed validators, abstention, exact digests, ambiguity outcomes",
+      "what_failed": "blind fallback and unverified top-1 acceptance",
+      "safety_consequence": "Most serious safety failure in the atlas.",
+      "architectural_response": "Favor abstention-first designs and exact verification.",
+      "evidence_refs": [
+        "exact_capsule_contract_closure",
+        "self_describing_record_sidecar_closure",
+        "first_order_trace_coactivation"
+      ]
+    },
+    {
+      "failure_mode": "native_substrate_mismatch",
+      "description": "A competitor or alternative substrate cannot satisfy the repository's task contract without changing the task.",
+      "observable_signature": "API mismatch, shared codebook where factor-specific domains are required, or incomparable noise semantics.",
+      "affected_methods": [
+        "HoloVec audit",
+        "cross-substrate noise claims"
+      ],
+      "how_detected": "Level 1F and Level 3.5a audits",
+      "what_helped": "anti-NIH audits and typed contract matrices",
+      "what_failed": "forcing the competitor into the benchmark",
+      "safety_consequence": "False comparisons and bad architectural inference.",
+      "architectural_response": "Block or narrow claims rather than rewrite upstream methods.",
+      "evidence_refs": [
+        "level1f_holovec_task_mismatch",
+        "level3_5a_noise_contract_audit"
+      ]
+    },
+    {
+      "failure_mode": "compute_non_dominance",
+      "description": "A more complicated method adds compute but fails to create a better recovery-risk frontier.",
+      "observable_signature": "Shuffled controls or exact baselines match the more complex method.",
+      "affected_methods": [
+        "decoder-certified codebook",
+        "tagged repair",
+        "thin LSH at N=10k"
+      ],
+      "how_detected": "Equal-budget controls and mature baseline shootouts",
+      "what_helped": "equal-information, equal-bit, and equal-candidate controls",
+      "what_failed": "complex construction or routing alone",
+      "safety_consequence": "Wasted engineering effort and misleading optimization.",
+      "architectural_response": "Prefer simpler adopted baselines when the frontier is dominated.",
+      "evidence_refs": [
+        "decoder_certified_codebook",
+        "decoder_guided_tag_repair",
+        "lazy_trace_stage_a2a_mature_index_shootout"
+      ]
+    },
+    {
+      "failure_mode": "storage_non_dominance",
+      "description": "A compressed or packed representation adds storage complexity without creating a better recovery-storage point.",
+      "observable_signature": "Equal-bit extra dimensions or ordinary sidecar storage dominates.",
+      "affected_methods": [
+        "block residue codebook",
+        "inline manifest packing"
+      ],
+      "how_detected": "Equal-bit and sidecar-vs-inline controls",
+      "what_helped": "physical bit accounting and deployable-byte accounting",
+      "what_failed": "compression or packing aesthetics alone",
+      "safety_consequence": "Bigger artifact and maintenance burden without scientific benefit.",
+      "architectural_response": "Adopt simpler storage when packaging advantage is not measured.",
+      "evidence_refs": [
+        "codebook_residue_block_lut",
+        "self_describing_record_sidecar_closure"
+      ]
+    },
+    {
+      "failure_mode": "packaging_non_benefit",
+      "description": "A new physical packing layout does not create any information advantage over an ordinary sidecar.",
+      "observable_signature": "Sidecar and inline packed variants have equal logical behavior and similar bytes/latency.",
+      "affected_methods": [
+        "inline packed manifest",
+        "isolated exact capsule"
+      ],
+      "how_detected": "Equal-information placement tests",
+      "what_helped": "ordinary sidecar baselines",
+      "what_failed": "same bits in a new physical wrapper",
+      "safety_consequence": "Can fuel architecture fiction without added capability.",
+      "architectural_response": "Say plainly that packaging alone is not a scientific result.",
+      "evidence_refs": [
+        "self_describing_record_sidecar_closure",
+        "exact_capsule_contract_closure"
+      ]
+    },
+    {
+      "failure_mode": "wrong_but_valid_exact_handle",
+      "description": "An exact-looking operand or trace handle points to a real but wrong record.",
+      "observable_signature": "Manifest or capsule decodes structurally, but replay digest mismatches or provenance becomes inconsistent.",
+      "affected_methods": [
+        "self-describing record",
+        "exact capsule closure"
+      ],
+      "how_detected": "Wrong-valid handle and wrong-valid capsule corruption tests",
+      "what_helped": "semantic commitment digests, record-association checks, typed failure codes",
+      "what_failed": "trusting structure without verification",
+      "safety_consequence": "Potential silent false provenance if unguarded.",
+      "architectural_response": "Require verification against committed semantics or exact digests.",
+      "evidence_refs": [
+        "self_describing_record_sidecar_closure",
+        "exact_capsule_contract_closure"
+      ]
+    },
+    {
+      "failure_mode": "dangling_or_stale_handle",
+      "description": "A manifest references a missing parent or an outdated version.",
+      "observable_signature": "Typed failure such as DANGLING_OPERAND_REF or PARENT_VERSION_MISMATCH.",
+      "affected_methods": [
+        "self-describing record",
+        "future lazy reification hypotheses"
+      ],
+      "how_detected": "Manifest corruption and version tests",
+      "what_helped": "immutable/versioned record identities and transactional commit",
+      "what_failed": "assuming exact handles are self-healing",
+      "safety_consequence": "Replay cannot continue and must not fabricate history.",
+      "architectural_response": "Prefer explicit typed fallback over silent partial reconstruction.",
+      "evidence_refs": [
+        "self_describing_record_sidecar_closure"
+      ]
+    },
+    {
+      "failure_mode": "protocol_leakage",
+      "description": "Confirmatory logic is changed after seeing development or held-out outcomes.",
+      "observable_signature": "Blocked runner, missing gate semantics, or unauthorized protocol diffs.",
+      "affected_methods": [
+        "Level 3.5 protocol lines"
+      ],
+      "how_detected": "Gate-source audits, diff allowlists, zero-trial integrity blocks",
+      "what_helped": "prospective executable gate serialization and validator coverage",
+      "what_failed": "implicit verdict labels and post-hoc threshold invention",
+      "safety_consequence": "Invalid confirmatory claims.",
+      "architectural_response": "Fail closed and preserve immutable block evidence.",
+      "evidence_refs": [
+        "level3_5a_noise_contract_audit",
+        "level3_5b_confirmatory_protocol_discipline",
+        "level3_5b_zero_trial_integrity_blocks"
+      ]
+    }
+  ]
+}

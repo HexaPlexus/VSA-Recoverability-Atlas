@@ -1,0 +1,338 @@
+{
+  "schema_version": "vsa-recoverability-atlas-claims-v1",
+  "claims": [
+    {
+      "claim_id": "claim_context_beats_random",
+      "text": "Semantic context beat random candidate selection in the tested Level 1 single-product settings.",
+      "status": "CONFIRMED_IN_FROZEN_ENVELOPE",
+      "scope": "Level 1 single-product context-routing envelope only",
+      "supporting_evidence": [
+        "level1_context_conditioned_search"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "universal context superiority",
+        "full substrate independence"
+      ]
+    },
+    {
+      "claim_id": "claim_context_transfer_bcf_selector",
+      "text": "The external context-selection seam transferred to the official IBM BCF selector level under a scoped single-product contract.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Selector-level transfer only",
+      "supporting_evidence": [
+        "level1_context_conditioned_search",
+        "level1f_bcf_selector_transfer"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md"
+      ],
+      "forbidden_strengthenings": [
+        "full BCF control-stack transfer",
+        "broad parity claims"
+      ]
+    },
+    {
+      "claim_id": "claim_map_intermediate_region",
+      "text": "MAP resonator recoverability shows a bounded intermediate region under the tested clean U1 compute budgets.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Level 3.2 / 3.2b clean U1 budgets only",
+      "supporting_evidence": [
+        "level3_2_map_budget_robustness"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "universal impossibility theorem for VSA factorization"
+      ]
+    },
+    {
+      "claim_id": "claim_linear_code_paper_reproduced",
+      "text": "The NeCo linear-code paper contract was reproduced for clean U1 with explicit GF(2) constraints.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Clean U1 paper contract only",
+      "supporting_evidence": [
+        "level3_3_linear_code_reproduction"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "paper/prior_art_matrix.md"
+      ],
+      "forbidden_strengthenings": [
+        "noisy superiority or general linear-code dominance"
+      ]
+    },
+    {
+      "claim_id": "claim_symbolic_baseline_dominates_clean_u1",
+      "text": "The symbolic exact baseline dominated the tested clean U1 task envelope.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Level 3.4 clean U1 only",
+      "supporting_evidence": [
+        "level3_4_algebraic_baseline_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "universal advantage in noisy or open-world tasks"
+      ]
+    },
+    {
+      "claim_id": "claim_noise_requires_typed_contracts",
+      "text": "Noise comparisons require explicit typed contracts separating external corruption from native substrate behavior.",
+      "status": "DESIGN_PRINCIPLE",
+      "scope": "Repository-wide protocol discipline",
+      "supporting_evidence": [
+        "level3_5a_noise_contract_audit",
+        "level3_5b_confirmatory_protocol_discipline"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "claiming raw p values are comparable across incompatible substrates"
+      ]
+    },
+    {
+      "claim_id": "claim_confirmatory_gates_must_be_prospective",
+      "text": "Executable confirmatory gates must be fully serialized before the first held-out observation.",
+      "status": "CONFIRMED_IN_FROZEN_ENVELOPE",
+      "scope": "Level 3.5b confirmatory protocol discipline",
+      "supporting_evidence": [
+        "level3_5b_confirmatory_protocol_discipline",
+        "level3_5b_zero_trial_integrity_blocks"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "docs/PUBLIC_RELEASE_AUDIT.md"
+      ],
+      "forbidden_strengthenings": [
+        "turning blocked runs into substantive frontier evidence"
+      ]
+    },
+    {
+      "claim_id": "claim_semantic_lsh_locality",
+      "text": "Noisy MAP semantic cues contain useful locality for retrieving associated creation-trace neighborhoods in a bounded development envelope.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Lazy-trace Stage A / A.1 development-only envelope",
+      "supporting_evidence": [
+        "lazy_trace_stage_a_semantic_locality"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "exact provenance from semantic similarity",
+        "held-out confirmation"
+      ]
+    },
+    {
+      "claim_id": "claim_exact_binary_scan_best_at_10k",
+      "text": "At N=10,000 in the tested Stage A.2a envelope, exact packed binary scan was the best practical trace-retrieval baseline.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Stage A.2a primary cell only",
+      "supporting_evidence": [
+        "lazy_trace_stage_a2a_mature_index_shootout"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "all approximate routing is useless at every scale"
+      ]
+    },
+    {
+      "claim_id": "claim_first_order_coactivation_partial",
+      "text": "First-order trace co-activation is only partially supported and presently trails exact sidecar retrieval as a practical baseline.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "First-order trace co-activation development envelope",
+      "supporting_evidence": [
+        "first_order_trace_coactivation",
+        "exact_capsule_contract_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "full decode-carrying memory",
+        "runtime authorization"
+      ]
+    },
+    {
+      "claim_id": "claim_plain_handle_beats_isolated_capsule",
+      "text": "Plain typed exact handles matched or beat isolated exact capsule placement under equal-information and equal-bit contracts.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Exact capsule closure only",
+      "supporting_evidence": [
+        "exact_capsule_contract_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "exact side information is useless"
+      ]
+    },
+    {
+      "claim_id": "claim_recursive_replay_safe_after_retrieval",
+      "text": "Exact first-order manifests can support safe recursive replay after the record has already been retrieved.",
+      "status": "SUPPORTED_DEVELOPMENT_ONLY",
+      "scope": "Self-describing record v0.1 replay path only",
+      "supporting_evidence": [
+        "self_describing_record_sidecar_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "self-addressing from noisy semantic cue",
+        "new VSA algorithm"
+      ]
+    },
+    {
+      "claim_id": "claim_decoder_certified_admission_not_supported",
+      "text": "Decoder-certified atomic admission did not show a supported generalizable recovery advantage in the tested v0.1 envelope.",
+      "status": "NOT_SUPPORTED",
+      "scope": "Decoder-certified codebook v0.1",
+      "supporting_evidence": [
+        "decoder_certified_codebook"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md",
+        "paper/failure_mode_atlas.md"
+      ],
+      "forbidden_strengthenings": [
+        "directional improvements imply architecture promotion"
+      ]
+    },
+    {
+      "claim_id": "claim_tagged_repair_not_supported",
+      "text": "Conflict-guided tagged-symbol repair did not show a supported recovery advantage over simpler equal-bit baselines.",
+      "status": "NOT_SUPPORTED",
+      "scope": "Tagged-symbol repair v0.1",
+      "supporting_evidence": [
+        "decoder_guided_tag_repair"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "weak reliability hints are enough to recover exact structure"
+      ]
+    },
+    {
+      "claim_id": "claim_inline_manifest_advantage_not_supported",
+      "text": "Inline packed manifest placement did not show a supported advantage over an ordinary sidecar DAG in the tested replay envelope.",
+      "status": "NOT_SUPPORTED",
+      "scope": "Self-describing record v0.1 packaging comparison",
+      "supporting_evidence": [
+        "self_describing_record_sidecar_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "physical co-location creates scientific advantage by itself"
+      ]
+    },
+    {
+      "claim_id": "claim_block_residue_advantage_not_supported",
+      "text": "Block codebook residue compression did not create a supported recovery-storage frontier advantage over scalar residue or equal-bit extra dimensions.",
+      "status": "NOT_SUPPORTED",
+      "scope": "Codebook residue v0.1",
+      "supporting_evidence": [
+        "codebook_residue_block_lut"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "soft information implies block dictionary superiority"
+      ]
+    },
+    {
+      "claim_id": "claim_recoverability_has_a_cost",
+      "text": "Reliable recovery in this repository's tasks always required paying cost somewhere: more structure, more bits, more compute, stronger priors, abstention, or exact fallback.",
+      "status": "DESIGN_PRINCIPLE",
+      "scope": "Repository-wide empirical synthesis",
+      "supporting_evidence": [
+        "level1_context_conditioned_search",
+        "level3_2_map_budget_robustness",
+        "level3_4_algebraic_baseline_closure",
+        "exact_capsule_contract_closure",
+        "self_describing_record_sidecar_closure",
+        "codebook_residue_block_lut"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "new impossibility theorem",
+        "all VSA recovery is impossible"
+      ]
+    },
+    {
+      "claim_id": "claim_no_universal_impossibility_theorem",
+      "text": "This repository does not prove a universal impossibility theorem for VSA factorization or recoverability.",
+      "status": "DESIGN_PRINCIPLE",
+      "scope": "Repository-wide claim boundary",
+      "supporting_evidence": [
+        "level3_2_map_budget_robustness",
+        "level3_3_linear_code_reproduction",
+        "level3_4_algebraic_baseline_closure"
+      ],
+      "contradicting_evidence": [],
+      "allowed_locations": [
+        "README.md",
+        "paper/manuscript.md",
+        "RESEARCH_STATUS.md"
+      ],
+      "forbidden_strengthenings": [
+        "universal negative theorem"
+      ]
+    }
+  ]
+}
