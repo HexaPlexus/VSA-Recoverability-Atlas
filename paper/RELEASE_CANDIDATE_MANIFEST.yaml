@@ -8,30 +8,30 @@
     "note": "unchanged in this stage"
   },
   "release_candidate_hashes": {
-    "paper/release_candidate/manuscript_rc1.md": "5b46c9570cb308a9acac0a5be21d0840c438486dc950150217f05cb72279c8c3",
-    "paper/release_candidate/abstract.txt": "18fb880f304bf5cf8041c5578f7b10fc826499113ee7126611f04942f61722c5",
+    "paper/release_candidate/manuscript_rc1.md": "6fedc59e79e734a132a60fc7ec5184b5d72b6665dca47425f7434583239c5d30",
+    "paper/release_candidate/abstract.txt": "b84fac7f571f26d525c65aa29da2d9a6e7ca777fb47d84052477811b27beedaf",
     "paper/release_candidate/title_and_metadata.md": "770e3651b966d72866686faeca9257175cd0263591dd2dab07544b41b9e5f6c5",
-    "paper/release_candidate/references.bib": "31e7b7cdb790e405a4b661c05309b9c9be79ab729291e423a56ba99c37a15eeb",
-    "paper/release_candidate/figure_captions.md": "cf855116a024e03ae2cb4848080fd5b5ad6c5c70d356f59203c816c41180a480",
-    "paper/release_candidate/table_captions.md": "9f70eb86e280c4d3ee51ea65107d59e36b0f9ef662e1246ab276ab1f50c38116",
-    "paper/release_candidate/release_notes.md": "2b3d29a250c155f6bed5e2ef3b7ab025c83b249654c3e99b3b78c7e590e84e03"
+    "paper/release_candidate/references.bib": "2b157b2518a6f9b460f646aca989527a34a4c63481b670e16e5f6868ed52fbab",
+    "paper/release_candidate/figure_captions.md": "959339e39ab2678fb5b657e5cb1e5a929d718b3ddd9d7f385440abcdeafd7ae1",
+    "paper/release_candidate/table_captions.md": "4a64ced2c0c38e5d01579d95919103ef43c8899d5b01251a7eedecc67354aba8",
+    "paper/release_candidate/release_notes.md": "678cad58fcb280045a8ccdf5d82a28941d43eb98afbb14c42d1ea51e5f1740e4"
   },
-  "reference_hash": "31e7b7cdb790e405a4b661c05309b9c9be79ab729291e423a56ba99c37a15eeb",
+  "reference_hash": "2b157b2518a6f9b460f646aca989527a34a4c63481b670e16e5f6868ed52fbab",
   "claim_ledger_hash": "ce356669a10651f849f6012b7efd1a20b264f2c750a947105db0991d4eb09e67",
   "evidence_registry_hash": "f9403992d1e181e5dc95169705a2bf0bd4a9ce2c3fa9f8ad9df852679bb70b19",
   "supplement_hash": "f728c0e0c9ae55ab495a089d703e1c324bfb6af99b9d71d3f6bb7b697b4ad5a5",
   "figure_hashes": {
-    "paper/release_candidate/figures/figure1_budget_map.png": "a6ddd308abc231e4a90c1a2b3227bf2993f41ff9f1e437b7a9787238b1bcab49",
-    "paper/release_candidate/figures/figure1_budget_map.svg": "195d88b69a2c7ec03a0f73e36673be7254c3da8df101841755cbba57022a51c4",
-    "paper/release_candidate/figures/figure2_evidence_atlas.png": "63b229507c5788d84d4911d90a7aabc2fac83bf1f11b7bb3c4f7b84c31ce8a4c",
-    "paper/release_candidate/figures/figure2_evidence_atlas.svg": "bac84cd655f989aeba81d31ee89fe483268ee4aa67bf283d574d87fe980620b2",
-    "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "63ad6a0c8c52f2a9d2aca4e726171ba2a85dada6c358d6a96b923cadd32923e2",
-    "paper/release_candidate/figures/figure3_clean_f3_frontier.svg": "d5e6b5f8571a37d36183cbd24a4bbc7b5c8512a5896ab4eee1583963423fd7fd",
-    "paper/release_candidate/figures/figure4_repair_costs.png": "c1b792d2cf7fbe592fa5acdc95a2e05fec96c67a7d3e41d317f98f630359fccc",
-    "paper/release_candidate/figures/figure4_repair_costs.svg": "ef58f38baf72f4cfd1a49c681412c7dccd8410549861c7ce982ae8fedcd88860",
-    "paper/release_candidate/figures/figure5_escalation.png": "164f63d3be279676dd46a1c7be7fb7fe804839dfe49e7d5909753956ae2daccf",
-    "paper/release_candidate/figures/figure5_escalation.svg": "0fb0967fe862f79a5ac5cdfb2f67423288c8ed8b2885e08b9ae5bdd63d6678fe",
-    "paper/release_candidate/figures/figure6_architecture_flow.png": "924ad0a9dc142ac90caf114a8ac2a1707b43ff3bed634eee925a3ff38b1a961e",
-    "paper/release_candidate/figures/figure6_architecture_flow.svg": "8d9265142772fd0a2a693082aff67751e6dcf5d1660f3a3ef8193a44f0579883"
+    "paper/release_candidate/figures/figure1_budget_map.pdf": "5ece6abb9dd87abd648486b40c59c54bbf11a3798db6c032f41f86f571d587a7",
+    "paper/release_candidate/figures/figure1_budget_map.png": "9d7fb52cabff88d5ac51c12e5d0beb7438fc383c15086f3569c85bdd6496e4f9",
+    "paper/release_candidate/figures/figure2_evidence_atlas.pdf": "ef549201d34d3bf219f260057824b0e3bfee92050d983615ac0bd77ec2c4f6b4",
+    "paper/release_candidate/figures/figure2_evidence_atlas.png": "e1218ab6471c3315c30231bdf9dd7032830feb28074778c4fe35d3b464c102a7",
+    "paper/release_candidate/figures/figure3_clean_f3_frontier.pdf": "6c5c6cd9f7efbd04d5cc9842ee2753da8e8904f68dbefb521aff9ae72cd3a251",
+    "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "35547012e55057a27f6a77a5e17791482b7d9d1a4a3c235a08cec5fd21ee4d99",
+    "paper/release_candidate/figures/figure4_repair_costs.pdf": "20fbb9572f60f9fed62e438fa0489b99867f4c646c395a831914b8e5f20fd01a",
+    "paper/release_candidate/figures/figure4_repair_costs.png": "7419886747a8adfb593b2862c72a803b002d91972bd95a933e34dc758a3091f4",
+    "paper/release_candidate/figures/figure5_escalation.pdf": "ffcec6c99a064946e20abbdd4d9561fced6c0093871d7ae06f96f1b874002a4f",
+    "paper/release_candidate/figures/figure5_escalation.png": "a0a729850e7774f0dbdae00afbf7e14dd655433f59b7625ef652fea369ac51b0",
+    "paper/release_candidate/figures/figure6_architecture_flow.pdf": "8ce72fb8df02e1e00a75f7a0d4830cc3a4bfc6d0f2e9a5829e2daaf115a5d019",
+    "paper/release_candidate/figures/figure6_architecture_flow.png": "60902b68b87ed3db37b9060f68cead098b11facc39a30c2b4f08eac77844cf9a"
   }
 }

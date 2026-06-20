@@ -22,11 +22,12 @@
 
 ## Known boundaries
 
-- bibliography is hardened for external review but not fully venue-polished
-- owner identity, license, repository URL, and preprint platform decisions remain open
+- bibliography is substantially hardened but still needs final owner visual review
+- the publication PDF pipeline now uses Pandoc, Tectonic, and deterministic qpdf normalization
+- owner preprint-platform and venue decisions remain open
 - dedicated history-aware secret scanning is still pending
-- no stable PDF pipeline was introduced in this stage
+- no public upload or outreach action was performed in this stage
 
 ## Recommended conversion path
 
-If a PDF is required later, prefer a thin, reproducible conversion step from `manuscript_rc1.md` after owner metadata is finalized. Do not introduce a heavy publishing framework until the owner chooses a target venue or preprint platform.
+The canonical reviewer PDF is built from `paper/manuscript.md` through the publication pipeline in `scripts/build_manuscript.py`. The release-candidate markdown bundle remains useful for technical review and source inspection before venue-specific packaging.
