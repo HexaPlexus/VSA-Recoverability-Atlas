@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{threeparttable}
+\caption{Recurring failure modes in the recoverability atlas.}
+\label{tab:failure-modes}
+\begin{tabularx}{\linewidth}{@{}p{0.18\linewidth}p{0.22\linewidth}p{0.16\linewidth}X@{}}
+\toprule
+\textbf{Failure mode} & \textbf{Observable signature} & \textbf{Main shortfall} & \textbf{What helped} \\
+\midrule
+Capacity collapse & Recovery drops sharply as domain size or bundle width increases. & R1 and sometimes R7. & More dimensions, stronger native structure, or exact fallback. \\
+False attractor & The decoder converges confidently to a wrong tuple. & R7, R8, or a missing disambiguating prior. & Independent verification, restarts, or better native structure. \\
+Flat validation geometry & Multiple candidates remain too similar under the approximate view. & R1 or R2. & Stronger structure, extra precision, or exact side information. \\
+Context misrouting & Candidate narrowing removes the correct region before recovery begins. & R6. & Better recall diagnostics, verifier rejection, and abstention. \\
+Certification overfit & Gains appear on certification splits but disappear on unseen evaluation. & R11 without generalization discipline. & Frozen splits and shuffled-score controls. \\
+Silent wrong acceptance & The system emits a wrong answer without exposing uncertainty. & R13 or verifier weakness. & Independent verification and abstention-first routing. \\
+Storage non-dominance & Added bytes fail to produce a better frontier. & R2, R3, R5, or R12 spent poorly. & Equal-bit controls and exact-side-information baselines. \\
+Dominant single method & A portfolio adds no instance-level value over the best fixed arm. & Missing useful complementarity. & Static routing or stopping the portfolio idea entirely. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}

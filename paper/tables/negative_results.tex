@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{threeparttable}
+\caption{Negative-result summary for mechanisms that preserved some local signal but failed promotion under full accounting.}
+\label{tab:negative-results}
+\begin{tabularx}{\linewidth}{@{}p{0.28\linewidth}X X@{}}
+\toprule
+\textbf{Mechanism} & \textbf{What signal existed} & \textbf{Why it still failed promotion} \\
+\midrule
+Decoder-certified codebook admission & Candidate-specific decoder score differences. & Did not beat distance-only or shuffled-compute controls on unseen evaluation. \\
+Conflict-guided tagged repair & Local conflict hints and bounded repair cues. & Equal-bit and simpler controls explained the measured gain. \\
+Block residue dictionary & Real soft evidence from accumulator magnitude. & Lost to scalar residue or extra dimensions after storage accounting. \\
+Inline manifest packaging & Co-located exact structure next to the semantic payload. & Offered no packaging advantage over an honest sidecar representation. \\
+Capsule-style trace carriers & Additional carried exact information. & Plain typed handles matched or beat the capsule under equal-information accounting. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}

@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{threeparttable}
+\caption{Representative recovery mechanisms and where each one pays its main cost.}
+\label{tab:mechanism-summary}
+\begin{tabularx}{\linewidth}{@{}p{0.23\linewidth}p{0.15\linewidth}X p{0.21\linewidth}@{}}
+\toprule
+\textbf{Mechanism family} & \textbf{Main resource} & \textbf{What it buys} & \textbf{Transfer boundary} \\
+\midrule
+Dense MAP baseline & R1, R7, R8 & Cheap baseline behavior and exact recovery on easy cells. & Capacity-limited on harder cells. \\
+Native BCF substrate & R4, R12 & Strong clean common-envelope recovery under a substrate designed for the task. & Different native contract from dense MAP. \\
+Linear-code recovery & R4, R5 & Exact recovery when explicit GF(2) code constraints are part of the task. & Narrow algebraic envelope. \\
+Context-conditioned search & R6, sometimes R13 & Candidate-space narrowing before expensive recovery. & Better local recall does not guarantee a better end-to-end operating point. \\
+Exact sidecar replay & R5, R14 & Safe deterministic replay after retrieval when exact structure is already known. & Does not solve initial localization by itself. \\
+Soft-information repair & R2, R3, R11 & Preservation of local reliability signal or confidence information. & Often loses to simpler equal-bit controls after full accounting. \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Reader-facing labels are used in the main paper; the supplementary atlas provides the full mapping to normalized repository evidence records.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

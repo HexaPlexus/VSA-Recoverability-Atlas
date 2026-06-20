@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{threeparttable}
+\caption{Resource ontology used throughout the manuscript. The supplementary atlas maps these reader-facing labels to normalized repository evidence identifiers.}
+\label{tab:resource-ontology}
+\begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}p{0.25\linewidth}X@{}}
+\toprule
+\textbf{Tag} & \textbf{Added resource} & \textbf{Interpretation} \\
+\midrule
+R1 & More coordinates & Larger representational capacity or a wider margin budget. \\
+R2 & More coordinate precision & More bits or analog state per coordinate, preserving soft evidence that binary views discard. \\
+R3 & Sparse or block structure & Reduced interference or more structured evidence placement across coordinates. \\
+R4 & Native code structure & Explicit algebraic or combinatorial constraints rather than random assignment alone. \\
+R5 & Exact side information & Typed exact metadata, handles, or manifests that preserve authority outside the lossy semantic view. \\
+R6 & External context or prior & Candidate-space narrowing before the main decoder spends its full search budget. \\
+R7 & Decoder compute & More iterations, stronger search, or a more expensive inference procedure. \\
+R8 & Restarts or wider search & Additional exploration budget that tries more trajectories or candidates. \\
+R9 & Temporal state & More time steps or internal state evolution during recovery. \\
+R10 & Physical parallelism & Device-level concurrency or local state that changes the practical price of recovery. \\
+R11 & Preprocessing or materialization & Upfront indexing, cached views, or extra write-time work. \\
+R12 & Dual representation & Persistent maintenance of multiple native views for the same underlying state. \\
+R13 & Reduced coverage through abstention & Refusal to answer under insufficient evidence instead of forcing acceptance. \\
+R14 & Exact fallback & Retaining or invoking a non-lossy recovery path when the approximate route is insufficient. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
