@@ -1,43 +1,44 @@
 # VSA Recoverability Atlas
 
-VSA Recoverability Atlas is a reproducible research repository about a simple question: when composite or structured information is recoverable from Vector Symbolic Architectures, what additional resource actually pays for that reliability?
+An empirical, reproducible atlas of when recoverability in Vector Symbolic Architectures improves and which extra resource actually pays for that reliability.
 
-The repository preserves bounded positive results, explicit negative results, protocol discipline, and historical artifacts from the earlier `CGRN-HSR` research line. The internal Python package name `cgrn_hsr` remains in place for compatibility with those artifacts.
+## Status
 
-## Scientific Question
+- Current preprint branch: `publication/preprint-v1`
+- Current manuscript state: validated reviewer preprint source and deterministic local PDF build
+- Scope: bounded empirical claims only; no universal substrate claim and no production-readiness claim
 
-Across the evaluated envelopes, recoverability improved only when the system paid in some identifiable currency: exact side information, more dimensions or bits, stronger native structure, more decoder compute, stronger routing priors, narrower coverage through abstention, or an exact fallback.
+## Key Findings
 
-The repository does not claim a universal impossibility theorem for VSA factorization. Its claims are intentionally bounded to the tasks, contracts, and evidence recorded here.
+- The atlas consolidates `24` normalized research lines under a frozen systematic mapping and claim ledger.
+- In the clean common `F = 3` envelope, the tested native BCF arm covered hard pooled cases that defeated the tested MAP baselines.
+- The tested MAP arm retained a latency advantage on easier cells but not a universal recovery advantage.
+- Sequential escalation remained economically unfavorable in the measured clean non-easy subset because the observed verified exit rate stayed below the measured break-even threshold.
+- Multiple repair and representation ideas improved local statistics without creating a new nondominated operating point once storage, compute, verification, and transfer costs were charged.
+- The repository does not support a universal substrate ranking or a blanket production claim.
 
-## Main Contributions
+## Main Figure
 
-- A machine-readable evidence registry and claim ledger for repository-wide results and scope limits.
-- Reproduced baselines for MAP/TorchHD, context-conditioned search, linear-code recovery, and structured-code transfer.
-- A public record of negative results and stop conditions that remained unsupported after full accounting.
-- A manuscript draft that synthesizes the empirical atlas, failure modes, and resource-accounting view.
+![Figure 5: Sequential escalation economics](paper/figures/figure5_escalation.png)
 
-## Selected Results
+## Why This Matters
 
-- MAP resonator recovery shows a bounded intermediate regime under the tested clean U1 budgets.
-- Context-conditioned search beat random narrowing in the tested Level 1 single-product setting.
-- In the clean common `F=3` envelope, robust native BCF covered hard cases that defeated the tested MAP arms.
-- Several repair and packaging ideas did not produce a new nondominated point once storage, compute, and verification costs were counted.
-- Exact packed binary scan is the current adopted semantic-to-trace retrieval baseline at the tested `N = 10,000` scale.
+Recoverability in VSA/HDC systems is often discussed as if it were a property of the algebra alone. This repository shows a narrower and more useful picture: stronger recovery repeatedly appeared only when the system paid in some identifiable currency such as exact side information, more dimensions, more bits, stronger native structure, more decoder compute, tighter routing priors, hardware support, or reduced coverage through abstention.
 
-## Repository Guide
+## Repository Contents
 
-- [paper/manuscript.md](paper/manuscript.md): current manuscript draft.
-- [paper/evidence_registry.yaml](paper/evidence_registry.yaml): machine-readable evidence source of truth.
-- [paper/claim_ledger.md](paper/claim_ledger.md): public claim boundaries and supporting evidence.
-- [paper/failure_mode_atlas.md](paper/failure_mode_atlas.md): normalized failure modes and mitigations.
-- [REPRODUCIBILITY.md](REPRODUCIBILITY.md): install, validation, and rerun guidance.
-- [docs](docs): preserved protocol, audit, and research-lineage artifacts.
-- [results](results): frozen and development result artifacts.
+- [paper/manuscript.md](paper/manuscript.md): canonical manuscript source
+- [paper/evidence_registry.yaml](paper/evidence_registry.yaml): machine-readable evidence source of truth
+- [paper/claim_ledger.md](paper/claim_ledger.md): public claim boundaries and support map
+- [paper/failure_mode_atlas.md](paper/failure_mode_atlas.md): normalized failure signatures and mitigations
+- [paper/supplementary_evidence_atlas.md](paper/supplementary_evidence_atlas.md): supplementary atlas and registry-heavy detail
+- [REPRODUCIBILITY.md](REPRODUCIBILITY.md): setup, validation, and rerun guidance
+- [results](results): frozen and development result artifacts
+- [docs](docs): preserved protocol and lineage materials
 
-## Reproducibility
+## Reproduce The Paper
 
-Start with [REPRODUCIBILITY.md](REPRODUCIBILITY.md). The minimal validation path is:
+Use the project virtual environment and build the reviewer preprint from source:
 
 ```powershell
 py -3.14 -m venv .venv
@@ -46,15 +47,24 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python scripts\build_evidence_tables.py
 .\.venv\Scripts\python scripts\validate_evidence_registry.py
 .\.venv\Scripts\python -m pytest -q
+.\.venv\Scripts\python scripts\build_manuscript.py --profile reviewer-preprint
+.\.venv\Scripts\python scripts\validate_manuscript_pdf.py --release paper\release_candidate\VSA_Recoverability_Atlas_<commit>.pdf
 ```
 
-Historical result directories, protocol IDs, and held-out artifacts are intentionally preserved rather than renamed.
+Detailed build notes are in [paper/BUILDING.md](paper/BUILDING.md).
 
-## Manuscript
+## Evidence And Claim Discipline
 
-- Canonical draft: [paper/manuscript.md](paper/manuscript.md)
-- Release-candidate mirror: [paper/release_candidate/manuscript_rc1.md](paper/release_candidate/manuscript_rc1.md)
-- Suggested title: `Recoverability Has a Cost: An Empirical Atlas of Factorization, Repair, and Abstention in Vector Symbolic Architectures`
+- Claims are bounded to explicit task contracts, decoder assumptions, and tested envelopes.
+- Negative results are retained rather than hidden.
+- Historical protocol artifacts are preserved for auditability, but the main paper uses reader-facing scientific prose.
+- Primary evidence is tracked in the registry, claim ledger, bibliography, and deterministic figure/table generation scripts.
+
+## Paper
+
+- Manuscript source: [paper/manuscript.md](paper/manuscript.md)
+- Release-candidate source bundle: [paper/release_candidate](paper/release_candidate)
+- Suggested title: `Recoverability Has a Cost: An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures`
 
 ## Citation
 
@@ -62,4 +72,4 @@ Citation metadata is provided in [CITATION.cff](CITATION.cff).
 
 ## License
 
-The repository's current top-level license text is [LICENSE](LICENSE). Scope notes for scholarly assets and third-party materials are in [LICENSE_SCOPE.md](LICENSE_SCOPE.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+License text is in [LICENSE](LICENSE). Scope notes for scholarly assets and third-party materials are in [LICENSE_SCOPE.md](LICENSE_SCOPE.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
