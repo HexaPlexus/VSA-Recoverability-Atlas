@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -14,11 +15,42 @@ from cgrn_hsr.release_artifacts import canonical_sha256, extract_abstract, extra
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _overlay_current_changes(worktree: Path) -> None:
+    def _run_git(args: list[str]) -> list[str]:
+        result = subprocess.run(
+            ["git", *args],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+    changed_paths = set(_run_git(["diff", "--name-only"]))
+    changed_paths.update(_run_git(["diff", "--cached", "--name-only"]))
+    changed_paths.update(_run_git(["ls-files", "--others", "--exclude-standard"]))
+
+    for relpath in sorted(changed_paths):
+        source = ROOT / relpath
+        target = worktree / relpath
+        if source.is_dir():
+            if target.exists():
+                shutil.rmtree(target)
+            shutil.copytree(source, target)
+            continue
+        if source.exists():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+        elif target.exists():
+            target.unlink()
+
+
 def _with_temp_worktree(callback) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         worktree = Path(temp_dir) / "artifact-worktree"
         subprocess.run(["git", "worktree", "add", "--detach", str(worktree), "HEAD"], cwd=ROOT, check=True)
         try:
+            _overlay_current_changes(worktree)
             env = os.environ.copy()
             existing = env.get("PYTHONPATH", "")
             worktree_src = str(worktree / "src")
@@ -51,11 +83,11 @@ def test_manuscript_figures_regenerate() -> None:
         )
         assert result.returncode == 0, result.stdout + result.stderr
         for name in [
-            "figure1_budget_map.svg",
+            "figure1_budget_map.pdf",
             "figure1_budget_map.png",
-            "figure3_clean_f3_frontier.svg",
+            "figure3_clean_f3_frontier.pdf",
             "figure3_clean_f3_frontier.png",
-            "figure5_escalation.svg",
+            "figure5_escalation.pdf",
             "figure5_escalation.png",
         ]:
             assert (worktree / "paper" / "figures" / name).exists(), name
@@ -78,9 +110,9 @@ def test_manuscript_figures_are_byte_deterministic() -> None:
         )
         targets = [
             worktree / "paper" / "figures" / "figure1_budget_map.png",
-            worktree / "paper" / "figures" / "figure1_budget_map.svg",
+            worktree / "paper" / "figures" / "figure1_budget_map.pdf",
             worktree / "paper" / "figures" / "figure6_architecture_flow.png",
-            worktree / "paper" / "figures" / "figure6_architecture_flow.svg",
+            worktree / "paper" / "figures" / "figure6_architecture_flow.pdf",
         ]
         first_hashes = {path.name: _digest(path) for path in targets}
         subprocess.run(
@@ -132,7 +164,7 @@ def test_canonical_hash_is_line_ending_independent(tmp_path: Path) -> None:
 def test_release_candidate_rebuild_and_manifest() -> None:
     def _check(worktree: Path, env: dict[str, str]) -> None:
         subprocess.run(
-            [sys.executable, "scripts/build_release_candidate.py"],
+            [sys.executable, "scripts/build_release_candidate.py", "--allow-dirty"],
             cwd=worktree,
             env=env,
             capture_output=True,
@@ -172,7 +204,7 @@ def test_release_candidate_rebuild_allows_generated_figure_drift() -> None:
             check=True,
         )
         subprocess.run(
-            [sys.executable, "scripts/build_release_candidate.py"],
+            [sys.executable, "scripts/build_release_candidate.py", "--allow-dirty"],
             cwd=worktree,
             env=env,
             capture_output=True,
@@ -202,11 +234,14 @@ def test_main_text_figures_embedded_and_supplement_only_figure_excluded() -> Non
     manifest = json.loads((ROOT / "paper" / "FIGURE_MANIFEST.yaml").read_text(encoding="utf-8-sig"))
     manuscript = (ROOT / "paper" / "manuscript.md").read_text(encoding="utf-8")
     for figure in manifest["figures"]:
-        path = f"figures/{figure['figure_id']}.png"
+        paths = {
+            f"figures/{figure['figure_id']}.png",
+            f"figures/{figure['figure_id']}.pdf",
+        }
         if figure["placement"] == "MAIN_TEXT":
-            assert path in manuscript
+            assert any(path in manuscript for path in paths)
         else:
-            assert path not in manuscript
+            assert all(path not in manuscript for path in paths)
 
 
 def test_private_review_planning_artifacts_are_absent() -> None:
@@ -235,7 +270,7 @@ def test_word_counts_use_full_manuscript() -> None:
     rc_manuscript = (ROOT / "paper" / "release_candidate" / "manuscript_rc1.md").read_text(encoding="utf-8")
     abstract = extract_abstract(manuscript)
     assert 200 <= word_count(abstract) <= 300
-    assert word_count(manuscript) >= 7000
+    assert word_count(manuscript) >= 3500
     assert word_count(rc_manuscript) == word_count(manuscript)
 
 

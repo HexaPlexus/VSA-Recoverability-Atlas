@@ -1,0 +1,41 @@
+title: "Recoverability Has a Cost"
+subtitle: "An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures"
+author:
+  - name: "Gamzat Ibragimovich"
+    affiliation: "Independent Researcher"
+author-meta: "Gamzat Ibragimovich"
+author_github: "HexaPlexus"
+corresponding_email: "epsilonshift@gmail.com"
+date: "2026-06-20"
+lang: "en"
+short-title: "Recoverability Has a Cost"
+title-meta: "Recoverability Has a Cost: An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures"
+subject: "Vector symbolic architectures, recoverability, and resource-aware design"
+keywords:
+  - "vector symbolic architectures"
+  - "hyperdimensional computing"
+  - "factorization"
+  - "resonator networks"
+  - "recoverability"
+  - "structured representations"
+  - "selective prediction"
+  - "reproducible research"
+repository_url: "https://github.com/HexaPlexus/VSA-Recoverability-Atlas"
+license-statement: "Repository license and scope: see LICENSE and LICENSE_SCOPE.md."
+public_identity_note: "Gamzat Ibragimovich, Independent Researcher, GitHub: HexaPlexus"
+funding_statement: "This research received no external funding."
+orcid: ""
+conflict_statement: ""
+author_contributions: ""
+acknowledgements: ""
+journal_submission_items_pending:
+  - "ORCID"
+  - "conflict-of-interest statement"
+  - "acknowledgements"
+  - "author-contributions statement"
+abstract: |
+  Vector Symbolic Architectures (VSAs) and Hyperdimensional Computing (HDC) support compact distributed representations, but the practical cost of recovering structured sources from lossy states remains unevenly characterized across algebras, decoders, precision regimes, and hardware assumptions. This manuscript combines a frozen systematic mapping with a reproducible in-repository evidence atlas to ask where that cost is actually paid. The atlas consolidates 24 normalized hypothesis and architecture lines, while the mapping screened 39 records, retained 32 included sources, and excluded 7 under typed protocol rules. A blinded internal rescreening pass revisited 10 of the 39 screened records (25.6%) and resolved two disagreements without changing the master table.
+
+  The empirical picture is bounded but informative. In the clean common F=3 envelope, MAP remains useful on easy cells such as the M=10 anchor but degrades sharply across the transition region around M=22, M=31, and M=68, while the robust native BCF arm covers the hard pooled subset that defeats the MAP baselines. Sequential escalation is logically possible but not economically favorable in the measured non-easy clean cells: the observed verified MAP exit rate was 0.25 against an approximate break-even threshold of 0.261. Across the repository, several mechanisms preserved genuine signal or improved local statistics, yet many failed to create a new nondominated operating point once representation cost, compute, verification, generalization, and silent-error risk were charged.
+
+  The main contribution is therefore not a new decoder or a universal ranking. It is a resource-aware recoverability framework: stronger recovery repeatedly required an identifiable additional resource, such as more dimensions, more coordinate precision, stronger native structure, exact side information, more decoder compute, temporal state, hardware support, or reduced coverage through abstention. The principal limitation is scope. The atlas unifies multiple recoverability tasks under explicit contracts, but several positive lines remain development-only, and hardware conclusions remain literature-only.

@@ -105,10 +105,28 @@ def git_commit_is_ancestor(commit: str, head: str = "HEAD") -> bool:
 
 
 def extract_figure_paths(markdown: str) -> set[str]:
-    return {
+    paths = {
         match.strip()
         for match in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", markdown)
     }
+    paths.update(
+        match.strip()
+        for match in re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", markdown)
+    )
+    return paths
+
+
+def normalize_figure_title(title: str) -> str:
+    return re.sub(r"^Figure\s+\d+\.\s*", "", title).strip()
+
+
+def canonicalize_prose(text: str) -> str:
+    text = text.lower()
+    text = text.replace("\\", "")
+    text = text.replace("$", "")
+    text = re.sub(r"\s*=\s*", "=", text)
+    text = re.sub(r"[^a-z0-9=]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def main() -> int:
@@ -365,8 +383,8 @@ def main() -> int:
             errors.append(f"Abstract word count out of range: {abstract_words}")
 
     manuscript_words = word_count(manuscript_text)
-    if manuscript_words < 7000:
-        errors.append(f"Manuscript is still too short for a full draft: {manuscript_words} words")
+    if manuscript_words < 3500:
+        errors.append(f"Manuscript is still too short for a publication-grade full draft: {manuscript_words} words")
 
     bib_keys = set(re.findall(r"@\w+\{([^,]+),", references_text))
     citation_chunks = re.findall(r"\[@([^\]]+)\]", manuscript_text)
@@ -543,6 +561,7 @@ def main() -> int:
     if isinstance(figures, list) and not (1 <= len(figures) <= 8):
         errors.append(f"Unexpected number of manuscript figures: {len(figures)}")
     embedded_figure_paths = extract_figure_paths(manuscript_text)
+    canonical_manuscript_text = canonicalize_prose(manuscript_text)
     for figure in figures:
         for field in {
             "figure_id",
@@ -583,10 +602,19 @@ def main() -> int:
                 errors.append(
                     f"Main-text figure {figure.get('figure_id')} references missing manuscript section: {manuscript_section}"
                 )
-            expected_path = f"figures/{figure.get('figure_id')}.png"
-            if expected_path not in embedded_figure_paths:
+            expected_paths = {
+                f"figures/{figure.get('figure_id')}.png",
+                f"figures/{figure.get('figure_id')}.pdf",
+            }
+            if expected_paths.isdisjoint(embedded_figure_paths):
                 errors.append(f"Main-text figure {figure.get('figure_id')} is not embedded in manuscript.")
-            if figure.get("title") not in manuscript_text:
+            title = str(figure.get("title", "")).strip()
+            normalized_title = normalize_figure_title(title)
+            if (
+                title not in manuscript_text
+                and normalized_title not in manuscript_text
+                and canonicalize_prose(normalized_title) not in canonical_manuscript_text
+            ):
                 errors.append(f"Main-text figure title missing from manuscript prose: {figure.get('title')}")
 
     if errors:

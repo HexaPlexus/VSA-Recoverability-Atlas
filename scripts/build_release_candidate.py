@@ -196,22 +196,23 @@ def build_release_notes() -> str:
 
 ## Known boundaries
 
-- bibliography is hardened for external review but not fully venue-polished
-- owner identity, license, repository URL, and preprint platform decisions remain open
+- bibliography is substantially hardened but still needs final owner visual review
+- the publication PDF pipeline now uses Pandoc, Tectonic, and deterministic qpdf normalization
+- owner preprint-platform and venue decisions remain open
 - dedicated history-aware secret scanning is still pending
-- no stable PDF pipeline was introduced in this stage
+- no public upload or outreach action was performed in this stage
 
 ## Recommended conversion path
 
-If a PDF is required later, prefer a thin, reproducible conversion step from `manuscript_rc1.md` after owner metadata is finalized. Do not introduce a heavy publishing framework until the owner chooses a target venue or preprint platform.
+The canonical reviewer PDF is built from `paper/manuscript.md` through the publication pipeline in `scripts/build_manuscript.py`. The release-candidate markdown bundle remains useful for technical review and source inspection before venue-specific packaging.
 """
 
 
 def build_figure_captions() -> str:
     payload = load_json(PAPER_DIR / "FIGURE_MANIFEST.yaml")
     lines = ["# Figure Captions", ""]
-    for idx, figure in enumerate(payload["figures"], start=1):
-        lines.append(f"## Figure {idx}. {figure['title']}")
+    for figure in payload["figures"]:
+        lines.append(f"## {figure['title']}")
         lines.append("")
         lines.append(str(figure["caption"]).strip())
         lines.append("")
@@ -292,7 +293,7 @@ def main() -> int:
         if path.is_file():
             path.unlink()
     for source in FIGURE_DIR.iterdir():
-        if source.is_file():
+        if source.is_file() and source.suffix.lower() in {".pdf", ".png"}:
             shutil.copyfile(source, RELEASE_FIGURE_DIR / source.name)
 
     manifest = build_manifest(generated_from_commit)

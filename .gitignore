@@ -11,3 +11,6 @@ __pycache__/
 *.egg-info/
 build/
 competitors/ibm_in_memory_factorizer/
+paper/build/
+paper/submission_bundle/
+tmp/
