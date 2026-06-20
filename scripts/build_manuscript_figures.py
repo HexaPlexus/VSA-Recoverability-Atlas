@@ -77,7 +77,7 @@ def load_csv(path: Path) -> list[dict[str, str]]:
 
 
 def figure1_budget_map() -> None:
-    fig, ax = plt.subplots(figsize=(10.2, 4.9))
+    fig, ax = plt.subplots(figsize=(10.2, 5.2))
     ax.set_axis_off()
 
     ax.text(0.0, 1.02, "Recoverability workflow", transform=ax.transAxes, fontsize=12, fontweight="bold")
@@ -96,8 +96,8 @@ def figure1_budget_map() -> None:
         (0.64, 0.38, 0.15, 0.22, "Candidate\nresult", "#F8ECD7"),
         (0.82, 0.38, 0.14, 0.22, "Independent\nverifier", "#EEE8F8"),
         (0.82, 0.72, 0.14, 0.14, "Accept", "#E6F2E8"),
-        (0.82, 0.18, 0.14, 0.14, "Abstain", "#ECEFF4"),
-        (0.62, 0.72, 0.14, 0.14, "Fallback", "#F7E4E3"),
+        (0.82, 0.16, 0.14, 0.14, "Abstain", "#ECEFF4"),
+        (0.60, 0.72, 0.16, 0.14, "Fallback", "#F7E4E3"),
     ]
     for x, y, w, h, label, color in boxes:
         ax.add_patch(
@@ -112,7 +112,16 @@ def figure1_budget_map() -> None:
                 transform=ax.transAxes,
             )
         )
-        ax.text(x + w / 2, y + h / 2, label, transform=ax.transAxes, ha="center", va="center", fontsize=10)
+        ax.text(
+            x + w / 2,
+            y + h / 2,
+            label,
+            transform=ax.transAxes,
+            ha="center",
+            va="center",
+            fontsize=10,
+            linespacing=1.2,
+        )
 
     arrows = [
         ((0.18, 0.49), (0.22, 0.49), COLORS["blue"]),
@@ -134,15 +143,18 @@ def figure1_budget_map() -> None:
             arrowprops=dict(arrowstyle="-|>", lw=1.8, color=color, shrinkA=2, shrinkB=2),
         )
 
-    ax.text(0.895, 0.66, "verified", transform=ax.transAxes, fontsize=9, color=COLORS["green"], ha="left")
-    ax.text(0.79, 0.75, "not verified", transform=ax.transAxes, fontsize=9, color=COLORS["red"], ha="right")
-    ax.text(0.89, 0.33, "no safe decision", transform=ax.transAxes, fontsize=9, color=COLORS["gray"], ha="left")
+    label_box = dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.95)
+    ax.text(0.895, 0.66, "verified", transform=ax.transAxes, fontsize=9, color=COLORS["green"], ha="left", bbox=label_box)
+    ax.text(0.79, 0.915, "not verified", transform=ax.transAxes, fontsize=9, color=COLORS["red"], ha="center", bbox=label_box)
+    ax.text(0.915, 0.34, "no safe decision", transform=ax.transAxes, fontsize=9, color=COLORS["gray"], ha="left", va="center", bbox=label_box)
     ax.text(
         0.02,
-        0.08,
-        "Acceptance never bypasses the independent verifier. Fallback is explicit rather than implicit.",
+        0.06,
+        "Acceptance never bypasses the independent verifier.\nFallback is explicit rather than implicit.",
         transform=ax.transAxes,
         color=COLORS["dark"],
+        fontsize=9,
+        linespacing=1.2,
     )
 
     save_figure(fig, "figure1_budget_map")
@@ -355,9 +367,17 @@ def figure5_escalation() -> None:
     break_even = map_fast / bcf
     cascade = map_fast + (1.0 - exit_rate) * bcf
 
-    fig, axes = plt.subplots(1, 2, figsize=(9.4, 4.4))
-    fig.suptitle("Sequential escalation economics", x=0.06, ha="left", fontsize=12, fontweight="bold")
-    fig.text(0.06, 0.92, "Fast-path probe cost is measured on the same runtime and hardware as the fallback arm.", color=COLORS["gray"])
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.8))
+    fig.subplots_adjust(left=0.12, right=0.98, bottom=0.16, top=0.72, wspace=0.38)
+    fig.suptitle("Sequential escalation economics", x=0.06, y=0.975, ha="left", fontsize=11.5, fontweight="bold")
+    fig.text(
+        0.06,
+        0.845,
+        "Fast-path probe cost is measured on the same runtime and hardware\nas the fallback arm.",
+        color=COLORS["gray"],
+        fontsize=9,
+        linespacing=1.2,
+    )
 
     panels = [
         (
@@ -377,7 +397,7 @@ def figure5_escalation() -> None:
     ]
 
     for ax, title, values, ylabel, ymax in panels:
-        ax.set_title(title, loc="left")
+        ax.set_title(title, loc="left", pad=10)
         y_positions = list(range(len(values)))[::-1]
         for pos, (label, value, color) in zip(y_positions, values):
             ax.hlines(pos, 0, value, color=color, linewidth=3)

@@ -25,12 +25,11 @@ license-statement: "Repository license and scope: see LICENSE and LICENSE_SCOPE.
 public_identity_note: "Gamzat Ibragimovich, Independent Researcher, GitHub: HexaPlexus"
 funding_statement: "This research received no external funding."
 orcid: ""
-conflict_statement: ""
+conflict_statement: "The author declares no competing interests."
 author_contributions: ""
 acknowledgements: ""
 journal_submission_items_pending:
   - "ORCID"
-  - "conflict-of-interest statement"
   - "acknowledgements"
   - "author-contributions statement"
 abstract: |
