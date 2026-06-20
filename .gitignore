@@ -13,4 +13,5 @@ build/
 competitors/ibm_in_memory_factorizer/
 paper/build/
 paper/submission_bundle/
+paper/release_candidate/VSA_Recoverability_Atlas_*.pdf
 tmp/
