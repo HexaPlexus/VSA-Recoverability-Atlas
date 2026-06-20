@@ -1,17 +1,16 @@
 {
-  "schema_version": "vsa-recoverability-atlas-figure-manifest-v0.1",
+  "schema_version": "vsa-recoverability-atlas-figure-manifest-v0.2",
   "generator": "python scripts/build_manuscript_figures.py",
   "figures": [
     {
       "figure_id": "figure1_budget_map",
-      "title": "Recoverability budget map",
+      "title": "Figure 1. Recoverability workflow",
       "files": [
-        "paper/figures/figure1_budget_map.svg",
-        "paper/figures/figure1_budget_map.png"
+        "paper/figures/figure1_budget_map.pdf"
       ],
       "source_data": [],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Conceptual workflow from task and risk contract through recoverability-budget allocation, representation and native decoder choice, independent verification, and the resulting accept, fallback, or abstain outcome. Acceptance does not bypass verification. This is a conceptual systems figure, not a measured result.",
+      "caption": "Conceptual path from task and risk contract through budget allocation, representation choice, candidate generation, independent verification, and the resulting accept, fallback, or abstain outcome.",
       "claim_ids": [
         "claim_recoverability_resource_accounting"
       ],
@@ -22,34 +21,34 @@
     },
     {
       "figure_id": "figure2_evidence_atlas",
-      "title": "Repository evidence status summary",
+      "title": "Figure 2. Repository evidence status summary",
       "files": [
-        "paper/figures/figure2_evidence_atlas.svg",
-        "paper/figures/figure2_evidence_atlas.png"
+        "paper/figures/figure2_evidence_atlas.pdf"
       ],
       "source_data": [
         "paper/evidence_registry.yaml"
       ],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Descriptive summary of the normalized repository evidence atlas, aggregated by evidence status and architectural disposition from machine-readable registry entries. This figure is a derived descriptive overview rather than a direct common-harness benchmark comparison.",
-      "claim_ids": [],
+      "caption": "Panel (a) shows evidence maturity and panel (b) shows architectural disposition for the 24 normalized repository lines. Exact counts are printed above the bars.",
+      "claim_ids": [
+        "claim_recoverability_resource_accounting"
+      ],
       "comparability_class": "DESCRIPTIVE_DERIVED_SUMMARY",
       "measured_result": true,
       "placement": "MAIN_TEXT",
-      "manuscript_section": "5. Repository Evidence Base"
+      "manuscript_section": "3.3 Repository evidence atlas"
     },
     {
       "figure_id": "figure3_clean_f3_frontier",
-      "title": "Clean F=3 capacity frontier",
+      "title": "Figure 3. Clean F=3 capacity frontier",
       "files": [
-        "paper/figures/figure3_clean_f3_frontier.svg",
-        "paper/figures/figure3_clean_f3_frontier.png"
+        "paper/figures/figure3_clean_f3_frontier.pdf"
       ],
       "source_data": [
         "results/level3_2/recovery_summary.csv"
       ],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Exact recovery rate versus domain size M for the frozen clean, F=3, single-product common envelope. Error bars reflect the exact recovery confidence intervals already serialized in the source summary, and the plotted cells preserve the underlying trial counts (n=64 at M=10 and M=68; n=128 at M=22 and M=31). The figure compares MAP D512, MAP D1024, and the native BCF arm without mixing incompatible noise or task contracts.",
+      "caption": "Exact recovery rate versus domain size M for the frozen clean single-product common envelope with stored confidence intervals and explicit trial counts.",
       "claim_ids": [
         "claim_map_intermediate_region",
         "claim_bcf_dominates_clean_non_easy_f3"
@@ -57,20 +56,19 @@
       "comparability_class": "DIRECT_COMMON_HARNESS",
       "measured_result": true,
       "placement": "MAIN_TEXT",
-      "manuscript_section": "6. Dimensional Capacity and Dense MAP Recovery"
+      "manuscript_section": "6.1 Dense MAP capacity"
     },
     {
       "figure_id": "figure4_repair_costs",
-      "title": "Where repair methods paid their cost",
+      "title": "Figure 4. Repair cost versus recall",
       "files": [
-        "paper/figures/figure4_repair_costs.svg",
-        "paper/figures/figure4_repair_costs.png"
+        "paper/figures/figure4_repair_costs.pdf"
       ],
       "source_data": [
         "results/codebook_residue_v0_1/arm_summary.csv"
       ],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Physical bits per bundle versus full-member enumeration recall for comparable repair and equal-bit controls at the final K=31 development evaluation cell. Labels show the exact plotted bit and recall values from the machine-readable arm summary. The comparison stays within one lawful repository contract and does not rank against unrelated literature points.",
+      "caption": "Physical bits per bundle versus full-member enumeration recall for the comparable repair and equal-information controls in the final K = 31 development evaluation cell.",
       "claim_ids": [
         "claim_block_residue_advantage_not_supported",
         "claim_decoder_repair_not_free_in_tested_envelopes"
@@ -78,46 +76,44 @@
       "comparability_class": "DIRECT_COMMON_HARNESS",
       "measured_result": true,
       "placement": "MAIN_TEXT",
-      "manuscript_section": "9. Decoder-Aware Codebooks and Representation Repair"
+      "manuscript_section": "6.4 Decoder-aware repair"
     },
     {
       "figure_id": "figure5_escalation",
-      "title": "Sequential escalation economics",
+      "title": "Figure 5. Sequential escalation economics",
       "files": [
-        "paper/figures/figure5_escalation.svg",
-        "paper/figures/figure5_escalation.png"
+        "paper/figures/figure5_escalation.pdf"
       ],
       "source_data": [
-        "results/oracle_portfolio_v0_1/method_summary.csv",
-        "results/oracle_portfolio_v0_1/summary.json"
+        "results/oracle_portfolio_v0_1/method_summary.csv"
       ],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Panel A compares the measured verified MAP exit rate against the break-even exit threshold for a MAP-to-BCF sequential cascade on the clean non-easy common F=3 cells. Panel B compares expected cascade latency against always-BCF latency using the machine-readable method summary. The figure addresses sequential escalation economics only and does not support method-selection complementarity claims by itself.",
+      "caption": "Panel (a) compares the observed verified fast-path exit probability with the break-even threshold, and panel (b) compares the expected cascade latency with the always-BCF baseline.",
       "claim_ids": [
-        "claim_current_map_bcf_escalation_not_cost_effective"
+        "claim_current_map_bcf_escalation_not_cost_effective",
+        "claim_static_cell_route_sufficient_in_current_envelope"
       ],
       "comparability_class": "DIRECT_COMMON_HARNESS",
       "measured_result": true,
       "placement": "MAIN_TEXT",
-      "manuscript_section": "11. Verification, Abstention, and Sequential Escalation"
+      "manuscript_section": "6.6 Portfolio and escalation economics"
     },
     {
       "figure_id": "figure6_architecture_flow",
-      "title": "Resource-aware architectural decision flow",
+      "title": "Figure 6. Resource-aware architecture guide",
       "files": [
-        "paper/figures/figure6_architecture_flow.svg",
-        "paper/figures/figure6_architecture_flow.png"
+        "paper/figures/figure6_architecture_flow.pdf"
       ],
       "source_data": [],
       "generator_script": "scripts/build_manuscript_figures.py",
-      "caption": "Supplementary conceptual decision guide that distinguishes exact-structure preservation from approximate semantic decoding and makes the yes/no branching logic explicit around verification, fallback, and abstention. It is retained as a supplement because Figure 1 already carries the main-text systems workflow.",
+      "caption": "Supplementary conceptual decision flow retained for the source bundle rather than the main paper.",
       "claim_ids": [
         "claim_recoverability_resource_accounting"
       ],
       "comparability_class": "CONCEPTUAL_ONLY",
       "measured_result": false,
       "placement": "SUPPLEMENT_ONLY",
-      "manuscript_section": "14. Resource-Aware Architectural Guide"
+      "manuscript_section": "7.4 Practical guidance"
     }
   ]
 }

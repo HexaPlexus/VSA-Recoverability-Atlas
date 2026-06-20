@@ -1,0 +1,46 @@
+figures:
+  figure1_budget_map:
+    vector_output: true
+    caption_parity_checked: true
+    data_parity_checked: true
+    axis_labels_present: true
+    visible_numeric_labels: true
+    grayscale_checked: true
+    colorblind_checked: true
+    manual_render_checked: true
+  figure2_evidence_atlas:
+    vector_output: true
+    caption_parity_checked: true
+    data_parity_checked: true
+    axis_labels_present: true
+    visible_numeric_labels: true
+    grayscale_checked: true
+    colorblind_checked: true
+    manual_render_checked: true
+  figure3_clean_f3_frontier:
+    vector_output: true
+    caption_parity_checked: true
+    data_parity_checked: true
+    axis_labels_present: true
+    visible_numeric_labels: true
+    grayscale_checked: true
+    colorblind_checked: true
+    manual_render_checked: true
+  figure4_repair_costs:
+    vector_output: true
+    caption_parity_checked: true
+    data_parity_checked: true
+    axis_labels_present: true
+    visible_numeric_labels: true
+    grayscale_checked: true
+    colorblind_checked: true
+    manual_render_checked: true
+  figure5_escalation:
+    vector_output: true
+    caption_parity_checked: true
+    data_parity_checked: true
+    axis_labels_present: true
+    visible_numeric_labels: true
+    grayscale_checked: true
+    colorblind_checked: true
+    manual_render_checked: true
