@@ -147,12 +147,9 @@ def test_workflow_uses_full_history_checkout() -> None:
     assert "persist-credentials: false" in workflow
     assert "python scripts/build_release_candidate.py" in workflow
     assert "git diff --exit-code" in workflow
-    assert "python scripts/build_manuscript.py --profile reviewer-preprint" in workflow
+    assert "python scripts/build_manuscript.py --profile reviewer-preprint --skip-figure-build" in workflow
     assert "python scripts/validate_manuscript_pdf.py --release" in workflow
-    assert workflow.index("python -m pytest -q") < workflow.index("python scripts/build_manuscript_figures.py")
-    assert workflow.index("python scripts/build_manuscript_figures.py") < workflow.index(
-        "python scripts/build_release_candidate.py"
-    )
+    assert workflow.index("python -m pytest -q") < workflow.index("python scripts/build_release_candidate.py")
     assert workflow.index("python scripts/build_release_candidate.py") < workflow.index("git diff --exit-code")
 
 

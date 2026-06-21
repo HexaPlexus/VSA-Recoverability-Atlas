@@ -60,7 +60,7 @@ def test_workflow_covers_publication_branch_and_minimal_permissions() -> None:
 
 def test_workflow_builds_and_validates_reviewer_pdf() -> None:
     workflow = (ROOT / ".github" / "workflows" / "tests.yml").read_text(encoding="utf-8")
-    assert "python scripts/build_manuscript.py --profile reviewer-preprint" in workflow
+    assert "python scripts/build_manuscript.py --profile reviewer-preprint --skip-figure-build" in workflow
     assert "python scripts/validate_manuscript_pdf.py --release" in workflow
 
 

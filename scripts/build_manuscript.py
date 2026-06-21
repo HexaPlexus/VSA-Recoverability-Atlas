@@ -278,6 +278,11 @@ def main() -> int:
     parser.add_argument("--profile", default="reviewer-preprint")
     parser.add_argument("--commit", default="HEAD")
     parser.add_argument("--allow-dirty", action="store_true")
+    parser.add_argument(
+        "--skip-figure-build",
+        action="store_true",
+        help="Reuse committed publication figures instead of regenerating them before PDF assembly.",
+    )
     parser.add_argument("--pandoc")
     parser.add_argument("--tectonic")
     parser.add_argument("--qpdf")
@@ -298,7 +303,8 @@ def main() -> int:
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     RELEASE_DIR.mkdir(parents=True, exist_ok=True)
-    render_publication_figures()
+    if not args.skip_figure_build:
+        render_publication_figures()
     sync_build_assets()
     runtime_metadata_path = build_runtime_metadata(commit_sha=commit_sha)
 

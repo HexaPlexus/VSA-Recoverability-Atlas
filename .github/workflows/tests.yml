@@ -42,9 +42,6 @@ jobs:
       - name: Run test suite
         run: python -m pytest -q
 
-      - name: Build manuscript figures
-        run: python scripts/build_manuscript_figures.py
-
       - name: Build release candidate bundle
         run: python scripts/build_release_candidate.py
 
@@ -80,7 +77,7 @@ jobs:
           python -m pip install -e ".[publication]"
 
       - name: Build reviewer preprint PDF
-        run: python scripts/build_manuscript.py --profile reviewer-preprint
+        run: python scripts/build_manuscript.py --profile reviewer-preprint --skip-figure-build
 
       - name: Validate reviewer preprint PDF
         run: |
