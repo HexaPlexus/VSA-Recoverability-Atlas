@@ -68,7 +68,11 @@ jobs:
       - name: Install publication toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc qpdf tectonic
+          sudo apt-get install -y pandoc qpdf
+          curl -fsSL -o tectonic.tar.gz https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.16.9/tectonic-0.16.9-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf tectonic.tar.gz
+          sudo install -m 0755 tectonic /usr/local/bin/tectonic
+          tectonic --version
 
       - name: Install publication dependencies
         run: |
