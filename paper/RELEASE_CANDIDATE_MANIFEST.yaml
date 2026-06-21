@@ -1,6 +1,6 @@
 {
   "schema_version": "vsa-recoverability-atlas-rc-manifest-v0.1",
-  "generated_from_commit": "08dc39535f043c5b9c7b0ee02c7f8396fcaea510",
+  "generated_from_commit": "f77388e0bb9e6fd79b9ec184955ad0d3924ae20d",
   "generated_from_commit_semantics": "Ancestor commit whose clean tracked inputs were used to build the release candidate artifacts.",
   "generation_date": "2026-06-19",
   "held_out_status": {
@@ -21,17 +21,17 @@
   "evidence_registry_hash": "f9403992d1e181e5dc95169705a2bf0bd4a9ce2c3fa9f8ad9df852679bb70b19",
   "supplement_hash": "f728c0e0c9ae55ab495a089d703e1c324bfb6af99b9d71d3f6bb7b697b4ad5a5",
   "figure_hashes": {
-    "paper/release_candidate/figures/figure1_budget_map.pdf": "5ece6abb9dd87abd648486b40c59c54bbf11a3798db6c032f41f86f571d587a7",
-    "paper/release_candidate/figures/figure1_budget_map.png": "9d7fb52cabff88d5ac51c12e5d0beb7438fc383c15086f3569c85bdd6496e4f9",
-    "paper/release_candidate/figures/figure2_evidence_atlas.pdf": "ef549201d34d3bf219f260057824b0e3bfee92050d983615ac0bd77ec2c4f6b4",
+    "paper/release_candidate/figures/figure1_budget_map.pdf": "6048e4b953b9c038a5bf488223ba3581caff61354981017143917ebeb88f8dd1",
+    "paper/release_candidate/figures/figure1_budget_map.png": "fe2058b0ba5ed6b327ec4ccd06cab2cd8adae046bcc6ecf8d528e297dd5b1512",
+    "paper/release_candidate/figures/figure2_evidence_atlas.pdf": "b33991a69cfb6d1e7c349052f52d23a6e5f7f5ef7035ff6be9eaf57691d166b3",
     "paper/release_candidate/figures/figure2_evidence_atlas.png": "e1218ab6471c3315c30231bdf9dd7032830feb28074778c4fe35d3b464c102a7",
-    "paper/release_candidate/figures/figure3_clean_f3_frontier.pdf": "6c5c6cd9f7efbd04d5cc9842ee2753da8e8904f68dbefb521aff9ae72cd3a251",
+    "paper/release_candidate/figures/figure3_clean_f3_frontier.pdf": "5cca1a65bc08830312bf32d35fa8db1fdc281666a9f6d7d8254df7346f5b9667",
     "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "35547012e55057a27f6a77a5e17791482b7d9d1a4a3c235a08cec5fd21ee4d99",
-    "paper/release_candidate/figures/figure4_repair_costs.pdf": "20fbb9572f60f9fed62e438fa0489b99867f4c646c395a831914b8e5f20fd01a",
+    "paper/release_candidate/figures/figure4_repair_costs.pdf": "e6b1b2b7167167421940abc483896038f633d58df10bb8d3a2026c40619a6642",
     "paper/release_candidate/figures/figure4_repair_costs.png": "7419886747a8adfb593b2862c72a803b002d91972bd95a933e34dc758a3091f4",
-    "paper/release_candidate/figures/figure5_escalation.pdf": "ffcec6c99a064946e20abbdd4d9561fced6c0093871d7ae06f96f1b874002a4f",
-    "paper/release_candidate/figures/figure5_escalation.png": "a0a729850e7774f0dbdae00afbf7e14dd655433f59b7625ef652fea369ac51b0",
-    "paper/release_candidate/figures/figure6_architecture_flow.pdf": "8ce72fb8df02e1e00a75f7a0d4830cc3a4bfc6d0f2e9a5829e2daaf115a5d019",
+    "paper/release_candidate/figures/figure5_escalation.pdf": "ea53f872be3c05f162734bf893eaaff5acf3ef75122e22be744d2dcfe526b441",
+    "paper/release_candidate/figures/figure5_escalation.png": "4519a0f31f0ac33060d3f61451c14f8981fd5a26242008388226b219ee4055c4",
+    "paper/release_candidate/figures/figure6_architecture_flow.pdf": "a90259b88a39a96098add30d36e233270a613e8a4ce9b74eddd340460e0e3b0b",
     "paper/release_candidate/figures/figure6_architecture_flow.png": "60902b68b87ed3db37b9060f68cead098b11facc39a30c2b4f08eac77844cf9a"
   }
 }
