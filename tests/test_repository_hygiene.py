@@ -37,6 +37,8 @@ def test_pyproject_publication_and_dev_dependencies_present() -> None:
     for requirement in ("Markdown", "matplotlib", "pypdf", "PyYAML"):
         assert requirement in publication
     assert "pytest" in dev
+    assert "holovec" in dev
+    assert "minigrid" in dev
 
 
 def test_publication_scripts_do_not_use_owner_local_paths() -> None:
@@ -68,6 +70,12 @@ def test_workspace_bootstrap_files_exist() -> None:
     assert "mcr.microsoft.com/devcontainers/python:1-3.14-bookworm" in devcontainer
     assert "python -m pip install -e" in devcontainer
     assert ".[dev,publication,competitors,level3]" in devcontainer
+
+
+def test_gitattributes_enforces_lf_for_text_artifacts() -> None:
+    gitattributes = (ROOT / ".gitattributes").read_text(encoding="utf-8")
+    for pattern in ("*.md text eol=lf", "*.json text eol=lf", "*.yaml text eol=lf", "*.py text eol=lf"):
+        assert pattern in gitattributes
 
 
 def test_build_manuscript_tool_resolution_prefers_explicit_env_then_path() -> None:

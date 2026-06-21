@@ -48,7 +48,7 @@ python -m pip install -e ".[dev,publication,competitors,level3]"
 
 Optional extras:
 
-- `.[dev]` for pytest and local repository-validation tooling.
+- `.[dev]` for the full pytest contract and local repository-validation tooling, including the public HoloVec and MiniGrid audit dependencies exercised by the default test suite.
 - `.[publication]` for manuscript and PDF validation tooling.
 - `.[competitors]` for HoloVec-related audit coverage.
 - `.[retrieval]` for Faiss-based retrieval comparisons.
