@@ -1,6 +1,6 @@
 {
   "schema_version": "vsa-recoverability-atlas-rc-manifest-v0.1",
-  "generated_from_commit": "0b82c6f8c820408463623e698e4f6d9e26d96add",
+  "generated_from_commit": "87c12e5486df3630dcd2d218701011358a67050e",
   "generated_from_commit_semantics": "Ancestor commit whose clean tracked inputs were used to build the release candidate artifacts.",
   "generation_date": "2026-06-19",
   "held_out_status": {
@@ -21,17 +21,17 @@
   "evidence_registry_hash": "f9403992d1e181e5dc95169705a2bf0bd4a9ce2c3fa9f8ad9df852679bb70b19",
   "supplement_hash": "f728c0e0c9ae55ab495a089d703e1c324bfb6af99b9d71d3f6bb7b697b4ad5a5",
   "figure_hashes": {
-    "paper/release_candidate/figures/figure1_budget_map.pdf": "6048e4b953b9c038a5bf488223ba3581caff61354981017143917ebeb88f8dd1",
-    "paper/release_candidate/figures/figure1_budget_map.png": "fe2058b0ba5ed6b327ec4ccd06cab2cd8adae046bcc6ecf8d528e297dd5b1512",
-    "paper/release_candidate/figures/figure2_evidence_atlas.pdf": "b33991a69cfb6d1e7c349052f52d23a6e5f7f5ef7035ff6be9eaf57691d166b3",
-    "paper/release_candidate/figures/figure2_evidence_atlas.png": "e1218ab6471c3315c30231bdf9dd7032830feb28074778c4fe35d3b464c102a7",
-    "paper/release_candidate/figures/figure3_clean_f3_frontier.pdf": "5cca1a65bc08830312bf32d35fa8db1fdc281666a9f6d7d8254df7346f5b9667",
-    "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "35547012e55057a27f6a77a5e17791482b7d9d1a4a3c235a08cec5fd21ee4d99",
-    "paper/release_candidate/figures/figure4_repair_costs.pdf": "e6b1b2b7167167421940abc483896038f633d58df10bb8d3a2026c40619a6642",
-    "paper/release_candidate/figures/figure4_repair_costs.png": "7419886747a8adfb593b2862c72a803b002d91972bd95a933e34dc758a3091f4",
-    "paper/release_candidate/figures/figure5_escalation.pdf": "ea53f872be3c05f162734bf893eaaff5acf3ef75122e22be744d2dcfe526b441",
-    "paper/release_candidate/figures/figure5_escalation.png": "4519a0f31f0ac33060d3f61451c14f8981fd5a26242008388226b219ee4055c4",
-    "paper/release_candidate/figures/figure6_architecture_flow.pdf": "a90259b88a39a96098add30d36e233270a613e8a4ce9b74eddd340460e0e3b0b",
-    "paper/release_candidate/figures/figure6_architecture_flow.png": "60902b68b87ed3db37b9060f68cead098b11facc39a30c2b4f08eac77844cf9a"
+    "paper/release_candidate/figures/figure1_budget_map.pdf": "86b9d1b409303354500276ad9809b6345efc61ef81419491188072024c19d352",
+    "paper/release_candidate/figures/figure1_budget_map.png": "d7f1186ad44ddb408d35efb85bb95c4974b026fae13e6bce2ba6ea2b16e35917",
+    "paper/release_candidate/figures/figure2_evidence_atlas.pdf": "62d618d746853f3eaaf499e80366a7bec9e9506f2c01576fe16356445ca4fd42",
+    "paper/release_candidate/figures/figure2_evidence_atlas.png": "23f416c667423c90179fc46ccd830bd3ee1b73af017a31f93b919b9ae43c7942",
+    "paper/release_candidate/figures/figure3_clean_f3_frontier.pdf": "f00da17e2b5dadc5260ebf0b7a5fbd0dfd0dd93e1ce176e9cb25a0c6f0e1d367",
+    "paper/release_candidate/figures/figure3_clean_f3_frontier.png": "a8dd226ee7607f621b021a42c9055701f6b93ea4320d99ee8b1bd7b13a65fb05",
+    "paper/release_candidate/figures/figure4_repair_costs.pdf": "9946da011ce53304e7c40b628ce6b953943c719fcda4ffc3a1c9abae72a76543",
+    "paper/release_candidate/figures/figure4_repair_costs.png": "6c6cf3dfe141898c54a156046e850cae3ab1af5f503385a6f69e3a568a529957",
+    "paper/release_candidate/figures/figure5_escalation.pdf": "cae81ef64db179cd95d81c4dc57715f14da9c5c84fa6fde665574fa20689bcb9",
+    "paper/release_candidate/figures/figure5_escalation.png": "1083648e0488fd0aa0a71bd7b0c52b6169a80b11f652fb96eddc71c3aa04521a",
+    "paper/release_candidate/figures/figure6_architecture_flow.pdf": "a21cde1e1db1228619914bad4130f65041c3dba13d6845b1ec4ccd78cc652629",
+    "paper/release_candidate/figures/figure6_architecture_flow.png": "4b25a321bf8ffb414769346fc24ad1bae94430a1a3a0e1808e9779ebb264230c"
   }
 }
