@@ -8,6 +8,7 @@ The repository currently includes Apache-2.0 as its top-level license text in [L
 
 - The Apache-2.0 file is the repository's current top-level license text.
 - No separate top-level scholarly-asset license file is present in the repository today.
+- Scholarly manuscript text, original figures, and generated research assets currently remain under the repository top-level license unless and until the owner explicitly adopts a separate scholarly-asset license.
 - Third-party code, papers, figures, datasets, and documentation cited or reproduced here remain under their original terms.
 - [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) summarizes major upstream components; it does not replace their original license texts.
 

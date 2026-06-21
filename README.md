@@ -36,6 +36,13 @@ Recoverability in VSA/HDC systems is often discussed as if it were a property of
 - [results](results): frozen and development result artifacts
 - [docs](docs): preserved protocol and lineage materials
 
+## Reviewer Entry Point
+
+- Read manuscript source: [paper/manuscript.md](paper/manuscript.md)
+- View evidence registry: [paper/evidence_registry.yaml](paper/evidence_registry.yaml)
+- Reproduce the repository checks and publication build: [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
+- Download the reviewer preprint PDF: available as a GitHub Actions artifact from the latest successful publication workflow run on `publication/preprint-v1`
+
 ## Reproduce The Paper
 
 Use the project virtual environment and build the reviewer preprint from source:
@@ -43,7 +50,7 @@ Use the project virtual environment and build the reviewer preprint from source:
 ```powershell
 py -3.14 -m venv .venv
 .\.venv\Scripts\python -m pip install --upgrade pip
-.\.venv\Scripts\python -m pip install -e .
+.\.venv\Scripts\python -m pip install -e ".[dev,publication]"
 .\.venv\Scripts\python scripts\build_evidence_tables.py
 .\.venv\Scripts\python scripts\validate_evidence_registry.py
 .\.venv\Scripts\python -m pytest -q

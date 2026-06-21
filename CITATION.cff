@@ -1,14 +1,20 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite the software record and the manuscript draft."
-title: "VSA Recoverability Atlas"
-version: "0.0.0"
+title: "Recoverability Has a Cost: An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures"
+version: "0.1.0"
 type: software
 abstract: "A reproducible empirical atlas of capacity, factorization, repair, structured recovery, negative results, and abstention in Vector Symbolic Architectures."
 repository-code: "https://github.com/HexaPlexus/VSA-Recoverability-Atlas"
 license: "Apache-2.0"
+date-released: "2026-06-20"
+authors:
+  - name: "Gamzat Ibragimovich"
 keywords:
   - vector symbolic architectures
   - hyperdimensional computing
   - recoverability
   - abstention
   - reproducibility
+  - factorization
+  - resonator networks
+  - structured representations
