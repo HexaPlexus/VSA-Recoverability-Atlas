@@ -5,29 +5,38 @@ on:
     branches:
       - main
       - master
+      - publication/**
       - release/**
       - codex/**
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  validate:
+  core-validation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.14"
 
-      - name: Install core package
+      - name: Install validation dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e ".[competitors]"
+          python -m pip install -e ".[dev,competitors,level3]"
 
-      - name: Validate registry and claims
+      - name: Build evidence tables
+        run: python scripts/build_evidence_tables.py
+
+      - name: Validate evidence registry
         run: python scripts/validate_evidence_registry.py
 
       - name: Run test suite
@@ -36,8 +45,48 @@ jobs:
       - name: Build manuscript figures
         run: python scripts/build_manuscript_figures.py
 
-      - name: Build release candidate
+      - name: Build release candidate bundle
         run: python scripts/build_release_candidate.py
 
-      - name: Verify generated artifacts are up to date
+      - name: Verify deterministic tracked artifacts
         run: git diff --exit-code
+
+  publication-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install publication toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc qpdf tectonic
+
+      - name: Install publication dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[publication]"
+
+      - name: Build reviewer preprint PDF
+        run: python scripts/build_manuscript.py --profile reviewer-preprint
+
+      - name: Validate reviewer preprint PDF
+        run: |
+          PDF_PATH="paper/release_candidate/VSA_Recoverability_Atlas_${GITHUB_SHA::8}.pdf"
+          python scripts/validate_manuscript_pdf.py --release "$PDF_PATH"
+
+      - name: Upload publication artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewer-preprint-${{ github.sha }}
+          path: |
+            paper/release_candidate/VSA_Recoverability_Atlas_*.pdf
+            paper/build/publication_manifest.json

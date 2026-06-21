@@ -144,8 +144,11 @@ def test_release_candidate_bundle_exists() -> None:
 def test_workflow_uses_full_history_checkout() -> None:
     workflow = (ROOT / ".github" / "workflows" / "tests.yml").read_text(encoding="utf-8")
     assert "fetch-depth: 0" in workflow
+    assert "persist-credentials: false" in workflow
     assert "python scripts/build_release_candidate.py" in workflow
     assert "git diff --exit-code" in workflow
+    assert "python scripts/build_manuscript.py --profile reviewer-preprint" in workflow
+    assert "python scripts/validate_manuscript_pdf.py --release" in workflow
     assert workflow.index("python -m pytest -q") < workflow.index("python scripts/build_manuscript_figures.py")
     assert workflow.index("python scripts/build_manuscript_figures.py") < workflow.index(
         "python scripts/build_release_candidate.py"
