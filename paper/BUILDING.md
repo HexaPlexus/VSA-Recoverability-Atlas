@@ -11,6 +11,12 @@ Required local tools:
 - `qpdf 12+` or compatible
 - Python with `pypdf`
 
+Tool resolution order:
+
+1. explicit CLI path such as `--pandoc`, `--tectonic`, or `--qpdf`
+2. environment variables `PANDOC`, `TECTONIC`, or `QPDF`
+3. the executable found on `PATH`
+
 Primary command:
 
 ```powershell
@@ -20,7 +26,7 @@ python scripts/build_manuscript.py --profile reviewer-preprint --allow-dirty
 Validation command:
 
 ```powershell
-python scripts/validate_manuscript_pdf.py paper/release_candidate/VSA_Recoverability_Atlas_<short-sha>.pdf
+python scripts/validate_manuscript_pdf.py --release paper/release_candidate/VSA_Recoverability_Atlas_<short-sha>.pdf
 ```
 
 Clean-checkout reproduction should omit `--allow-dirty`.

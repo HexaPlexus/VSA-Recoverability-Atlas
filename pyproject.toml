@@ -4,19 +4,31 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vsa-recoverability-atlas"
-version = "0.0.0"
+version = "0.1.0"
 description = "A reproducible empirical atlas of capacity, factorization, repair, structured recovery, negative results, and abstention in Vector Symbolic Architectures."
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
     "galois>=0.4.11,<0.5",
     "numpy>=2.4,<2.5",
-    "pytest>=9.1,<9.2",
     "torch>=2.12,<2.13",
     "torch-hd>=5.8,<5.9",
 ]
 
 [project.optional-dependencies]
+dev = [
+    "Markdown>=3.10,<3.11",
+    "matplotlib>=3.11,<3.12",
+    "pypdf>=6.13,<6.14",
+    "PyYAML>=6.0.3,<6.1",
+    "pytest>=9.1,<9.2",
+]
+publication = [
+    "Markdown>=3.10,<3.11",
+    "matplotlib>=3.11,<3.12",
+    "pypdf>=6.13,<6.14",
+    "PyYAML>=6.0.3,<6.1",
+]
 competitors = [
     "holovec[torch]>=1.0.2,<1.1",
 ]
@@ -28,9 +40,9 @@ level3 = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/<owner>/vsa-recoverability-atlas"
-Documentation = "https://github.com/<owner>/vsa-recoverability-atlas/blob/main/README.md"
-Repository = "https://github.com/<owner>/vsa-recoverability-atlas"
+Homepage = "https://github.com/HexaPlexus/VSA-Recoverability-Atlas"
+Documentation = "https://github.com/HexaPlexus/VSA-Recoverability-Atlas/blob/publication/preprint-v1/README.md"
+Repository = "https://github.com/HexaPlexus/VSA-Recoverability-Atlas"
 
 [tool.pytest.ini_options]
 addopts = "-ra"

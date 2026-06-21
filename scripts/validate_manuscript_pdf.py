@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -13,7 +15,6 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_DIR = ROOT / "paper"
 BUILD_DIR = PAPER_DIR / "build"
-QPDF = Path(r"C:\Users\Thanatos\tools\publication-toolchain\qpdf\qpdf-12.3.2-msvc64\bin\qpdf.exe")
 DISALLOWED_TEXT_SNIPPETS = (
     "[@",
     "OWNER-CHECK",
@@ -62,6 +63,26 @@ UNDERFULL_RE = re.compile(r"Underfull \\hbox")
 EXPECTED_TITLE = "Recoverability Has a Cost: An Empirical Atlas and Resource-Aware Design Framework for Vector Symbolic Architectures"
 EXPECTED_AUTHOR = "Gamzat Ibragimovich"
 MAX_OVERFULL_PT = 1.0
+
+
+def resolve_qpdf(explicit: str | None) -> Path:
+    if explicit:
+        path = Path(explicit).expanduser().resolve()
+        if path.is_file():
+            return path
+        raise FileNotFoundError(f"Tool not found: {path}")
+    if env_value := os.environ.get("QPDF"):
+        path = Path(env_value).expanduser().resolve()
+        if path.is_file():
+            return path
+        raise FileNotFoundError(f"QPDF points to a missing tool: {path}")
+    resolved = shutil.which("qpdf")
+    if resolved:
+        return Path(resolved).resolve()
+    raise FileNotFoundError(
+        "Could not find 'qpdf'. Pass --qpdf, set QPDF, or install qpdf on PATH. "
+        "See paper/BUILDING.md for the publication toolchain requirements."
+    )
 
 
 def load_text(path: Path) -> str:
@@ -256,6 +277,7 @@ def main() -> int:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--development", action="store_true")
     mode.add_argument("--release", action="store_true")
+    parser.add_argument("--qpdf")
     parser.add_argument("pdf")
     args = parser.parse_args()
     validation_mode = "release" if args.release else "development"
@@ -264,7 +286,8 @@ def main() -> int:
     if not pdf_path.is_file():
         raise FileNotFoundError(pdf_path)
 
-    subprocess.run([str(QPDF), "--check", str(pdf_path)], cwd=ROOT, check=True)
+    qpdf = resolve_qpdf(args.qpdf)
+    subprocess.run([str(qpdf), "--check", str(pdf_path)], cwd=ROOT, check=True)
 
     reader = PdfReader(str(pdf_path))
     metadata = reader.metadata or {}

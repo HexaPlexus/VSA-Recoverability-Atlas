@@ -42,16 +42,24 @@ DISALLOWED_URI_SNIPPETS = (
 )
 
 
-def resolve_tool(explicit: str | None, candidates: list[Path]) -> Path:
+def resolve_tool(explicit: str | None, *, env_var: str, executable: str) -> Path:
     if explicit:
         path = Path(explicit).expanduser().resolve()
         if path.is_file():
             return path
         raise FileNotFoundError(f"Tool not found: {path}")
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    raise FileNotFoundError(f"Could not resolve tool from candidates: {candidates}")
+    if env_value := os.environ.get(env_var):
+        path = Path(env_value).expanduser().resolve()
+        if path.is_file():
+            return path
+        raise FileNotFoundError(f"{env_var} points to a missing tool: {path}")
+    resolved = shutil.which(executable)
+    if resolved:
+        return Path(resolved).resolve()
+    raise FileNotFoundError(
+        f"Could not find '{executable}'. Pass --{executable}, set {env_var}, or install it on PATH. "
+        "See paper/BUILDING.md for the publication toolchain requirements."
+    )
 
 
 def resolve_commit(ref: str) -> str:
@@ -280,18 +288,9 @@ def main() -> int:
     if not args.allow_dirty:
         require_clean_tree()
 
-    pandoc = resolve_tool(
-        args.pandoc,
-        [Path(r"C:\Users\Thanatos\AppData\Local\Pandoc\pandoc.exe")],
-    )
-    tectonic = resolve_tool(
-        args.tectonic,
-        [Path(r"C:\Users\Thanatos\tools\publication-toolchain\tectonic\tectonic.exe")],
-    )
-    qpdf = resolve_tool(
-        args.qpdf,
-        [Path(r"C:\Users\Thanatos\tools\publication-toolchain\qpdf\qpdf-12.3.2-msvc64\bin\qpdf.exe")],
-    )
+    pandoc = resolve_tool(args.pandoc, env_var="PANDOC", executable="pandoc")
+    tectonic = resolve_tool(args.tectonic, env_var="TECTONIC", executable="tectonic")
+    qpdf = resolve_tool(args.qpdf, env_var="QPDF", executable="qpdf")
 
     commit_sha = resolve_commit(args.commit)
     short_sha = commit_sha[:8]
