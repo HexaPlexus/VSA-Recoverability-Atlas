@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
     "galois>=0.4.11,<0.5",
-    "numpy>=2.4,<2.5",
+    "numpy>=2.4,<2.6",
     "torch>=2.12,<2.13",
     "torch-hd>=5.8,<5.9",
 ]
