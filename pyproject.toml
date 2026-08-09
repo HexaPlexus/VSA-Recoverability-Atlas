@@ -35,7 +35,7 @@ competitors = [
     "holovec[torch]>=1.0.2,<1.1",
 ]
 retrieval = [
-    "faiss-cpu>=1.14,<1.15",
+    "faiss-cpu>=1.14,<1.16",
 ]
 level3 = [
     "minigrid>=3.1,<3.2",
